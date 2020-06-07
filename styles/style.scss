@@ -92,14 +92,57 @@
 }
 
 .header {
-    @extend .font-bold;
-    margin: 2px 44px 27px 45px;
-    height: 108px;
-    width: 286px;
-    font-size: 30px;
-    line-height: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    &__title {
+        @extend .font-bold;
+        margin: 2px 44px 27px 45px;
+        height: 108px;
+        width: 286px;
+        font-size: 30px;
+        line-height: 36px;
+        
+        & span {
+            color: #200000;
+        }
+    }
+    
+    &__picture {
+        text-align: center;
+        height: 130px;
+        
+        &__image {
+            width: 273px;
+        }
+    }
 
-    & span {
-        color: #200000;
+    &__search {
+        margin: 0 0;
+        height: 50px;
+        width: 334px;
+        border: 1px solid #572EE5;
+        border-radius: 27px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #FFFFFF;
+
+        &__input {
+            @extend .font-regular;
+            margin-left: 55px;
+            height: 22px;
+            width: 215px;
+            border: 0;
+            text-align: left;
+        }
+
+        &__icon {
+            padding-right: 20px;
+            text-align: left;
+        }
+
     }
 }

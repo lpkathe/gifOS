@@ -4,12 +4,12 @@
 @font-face {
   font-family: "ProximaNova-Regular";
   src: url("../Fonts/Proxima_nova_reg.ttf"); }
-.font-bold, .navigation__list, .header {
+.font-bold, .navigation__list, .header__title {
   font-family: "ProximaNova-Bold";
   text-align: center;
   color: #572EE5; }
 
-.font-regular {
+.font-regular, .header__search__input {
   font-family: "ProximaNova-Regular";
   font-size: 16px;
   color: #000000;
@@ -81,12 +81,55 @@
       margin-bottom: 6px; }
 
 .header {
-  margin: 2px 44px 27px 45px;
-  height: 108px;
-  width: 286px;
-  font-size: 30px;
-  line-height: 36px; }
-  .header span {
-    color: #200000; }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .header__title {
+    margin: 2px 44px 27px 45px;
+    height: 108px;
+    width: 286px;
+    font-size: 30px;
+    line-height: 36px; }
+    .header__title span {
+      color: #200000; }
+  .header__picture {
+    text-align: center;
+    height: 130px; }
+    .header__picture__image {
+      width: 273px; }
+  .header__search {
+    margin: 0 0;
+    height: 50px;
+    width: 334px;
+    border: 1px solid #572EE5;
+    border-radius: 27px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background: #FFFFFF; }
+    .header__search__input {
+      margin-left: 55px;
+      height: 22px;
+      width: 215px;
+      border: 0;
+      text-align: left; }
+    .header__search__icon {
+      padding-right: 20px;
+      text-align: left; }
 
 /*# sourceMappingURL=style.css.map */
