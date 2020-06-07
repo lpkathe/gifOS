@@ -1,3 +1,83 @@
+@font-face {
+  font-family: "ProximaNova-Bold";
+  src: url("../Fonts/Proxima_nova_bold.ttf"); }
+@font-face {
+  font-family: "ProximaNova-Regular";
+  src: url("../Fonts/Proxima_nova_reg.ttf"); }
+.font-bold, .navigation__list {
+  font-family: "ProximaNova-Bold";
+  text-align: center;
+  color: #572EE5; }
 
+.font-regular {
+  font-family: "ProximaNova-Regular";
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  line-height: 23px; }
+
+.bar_container {
+  border-top: 5px solid #572EE5;
+  padding: 29px 26px 0 22px;
+  height: 100px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+.nav-bar {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .nav-bar__logo {
+    height: 48.8px;
+    width: 55.5px; }
+
+.navigation__list {
+  margin-top: 17.2px;
+  padding-left: 0;
+  height: 100%;
+  width: 100%;
+  left: -150%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  position: absolute;
+  font-size: 20px;
+  color: #FFFFFF;
+  line-height: 60px;
+  list-style: none;
+  background: rgba(87, 46, 229, 0.9);
+  -webkit-transition: left .5s ease-in-out;
+  transition: left .5s ease-in-out; }
+  .navigation__list li {
+    height: 54px; }
+    .navigation__list li:last-child {
+      height: 53.9px; }
+  .navigation__list a {
+    color: #FFFFFF;
+    text-decoration: none; }
+  .navigation__list hr {
+    margin: 0 auto 5.9px auto;
+    height: 0.1px;
+    width: 41px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    opacity: 0.5;
+    border: 1px solid #FFFFFF; }
+    .navigation__list hr:last-child {
+      margin-bottom: 6px; }
 
 /*# sourceMappingURL=style.css.map */
