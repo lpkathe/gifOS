@@ -124,6 +124,7 @@
     background: #FFFFFF; }
     .header__search__input {
       margin-left: 55px;
+      padding: 0;
       height: 22px;
       width: 215px;
       border: 0;
