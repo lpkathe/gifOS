@@ -4,7 +4,7 @@
 @font-face {
   font-family: "ProximaNova-Regular";
   src: url("../Fonts/Proxima_nova_reg.ttf"); }
-.font-bold, .navigation__list {
+.font-bold, .navigation__list, .header {
   font-family: "ProximaNova-Bold";
   text-align: center;
   color: #572EE5; }
@@ -79,5 +79,14 @@
     border: 1px solid #FFFFFF; }
     .navigation__list hr:last-child {
       margin-bottom: 6px; }
+
+.header {
+  margin: 2px 44px 27px 45px;
+  height: 108px;
+  width: 286px;
+  font-size: 30px;
+  line-height: 36px; }
+  .header span {
+    color: #200000; }
 
 /*# sourceMappingURL=style.css.map */

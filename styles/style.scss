@@ -90,3 +90,16 @@
 
     }
 }
+
+.header {
+    @extend .font-bold;
+    margin: 2px 44px 27px 45px;
+    height: 108px;
+    width: 286px;
+    font-size: 30px;
+    line-height: 36px;
+
+    & span {
+        color: #200000;
+    }
+}
