@@ -69,10 +69,21 @@
                 height: 53.9px;
             }
         }
-
+        
         & a {
             color: #FFFFFF;
             text-decoration: none;
+            
+            &:hover {
+                letter-spacing: 0;
+                text-decoration: underline;
+                text-decoration-color: #5ED7C6;
+            }
+
+            &:active {
+                color: #9CAFC3;
+                text-decoration: none;
+            }
         }
 
         & hr {

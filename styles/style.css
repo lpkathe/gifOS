@@ -68,6 +68,14 @@
   .navigation__list a {
     color: #FFFFFF;
     text-decoration: none; }
+    .navigation__list a:hover {
+      letter-spacing: 0;
+      text-decoration: underline;
+      -webkit-text-decoration-color: #5ED7C6;
+              text-decoration-color: #5ED7C6; }
+    .navigation__list a:active {
+      color: #9CAFC3;
+      text-decoration: none; }
   .navigation__list hr {
     margin: 0 auto 5.9px auto;
     height: 0.1px;
