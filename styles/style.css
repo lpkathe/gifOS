@@ -9,7 +9,7 @@
   text-align: center;
   color: #572EE5; }
 
-.font-regular, .header__search__input {
+.font-regular, .section__search__box__input {
   font-family: "ProximaNova-Regular";
   font-size: 16px;
   color: #000000;
@@ -107,38 +107,59 @@
     line-height: 36px; }
     .header__title span {
       color: #200000; }
-  .header__picture {
-    text-align: center;
-    height: 130px; }
-    .header__picture__image {
-      width: 273px; }
-  .header__search {
-    margin: 0 0;
-    height: 50px;
-    width: 334px;
-    border: 1px solid #572EE5;
-    border-radius: 27px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+
+.section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center; }
+  .section__search {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center;
-    background: #FFFFFF; }
-    .header__search__input {
-      margin-left: 55px;
-      padding: 0;
-      height: 22px;
-      width: 215px;
-      border: 0;
-      text-align: left; }
-    .header__search__icon {
-      padding-right: 20px;
-      text-align: left; }
+            align-items: center; }
+    .section__search__picture {
+      text-align: center;
+      height: 130px; }
+      .section__search__picture__image {
+        width: 273px; }
+    .section__search__box {
+      margin: 0 0;
+      height: 50px;
+      width: 334px;
+      border: 1px solid #572EE5;
+      border-radius: 27px;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      background: #FFFFFF; }
+      .section__search__box__input {
+        margin-left: 55px;
+        padding: 0;
+        height: 22px;
+        width: 215px;
+        border: 0;
+        text-align: left; }
+      .section__search__box__icon {
+        padding-right: 20px;
+        text-align: left; }
 
 /*# sourceMappingURL=style.css.map */
