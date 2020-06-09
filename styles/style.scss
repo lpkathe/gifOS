@@ -215,9 +215,11 @@
 
 .footer {
     @extend .font-regular;
+    height: 201px;
     display: flex;
     flex-direction: column;
     text-align: center;
+    border-bottom: 5px solid #572EE5;;
 
     &__social-network {
         display: flex;
