@@ -122,7 +122,6 @@
 .section {
     display: flex;
     flex-direction: column;
-    text-align: center;
     
     &__search {
         display: flex;
@@ -211,5 +210,43 @@
                 display: block;
             }
         }
+    }
+}
+
+.footer {
+    @extend .font-regular;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    &__social-network {
+        display: flex;
+        flex-direction: column;
+        font-size: 15px;
+        color: #000000;
+        letter-spacing: 0;
+        
+        &__icons {
+            margin-bottom: 46px;
+            justify-content: space-around;
+            
+            & img {
+                padding: 0 9.5px;
+                height: 20px;
+                width: 20px;
+            }
+        }
+        
+        &__p {
+            margin: 47px auto 24px auto;
+        }
+    }
+
+    &__p {
+        margin: 0 auto 23px auto;
+        font-size: 14px;
+        color: #000000;
+        letter-spacing: 0;
+        line-height: 20px;
     }
 }
