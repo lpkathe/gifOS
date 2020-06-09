@@ -4,17 +4,15 @@
 @font-face {
   font-family: "ProximaNova-Regular";
   src: url("../Fonts/Proxima_nova_reg.ttf"); }
-.font-bold, .navigation__list, .header__title {
+.font-bold, .navigation__list, .header__title, .section__trending__title {
   font-family: "ProximaNova-Bold";
   text-align: center;
   color: #572EE5; }
 
-.font-regular, .section__search__box__input {
+.font-regular, .section__search__box__input, .section__trending__p {
   font-family: "ProximaNova-Regular";
-  font-size: 16px;
-  color: #000000;
-  text-align: center;
-  line-height: 23px; }
+  color: #270000;
+  text-align: center; }
 
 .bar_container {
   border-top: 5px solid #572EE5;
@@ -161,5 +159,19 @@
       .section__search__box__icon {
         padding-right: 20px;
         text-align: left; }
+  .section__trending {
+    margin: 30px auto 48px auto;
+    height: 75px;
+    width: 236px; }
+    .section__trending__title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 25px; }
+    .section__trending__p {
+      margin: 0;
+      font-size: 18px;
+      color: #270000;
+      text-align: center;
+      line-height: 25px; }
 
 /*# sourceMappingURL=style.css.map */
