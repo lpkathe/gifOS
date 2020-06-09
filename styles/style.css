@@ -176,6 +176,7 @@
     height: 430px;
     background: #F3F5F8; }
     .section__carrusel__title {
+      margin-top: 44px;
       font-size: 25px;
       line-height: 30px; }
     .section__carrusel__p {
