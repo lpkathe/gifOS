@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <input type="checkbox" class="dark_mode" id="dark_mode" name="dark_mode" value="dark">
     <main>
         <div class="bar_container">
             <input type="checkbox" id="checkbox" class="checkbox">
@@ -25,13 +26,14 @@
             </div>
             <nav class="navigation">
                 <ul class="navigation__list">
-                    <li> <a href="#modo_nocturno">Modo Nocturno</a></li>
+                    <li><a href="">Modo Nocturno</a>
+                        <label for="dark_mode">Modo Nocturno</label></li>
                     <hr>
                     </hr>
-                    <li> <a href="#favoritos">Favoritos</a></li>
+                    <li> <a href="#favorites">Favoritos</a></li>
                     <hr>
                     </hr>
-                    <li> <a href="#mis_gifos">Mis GIFOS</a></li>
+                    <li> <a href="#my_gifos">Mis GIFOS</a></li>
                     <hr>
                     </hr>
                 </ul>
@@ -47,7 +49,7 @@
                         alt="Imagen del búscador">
                 </picture>
                 <form class="section__search__box" action="https://google.com/search" target="_blank" type="GET">
-                    <input class="section__search__box__input" type="search" placeholder="Busca GIFOS y más"
+                    <input class="section__search__box__input" id="searchInput" type="search" placeholder="Busca GIFOS y más"
                         name="search">
                     <picture>
                         <img class="section__search__box__icon" src="images/icon-search.svg" alt="Ícono de búsqueda">
@@ -78,6 +80,7 @@
             <p class="footer__p">© GIFOS 2020 All Rights Reserved.</p>
         </footer>
     </main>
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>

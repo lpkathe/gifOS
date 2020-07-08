@@ -36,8 +36,8 @@
     align-items: center;
 
     &__logo {
-        height: 48.8px;
-        width: 55.5px;
+        height: 56px;
+        width: 49px;
     }
 }
 
@@ -251,5 +251,16 @@
         color: #000000;
         letter-spacing: 0;
         line-height: 20px;
+    }
+}
+
+.dark_mode {
+    display: none;
+}
+
+.darkMode:checked {
+
+    & ~ main {
+    background-color: black;
     }
 }
