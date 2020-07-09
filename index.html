@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <input type="checkbox" class="dark_mode" id="dark_mode" name="dark_mode" value="dark">
+    <input type="checkbox" class="dark-mode" id="dark-mode" name="dark-mode" value="dark">
     <main>
         <div class="bar_container">
             <input type="checkbox" id="checkbox" class="checkbox">
@@ -21,13 +21,12 @@
                     <img src="images/logo-mobile.svg" alt="Logo">
                 </picture>
                 <label class="menu" for="checkbox">
-                    <span></span>
+                    <span class="menu-span"></span>
                 </label>
             </div>
             <nav class="navigation">
                 <ul class="navigation__list">
-                    <li><a href="">Modo Nocturno</a>
-                        <label for="dark_mode">Modo Nocturno</label></li>
+                    <li><label for="dark-mode"><a>Modo Nocturno</a></label></li>
                     <hr>
                     </hr>
                     <li> <a href="#favorites">Favoritos</a></li>
@@ -48,11 +47,12 @@
                     <img class="section__search__picture__image" src="images/ilustra_header.svg"
                         alt="Imagen del búscador">
                 </picture>
-                <form class="section__search__box" action="https://google.com/search" target="_blank" type="GET">
-                    <input class="section__search__box__input" id="searchInput" type="search" placeholder="Busca GIFOS y más"
-                        name="search">
+                <form class="section__search__box" action="https://google.com/search" target="_blank" type="GET" autocomplete="on">
+                    <input class="section__search__box__input" id="searchInput" type="search"
+                        placeholder="Busca GIFOS y más" name="search">
                     <picture>
                         <img class="section__search__box__icon" src="images/icon-search.svg" alt="Ícono de búsqueda">
+                        <img class="section__search__box__icon__dark-mode" src="images/icon-search-mod-noc.svg" alt="Ícono de búsqueda modo oscuro">
                     </picture>
                 </form>
             </article>
@@ -72,9 +72,12 @@
             <div class="footer__social-network">
                 <p class="footer__social-network__p">Compartir en:</p>
                 <picture class="footer__social-network__icons">
-                    <a href="https://www.facebook.com" target="_blank"><img src="images/icon_facebook.svg" alt="icon_facebook"></a>
-                    <a href="https://twitter.com" target="_blank"><img src="images/icon-twitter.svg" alt="icon-twitter"></a>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="images/icon_instagram.svg" alt="icon_instagram"></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="images/icon_facebook.svg"
+                            alt="icon_facebook"></a>
+                    <a href="https://twitter.com" target="_blank"><img src="images/icon-twitter.svg"
+                            alt="icon-twitter"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img src="images/icon_instagram.svg"
+                            alt="icon_instagram"></a>
                 </picture>
             </div>
             <p class="footer__p">© GIFOS 2020 All Rights Reserved.</p>
