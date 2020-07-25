@@ -132,7 +132,8 @@
         text-align: center;
         height: 130px;
         
-            &__image {
+        &__image {
+                height: 130px;
                 width: 273px;
             }
         }
@@ -199,7 +200,7 @@
         background: #F3F5F8;
 
         &__title {
-            margin-top: 44px;
+            margin: 44px auto 9px auto;
             @extend .font-bold;
             font-size: 25px;
             line-height: 30px;
@@ -207,14 +208,22 @@
 
         &__p {
             @extend .font-regular;
+            margin: 9px auto auto auto;
             height: 46px;
             font-size: 16px;
             color: #000000;
             line-height: 23px;
-
+            
             &__span {
                 display: block;
             }
+        }
+        
+        &__card {
+            margin: 32px 22px 82px auto;
+            height: 187px;
+            width: 243px;
+            display: inline-flex;
         }
     }
 }
@@ -225,6 +234,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    box-sizing: border-box;
     border-bottom: 5px solid #572EE5;;
 
     &__social-network {
@@ -246,12 +256,12 @@
         }
         
         &__p {
-            margin: 47px auto 24px auto;
+            margin: 47px auto 22px auto;
         }
     }
 
     &__p {
-        margin: 0 auto 23px auto;
+        margin: 0 auto 28px auto;
         font-size: 14px;
         color: #000000;
         letter-spacing: 0;
