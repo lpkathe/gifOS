@@ -46,14 +46,14 @@
                     <img class="section__search__picture__image" src="images/ilustra_header.svg"
                         alt="Imagen del búscador">
                 </picture>
-                <form class="section__search__box" action="https://google.com/search" target="_blank" type="GET" autocomplete="on">
-                    <input class="section__search__box__input" id="searchInput" type="search"
-                        placeholder="Busca GIFOS y más" name="search">
+                <div class="section__search__box" id="searchForm">
+                    <input class="section__search__box__input" id="inputSearch" type="q" placeholder="Busca GIFOS y más" name="search">
                     <picture>
-                        <img class="section__search__box__icon" src="images/icon-search.svg" alt="Ícono de búsqueda">
-                        <img class="section__search__box__icon__dark-mode" src="images/icon-search-mod-noc.svg" alt="Ícono de búsqueda modo oscuro">
+                        <img class="section__search__box__icon" src="images/icon-search.svg" alt="Ícono de búsqueda" id="iconSearchLight">
+                        <img class="section__search__box__icon__dark-mode" src="images/icon-search-mod-noc.svg" alt="Ícono de búsqueda modo oscuro" id="iconSearchDark">
                     </picture>
-                </form>
+                </div>
+                <div id="gifContainer"></div>
             </article>
             <article class="section__trending">
                 <h2 class="section__trending__title">Trending:</h2>
@@ -82,7 +82,7 @@
             <p class="footer__p">© GIFOS 2020 All Rights Reserved.</p>
         </footer>
     </main>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/script.js" type="module"></script>
 </body>
 
 </html>
