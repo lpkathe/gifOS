@@ -25,12 +25,12 @@
                         display: none;
                     }
                 }
-            }
 
-            & > .menu > .menu-span, 
-            .menu:after,
-            .menu:before { 
-                background: #FFFFFF;
+                & > .menu > .menu-span, 
+                .menu:after,
+                .menu:before { 
+                    background: #FFFFFF;
+                }
             }
             
             & > .navigation > .navigation__list {

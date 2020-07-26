@@ -11,9 +11,9 @@
       display: block; }
     .dark-mode:checked ~ main > .bar_container > .nav-bar > .nav-bar__logo > .nav-bar__logo__light-mode {
       display: none; }
-    .dark-mode:checked ~ main > .bar_container > .menu > .menu-span,
-    .dark-mode:checked ~ main > .bar_container .menu:after,
-    .dark-mode:checked ~ main > .bar_container .menu:before {
+    .dark-mode:checked ~ main > .bar_container > .nav-bar > .menu > .menu-span,
+    .dark-mode:checked ~ main > .bar_container > .nav-bar .menu:after,
+    .dark-mode:checked ~ main > .bar_container > .nav-bar .menu:before {
       background: #FFFFFF; }
     .dark-mode:checked ~ main > .bar_container > .navigation > .navigation__list {
       background: #000000; }
