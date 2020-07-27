@@ -10,6 +10,7 @@ inputSearch.addEventListener("keypress", function (e) {
     }
     console.log(e);
 }, false);
+
 iconSearchLight.addEventListener("click", search);
 iconSearchDark.addEventListener("click", search);
 

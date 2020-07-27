@@ -251,6 +251,22 @@
         &__icons {
             margin-bottom: 46px;
             justify-content: space-around;
+            
+            & a {
+                margin-right: 19px;
+                height: min-content;
+                width: min-content;
+                text-decoration: none;
+
+                &:nth-child(3) {
+                    margin-right: 0;
+                }
+                
+                & > svg > path:hover {
+                    fill: #572EE5;
+                }
+            }
+            
         }
         
         &__p {
