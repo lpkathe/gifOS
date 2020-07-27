@@ -229,10 +229,6 @@
       margin-bottom: 46px;
       -ms-flex-pack: distribute;
           justify-content: space-around; }
-      .footer__social-network__icons img {
-        padding: 0 9.5px;
-        height: 20px;
-        width: 20px; }
     .footer__social-network__p {
       margin: 47px auto 22px auto; }
   .footer__p {
