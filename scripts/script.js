@@ -5,8 +5,8 @@ const iconSearchLight = document.getElementById("iconSearchLight");
 const iconSearchDark = document.getElementById("iconSearchDark");
 const gifContainer = document.getElementById("gifContainer");
 
-inputSearch.addEventListener("keypress", function (e) {
-    if (e.keyCode === 13) {
+inputSearch.addEventListener("keypress", function (enterkey) {
+    if (enterkey.keyCode === 13) {
     }
     console.log(e);
 }, false);
