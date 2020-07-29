@@ -178,6 +178,15 @@
       color: #270000;
       text-align: center;
       line-height: 25px; }
+    .section__trending hr {
+      margin: 38px auto 41px auto;
+      height: 1px;
+      width: 157px;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      opacity: 0.5;
+      border: 1px solid #9CAFC3; }
   .section__carrusel {
     height: 430px;
     background: #F3F5F8; }
@@ -240,7 +249,7 @@
         text-decoration: none; }
         .footer__social-network__icons a:nth-child(3) {
           margin-right: 0; }
-        .footer__social-network__icons a > svg > path:hover {
+        .footer__social-network__icons a svg > path:hover {
           fill: #572EE5; }
     .footer__social-network__p {
       margin: 47px auto 22px auto; }
