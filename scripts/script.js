@@ -7,14 +7,14 @@ const inputSearch = document.getElementById("inputSearch");
 const iconSearchLight = document.getElementById("iconSearchLight");
 const iconSearchDark = document.getElementById("iconSearchDark");
 const gifContainer = document.getElementById("gifContainer");
-const pTrending = document.querySelector('.section__trending__p');
-
+const pTrending = document.querySelector(".section__trending__p");
+const suggested_search = document.getElementById("suggested_search");
 
 /**
  * Functions that load with the page.
  */
 function onLoad() {
-    getTrendings();
+    getTrendingCategories();
 }
 
 /**
@@ -45,7 +45,7 @@ function createImage(url, title) {
     gifContainer.appendChild(image);
     gifContainer.appendChild(p);
     
-    p.innerHTML = title;
+    p.innerText = title;
     image.src = url;
     image.alt = title;
 };
@@ -53,14 +53,14 @@ function createImage(url, title) {
 /**
  * Get trending titles
  */
-function getTrendings() {
-    const { trending } = GiphyApi;
+function getTrendingCategories() {
+    const { trendingCategories } = GiphyApi;
     let list = [];
     
-    trending()
+    trendingCategories()
     .then((response) => {
         response.data.forEach((element) => {
-            list.push(element.title);
+            list.push(element.name);
         });
         pTrending.innerText = list.join(', ');
     }) .catch ((error) => {
@@ -69,14 +69,28 @@ function getTrendings() {
 };
 
 /**
+ * Suggestion search
+ */
+function getAutocompleteSearch() {
+    const { autocompleteSearch } = GiphyApi;
+
+    suggested_search.innerText = "";
+
+    autocompleteSearch(inputSearch.value)
+    .then((response) => {
+        response.data.forEach((element) => {
+            const option = document.createElement('option');
+            option.value = element.name;
+            suggested_search.appendChild(option);
+        });
+    });
+};
+
+/**
  * Events
  */
 
-inputSearch.addEventListener("keypress", function (enterkey) {
-    if (enterkey.keyCode === 13) {
-    }
-    console.log(enterkey);
-}, false);
+inputSearch.addEventListener("keypress", getAutocompleteSearch);
 
 iconSearchLight.addEventListener("click", search);
 iconSearchDark.addEventListener("click", search);

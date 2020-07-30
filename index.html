@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gifOS</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/hamburguer_menu.css">
@@ -49,24 +50,31 @@
                     <img class="section__search__picture__image" src="images/ilustra_header.svg"
                         alt="Imagen del búscador">
                 </picture>
-                <div class="section__search__box" id="searchForm">
-                    <input class="section__search__box__input" id="inputSearch" type="q" placeholder="Busca GIFOS y más"
-                        name="search">
-                    <picture>
-                        <img class="section__search__box__icon" src="images/icon-search.svg" alt="Ícono de búsqueda"
-                            id="iconSearchLight">
-                        <img class="section__search__box__icon__dark-mode" src="images/icon-search-mod-noc.svg"
-                            alt="Ícono de búsqueda modo oscuro" id="iconSearchDark">
-                    </picture>
-                </div>
+                <form class="section__search__box" id="searchForm" autocomplete="off">
+                    <svg class="icon-in-to-input">
+                        <path
+                            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                        </path>
+                    </svg>
+                    <input class="section__search__box__input" list="suggested_search" id="inputSearch" type="text"
+                        placeholder="GIFOS y más" name="search">
+                    <datalist id="suggested_search">
+                    </datalist>
+                    <input type="image" alt="submit" class="section__search__box__icon" src="images/icon-search.svg"
+                        id="iconSearchLight" value="Send info">
+                    <input type="image" alt="submit" class="section__search__box__icon__dark-mode"
+                        src="images/icon-search-mod-noc.svg" id="iconSearchDark" value="Send info">
+
+                </form>
             </article>
             <article class="section__trending">
                 <h2 class="section__trending__title">Trending:</h2>
                 <p class="section__trending__p"></p>
                 <hr>
                 <div class="section__trending_cards" id="gifContainer"></div>
+                <h2 class="section__trending__title-search"></h2>
                 <div class="section__trending__card"></div>
-                <img src="" alt="">
+                <img class="section__trending__card__img" src="" alt="">
                 <button class="section__trending__button">VER MÁS</button>
             </article>
             <article class="section__carrusel">

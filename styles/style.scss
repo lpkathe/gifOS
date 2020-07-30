@@ -9,6 +9,14 @@
     src: url("../Fonts/Proxima_nova_reg.ttf");
 }
 
+.montserrat-bold {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 40px;
+}
+
 .font-bold {
     font-family: "ProximaNova-Bold";
     text-align: center;
@@ -152,20 +160,44 @@
             justify-content: space-between;
             align-items: center;
             background: #FFFFFF;
-
+            background-image: url(/images/icon_search-input.svg);
+            background-position: left;
+            
             &__input {
                 @extend .font-regular;
                 margin-left: 55px;
                 padding: 0.01;
                 height: 22px;
-                width: 215px;
+                width: auto;
                 border: 0;
                 text-align: left;
+
+                &:active {
+
+                
+                    & ~ main > .section > .section__search >  .section__search__box {
+
+                        & > .icon-in-to-input {
+                            height: 20px;
+                            width: 20px;
+                            text-align: center;
+                        }
+                        
+                        & > .section__search__box__icon {
+                                display: none;
+                            }
+                    }
+                }
+                &:focus {
+                    & ~ main > .section > .section__search > .section__search__box {
+                        background-image:"./images/icon_search-input.svg";
+                        background-position: left;
+                    }
+                }
             }
 
             &__icon {
-                padding-right: 20px;
-                text-align: left;
+                padding-right: 0;
             
                 &__dark-mode {
                     height: 0;
@@ -192,23 +224,14 @@
 
         &__p {
             @extend .font-regular;
-            margin-bottom: 45px;
+            width: 225px;
             font-size: 18px;
             color: #572EE5;
             text-align: center;
             line-height: 25px;
         }
-
-        &__cards {
-            display: block;
-        }
-
-        &__card {
-            display: grid;
-        }
-
         & hr {
-            margin: 38px auto 41px auto;
+            margin: 35px auto 41px auto;
             height: 1px;
             width: 157px;
             align-items: center;
@@ -217,14 +240,30 @@
             background-color: #9CAFC3;
         }
 
+        &__cards {
+            display: block;
+        }
+
+        &__title-search {
+            @extend .montserrat-bold;
+        }
+
+        &__card {
+            display: grid;
+
+            &__img {
+                height: 120px;
+                width: 156px;
+            }
+        }
+
+
         &__button {
             height: 50px;
             width: 127px;
-            font-family: 'Montserrat', sans-serif;
+            @extend .montserrat-bold;
             font-size: 13px;
-            color: #572EE5;
             letter-spacing: 0;
-            text-align: center;
             background-color: #fff;
             border: 1px solid #572EE5;
             border-radius: 25px;
@@ -316,4 +355,9 @@
         letter-spacing: 0;
         line-height: 20px;
     }
+}
+.icon-in-to-input {
+    height: 0;
+    width: 0;
+    fill: gray;
 }
