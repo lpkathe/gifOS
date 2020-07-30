@@ -1,7 +1,7 @@
 import GiphyApi from './GiphyApi.js'
 
 /**
- * Variables globales
+ * Global variables
  */
 const inputSearch = document.getElementById("inputSearch");
 const iconSearchLight = document.getElementById("iconSearchLight");
@@ -11,14 +11,14 @@ const pTrending = document.querySelector('.section__trending__p');
 
 
 /**
- * Funciones que cargan junto con la página
+ * Functions that load with the page.
  */
 function onLoad() {
     getTrendings();
 }
 
 /**
- * Trae los gifs de la búsqueda y los pinta en el html
+ * Get gifs of the search results and display then on html
  */
 function search() {
     const { search } = GiphyApi;
@@ -34,42 +34,42 @@ function search() {
 }
 
 /**
- * Crea las cards donde irán los gifs resultado de las búsquedas
+ * Create cards for results
  * @param {} url 
  * @param {*} title 
  */
 function createImage(url, title) {
-    const imagen = document.createElement("img");
+    const image = document.createElement("img");
     const p = document.createElement("p");
     
-    gifContainer.appendChild(imagen);
+    gifContainer.appendChild(image);
     gifContainer.appendChild(p);
     
     p.innerHTML = title;
-    imagen.src = url;
-    imagen.alt = title;
+    image.src = url;
+    image.alt = title;
 };
 
 /**
- * Trae los títulos de los gifs que son tendencia
+ * Get trending titles
  */
 function getTrendings() {
     const { trending } = GiphyApi;
-    let lista = [];
+    let list = [];
     
     trending()
     .then((response) => {
         response.data.forEach((element) => {
-            lista.push(element.title);
+            list.push(element.title);
         });
-        pTrending.innerHTML = lista.join(', ');
+        pTrending.innerText = list.join(', ');
     }) .catch ((error) => {
-        pTrending.innerHTML = "Error "+ error;
+        pTrending.innerText = "Error "+ error;
     });
 };
 
 /**
- * Eventos
+ * Events
  */
 
 inputSearch.addEventListener("keypress", function (enterkey) {

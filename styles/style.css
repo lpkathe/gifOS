@@ -109,13 +109,7 @@
       color: #46e0b6; }
 
 .section {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column; }
+  display: block; }
   .section__search {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -165,19 +159,32 @@
           height: 0;
           width: 0; }
   .section__trending {
-    margin: 30px auto 48px auto;
-    height: 75px;
-    width: 236px; }
+    margin: 30px auto 79px auto;
+    width: 330px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
     .section__trending__title {
       margin: 0;
       font-size: 18px;
       line-height: 25px; }
     .section__trending__p {
-      margin: 0;
+      margin-bottom: 45px;
       font-size: 18px;
-      color: #270000;
+      color: #572EE5;
       text-align: center;
       line-height: 25px; }
+    .section__trending__cards {
+      display: block; }
+    .section__trending__card {
+      display: grid; }
     .section__trending hr {
       margin: 38px auto 41px auto;
       height: 1px;
@@ -186,12 +193,27 @@
           -ms-flex-align: center;
               align-items: center;
       opacity: 0.5;
-      border: 1px solid #9CAFC3; }
+      border: 1px solid #9CAFC3;
+      background-color: #9CAFC3; }
+    .section__trending__button {
+      height: 50px;
+      width: 127px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: #572EE5;
+      letter-spacing: 0;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #572EE5;
+      border-radius: 25px;
+      border-radius: 25px; }
   .section__carrusel {
+    margin-top: 46px;
     height: 430px;
     background: #F3F5F8; }
     .section__carrusel__title {
       margin: 44px auto 9px auto;
+      padding-top: 44px;
       font-size: 25px;
       line-height: 30px; }
     .section__carrusel__p {

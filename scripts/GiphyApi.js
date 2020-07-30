@@ -1,5 +1,7 @@
-const urlSearch = `http://api.giphy.com/v1/gifs/search`;
-const urlTrending = `http://api.giphy.com/v1/gifs/trending`;
+
+const domain = `http://api.giphy.com/v1/gifs/`;
+const urlSearch = domain + "search";
+const urlTrending = domain + "trending";
 const apiKey = `api_key=RdoBL837xzyR4wgjoqf8FocqUIoxGh0q`;
 
 const GiphyApi = {
