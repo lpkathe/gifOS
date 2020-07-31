@@ -6,6 +6,13 @@
     line-height: 60px;
 }
 
+.roboto-regular {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    text-align: left;
+    color: #000000;
+}
+
 .top-bar {
     padding: 34px 26px 0 22px;
     height: 100px;
@@ -86,6 +93,7 @@
     justify-content: center;
 
     &__title {
+        margin: 0;
         height: 99px;
         width: 286px;
         @extend .montserrat-bold;
@@ -111,71 +119,42 @@
     height: 130px;
     
         &__image {
-                height: 130px;
-                width: 273px;
-            }
+            height: 130px;
+            width: 273px;
+        }
+    }
+    
+    &__form {
+        margin: 0 0;
+        height: 50px;
+        width: 334px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-sizing: border-box;
+        border: 1px solid #572EE5;
+        border-radius: 27px;
+        background: #FFFFFF;
+        
+        &__input {
+            margin-left: 23px;
+            height: 22px;
+            width: auto;
+            border: 0;
+            @extend .roboto-regular;
+            text-align: left;
+        }
+        
+        &__datalist {
+            @extend .roboto-regular;
+            border: 0;
+            text-align: left;
+            background: #FFFFFF;
+        }
     }
 }
-
-        &__box {
-            margin: 0 0;
-            height: 50px;
-            width: 334px;
-            border: 1px solid #572EE5;
-            border-radius: 27px;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #FFFFFF;
-            background-image: url(/images/icon_search-input.svg);
-            background-position: left;
-            
-            &__input {
-                margin-left: 55px;
-                padding: 0.01;
-                height: 22px;
-                width: auto;
-                border: 0;
-                text-align: left;
-
-                &:active {
-
-                
-                    & ~ main > .section > .section__search >  .section__search__box {
-
-                        & > .icon-in-to-input {
-                            height: 20px;
-                            width: 20px;
-                            text-align: center;
-                        }
-                        
-                        & > .section__search__box__icon {
-                                display: none;
-                            }
-                    }
-                }
-                &:focus {
-                    & ~ main > .section > .section__search > .section__search__box {
-                        background-image:"./images/icon_search-input.svg";
-                        background-position: left;
-                    }
-                }
-            }
-
-            &__icon {
-                padding-right: 0;
-            
-                &__dark-mode {
-                    height: 0;
-                    width: 0;
-                }
-            }
-
-        }
-    }   
-    
-    &__trending {
+/*  
+    section__trending {
         margin: 30px auto 79px auto;
         width: 330px;
         display: flex;
@@ -267,7 +246,6 @@
             display: inline-flex;
         }
     }
-}
 
 .footer {
     height: 201px;
@@ -358,4 +336,4 @@
         transition:0.6s ease;
         cursor:pointer;
     }
-}
+}*/

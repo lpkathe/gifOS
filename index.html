@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gifOS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/hamburguer_menu.css">
@@ -39,24 +39,17 @@
             <h1 class="header__title">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
         </header>
         <section class="search">
-            <picture class="section__search__picture">
-                <img class="section__search__picture__image" src="images/ilustra_header.svg" alt="Imagen del búscador">
+            <picture class="search__picture">
+                <img class="search__picture__image" src="assets/ilustra_header.svg" alt="Search image">
             </picture>
-            <form class="section__search__box" id="searchForm" autocomplete="off">
-                <svg class="icon-in-to-input">
-                    <path
-                        d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-                    </path>
-                </svg>
-                <input class="section__search__box__input" list="suggested_search" id="inputSearch" type="text"
-                    placeholder="GIFOS y más" name="search">
-                <datalist id="suggested_search">
+            <form class="search__form" id="searchForm" autocomplete="off">
+                <input class="search__form__input" list="suggested_search" id="inputSearch" type="text"
+                    placeholder="Busca GIFOS y más" name="search">
+                <datalist class="search__form_datalist" id="suggested_search">
+                    <option class="search__form_datalist__option" value=""></option>
                 </datalist>
-                <input type="image" alt="submit" class="section__search__box__icon" src="images/icon-search.svg"
+                <input class="search__form__icon" type="image" alt="Submit" src="assets/icon-search.svg"
                     id="iconSearchLight" value="Send info">
-                <input type="image" alt="submit" class="section__search__box__icon__dark-mode"
-                    src="images/icon-search-mod-noc.svg" id="iconSearchDark" value="Send info">
-
             </form>
         </section>
         <section class="section__trending">
