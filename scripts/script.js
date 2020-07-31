@@ -95,3 +95,22 @@ inputSearch.addEventListener("keypress", getAutocompleteSearch);
 iconSearchLight.addEventListener("click", search);
 iconSearchDark.addEventListener("click", search);
 window.addEventListener("load", onLoad);
+
+const carouselIndex = 0;
+showCarousel();
+
+function showCarousel() {
+       const card;
+       const slides = document.getElementsByClassName("carousel");
+
+       for (card = 0; card < slides.length; card++) {
+            slides[card].style.display = "none";
+       }
+       carouselIndex++;
+    
+       if (carouselIndex > slides.length) {
+           carouselIndex = 1}
+
+       slides[carouselIndex-1].style.display = "block";
+       setTimeout(showSlides,2000);
+};

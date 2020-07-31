@@ -1,33 +1,17 @@
-@font-face {
-  font-family: "ProximaNova-Bold";
-  src: url("../Fonts/Proxima_nova_bold.ttf"); }
-@font-face {
-  font-family: "ProximaNova-Regular";
-  src: url("../Fonts/Proxima_nova_reg.ttf"); }
-.montserrat-bold, .section__trending__title-search, .section__trending__button {
+.montserrat-bold, .navigation__list, .section__trending__title-search, .section__trending__button {
   font-family: 'Montserrat', sans-serif;
-  font-size: 25px;
+  font-size: 15px;
   color: #572EE5;
   text-align: center;
-  line-height: 40px; }
+  line-height: 60px; }
 
-.font-bold, .navigation__list, .header__title, .section__trending__title, .section__carrusel__title {
-  font-family: "ProximaNova-Bold";
-  text-align: center;
-  color: #572EE5; }
-
-.font-regular, .section__search__box__input, .section__trending__p, .section__carrusel__p, .footer {
-  font-family: "ProximaNova-Regular";
-  color: #270000;
-  text-align: center; }
-
-.bar_container {
-  border-top: 5px solid #572EE5;
-  padding: 29px 26px 0 22px;
+.top-bar {
+  padding: 34px 26px 0 22px;
   height: 100px;
   width: 100vw;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+  border-top: 5px solid #572EE5; }
 
 .nav-bar {
   width: 100%;
@@ -41,17 +25,19 @@
       -ms-flex-align: center;
           align-items: center; }
   .nav-bar__logo {
-    height: 48.8px;
-    width: 48.8px; }
-    .nav-bar__logo__dark-mode {
+    height: 49px;
+    width: 54px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+    .nav-bar__logo__dark {
       display: none; }
 
 .navigation__list {
-  margin-top: 17.2px;
-  padding-left: 0;
-  height: 100%;
+  padding: 17px 0 0 0;
+  height: 100vh;
   width: 100%;
   left: -150%;
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,19 +45,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center;
-  position: absolute;
-  font-size: 20px;
-  color: #FFFFFF;
-  line-height: 60px;
   list-style: none;
+  color: #FFFFFF;
   background: rgba(87, 46, 229, 0.9);
   -webkit-transition: left .5s ease-in-out;
   transition: left .5s ease-in-out; }
-  .navigation__list li {
-    height: 54px; }
-    .navigation__list li:last-child {
-      height: 53.9px; }
+  .navigation__list__li {
+    height: 60px; }
   .navigation__list a {
     color: #FFFFFF;
     text-decoration: none; }
@@ -94,6 +74,8 @@
     border: 1px solid #FFFFFF; }
     .navigation__list hr:last-child {
       margin-bottom: 6px; }
+.navigation__button {
+  display: none; }
 
 .header {
   display: -webkit-box;
@@ -224,24 +206,24 @@
       border: 1px solid #572EE5;
       border-radius: 25px;
       border-radius: 25px; }
-  .section__carrusel {
+  .section__carousel {
     margin-top: 46px;
     height: 430px;
     background: #F3F5F8; }
-    .section__carrusel__title {
+    .section__carousel__title {
       margin: 44px auto 9px auto;
       padding-top: 44px;
       font-size: 25px;
       line-height: 30px; }
-    .section__carrusel__p {
+    .section__carousel__p {
       margin: 9px auto auto auto;
       height: 46px;
       font-size: 16px;
       color: #000000;
       line-height: 23px; }
-      .section__carrusel__p__span {
+      .section__carousel__p__span {
         display: block; }
-    .section__carrusel__card {
+    .section__carousel__card {
       margin: 32px 22px 82px auto;
       height: 187px;
       width: 243px;
@@ -303,5 +285,34 @@
   height: 0;
   width: 0;
   fill: gray; }
+
+.carousel {
+  margin: auto;
+  max-width: 1000px;
+  position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+  .carousel__card {
+    display: none; }
+  .carousel__prev {
+    left: 0;
+    border-radius: 3px 0 0 3px; }
+  .carousel__next {
+    right: 0;
+    border-radius: 3px 0 0 3px; }
+  .carousel__prev, .carousel .carousel__next {
+    margin-top: -22px;
+    padding: 16px;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid #572EE5;
+    -webkit-transition: 0.6s ease;
+    transition: 0.6s ease;
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gifOS</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/hamburguer_menu.css">
     <link rel="stylesheet" href="styles/dark-mode.css">
+    <link rel="stylesheet" href="styles/desktop.css">
 </head>
 
 <body>
     <input type="checkbox" class="dark-mode" id="dark-mode" name="dark-mode" value="dark">
     <main>
-        <div class="bar_container">
+        <div class="top-bar">
             <input type="checkbox" id="checkbox" class="checkbox">
             <div class="nav-bar">
                 <picture class="nav-bar__logo">
-                    <img class="nav-bar__logo__light-mode" src="images/logo-mobile.svg" alt="Logo light-mode">
-                    <img class="nav-bar__logo__dark-mode" src="images/logo-desktop-modo-noc.svg" alt="Logo dark-mode">
+                    <img class="nav-bar__logo__light" src="assets/logo-mobile.svg" alt="Logo light-mode">
+                    <img class="nav-bar__logo__dark" src="assets/logo-mobile-modo-noct.svg" alt="Logo dark-mode">
                 </picture>
                 <label class="menu" for="checkbox">
                     <span class="menu-span"></span>
@@ -29,14 +29,14 @@
             </div>
             <nav class="navigation">
                 <ul class="navigation__list">
-                    <li><label for="dark-mode"><a>Modo Nocturno</a></label></li>
-                    <hr>
+                    <li class="navigation__list__li"><label for="dark-mode"><a>Modo Nocturno</a></label></li>
+                    <hr class="navigation__list__separator">
                     </hr>
-                    <li> <a href="#favorites">Favoritos</a></li>
-                    <hr>
+                    <li class="navigation__list__li"><a href="#favorites">Favoritos</a></li>
+                    <hr class="navigation__list__separator">
                     </hr>
-                    <li> <a href="#my_gifos">Mis GIFOS</a></li>
-                    <hr>
+                    <li class="navigation__list__li"><a href="#my_gifos">Mis GIFOS</a></li>
+                    <hr class="navigation__list__separator">
                     </hr>
                 </ul>
             </nav>
@@ -77,11 +77,32 @@
                 <img class="section__trending__card__img" src="" alt="">
                 <button class="section__trending__button">VER MÁS</button>
             </article>
-            <article class="section__carrusel">
-                <h2 class="section__carrusel__title">Trending GIFOS</h2>
-                <p class="section__carrusel__p"><span class="section__carrusel__p__span">Mira los últimos</span>GIFOS de
+            <article class="section__carousel">
+                <h2 class="section__carousel__title">Trending GIFOS</h2>
+                <p class="section__carousel__p"><span class="section__carrusel__p__span">Mira los últimos</span>GIFOS de
                     nuestra comunidad.</p>
-                <img class="section__carrusel__card" src="https://picsum.photos/243/187" alt="Gif">
+                <div class="carousel">
+                    <div class="carousel__card">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="">
+                        <div class="carousel__text">Caption Text</div>
+                    </div>
+
+                    <div class="carousel__card">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="">
+                        <div class="carousel__text">Caption Two</div>
+                    </div>
+
+                    <div class="carousel__card">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="">
+                        <div class="carousel__text">Caption Three</div>
+                    </div>
+                    <a class="carousel__prev" onclick="plusSlides(-1)"><img src="images/button-left.svg"></a>
+                    <a class="carousel__next" onclick="plusSlides(1)"><img src="images/button-right.svg"></a>
+                    <img class="section__carrusel__card" src="https://picsum.photos/243/187" alt="Gif">
+                </div>
             </article>
         </section>
         <footer class="footer">
