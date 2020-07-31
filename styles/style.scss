@@ -39,87 +39,83 @@
         width: 100%;
         left: -150%;
         position: absolute;
-        display: flex;
-        flex-direction: column;
+        display: inline-block;
         list-style: none;
         color: #FFFFFF;
         background: rgba(87,46,229,0.90);
         transition: left .5s ease-in-out;
-
-        &__li {
-            height: 60px;
-        }
+    }
         
-        & a {
-            color: #FFFFFF;
-            text-decoration: none;
-            
-            &:hover {
-                letter-spacing: 0;
-                text-decoration: underline;
-                text-decoration-color: #5ED7C6;
-            }
+    &__li {
+        padding: 1em;
+        height: 60px;
+        position: relative;
+        text-align: center;
 
-            &:active {
-                color: #9CAFC3;
-                text-decoration: none;
-            }
-        }
-
-        & hr {
-            margin: 0 auto 5.9px auto;
-            height: 0.1px;
+        &::after {
             width: 41px;
-            align-items: center;
+            left: 45%;
+            bottom: 0;
+            position: absolute;
+            content: "";
             opacity: 0.5;
-            border: 1px solid #FFFFFF;
-
-            &:last-child {
-                margin-bottom: 6px;
-            }
+            border-bottom: 1px solid #FFFFFF;
         }
     }
 
-    &__button {
-        display: none;
+    & a {
+        color: #FFFFFF;
+        text-decoration: none;
+        
+        &:hover {
+            letter-spacing: 0;
+            text-decoration: underline;
+            text-decoration-color: #5ED7C6;
+        }
+
+        &:active {
+            color: #9CAFC3;
+            text-decoration: none;
+        }
     }
 }
 
 .header {
+    margin: 7px auto 31px auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+    justify-content: center;
+
     &__title {
-        margin: 2px 44px 27px 45px;
-        height: 108px;
+        height: 99px;
         width: 286px;
-        font-size: 30px;
-        line-height: 36px;
+        @extend .montserrat-bold;
+        font-size: 25px;
+        line-height: 33px;
         
         & span {
+            @extend .montserrat-bold;
+            font-size: 25px;
+            line-height: 33px;
             color: rgb(70, 224, 182);
         }
     }
 }
 
-.section {
-    display: block;
+.search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
-    &__search {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-        &__picture {
-        text-align: center;
-        height: 130px;
-        
+    &__picture {
+    text-align: center;
+    height: 130px;
+    
         &__image {
                 height: 130px;
                 width: 273px;
             }
-        }
+    }
+}
 
         &__box {
             margin: 0 0;

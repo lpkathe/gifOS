@@ -1,318 +1,36 @@
-.montserrat-bold, .navigation__list, .section__trending__title-search, .section__trending__button {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  color: #572EE5;
-  text-align: center;
-  line-height: 60px; }
+/*
+Error: Invalid CSS after "        }": expected selector or at-rule, was "}   "
+        on line 176 of /Users/katerine/proyectos/GIFOS/styles/style.scss
 
-.top-bar {
-  padding: 34px 26px 0 22px;
-  height: 100px;
-  width: 100vw;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-top: 5px solid #572EE5; }
+171:                     width: 0;
+172:                 }
+173:             }
+174: 
+175:         }
+176:     }   
+177:     
+178:     &__trending {
+179:         margin: 30px auto 79px auto;
+180:         width: 330px;
+181:         display: flex;
 
-.nav-bar {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  .nav-bar__logo {
-    height: 49px;
-    width: 54px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
-    .nav-bar__logo__dark {
-      display: none; }
-
-.navigation__list {
-  padding: 17px 0 0 0;
-  height: 100vh;
-  width: 100%;
-  left: -150%;
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  list-style: none;
-  color: #FFFFFF;
-  background: rgba(87, 46, 229, 0.9);
-  -webkit-transition: left .5s ease-in-out;
-  transition: left .5s ease-in-out; }
-  .navigation__list__li {
-    height: 60px; }
-  .navigation__list a {
-    color: #FFFFFF;
-    text-decoration: none; }
-    .navigation__list a:hover {
-      letter-spacing: 0;
-      text-decoration: underline;
-      -webkit-text-decoration-color: #5ED7C6;
-              text-decoration-color: #5ED7C6; }
-    .navigation__list a:active {
-      color: #9CAFC3;
-      text-decoration: none; }
-  .navigation__list hr {
-    margin: 0 auto 5.9px auto;
-    height: 0.1px;
-    width: 41px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    opacity: 0.5;
-    border: 1px solid #FFFFFF; }
-    .navigation__list hr:last-child {
-      margin-bottom: 6px; }
-.navigation__button {
-  display: none; }
-
-.header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  .header__title {
-    margin: 2px 44px 27px 45px;
-    height: 108px;
-    width: 286px;
-    font-size: 30px;
-    line-height: 36px; }
-    .header__title span {
-      color: #46e0b6; }
-
-.section {
-  display: block; }
-  .section__search {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    .section__search__picture {
-      text-align: center;
-      height: 130px; }
-      .section__search__picture__image {
-        height: 130px;
-        width: 273px; }
-    .section__search__box {
-      margin: 0 0;
-      height: 50px;
-      width: 334px;
-      border: 1px solid #572EE5;
-      border-radius: 27px;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-          -ms-flex-pack: justify;
-              justify-content: space-between;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      background: #FFFFFF;
-      background-image: url(/images/icon_search-input.svg);
-      background-position: left; }
-      .section__search__box__input {
-        margin-left: 55px;
-        padding: 0.01;
-        height: 22px;
-        width: auto;
-        border: 0;
-        text-align: left; }
-        .section__search__box__input:active ~ main > .section > .section__search > .section__search__box > .icon-in-to-input {
-          height: 20px;
-          width: 20px;
-          text-align: center; }
-        .section__search__box__input:active ~ main > .section > .section__search > .section__search__box > .section__search__box__icon {
-          display: none; }
-        .section__search__box__input:focus ~ main > .section > .section__search > .section__search__box {
-          background-image: "./images/icon_search-input.svg";
-          background-position: left; }
-      .section__search__box__icon {
-        padding-right: 0; }
-        .section__search__box__icon__dark-mode {
-          height: 0;
-          width: 0; }
-  .section__trending {
-    margin: 30px auto 79px auto;
-    width: 330px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-    .section__trending__title {
-      margin: 0;
-      font-size: 18px;
-      line-height: 25px; }
-    .section__trending__p {
-      width: 225px;
-      font-size: 18px;
-      color: #572EE5;
-      text-align: center;
-      line-height: 25px; }
-    .section__trending hr {
-      margin: 35px auto 41px auto;
-      height: 1px;
-      width: 157px;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      opacity: 0.5;
-      border: 1px solid #9CAFC3;
-      background-color: #9CAFC3; }
-    .section__trending__cards {
-      display: block; }
-    .section__trending__card {
-      display: grid; }
-      .section__trending__card__img {
-        height: 120px;
-        width: 156px; }
-    .section__trending__button {
-      height: 50px;
-      width: 127px;
-      font-size: 13px;
-      letter-spacing: 0;
-      background-color: #fff;
-      border: 1px solid #572EE5;
-      border-radius: 25px;
-      border-radius: 25px; }
-  .section__carousel {
-    margin-top: 46px;
-    height: 430px;
-    background: #F3F5F8; }
-    .section__carousel__title {
-      margin: 44px auto 9px auto;
-      padding-top: 44px;
-      font-size: 25px;
-      line-height: 30px; }
-    .section__carousel__p {
-      margin: 9px auto auto auto;
-      height: 46px;
-      font-size: 16px;
-      color: #000000;
-      line-height: 23px; }
-      .section__carousel__p__span {
-        display: block; }
-    .section__carousel__card {
-      margin: 32px 22px 82px auto;
-      height: 187px;
-      width: 243px;
-      display: -webkit-inline-box;
-      display: -ms-inline-flexbox;
-      display: inline-flex; }
-
-.footer {
-  height: 201px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-bottom: 5px solid #572EE5; }
-  .footer__social-network {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    font-size: 15px;
-    color: #000000;
-    letter-spacing: 0; }
-    .footer__social-network__icons {
-      margin-bottom: 46px;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
-      .footer__social-network__icons a {
-        margin-right: 19px;
-        height: -webkit-min-content;
-        height: -moz-min-content;
-        height: min-content;
-        width: -webkit-min-content;
-        width: -moz-min-content;
-        width: min-content;
-        text-decoration: none; }
-        .footer__social-network__icons a:nth-child(3) {
-          margin-right: 0; }
-        .footer__social-network__icons a svg > path:hover {
-          fill: #572EE5; }
-    .footer__social-network__p {
-      margin: 47px auto 22px auto; }
-  .footer__p {
-    margin: 0 auto 23px auto;
-    font-size: 14px;
-    color: #000000;
-    letter-spacing: 0;
-    line-height: 20px; }
-
-.icon-in-to-input {
-  height: 0;
-  width: 0;
-  fill: gray; }
-
-.carousel {
-  margin: auto;
-  max-width: 1000px;
-  position: relative;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box; }
-  .carousel__card {
-    display: none; }
-  .carousel__prev {
-    left: 0;
-    border-radius: 3px 0 0 3px; }
-  .carousel__next {
-    right: 0;
-    border-radius: 3px 0 0 3px; }
-  .carousel__prev, .carousel .carousel__next {
-    margin-top: -22px;
-    padding: 16px;
-    top: 50%;
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    border: 1px solid #572EE5;
-    -webkit-transition: 0.6s ease;
-    transition: 0.6s ease;
-    cursor: pointer; }
-
-/*# sourceMappingURL=style.css.map */
+Backtrace:
+/Users/katerine/proyectos/GIFOS/styles/style.scss:176
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1278:in `expected'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:1208:in `expected'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/scss/parser.rb:42:in `parse'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:414:in `_to_tree'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:391:in `run'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:52:in `parse'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/lib/sass/exec/base.rb:19:in `parse!'
+/Applications/Koala.app/Contents/Resources/app.nw/rubygems/gems/sass-3.5.2/bin/sass:13:in `<top (required)>'
+/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `load'
+/Applications/Koala.app/Contents/Resources/app.nw/bin/sass:22:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"        }\": expected selector or at-rule, was \"}   \"\A         on line 176 of /Users/katerine/proyectos/GIFOS/styles/style.scss\A \A 171:                     width: 0;\A 172:                 }\A 173:             }\A 174: \A 175:         }\A 176:     }   \A 177:     \A 178:     &__trending {\A 179:         margin: 30px auto 79px auto;\A 180:         width: 330px;\A 181:         display: flex;"; }
