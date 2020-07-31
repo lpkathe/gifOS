@@ -5,7 +5,7 @@
   line-height: 25px;
   text-align: center; }
 
-.montserrat-bold, .navigation__list, .header__title, .header__title span, .search__title, .results__title {
+.montserrat-bold, .navigation__list, .header__title, .header__title span, .search__title, .results__title, .results__button {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
@@ -153,23 +153,56 @@
     margin: 0;
     width: 225px; }
 
-.results__container {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-gap: 21px; }
-.results__title {
-  height: 83px;
-  font-size: 25px;
-  line-height: 40px;
-  text-align: bottom; }
-  .results__title::before {
-    width: 157px;
-    left: 45%;
-    top: 0;
-    position: absolute;
-    content: "";
-    opacity: 0.5;
-    border: 1px solid #9CAFC3; }
+.results {
+  margin-bottom: 79px; }
+  .results__container {
+    margin-top: 35px;
+    padding-top: 43px;
+    width: 100vw;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .results__container::before {
+      width: 157px;
+      top: 0;
+      position: absolute;
+      content: "";
+      opacity: 0.5;
+      border-top: 1px solid #9CAFC3;
+      -ms-flex-item-align: center;
+          align-self: center; }
+  .results__title {
+    margin: 0;
+    height: 40px;
+    font-size: 25px;
+    line-height: 40px; }
+  .results__cards {
+    margin: 38px auto 78px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .results__card {
+    margin: 12.5px 10.5px;
+    height: 120px;
+    width: 156px; }
+  .results__button {
+    margin: 0 auto;
+    height: 50px;
+    width: 127px;
+    border: 1px solid #572EE5;
+    border-radius: 25px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: unset;
+    letter-spacing: 0; }
 
     /*  
     
