@@ -18,6 +18,11 @@
   text-align: left;
   color: #000000; }
 
+.button__slide, .trending__prev__button, .trending__next__button {
+  height: 40px;
+  width: 40px;
+  border: 1px solid #572EE5; }
+
 .top-bar {
   padding: 34px 26px 0 22px;
   height: 100px;
@@ -234,12 +239,10 @@
     width: 243px;
     display: none; }
   .trending__prev {
-    left: 0;
-    border-radius: 3px 0 0 3px; }
+    left: 0; }
   .trending__next {
-    right: 0;
-    border-radius: 3px 0 0 3px; }
-  .trending__prev, .trending .carousel__next {
+    right: 0; }
+  .trending__prev, .trending .trending__next {
     margin-top: -22px;
     padding: 16px;
     top: 50%;
