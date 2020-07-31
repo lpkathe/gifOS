@@ -1,23 +1,23 @@
 const domain = `http://api.giphy.com/v1/gifs/`;
 const urlSearch = domain + "search";
-const urlTrending = domain + "categories";
 const urlAutocompleteSearch = urlSearch + "/tags";
+const urlTrending = domain + "categories";
 const apiKey = `api_key=RdoBL837xzyR4wgjoqf8FocqUIoxGh0q`;
 
 const GiphyApi = {
-    search: ((input, limit = 12) => {
-        return new Promise((resolve, reject) => {
-            fetch(`${urlSearch}?${apiKey}&q=${input}&limit=${limit}&offset=0`)
-            .then((response) => resolve(response.json()))
-            .catch((error) => reject(error))
-          });
-    }),
     autocompleteSearch: ((input, limit = 5)=>{
             return new Promise((resolve, reject) => {
                 fetch(`${urlAutocompleteSearch}?${apiKey}&q=${input}&limit=${limit}&offset=0`)
                 .then((response) => resolve(response.json()))
                 .catch((error) => reject(error))
               });
+    }),
+    search: ((input, limit = 12) => {
+        return new Promise((resolve, reject) => {
+            fetch(`${urlSearch}?${apiKey}&q=${input}&limit=${limit}&offset=0`)
+            .then((response) => resolve(response.json()))
+            .catch((error) => reject(error))
+          });
     }),
     trendingCategories: ((limit = 5) => {
         return new Promise((resolve, reject) => {

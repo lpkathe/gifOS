@@ -1,9 +1,17 @@
+.montserrat-medium {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #572EE5;
+    line-height: 25px;
+    text-align: center;
+}
+
 .montserrat-bold {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     color: #572EE5;
-    text-align: center;
     line-height: 60px;
+    text-align: center;
 }
 
 .roboto-regular {
@@ -152,57 +160,51 @@
             background: #FFFFFF;
         }
     }
+
+    &__title{
+        margin: 31px auto 2px auto;
+        @extend .montserrat-bold;
+        font-size: 16px;
+        line-height: 25px;
+    }
+    
+    &__p {
+        margin: 0;
+        width: 225px;
+        @extend .montserrat-medium;
+    }
 }
-/*  
-    section__trending {
-        margin: 30px auto 79px auto;
-        width: 330px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
-        &__title{
-            margin: 0;
-            font-size: 18px;
-            line-height: 25px;
-        }
+.results {
+    
+    &__container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 21px;
+    }
 
-        &__p {
-            width: 225px;
-            font-size: 18px;
-            color: #572EE5;
-            text-align: center;
-            line-height: 25px;
-        }
-        & hr {
-            margin: 35px auto 41px auto;
-            height: 1px;
+    &__title {
+        height: 83px;
+        @extend .montserrat-bold;
+        font-size: 25px;
+        line-height: 40px;
+        text-align: bottom;
+
+        &::before {
             width: 157px;
-            align-items: center;
+            left: 45%;
+            top: 0;
+            position: absolute;
+            content: "";
             opacity: 0.5;
             border: 1px solid #9CAFC3;
-            background-color: #9CAFC3;
         }
-
-        &__cards {
-            display: block;
-        }
-
-        &__title-search {
-            @extend .montserrat-bold;
-        }
-
-        &__card {
-            display: grid;
-
-            &__img {
-                height: 120px;
-                width: 156px;
-            }
-        }
-
-
-        &__button {
+    }
+}
+    
+    /*  
+    
+    &__button {
             height: 50px;
             width: 127px;
             @extend .montserrat-bold;

@@ -1,9 +1,16 @@
-.montserrat-bold, .navigation__list, .header__title, .header__title span {
+.montserrat-medium, .search__p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #572EE5;
+  line-height: 25px;
+  text-align: center; }
+
+.montserrat-bold, .navigation__list, .header__title, .header__title span, .search__title, .results__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
-  text-align: center;
-  line-height: 60px; }
+  line-height: 60px;
+  text-align: center; }
 
 .roboto-regular, .search__form__input, .search__form__datalist {
   font-family: 'Roboto', sans-serif;
@@ -138,57 +145,35 @@
       border: 0;
       text-align: left;
       background: #FFFFFF; }
+  .search__title {
+    margin: 31px auto 2px auto;
+    font-size: 16px;
+    line-height: 25px; }
+  .search__p {
+    margin: 0;
+    width: 225px; }
 
-/*  
-    section__trending {
-        margin: 30px auto 79px auto;
-        width: 330px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+.results__container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 21px; }
+.results__title {
+  height: 83px;
+  font-size: 25px;
+  line-height: 40px;
+  text-align: bottom; }
+  .results__title::before {
+    width: 157px;
+    left: 45%;
+    top: 0;
+    position: absolute;
+    content: "";
+    opacity: 0.5;
+    border: 1px solid #9CAFC3; }
 
-        &__title{
-            margin: 0;
-            font-size: 18px;
-            line-height: 25px;
-        }
-
-        &__p {
-            width: 225px;
-            font-size: 18px;
-            color: #572EE5;
-            text-align: center;
-            line-height: 25px;
-        }
-        & hr {
-            margin: 35px auto 41px auto;
-            height: 1px;
-            width: 157px;
-            align-items: center;
-            opacity: 0.5;
-            border: 1px solid #9CAFC3;
-            background-color: #9CAFC3;
-        }
-
-        &__cards {
-            display: block;
-        }
-
-        &__title-search {
-            @extend .montserrat-bold;
-        }
-
-        &__card {
-            display: grid;
-
-            &__img {
-                height: 120px;
-                width: 156px;
-            }
-        }
-
-
-        &__button {
+    /*  
+    
+    &__button {
             height: 50px;
             width: 127px;
             @extend .montserrat-bold;
