@@ -146,6 +146,8 @@
       width: auto;
       border: 0;
       text-align: left; }
+      .search__form__input::-webkit-calendar-picker-indicator {
+        display: none; }
     .search__form__datalist {
       border: 0;
       text-align: left;

@@ -157,6 +157,10 @@
             border: 0;
             @extend .roboto-regular;
             text-align: left;
+
+            &::-webkit-calendar-picker-indicator {
+                display: none;
+            }
         }
         
         &__datalist {
