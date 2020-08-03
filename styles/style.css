@@ -23,6 +23,14 @@
   width: 40px;
   border: 1px solid #572EE5; }
 
+.card-options {
+  height: 32px;
+  width: 32px; }
+  .card-options:hover {
+    border-radius: 6px;
+    opacity: 0.7;
+    background: #FFFFFF; }
+
 .top-bar {
   padding: 34px 26px 0 22px;
   height: 100px;
@@ -243,7 +251,18 @@
 .results__card {
   margin-top: 25px;
   height: 120px;
-  width: 156px; }
+  width: 156px;
+  position: relative; }
+  .results__card__options {
+    width: 260px;
+    top: 0;
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    justify-items: flex-end; }
 .results__button {
   margin: 0 auto 34px auto;
   height: 50px;
@@ -255,6 +274,11 @@
   font-weight: bold;
   line-height: unset;
   letter-spacing: 0; }
+  .results__button:hover {
+    color: #FFFFFF;
+    letter-spacing: 0;
+    border-radius: 25px;
+    background: #572EE5; }
 
 .trending {
   margin-top: 45px;

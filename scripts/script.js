@@ -10,10 +10,16 @@ const inputSearchLeftIcon = document.querySelector(".search__box__icon-list");
 
 const suggestedList = document.querySelector(".search__box__list");
 const pTrendingCategories = document.querySelector(".search__p");
-const resultsContainer = document.querySelector("results__container");
+
+const resultsContainer = document.querySelector(".results__container");
 const resultsTitle = document.querySelector(".results__title");
 const resultsCards = document.querySelector(".results__cards");
+
 const btnVerMas = document.querySelector(".results__button");
+
+let pageTotalCount = 0;
+let pageCount = 0;
+let pageOffset = 0;
 
 /**
  * Functions that load with the page.
@@ -29,7 +35,7 @@ function search() {
     const { search } = GiphyApi;
 
     resultsTitle.innerText = capitalize(inputSearch.value);
-    document.querySelector(".results__container").style.display = "flex";
+    resultsContainer.style.display = "flex";
     resultsCards.innerHTML = "";
 
     search(inputSearch.value)
@@ -142,12 +148,19 @@ function searchReset() {
     isSearchingState(false);
 }
 
+function searchVerMas() {
+
+}
+
 /**
  * Events
  */
 
 window.addEventListener("load", onLoad);
+
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
-btnVerMas.addEventListener("click", search);
 inputX.addEventListener("click", searchReset);
+
 suggestedList.addEventListener("click", onSuggestedItemClicked);
+
+btnVerMas.addEventListener("click", searchVerMas);

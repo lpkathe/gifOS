@@ -46,8 +46,9 @@
             <div class="search__box">
                 <div class="search__box__main">
                     <input class="search__box__input" list="suggestedSearch" id="inputSearch" type="text"
-                    autocomplete="off" placeholder="Busca GIFOS y más" name="search">
-                    <picture class="search__box__icon-list"><img src="assets/icon-search-list.svg" alt="Search icon"></picture>
+                        autocomplete="off" placeholder="Busca GIFOS y más" name="search">
+                    <picture class="search__box__icon-list"><img src="assets/icon-search-list.svg" alt="Search icon">
+                    </picture>
                     <input class="search__box__icon" type="image" alt="Submit" src="assets/icon-search.svg"
                         id="iconSearch" value="Send info">
                     <input class="search__box__x" type="image" alt="Reset" src="assets/close.svg" id="iconX"
@@ -60,7 +61,17 @@
             <p class="search__p">Reactions, Entertainment, Sports, Stickers, Artists</p>
             <div class="results__container">
                 <h2 class="results__title">Mascotas</h2>
-                <div class="results__cards"></div>
+                <div class="results__cards">
+                    <img class="results__card">
+                    <div class="results__card__options">
+                        <a class="results__card__favorites" href="assets/icon-favoritos.svg"><button></button></a>
+                        <a class="results__card__download" href="assets/icon-download.svg"><button></button></a>
+                        <a class="results__card__max-size" href="assets/icon-max.svg"><button></button></a>
+                    </div>
+                    <p class="results__card__user"></p>
+                    <p class="results__card__title"></p>
+                    </img>
+                </div>
                 <button class="results__button">VER MÁS</button>
             </div>
         </section>
