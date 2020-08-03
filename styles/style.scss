@@ -93,6 +93,10 @@
             opacity: 0.5;
             border-bottom: 1px solid #FFFFFF;
         }
+
+        &__dark {
+            display: none;
+        }
     }
 
     & a {

@@ -30,7 +30,7 @@
             </div>
             <nav class="navigation">
                 <ul class="navigation__list">
-                    <li class="navigation__li"><label for="dark-mode"><a>Modo Nocturno</a></label></li>
+                    <li class="navigation__li"><label for="dark-mode"><a><span class="navigation__li__light">Modo Nocturno</span><span class="navigation__li__dark">Modo Diurno</span></a></label></li>
                     <li class="navigation__li"><a href="#favorites">Favoritos</a></li>
                     <li class="navigation__li"><a href="#my_gifos">Mis GIFOS</a></li>
                 </ul>
@@ -81,19 +81,11 @@
                 <span class="trending__p__span">Mira los últimos</span>
                 GIFOS de nuestra comunidad.</p>
             <div class="trending__slide">
-                <div class="trending__card">
-                    <img class="trending__card_gif" src="https://picsum.photos/243/187" alt="Gif">
-                </div>
-                <div class="trending__card">
-                    <img class="trending__card__gif" src="https://picsum.photos/243/187" alt="Gif">
-                </div>
-                <div class="trending__card">
-                    <img class="trending__card__gif" src="https://picsum.photos/243/187" alt="Gif">
-                </div>
-                <a class="trenging__prev" onclick="plusSlides(-1)"><button class="trenging__prev__button" type="image"
-                        src="assets/button-left.svg"></a>
-                <a class="trending__next" onclick="plusSlides(1)"><button class="trenging__next__button" type="image"
-                        src="assets/button-right.svg"></a>
+                <ul class="trending__card">
+                    <li class="trending__card__li">
+                        <a href=""></a><img class="trending__card_gif" src="https://picsum.photos/243/187" alt="Gif">
+                    </li>
+                </ul>
             </div>
         </section>
         <footer class="footer">

@@ -22,6 +22,7 @@ let pageCount = 0;
 let pageTotalCount = 0;
 const pageItems = 12;
 
+const slideGif = document.querySelector(".trending__card");
 /**
  * Functions that load with the page.
  */
@@ -155,12 +156,18 @@ function onSuggestedItemClicked(suggested) {
     search();
 };
 
+/**
+ * Clear de search box
+ */
 function searchReset() {
     suggestedList.innerText = "";
     inputSearch.value = "";
     isSearchingState(false);
 }
 
+/**
+ * Control the results button
+ */
 function searchVerMas() {
     const { search } = GiphyApi;
 
@@ -182,6 +189,12 @@ function searchVerMas() {
         }).catch((error) => {
             resultsCards.innerText = "Error " + error;
         });
+}
+
+function trendingSlide() {
+    const { trendingGifs } = GiphyApi;
+
+
 }
 
 /**

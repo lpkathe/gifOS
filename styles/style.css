@@ -83,6 +83,8 @@
     content: "";
     opacity: 0.5;
     border-bottom: 1px solid #FFFFFF; }
+  .navigation__li__dark {
+    display: none; }
 .navigation a {
   color: #FFFFFF;
   text-decoration: none; }
