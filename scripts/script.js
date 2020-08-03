@@ -5,11 +5,13 @@ import GiphyApi from './GiphyApi.js';
  */
 const inputSearch = document.getElementById("inputSearch");
 const iconSearch = document.getElementById("iconSearch");
-const suggestedList = document.querySelector(".search__form__list");
+const suggestedList = document.querySelector(".search__box__list");
 const pTrendingCategories = document.querySelector(".search__p");
 const resultsContainer = document.querySelector("results__container");
 const resultsTitle = document.querySelector(".results__title");
 const resultsCards = document.querySelector(".results__cards");
+const btnVerMas = document.querySelector(".results__button");
+const inputX = document.querySelector(".search__box__x");
 
 /**
  * Functions that load with the page.
@@ -25,6 +27,7 @@ function search(pagination) {
     const { search } = GiphyApi;
 
     resultsTitle.innerText = capitalize(inputSearch.value);
+    document.querySelector(".results__container").style.display = "flex";
     resultsCards.innerHTML = "";
 
     search(inputSearch.value)
@@ -32,11 +35,11 @@ function search(pagination) {
             response.data.forEach((element) => {
                 createCard(element.images.original.url);
             })
-        }).catch ((error) => {
-            resultsCards.innerText = "Error "+ error;
+        }).catch((error) => {
+            resultsCards.innerText = "Error " + error;
         })
-    
-    btnSearchResults(pagination);
+
+    searchReset();
 };
 
 /**
@@ -46,10 +49,10 @@ function search(pagination) {
  */
 function createCard(url) {
     const card = document.createElement("img");
-    
+
     card.src = url;
     card.className = "results__card";
-    
+
     resultsCards.appendChild(card);
 };
 
@@ -59,16 +62,16 @@ function createCard(url) {
 function getTrendingCategories() {
     const { trendingCategories } = GiphyApi;
     let list = [];
-    
+
     trendingCategories()
-    .then((response) => {
-        response.data.forEach((element) => {
-            list.push(capitalize(element.name));
+        .then((response) => {
+            response.data.forEach((element) => {
+                list.push(capitalize(element.name));
+            });
+            pTrendingCategories.innerText = list.join(', ');
+        }).catch((error) => {
+            pTrendingCategories.innerText = "Error " + error;
         });
-        pTrendingCategories.innerText = list.join(', ');
-    }) .catch ((error) => {
-        pTrendingCategories.innerText = "Error "+ error;
-    });
 };
 
 /**
@@ -83,17 +86,18 @@ function getAutocompleteSearch(event) {
         .then((response) => {
             response.data.forEach((element) => {
                 const li = document.createElement('li');
-                li.value = element.name;
-                li.className = "search__form__li";
                 suggestedList.appendChild(li);
+                li.innerText = element.name;
+                li.className = "search__box__li";
             });
-        }).catch ((error) => {
+        }).catch((error) => {
             console.log(error);
         });
-    
-    if (event.keyCode == 13) {
-        search();
-    }
+        
+        if (event.keycode === 13) {
+            search();
+            document.removeChild(li);
+        }
 };
 
 /**
@@ -101,38 +105,36 @@ function getAutocompleteSearch(event) {
  * @param {string} text 
  */
 function capitalize(text) {
-    if (text.length <= 0 ) {
+    if (text.length <= 0) {
         return "";
     }
 
-    return text.charAt(0).toUpperCase() + text.slice(1); 
+    return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
 /**
- * Create button for more results
- * @param {number} pagination 
+ * Capture API suggestions in the input search. 
+ * @param {string} suggested 
  */
-function btnSearchResults(pagination) {
-    const btnVerMas = create.Element("button");
-
-    if (pagination.element = pagination[0]){
-        resultsContainer.appendChild(btnVerMas);
-        btnVerMas.value = "VER MÁS";
-        btnVerMas.className = "results__button";
-    }
-
-    if (pagination.element = pagination.length) {
-        resultsContainer.removeChild(button);
-    } else {
-        return pagination;
-    }
+function onSuggestedItemClicked(suggested) {
+    inputSearch.value = suggested.target.innerText;
+    suggestedList.innerText = "";
+    search();
 };
+
+function searchReset() {
+    suggestedList.innerText = "";
+    inputSearch.innerText = "";
+    console.log(inputSearch)
+}
 
 /**
  * Events
  */
 
 window.addEventListener("load", onLoad);
-inputSearch.addEventListener("keypress", getAutocompleteSearch);
+inputSearch.addEventListener("keyup", getAutocompleteSearch);
 iconSearch.addEventListener("click", search);
 btnVerMas.addEventListener("click", search);
+inputX.addEventListener("click", searchReset);
+suggestedList.addEventListener("click", onSuggestedItemClicked);
