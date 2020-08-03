@@ -17,9 +17,10 @@ const resultsCards = document.querySelector(".results__cards");
 
 const btnVerMas = document.querySelector(".results__button");
 
-let pageTotalCount = 0;
-let pageCount = 0;
 let pageOffset = 0;
+let pageCount = 0;
+let pageTotalCount = 0;
+const pageItems = 12;
 
 /**
  * Functions that load with the page.
@@ -38,16 +39,26 @@ function search() {
     resultsContainer.style.display = "flex";
     resultsCards.innerHTML = "";
 
-    search(inputSearch.value)
+    search(inputSearch.value, pageItems)
         .then((response) => {
+            pageOffset = response.pagination.offset;
+            pageTotalCount = response.pagination.total_count;
+            pageCount = pageTotalCount - (response.pagination.count + pageOffset);
+
+            if (pageCount < 1) {
+                btnVerMas.style.display = "none";
+            } else {
+                btnVerMas.style.display = "inline";
+            };
+
             response.data.forEach((element) => {
                 createCard(element.images.original.url);
             })
         }).catch((error) => {
             resultsCards.innerText = "Error " + error;
-        })
+        });
 
-    searchReset();
+    isSearchingState(false);
 };
 
 /**
@@ -88,8 +99,15 @@ function getTrendingCategories() {
 function getAutocompleteSearch(event) {
     const { autocompleteSearch } = GiphyApi;
 
+    isSearchingState(inputSearch.value.length != 0 && event.keyCode !== 13);
+
+    if (event.keyCode == 13) {
+        search();
+        return;
+    }
+
     autocompleteSearch(inputSearch.value)
-    .then((response) => {
+        .then((response) => {
             suggestedList.innerText = "";
             response.data.forEach((element) => {
                 const li = document.createElement('li');
@@ -100,12 +118,6 @@ function getAutocompleteSearch(event) {
         }).catch((error) => {
             console.log(error);
         });
-        
-        if (event.keycode === 13) {
-            search();
-        }
-
-        isSearchingState (inputSearch.value.length != 0);
 };
 
 function isSearchingState(isSearching = true) {
@@ -117,6 +129,7 @@ function isSearchingState(isSearching = true) {
         inputX.style.display = "none";
         inputSearchRightIcon.style.display = "inline";
         inputSearchLeftIcon.style.visibility = "hidden";
+        suggestedList.innerText = "";
     }
 };
 
@@ -149,7 +162,26 @@ function searchReset() {
 }
 
 function searchVerMas() {
+    const { search } = GiphyApi;
 
+    search(inputSearch.value, pageItems, pageOffset + pageItems)
+        .then((response) => {
+            pageOffset = response.pagination.offset;
+            pageTotalCount = response.pagination.total_count;
+            pageCount = pageTotalCount - (response.pagination.count + pageOffset);
+
+            if (pageCount < 1) {
+                btnVerMas.style.display = "none";
+            } else {
+                btnVerMas.style.display = "inline";
+            };
+
+            response.data.forEach((element) => {
+                createCard(element.images.original.url);
+            })
+        }).catch((error) => {
+            resultsCards.innerText = "Error " + error;
+        });
 }
 
 /**

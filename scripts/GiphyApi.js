@@ -5,9 +5,9 @@ const urlTrending = domain + "categories";
 const apiKey = `api_key=RdoBL837xzyR4wgjoqf8FocqUIoxGh0q`;
 
 const GiphyApi = {
-    search: ((input, limit = 12) => {
+    search: ((input, limit, offset = 0) => {
         return new Promise((resolve, reject) => {
-            fetch(`${urlSearch}?${apiKey}&q=${input}&limit=${limit}&offset=0`)
+            fetch(`${urlSearch}?${apiKey}&q=${input}&limit=${limit}&offset=${offset}`)
             .then((response) => resolve(response.json()))
             .catch((error) => reject(error))
           });
