@@ -155,21 +155,7 @@
       width: 210px;
       border: 0;
       outline: #572EE5;
-      text-align: left;
-            /*&:focus {
-
-                & ~ .search__box__icon-list {
-                    visibility: visible;
-                }
-
-                & ~ .search__box__icon {
-                    display: none;
-                }
-
-                & ~ .search__box__x {
-                    display: inline;
-                }
-            }*/ }
+      text-align: left; }
       .search__box__input::-webkit-calendar-picker-indicator {
         display: none; }
     .search__box__icon {
@@ -246,14 +232,16 @@
   font-size: 25px;
   line-height: 40px; }
 .results__cards {
-  margin: 38px auto 78px auto;
+  margin: 13px auto 78px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
 .results__card {
-  margin: 12.5px 10.5px;
+  margin-top: 25px;
   height: 120px;
   width: 156px; }
 .results__button {

@@ -4,14 +4,16 @@ import GiphyApi from './GiphyApi.js';
  * Global variables
  */
 const inputSearch = document.getElementById("inputSearch");
-const iconSearch = document.getElementById("iconSearch");
+const inputX = document.querySelector(".search__box__x");
+const inputSearchRightIcon = document.querySelector(".search__box__icon");
+const inputSearchLeftIcon = document.querySelector(".search__box__icon-list");
+
 const suggestedList = document.querySelector(".search__box__list");
 const pTrendingCategories = document.querySelector(".search__p");
 const resultsContainer = document.querySelector("results__container");
 const resultsTitle = document.querySelector(".results__title");
 const resultsCards = document.querySelector(".results__cards");
 const btnVerMas = document.querySelector(".results__button");
-const inputX = document.querySelector(".search__box__x");
 
 /**
  * Functions that load with the page.
@@ -23,7 +25,7 @@ function onLoad() {
 /**
  * Get gifs of the search results and display then on html
  */
-function search(pagination) {
+function search() {
     const { search } = GiphyApi;
 
     resultsTitle.innerText = capitalize(inputSearch.value);
@@ -80,10 +82,9 @@ function getTrendingCategories() {
 function getAutocompleteSearch(event) {
     const { autocompleteSearch } = GiphyApi;
 
-    suggestedList.innerText = "";
-
     autocompleteSearch(inputSearch.value)
-        .then((response) => {
+    .then((response) => {
+            suggestedList.innerText = "";
             response.data.forEach((element) => {
                 const li = document.createElement('li');
                 suggestedList.appendChild(li);
@@ -96,8 +97,21 @@ function getAutocompleteSearch(event) {
         
         if (event.keycode === 13) {
             search();
-            document.removeChild(li);
         }
+
+        isSearchingState (inputSearch.value.length != 0);
+};
+
+function isSearchingState(isSearching = true) {
+    if (isSearching) {
+        inputX.style.display = "inline";
+        inputSearchRightIcon.style.display = "none";
+        inputSearchLeftIcon.style.visibility = "visible";
+    } else {
+        inputX.style.display = "none";
+        inputSearchRightIcon.style.display = "inline";
+        inputSearchLeftIcon.style.visibility = "hidden";
+    }
 };
 
 /**
@@ -124,8 +138,8 @@ function onSuggestedItemClicked(suggested) {
 
 function searchReset() {
     suggestedList.innerText = "";
-    inputSearch.innerText = "";
-    console.log(inputSearch)
+    inputSearch.value = "";
+    isSearchingState(false);
 }
 
 /**
@@ -134,7 +148,6 @@ function searchReset() {
 
 window.addEventListener("load", onLoad);
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
-iconSearch.addEventListener("click", search);
 btnVerMas.addEventListener("click", search);
 inputX.addEventListener("click", searchReset);
 suggestedList.addEventListener("click", onSuggestedItemClicked);

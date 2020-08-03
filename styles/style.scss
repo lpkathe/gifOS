@@ -175,21 +175,6 @@
             &::-webkit-calendar-picker-indicator {
                 display: none;
             }
-
-            /*&:focus {
-
-                & ~ .search__box__icon-list {
-                    visibility: visible;
-                }
-
-                & ~ .search__box__icon {
-                    display: none;
-                }
-
-                & ~ .search__box__x {
-                    display: inline;
-                }
-            }*/
         }
 
         &__icon {
@@ -290,16 +275,16 @@
     }
 
     &__cards {
-        margin: 38px auto 78px auto;
+        margin: 13px auto 78px auto;
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-around;
     }
     
     &__card {
-        margin: 12.5px 10.5px;
+        margin-top: 25px;
         height: 120px;
         width: 156px;
-
     }
 
     &__button {
