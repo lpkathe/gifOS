@@ -22,7 +22,9 @@ let pageCount = 0;
 let pageTotalCount = 0;
 const pageItems = 12;
 
-const slideGif = document.querySelector(".trending__card");
+const slideContainer = document.querySelector(".trending__slide");
+const timeMove = setInterval(SlideMove, 1);
+
 /**
  * Functions that load with the page.
  */
@@ -121,6 +123,10 @@ function getAutocompleteSearch(event) {
         });
 };
 
+/**
+ * Verify search action
+ * @param {Boolean} isSearching 
+ */
 function isSearchingState(isSearching = true) {
     if (isSearching) {
         inputX.style.display = "inline";
@@ -163,7 +169,7 @@ function searchReset() {
     suggestedList.innerText = "";
     inputSearch.value = "";
     isSearchingState(false);
-}
+};
 
 /**
  * Control the results button
@@ -189,13 +195,34 @@ function searchVerMas() {
         }).catch((error) => {
             resultsCards.innerText = "Error " + error;
         });
-}
+};
 
 function trendingSlide() {
     const { trendingGifs } = GiphyApi;
 
+    trendingGifs()
+    .then((response) => 
+    response.data.forEach((element) => {
+        createGifCard(element.images.original);
+    }).catch((error) => {
+        resultsCards.innerText = "Error " + error;
+    }),
+)};
 
+function createGifCard() {
+    const card = document.createElement("img");
+    trendingSlide.appendChild(card);
+
+    card.className = "trending__card";
 }
+
+let Slide = new TunaCarousel (slideContainer, 100, rtl);
+Slide.controlesCarousel();
+
+  
+function slideMove() {
+    Slide.move();
+};
 
 /**
  * Events
