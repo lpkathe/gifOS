@@ -8,7 +8,7 @@
         letter-spacing: 0;
     }
     
-    .bar_container {
+    .top-bar {
         height: max-content;
         width: 100%;
     }
@@ -19,11 +19,14 @@
             height: 59.1px;
             width: 59.1px;
             
-            &__light-mode {
+            &__light {
                 display: none;
                 
                 &-desktop {
+                    height: 59.1px;
+                    width: 59.1px;
                     display: inline;
+                    box-sizing: content-box;
                 }
             }
         }

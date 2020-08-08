@@ -299,17 +299,15 @@
       line-height: 23px;
       text-align: center; }
   .trending__slide {
-    margin: auto;
-    padding: 32px auto 82px auto;
-    max-width: 1000px;
-    position: relative;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: -webkit-sticky;
+    position: sticky; }
   .trending__card {
-    margin: 0 11px;
+    margin: 32px 11px 82px 11px;
     height: 187px;
-    width: 243px;
-    display: none; }
+    width: 243px; }
 
 .footer {
   height: 201px;
@@ -350,8 +348,8 @@
         text-decoration: none; }
         .footer__social-network__icons a:nth-child(3) {
           margin-right: 0; }
-        .footer__social-network__icons a svg > path:hover {
-          fill: #572EE5; }
+        .footer__social-network__icons a i:hover {
+          color: #572EE5; }
     .footer__social-network__p {
       margin: 47px auto 22px auto; }
   .footer__p {

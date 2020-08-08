@@ -22,46 +22,43 @@ let pageCount = 0;
 let pageTotalCount = 0;
 const pageItems = 12;
 
-const slideContainer = document.querySelector(".trending__slide");
-const timeMove = setInterval(SlideMove, 1);
-
 /**
  * Functions that load with the page.
  */
 function onLoad() {
-    getTrendingCategories();
+  getTrendingCategories();
 };
 
 /**
  * Get gifs of the search results and display then on html
  */
 function search() {
-    const { search } = GiphyApi;
+  const { search } = GiphyApi;
 
-    resultsTitle.innerText = capitalize(inputSearch.value);
-    resultsContainer.style.display = "flex";
-    resultsCards.innerHTML = "";
+  resultsTitle.innerText = capitalize(inputSearch.value);
+  resultsContainer.style.display = "flex";
+  resultsCards.innerHTML = "";
 
-    search(inputSearch.value, pageItems)
-        .then((response) => {
-            pageOffset = response.pagination.offset;
-            pageTotalCount = response.pagination.total_count;
-            pageCount = pageTotalCount - (response.pagination.count + pageOffset);
+  search(inputSearch.value, pageItems)
+    .then((response) => {
+      pageOffset = response.pagination.offset;
+      pageTotalCount = response.pagination.total_count;
+      pageCount = pageTotalCount - (response.pagination.count + pageOffset);
 
-            if (pageCount < 1) {
-                btnVerMas.style.display = "none";
-            } else {
-                btnVerMas.style.display = "inline";
-            };
+      if (pageCount < 1) {
+        btnVerMas.style.display = "none";
+      } else {
+        btnVerMas.style.display = "inline";
+      };
 
-            response.data.forEach((element) => {
-                createCard(element.images.original.url);
-            })
-        }).catch((error) => {
-            resultsCards.innerText = "Error " + error;
-        });
+      response.data.forEach((element) => {
+        createCard(element.images.original.url);
+      })
+    }).catch((error) => {
+      resultsCards.innerText = "Error " + error;
+    });
 
-    isSearchingState(false);
+  isSearchingState(false);
 };
 
 /**
@@ -70,57 +67,57 @@ function search() {
  * @param {string} title 
  */
 function createCard(url) {
-    const card = document.createElement("img");
+  const card = document.createElement("img");
 
-    card.src = url;
-    card.className = "results__card";
+  card.src = url;
+  card.className = "results__card";
 
-    resultsCards.appendChild(card);
+  resultsCards.appendChild(card);
 };
 
 /**
  * Get trending titles
  */
 function getTrendingCategories() {
-    const { trendingCategories } = GiphyApi;
-    let list = [];
+  const { trendingCategories } = GiphyApi;
+  let list = [];
 
-    trendingCategories()
-        .then((response) => {
-            response.data.forEach((element) => {
-                list.push(capitalize(element.name));
-            });
-            pTrendingCategories.innerText = list.join(', ');
-        }).catch((error) => {
-            pTrendingCategories.innerText = "Error " + error;
-        });
+  trendingCategories()
+    .then((response) => {
+      response.data.forEach((element) => {
+        list.push(capitalize(element.name));
+      });
+      pTrendingCategories.innerText = list.join(', ');
+    }).catch((error) => {
+      pTrendingCategories.innerText = "Error " + error;
+    });
 };
 
 /**
  * Suggestion search
  */
 function getAutocompleteSearch(event) {
-    const { autocompleteSearch } = GiphyApi;
+  const { autocompleteSearch } = GiphyApi;
 
-    isSearchingState(inputSearch.value.length != 0 && event.keyCode !== 13);
+  isSearchingState(inputSearch.value.length != 0 && event.keyCode !== 13);
 
-    if (event.keyCode == 13) {
-        search();
-        return;
-    }
+  if (event.keyCode == 13) {
+    search();
+    return;
+  }
 
-    autocompleteSearch(inputSearch.value)
-        .then((response) => {
-            suggestedList.innerText = "";
-            response.data.forEach((element) => {
-                const li = document.createElement('li');
-                suggestedList.appendChild(li);
-                li.innerText = element.name;
-                li.className = "search__box__li";
-            });
-        }).catch((error) => {
-            console.log(error);
-        });
+  autocompleteSearch(inputSearch.value)
+    .then((response) => {
+      suggestedList.innerText = "";
+      response.data.forEach((element) => {
+        const li = document.createElement('li');
+        suggestedList.appendChild(li);
+        li.innerText = element.name;
+        li.className = "search__box__li";
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
 };
 
 /**
@@ -128,16 +125,16 @@ function getAutocompleteSearch(event) {
  * @param {Boolean} isSearching 
  */
 function isSearchingState(isSearching = true) {
-    if (isSearching) {
-        inputX.style.display = "inline";
-        inputSearchRightIcon.style.display = "none";
-        inputSearchLeftIcon.style.visibility = "visible";
-    } else {
-        inputX.style.display = "none";
-        inputSearchRightIcon.style.display = "inline";
-        inputSearchLeftIcon.style.visibility = "hidden";
-        suggestedList.innerText = "";
-    }
+  if (isSearching) {
+    inputX.style.display = "inline";
+    inputSearchRightIcon.style.display = "none";
+    inputSearchLeftIcon.style.visibility = "visible";
+  } else {
+    inputX.style.display = "none";
+    inputSearchRightIcon.style.display = "inline";
+    inputSearchLeftIcon.style.visibility = "hidden";
+    suggestedList.innerText = "";
+  }
 };
 
 /**
@@ -145,11 +142,11 @@ function isSearchingState(isSearching = true) {
  * @param {string} text 
  */
 function capitalize(text) {
-    if (text.length <= 0) {
-        return "";
-    }
+  if (text.length <= 0) {
+    return "";
+  }
 
-    return text.charAt(0).toUpperCase() + text.slice(1);
+  return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
 /**
@@ -157,71 +154,44 @@ function capitalize(text) {
  * @param {string} suggested 
  */
 function onSuggestedItemClicked(suggested) {
-    inputSearch.value = suggested.target.innerText;
-    suggestedList.innerText = "";
-    search();
+  inputSearch.value = suggested.target.innerText;
+  suggestedList.innerText = "";
+  search();
 };
 
 /**
  * Clear de search box
  */
 function searchReset() {
-    suggestedList.innerText = "";
-    inputSearch.value = "";
-    isSearchingState(false);
+  suggestedList.innerText = "";
+  inputSearch.value = "";
+  isSearchingState(false);
 };
 
 /**
  * Control the results button
  */
 function searchVerMas() {
-    const { search } = GiphyApi;
+  const { search } = GiphyApi;
 
-    search(inputSearch.value, pageItems, pageOffset + pageItems)
-        .then((response) => {
-            pageOffset = response.pagination.offset;
-            pageTotalCount = response.pagination.total_count;
-            pageCount = pageTotalCount - (response.pagination.count + pageOffset);
+  search(inputSearch.value, pageItems, pageOffset + pageItems)
+    .then((response) => {
+      pageOffset = response.pagination.offset;
+      pageTotalCount = response.pagination.total_count;
+      pageCount = pageTotalCount - (response.pagination.count + pageOffset);
 
-            if (pageCount < 1) {
-                btnVerMas.style.display = "none";
-            } else {
-                btnVerMas.style.display = "inline";
-            };
+      if (pageCount < 1) {
+        btnVerMas.style.display = "none";
+      } else {
+        btnVerMas.style.display = "inline";
+      };
 
-            response.data.forEach((element) => {
-                createCard(element.images.original.url);
-            })
-        }).catch((error) => {
-            resultsCards.innerText = "Error " + error;
-        });
-};
-
-function trendingSlide() {
-    const { trendingGifs } = GiphyApi;
-
-    trendingGifs()
-    .then((response) => 
-    response.data.forEach((element) => {
-        createGifCard(element.images.original);
+      response.data.forEach((element) => {
+        createCard(element.images.original.url);
+      })
     }).catch((error) => {
-        resultsCards.innerText = "Error " + error;
-    }),
-)};
-
-function createGifCard() {
-    const card = document.createElement("img");
-    trendingSlide.appendChild(card);
-
-    card.className = "trending__card";
-}
-
-let Slide = new TunaCarousel (slideContainer, 100, rtl);
-Slide.controlesCarousel();
-
-  
-function slideMove() {
-    Slide.move();
+      resultsCards.innerText = "Error " + error;
+    });
 };
 
 /**

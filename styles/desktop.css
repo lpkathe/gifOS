@@ -6,7 +6,7 @@
     text-align: center;
     letter-spacing: 0; }
 
-  .bar_container {
+  .top-bar {
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
@@ -15,10 +15,14 @@
   .nav-bar__logo {
     height: 59.1px;
     width: 59.1px; }
-    .nav-bar__logo__light-mode {
+    .nav-bar__logo__light {
       display: none; }
-      .nav-bar__logo__light-mode-desktop {
-        display: inline; }
+      .nav-bar__logo__light-desktop {
+        height: 59.1px;
+        width: 59.1px;
+        display: inline;
+        -webkit-box-sizing: content-box;
+                box-sizing: content-box; }
 
   .menu {
     display: none; }
