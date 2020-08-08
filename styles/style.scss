@@ -389,23 +389,24 @@
     &__icons {
       margin-bottom: 46px;
       justify-content: space-around;
+    }
         
-      & a {
-        margin-right: 19px;
-        height: min-content;
-        width: min-content;
-        text-decoration: none;
+    &__icon {
+      margin-right: 19px;
+      height: min-content;
+      width: min-content;
+      text-decoration: none;
+      color: rgb(195,204, 216);
 
-        &:nth-child(3) {
-          margin-right: 0;
-        }
-        
-        & i:hover {
-          color: #572EE5;
-        }
+      &:nth-child(3) {
+        margin-right: 0;
+      }
+      
+      & i:hover {
+        color: #572EE5;
       }
     }
-   
+  
     &__p {
       margin: 47px auto 22px auto;
     }
