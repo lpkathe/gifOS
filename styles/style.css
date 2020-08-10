@@ -213,7 +213,8 @@
     line-height: 25px; }
   .search__p {
     margin: 0;
-    width: 225px; }
+    width: 225px;
+    text-transform: capitalize; }
 
 .results__container {
   margin: 35px auto 0 auto;
@@ -304,11 +305,13 @@
     display: -ms-flexbox;
     display: flex;
     position: -webkit-sticky;
-    position: sticky; }
+    position: sticky;
+    overflow-x: scroll; }
   .trending__card {
     margin: 32px 11px 82px 11px;
     height: 187px;
-    width: 243px; }
+    width: 243px;
+    display: inline-block; }
 
 .footer {
   height: 201px;

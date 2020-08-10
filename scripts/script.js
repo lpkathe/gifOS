@@ -85,7 +85,7 @@ function getTrendingCategories() {
   trendingCategories()
     .then((response) => {
       response.data.forEach((element) => {
-        list.push(capitalize(element.name));
+        list.push(element.name);
       });
       pTrendingCategories.innerText = list.join(', ');
     }).catch((error) => {
@@ -141,13 +141,7 @@ function isSearchingState(isSearching = true) {
  * make first letter of a string uppercase
  * @param {string} text 
  */
-function capitalize(text) {
-  if (text.length <= 0) {
-    return "";
-  }
 
-  return text.charAt(0).toUpperCase() + text.slice(1);
-};
 
 /**
  * Capture API suggestions in the input search. 

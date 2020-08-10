@@ -255,7 +255,8 @@
     margin: 0;
     width: 225px;
     @extend .montserrat-medium;
-  }
+    text-transform: capitalize;
+  }  
 }
 
 .results {
@@ -363,12 +364,14 @@
   &__slide {
     display: flex;
     position: sticky;
+    overflow-x: scroll
   }
 
   &__card {
     margin: 32px 11px 82px 11px;
     height: 187px;
     width: 243px;
+    display: inline-block;
   }
 }
 
