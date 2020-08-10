@@ -164,13 +164,20 @@
       display: flex;
       justify-content: space-around;
     }
-
-    &__icon-list {
+    
+    &__icon {
       height: 20px;
       width: 20px;
-      left: 25px;
-      position: absolute;
-      visibility: hidden;
+      color: #572ee5;
+      
+      &-list {
+        height: 20px;
+        width: 20px;
+        left: 25px;
+        position: absolute;
+        visibility: hidden;
+        color: rgb(152, 170, 190);
+      }
     }
 
     &__input {
@@ -185,12 +192,6 @@
       &::-webkit-calendar-picker-indicator {
         display: none;
       }
-    }
-
-    &__icon {
-      height: 20px;
-      width: 20px;
-      outline: none;
     }
 
     &__x {
