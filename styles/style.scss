@@ -199,6 +199,7 @@
       height: 14px;
       width: 14px;
       display: none;
+      color: #572EE5;
     }
     
     &__list {
@@ -224,18 +225,14 @@
     &__li {
       padding: 5px;
       @extend .roboto-regular;
-      color: #9CAFC3;
       cursor: pointer;
+      list-style-image: url(/assets/icon-search.svg);
       
       &::before {
         margin-right: 14.6px;
         height: 10px;
         width: 10px;
         display: inline-block;
-        content: "";
-        background-color: #9CAFC3;
-        mask-image: url("/assets/icon-search.svg");
-        mask-size: cover;
       }
 
       &:nth-child(1) {
