@@ -35,7 +35,7 @@ function onLoad() {
 function search() {
   const { search } = GiphyApi;
 
-  resultsTitle.innerText = capitalize(inputSearch.value);
+  resultsTitle.innerText = inputSearch.value;
   resultsContainer.style.display = "flex";
   resultsCards.innerHTML = "";
 
@@ -136,12 +136,6 @@ function isSearchingState(isSearching = true) {
     suggestedList.innerText = "";
   }
 };
-
-/**
- * make first letter of a string uppercase
- * @param {string} text 
- */
-
 
 /**
  * Capture API suggestions in the input search. 
