@@ -60,14 +60,15 @@
     color: #FFFFFF;
     background: rgba(87,46,229,0.90);
     transition: left .5s ease-in-out;
+
   }
-        
+  
   &__li {
     padding: 1em;
     height: 60px;
     position: relative;
     text-align: center;
-
+    
     &::after {
       width: 41px;
       left: 45%;
@@ -77,26 +78,30 @@
       opacity: 0.5;
       border-bottom: 1px solid #FFFFFF;
     }
-
+    
     &__dark {
       display: none;
     }
-  }
 
-  & a {
-    color: #FFFFFF;
-    text-decoration: none;
-      
-    &:hover {
-      letter-spacing: 0;
-      text-decoration: underline;
-      text-decoration-color: #5ED7C6;
-    }
-
-    &:active {
-      color: #9CAFC3;
+    & a {
+      color: #FFFFFF;
       text-decoration: none;
+        
+      &:hover {
+        letter-spacing: 0;
+        text-decoration: underline;
+        text-decoration-color: #5ED7C6;
+      }
+  
+      &:active {
+        color: #9CAFC3;
+        text-decoration: none;
+      }
     }
+  }
+  
+  &__button {
+    display: none;
   }
 }
 
