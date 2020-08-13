@@ -203,6 +203,8 @@
         width: 10px; }
       .search__box__li:nth-child(1) {
         padding-top: 14px; }
+      .search__box__li:last-child {
+        padding-bottom: 15px; }
   .search__title {
     margin: 31px auto 2px auto;
     font-size: 16px;

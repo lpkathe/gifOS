@@ -234,6 +234,10 @@
       &:nth-child(1) {
         padding-top: 14px;
       }
+
+      &:last-child {
+        padding-bottom: 15px;
+      }
     }
   }
 
