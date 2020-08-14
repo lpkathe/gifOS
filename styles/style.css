@@ -347,6 +347,7 @@
       width: -webkit-min-content;
       width: -moz-min-content;
       width: min-content;
+      font-size: 20px;
       text-decoration: none;
       color: #c3ccd8; }
       .footer__social-network__icon:nth-child(3) {

@@ -74,9 +74,6 @@
         color: #572EE5; }
     .navigation__mas {
       text-decoration: none; }
-      .navigation__mas:active {
-        color: #FFFFFF;
-        background: #9CAFC3; }
     .navigation__button {
       height: 54px;
       width: 54px;
@@ -89,6 +86,10 @@
       .navigation__button:hover {
         color: #FFFFFF;
         background: #572EE5; }
+      .navigation__button:active {
+        border: #9CAFC3;
+        color: #FFFFFF;
+        background: #9CAFC3; }
 
   .section__trending__p {
     width: 402px; } }

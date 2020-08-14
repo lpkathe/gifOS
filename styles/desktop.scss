@@ -68,11 +68,6 @@
 
     &__mas {
       text-decoration: none;
-
-      &:active {
-        color: #FFFFFF;
-        background: #9CAFC3;
-      }
     }
 
     &__button {
@@ -88,6 +83,12 @@
       &:hover {
         color: #FFFFFF;
         background: #572EE5;
+      }
+
+      &:active {
+        border: #9CAFC3;
+        color: #FFFFFF;
+        background: #9CAFC3;
       }
     }
   }
