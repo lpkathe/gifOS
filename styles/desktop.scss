@@ -1,5 +1,5 @@
 @media (min-width: 767px) {
-    
+
   .montserrat-bold-desktop {
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
@@ -17,6 +17,8 @@
     padding: 0 75px;
     height: 95px;
     width: 100%;
+    top: 0;
+    position: sticky;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -50,10 +52,11 @@
       top: 0px;
       left: 0px;
       position: relative;
+      z-index: 5;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-      background-color:#FFFFFF;
+      background-color: transparent;
     }  
 
     &__li {
@@ -67,9 +70,11 @@
     }
 
     &__mas {
+      display: flex;
+      justify-content: center;
       text-decoration: none;
     }
-
+    
     &__button {
       height: 54px;
       width: 54px;
@@ -93,7 +98,44 @@
     }
   }
 
-    .section__trending__p {
-        width: 402px;
+  .header {
+
+    &__title {
+      height: 100px;
+      width: 450px;
     }
+  }
+
+  .search {
+    z-index: 4;
+
+    &__picture {
+      height: 190px;
+
+      &__image {
+        height: 190px;
+        width: 399px;
+      }
+    }
+
+    &__box {
+      width: 551px;
+      top: 19px;
+      right: 150px;
+      position: sticky;
+
+      &__main {
+        justify-content: space-between;
+      }
+
+      &__input {
+        z-index: 3;
+        background: transparent;
+      }
+    }
+  }
+
+  .section__trending__p {
+    width: 402px;
+  }
 }
