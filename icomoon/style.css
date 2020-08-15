@@ -832,7 +832,7 @@
 }
 .icon-icon-download:before {
   content: "\e9a5";
-  /* color: #572ee5; */
+  color: #572ee5;
 }
 .icon-icon-fav-active:before {
   content: "\e9a6";
@@ -840,7 +840,7 @@
 }
 .icon-icon-fav-hover:before {
   content: "\e9a7";
-  /* color: #572ee5; */
+  color: #572ee5;
 }
 .icon-icon-fav-sin-contenido .path1:before {
   content: "\e9a8";
@@ -876,7 +876,7 @@
 }
 .icon-icon-max:before {
   content: "\e9af";
-  /* color: #572ee5; */
+  color: #572ee5;
 }
 .icon-icon-mis-gifos-sin-contenido .path1:before {
   content: "\e9b0";

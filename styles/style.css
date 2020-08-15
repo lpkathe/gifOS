@@ -12,7 +12,7 @@
   line-height: 60px;
   text-align: center; }
 
-.roboto-regular, .search__box__input, .search__box__li, .trending__p, .trending__p__span {
+.roboto-regular, .search__box__input, .search__box__li, .trending__p, .trending__p__span, .trending__card__user, .trending__card__title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   text-align: left;
@@ -138,7 +138,8 @@
         -ms-flex-align: stretch;
             align-items: stretch;
     border: 1px solid #572EE5;
-    border-radius: 27px; }
+    border-radius: 27px;
+    z-index: 10; }
     .search__box__main {
       margin: 14px 0 10px 0;
       position: relative;
@@ -252,16 +253,6 @@
   height: 120px;
   width: 156px;
   position: relative; }
-  .results__card__options {
-    width: 260px;
-    top: 0;
-    position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    justify-items: flex-end; }
 .results__button {
   margin: 0 auto 34px auto;
   height: 50px;
@@ -287,7 +278,7 @@
     margin: 44px auto 9px auto;
     padding-top: 44px;
     height: 30px;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 30px; }
   .trending__p {
     margin: 0;
@@ -305,11 +296,52 @@
     position: -webkit-sticky;
     position: sticky;
     overflow-x: scroll; }
-  .trending__card {
+  .trending__hover {
     margin: 32px 11px 82px 11px;
     height: 187px;
     width: 243px;
-    display: inline-block; }
+    background: #572EE5; }
+  .trending__card {
+    margin: 0;
+    height: 187px;
+    width: 243px;
+    position: relative;
+    display: inline-block;
+    opacity: 0.6;
+    cursor: pointer; }
+    .trending__card__user {
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      text-transform: capitalize; }
+    .trending__card__title {
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      text-transform: capitalize; }
+  .trending__buttons {
+    top: 37px;
+    left: 160px;
+    position: absolute;
+    display: inline-block;
+    opacity: 0.7;
+    cursor: pointer; }
+  .trending__button {
+    padding: 0;
+    height: 25px;
+    width: 25px;
+    z-index: 4;
+    border: 0;
+    border-radius: 6px;
+    outline: none;
+    text-align: center;
+    background: #FFFFFF;
+    cursor: pointer; }
+  .trending__options {
+    font-size: 12px;
+    opacity: 0.7;
+    background: #FFFFFF;
+    border-radius: 6px; }
 
 .footer {
   height: 201px;

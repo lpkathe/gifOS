@@ -151,6 +151,7 @@
     align-items: stretch;
     border: 1px solid #572EE5;
     border-radius: 27px;
+    z-index: 10;
     
     &__main {
       margin: 14px 0 10px 0;
@@ -296,15 +297,6 @@
     height: 120px;
     width: 156px;
     position: relative;
-
-    &__options {
-      width: 260px;
-      top: 0;
-      position: absolute;
-      display: flex;
-      justify-content: space-around;
-      justify-items: flex-end;
-    }
   }
 
   &__button {
@@ -339,7 +331,7 @@
     padding-top: 44px;
     height: 30px;
     @extend .montserrat-bold;
-    font-size: 25px;
+    font-size: 20px;
     line-height: 30px;
   }
     
@@ -364,11 +356,70 @@
     overflow-x: scroll;
   }
 
-  &__card {
+  &__hover {
     margin: 32px 11px 82px 11px;
     height: 187px;
     width: 243px;
+    background: #572EE5;
+    //visibility: hidden;
+  }
+
+  &__card {
+    margin: 0;
+    height: 187px;
+    width: 243px;
+    position: relative;
     display: inline-block;
+    opacity: 0.6;
+    cursor: pointer;
+
+    &__user {
+      @extend .roboto-regular;
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      text-transform: capitalize;
+      //visibility: hidden;
+    }
+  
+    &__title {
+      @extend .roboto-regular;
+      font-size: 15px;
+      color: #FFFFFF;
+      text-align: center;
+      text-transform: capitalize;
+      //visibility: hidden;
+    }
+  }
+
+  &__buttons {
+    top: 37px;
+    left: 160px;
+    position: absolute;
+    display: inline-block;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+  &__button {
+    padding: 0;
+    height: 25px;
+    width: 25px;
+    z-index: 4;
+    border: 0;
+    border-radius: 6px;
+    outline: none;
+    text-align: center;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+
+  &__options {
+    font-size: 12px;
+    opacity: 0.7;
+    background: #FFFFFF;
+    border-radius: 6px;
+    //visibility: hidden;
   }
 }
 
