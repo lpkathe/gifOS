@@ -12,9 +12,17 @@
   line-height: 60px;
   text-align: center; }
 
-.roboto-regular, .search__box__input, .search__box__li, .trending__p, .trending__p__span, .trending__card__user, .trending__card__title {
+.roboto-bold, .trending__card__title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center; }
+
+.roboto-regular, .search__box__input, .search__box__li, .trending__p, .trending__p__span, .trending__card__user {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
   text-align: left;
   color: #000000; }
 
@@ -310,11 +318,17 @@
     opacity: 0.6;
     cursor: pointer; }
     .trending__card__user {
+      top: 145px;
+      left: 20px;
+      position: absolute;
       font-size: 15px;
       color: #FFFFFF;
       text-align: center;
       text-transform: capitalize; }
     .trending__card__title {
+      top: 170px;
+      left: 20px;
+      position: absolute;
       font-size: 15px;
       color: #FFFFFF;
       text-align: center;

@@ -14,9 +14,18 @@
   text-align: center;
 }
 
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+
 .roboto-regular {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  font-weight: 400;
   text-align: left;
   color: #000000;
 }
@@ -374,6 +383,9 @@
     cursor: pointer;
 
     &__user {
+      top: 145px;
+      left: 20px;
+      position: absolute;
       @extend .roboto-regular;
       font-size: 15px;
       color: #FFFFFF;
@@ -383,7 +395,10 @@
     }
   
     &__title {
-      @extend .roboto-regular;
+      top: 170px;
+      left: 20px;
+      position: absolute;
+      @extend .roboto-bold;
       font-size: 15px;
       color: #FFFFFF;
       text-align: center;
