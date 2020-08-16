@@ -12,14 +12,14 @@
   line-height: 60px;
   text-align: center; }
 
-.roboto-bold, .trending__card__title {
+.roboto-bold, .trending__hover__title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center; }
 
-.roboto-regular, .search__box__input, .search__box__li, .trending__p, .trending__p__span, .trending__card__user {
+.roboto-regular, .search__box__input, .search__box__li, .trending__p, .trending__p__span, .trending__hover__user {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -297,27 +297,31 @@
       display: block;
       line-height: 23px;
       text-align: center; }
-  .trending__slide {
+  .trending__container {
+    height: 301px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    position: -webkit-sticky;
-    position: sticky;
     overflow-x: scroll; }
-  .trending__hover {
+  .trending__slide {
     margin: 32px 11px 82px 11px;
     height: 187px;
     width: 243px;
-    background: #572EE5; }
+    position: relative; }
   .trending__card {
-    margin: 0;
     height: 187px;
     width: 243px;
-    position: relative;
+    position: absolute;
+    z-index: 2;
     display: inline-block;
-    opacity: 0.6;
     cursor: pointer; }
-    .trending__card__user {
+  .trending__hover {
+    height: 187px;
+    width: 243px;
+    position: absolute;
+    z-index: 1;
+    background: #572EE5; }
+    .trending__hover__user {
       top: 145px;
       left: 20px;
       position: absolute;
@@ -325,7 +329,7 @@
       color: #FFFFFF;
       text-align: center;
       text-transform: capitalize; }
-    .trending__card__title {
+    .trending__hover__title {
       top: 170px;
       left: 20px;
       position: absolute;
