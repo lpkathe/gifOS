@@ -118,13 +118,7 @@
       width: 551px;
       top: 19px;
       position: -webkit-sticky;
-      position: sticky;
-      /*  &:hover {
-         height: 50px;
-         width: 334px;
-         margin-left: 100px;
-         justify-self: flex-start;
-       } */ }
+      position: sticky; }
       .search__box__main {
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;

@@ -3,6 +3,9 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
+const btnMas = document.querySelector(".navigation__mas");
+
+const searchBox = document.querySelector(".search__box");
 const inputSearch = document.getElementById("inputSearch");
 const inputX = document.querySelector(".search__box__x");
 const inputSearchRightIcon = document.querySelector(".search__box__icon");
@@ -28,6 +31,27 @@ const pageItems = 12;
 function onLoad() {
   getTrendingCategories();
 };
+
+/**
+ * Chord to window scroll, fix size box search and delete + button.
+ * @param {*} event 
+ */
+function scrollWindow(event) {
+  console.log(window.pageYOffset);
+  if (window.pageYOffset >= 358) {
+    btnMas.style.visibility = "hidden";
+    searchBox.style.position = "fixed";
+    searchBox.style.width = "334px";
+    searchBox.style.top = "25px";
+    searchBox.style.left = "280px";
+  } else { 
+    searchBox.style.position = "static";
+    searchBox.style.width = "551px";
+    searchBox.style.top = "19px";
+    searchBox.style.left = "auto";
+    btnMas.style.visibility = "visible";
+  }
+}
 
 /**
  * Get gifs of the search results and display then on html
@@ -187,6 +211,8 @@ function searchVerMas() {
  */
 
 window.addEventListener("load", onLoad);
+
+window.addEventListener("scroll", scrollWindow);
 
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
 inputX.addEventListener("click", searchReset);
