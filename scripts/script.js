@@ -30,6 +30,10 @@ const pageItems = 12;
  */
 function onLoad() {
   getTrendingCategories();
+
+  if (screen.width > 767) {
+    window.addEventListener("scroll", scrollWindow);
+  }
 };
 
 /**
@@ -37,7 +41,7 @@ function onLoad() {
  * @param {*} event 
  */
 function scrollWindow(event) {
-  console.log(window.pageYOffset);
+
   if (window.pageYOffset >= 358) {
     btnMas.style.visibility = "hidden";
     searchBox.style.position = "fixed";
@@ -211,8 +215,6 @@ function searchVerMas() {
  */
 
 window.addEventListener("load", onLoad);
-
-window.addEventListener("scroll", scrollWindow);
 
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
 inputX.addEventListener("click", searchReset);
