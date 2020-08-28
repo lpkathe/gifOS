@@ -33,7 +33,7 @@ function onLoad() {
 
   if (screen.width > 767) {
     window.addEventListener("scroll", scrollWindow);
-  }
+  };
 
   const root = document.querySelector(".trending__container");
   let i = 0;
@@ -41,7 +41,7 @@ function onLoad() {
     const card = document.querySelector(".trending__slide").cloneNode(true);
     root.appendChild(card);
     console.log(i + " :" + card);
-  }
+  };
 };
 
 /**
@@ -54,30 +54,26 @@ function scrollWindow(event) {
   inputSearch.value = 551 - ((scrollPercentage * 217) / 100);
 
 
+  if (window.pageYOffset > 358) {
+    searchBox.style.position = "fixed";
+    searchBox.style.top = "25px";
+    searchBox.style.left = "260px";
+  } else { 
+    searchBox.style.position = "static";
+    searchBox.style.width = "551px";
+    searchBox.style.top = "19px";
+    searchBox.style.left = "auto";
+  };
+
   if (scrollPercentage <= 100 && scrollPercentage >= 0) {
     searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
     btnMas.style.opacity = 1 - (scrollPercentage / 100);
-  }
+  };
+
   if (btnMas.stye.opacity = 0) {
     btnMas.style.display = "none";
-  }
-
-  /*
-    if (window.pageYOffset >= 358) {
-      btnMas.style.visibility = "hidden";
-      searchBox.style.position = "fixed";
-      searchBox.style.width = "334px";
-      searchBox.style.top = "25px";
-      searchBox.style.left = "280px";
-    } else { 
-      searchBox.style.position = "static";
-      searchBox.style.width = "551px";
-      searchBox.style.top = "19px";
-      searchBox.style.left = "auto";
-      btnMas.style.visibility = "visible";
-    }*/
+  };
 }
-
 /**
  * Get gifs of the search results and display then on html
  */
