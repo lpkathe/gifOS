@@ -361,6 +361,7 @@
 
   &__container {
     height: 301px;
+    position: sticky;
     display: flex;
     overflow-x: scroll;
   }
