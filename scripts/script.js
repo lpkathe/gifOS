@@ -51,8 +51,7 @@ function onLoad() {
 function scrollWindow(event) {
 
   const scrollPercentage = (window.pageYOffset * 100) / 358;
-  inputSearch.value = 551 - ((scrollPercentage * 217) / 100);
-
+  //inputSearch.value = 551 - ((scrollPercentage * 217) / 100);
 
   if (window.pageYOffset > 358) {
     searchBox.style.position = "fixed";
