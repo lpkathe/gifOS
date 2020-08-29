@@ -147,6 +147,7 @@
             align-items: stretch;
     border: 1px solid #572EE5;
     border-radius: 27px;
+    background-color: #fff;
     z-index: 10; }
     .search__box__main {
       margin: 14px 0 10px 0;
@@ -323,8 +324,11 @@
     position: absolute;
     z-index: 1;
     background: #572EE5; }
+    .trending__hover:hover {
+      opacity: 99;
+      z-index: 3; }
     .trending__hover__user {
-      top: 145px;
+      top: 110px;
       left: 20px;
       position: absolute;
       font-size: 15px;
@@ -332,7 +336,7 @@
       text-align: center;
       text-transform: capitalize; }
     .trending__hover__title {
-      top: 170px;
+      top: 138px;
       left: 20px;
       position: absolute;
       font-size: 15px;
@@ -340,8 +344,8 @@
       text-align: center;
       text-transform: capitalize; }
   .trending__buttons {
-    top: 37px;
-    left: 160px;
+    top: 7px;
+    left: 150px;
     position: absolute;
     display: inline-block;
     opacity: 0.7;

@@ -35,13 +35,13 @@ function onLoad() {
     window.addEventListener("scroll", scrollWindow);
   };
 
-  const root = document.querySelector(".trending__container");
+/*   const root = document.querySelector(".trending__container");
   let i = 0;
   for (i; i < 10; i++) {
     const card = document.querySelector(".trending__slide").cloneNode(true);
     root.appendChild(card);
     console.log(i + " :" + card);
-  };
+  }; */
 };
 
 /**
@@ -57,7 +57,7 @@ function scrollWindow(event) {
     searchBox.style.position = "fixed";
     searchBox.style.top = "25px";
     searchBox.style.left = "260px";
-  } else { 
+  } else {
     searchBox.style.position = "static";
     searchBox.style.width = "551px";
     searchBox.style.top = "19px";
@@ -72,7 +72,8 @@ function scrollWindow(event) {
   if (btnMas.stye.opacity = 0) {
     btnMas.style.display = "none";
   };
-}
+};
+
 /**
  * Get gifs of the search results and display then on html
  */
