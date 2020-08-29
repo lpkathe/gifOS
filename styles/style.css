@@ -315,18 +315,19 @@
     height: 187px;
     width: 243px;
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     display: inline-block;
     cursor: pointer; }
+    .trending__card:hover ~ .trending__hover {
+      visibility: visible; }
   .trending__hover {
     height: 187px;
     width: 243px;
     position: absolute;
-    z-index: 1;
-    background: #572EE5; }
-    .trending__hover:hover {
-      opacity: 99;
-      z-index: 3; }
+    background: #572EE5;
+    opacity: 0.6;
+    z-index: 2;
+    cursor: pointer; }
     .trending__hover__user {
       top: 110px;
       left: 20px;
@@ -347,23 +348,22 @@
     top: 7px;
     left: 150px;
     position: absolute;
-    display: inline-block;
-    opacity: 0.7;
-    cursor: pointer; }
+    display: inline-block; }
   .trending__button {
     padding: 0;
     height: 25px;
     width: 25px;
-    z-index: 4;
     border: 0;
     border-radius: 6px;
     outline: none;
     text-align: center;
     background: #FFFFFF;
+    opacity: 0.7;
     cursor: pointer; }
+    .trending__button:hover {
+      opacity: 100; }
   .trending__options {
     font-size: 12px;
-    opacity: 0.7;
     background: #FFFFFF;
     border-radius: 6px; }
 
