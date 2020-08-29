@@ -336,8 +336,10 @@
 .trending {
   margin-top: 45px;
   height: 430px;
+  display: flex;
+  flex-direction: column;
   background: #F3F5F8;
-    
+
   &__title {
     margin: 44px auto 9px auto;
     padding-top: 44px;
@@ -362,16 +364,20 @@
     }
   }
 
+  &__desktop-buttons {
+    display: flex;
+  }
+
   &__container {
-    height: 301px;
-    width: 100vw;
+    height: 187px;
+    width: 90vw;
     display: inline-flex;
     justify-content: space-around;
     overflow: scroll;
   }
   
   &__slide {
-    margin: 32px 11px 82px 11px;
+    margin: 0 11px 82px 11px;
     height: 187px;
     width: 243px;
     position: relative;
@@ -461,6 +467,20 @@
 
     &:hover {
       opacity: 100;
+    }
+  }
+
+  &__arrow {
+    padding-top: 5px;
+    height: 40px;
+    width: 40px;
+    display: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #572EE5;
+    border: 1px solid #572EE5;
+
+    & i {
     }
   }
 }

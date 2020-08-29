@@ -141,7 +141,35 @@
     }
   }
 
-  .section__trending__p {
-    width: 402px;
+  .trending {
+    align-items: center;
+
+    &__title {
+      margin: 67px auto 12px auto;
+      padding: 0;
+    }
+    
+    &__p {
+      margin-bottom: 53px;
+      height: 21px;
+      display: flex;
+      
+      &__span {
+        margin-right: 5px;
+      }
+    }
+
+    &__desktop-buttons {
+      align-items: center;
+    }
+
+    &__arrow {
+      display: inline-block;
+      
+      &:hover {
+        color:white;
+        background: #572EE5;
+      }
+    }
   }
 }

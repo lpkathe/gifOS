@@ -101,7 +101,23 @@
         z-index: 3;
         background: transparent; }
 
-  .section__trending__p {
-    width: 402px; } }
+  .trending {
+    align-items: center; }
+    .trending__title {
+      margin: 67px auto 12px auto;
+      padding: 0; }
+    .trending__p {
+      margin-bottom: 53px;
+      height: 21px;
+      display: flex; }
+      .trending__p__span {
+        margin-right: 5px; }
+    .trending__desktop-buttons {
+      align-items: center; }
+    .trending__arrow {
+      display: inline-block; }
+      .trending__arrow:hover {
+        color: white;
+        background: #572EE5; } }
 
 /*# sourceMappingURL=desktop.css.map */

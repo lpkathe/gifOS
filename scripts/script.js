@@ -37,7 +37,7 @@ function onLoad() {
 
   const root = document.querySelector(".trending__container");
   let i = 0;
-  for (i; i < 3; i++) {
+  for (i; i < 2; i++) {
     const card = document.querySelector(".trending__slide").cloneNode(true);
     root.appendChild(card);
     //console.log(i + " :" + card);
