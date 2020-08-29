@@ -362,9 +362,10 @@
 
   &__container {
     height: 301px;
-    position: sticky;
-    display: flex;
-    overflow-x: scroll;
+    width: 100vw;
+    display: inline-flex;
+    justify-content: space-around;
+    overflow: scroll;
   }
   
   &__slide {

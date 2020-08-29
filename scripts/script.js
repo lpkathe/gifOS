@@ -35,13 +35,13 @@ function onLoad() {
     window.addEventListener("scroll", scrollWindow);
   };
 
-/*   const root = document.querySelector(".trending__container");
+  const root = document.querySelector(".trending__container");
   let i = 0;
-  for (i; i < 10; i++) {
+  for (i; i < 3; i++) {
     const card = document.querySelector(".trending__slide").cloneNode(true);
     root.appendChild(card);
-    console.log(i + " :" + card);
-  }; */
+    //console.log(i + " :" + card);
+  };
 };
 
 /**

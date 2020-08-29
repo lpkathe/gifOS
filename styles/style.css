@@ -300,12 +300,13 @@
       text-align: center; }
   .trending__container {
     height: 301px;
-    position: -webkit-sticky;
-    position: sticky;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    overflow-x: scroll; }
+    width: 100vw;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    overflow: scroll; }
   .trending__slide {
     margin: 32px 11px 82px 11px;
     height: 187px;
