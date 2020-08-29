@@ -111,6 +111,7 @@
   
   &__button {
     display: none;
+    outline: none;
   }
 }
 
@@ -321,6 +322,7 @@
     font-weight: bold;
     line-height: unset;
     letter-spacing: 0;
+    outline: none;
 
     &:hover {
       color: #FFFFFF;
@@ -448,7 +450,7 @@
     cursor: pointer;
 
     &:hover {
-    opacity: 100;
+      opacity: 100;
     }
   }
 
@@ -456,6 +458,10 @@
     font-size: 12px;
     background: #FFFFFF;
     border-radius: 6px;
+
+    &:hover {
+      opacity: 100;
+    }
   }
 }
 

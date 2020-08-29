@@ -93,7 +93,8 @@
       color: #9CAFC3;
       text-decoration: none; }
 .navigation__button {
-  display: none; }
+  display: none;
+  outline: none; }
 
 .header {
   margin: 7px auto 31px auto;
@@ -272,7 +273,8 @@
   font-size: 13px;
   font-weight: bold;
   line-height: unset;
-  letter-spacing: 0; }
+  letter-spacing: 0;
+  outline: none; }
   .results__button:hover {
     color: #FFFFFF;
     letter-spacing: 0;
@@ -371,6 +373,8 @@
     font-size: 12px;
     background: #FFFFFF;
     border-radius: 6px; }
+    .trending__options:hover {
+      opacity: 100; }
 
 .footer {
   height: 201px;

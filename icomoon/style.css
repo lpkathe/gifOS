@@ -836,7 +836,7 @@
 }
 .icon-icon-fav-active:before {
   content: "\e9a6";
-  /* color: #572ee5; */
+  color: #572ee5;
 }
 .icon-icon-fav-hover:before {
   content: "\e9a7";
