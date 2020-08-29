@@ -319,15 +319,19 @@
     display: inline-block;
     cursor: pointer; }
     .trending__card:hover ~ .trending__hover {
-      visibility: visible; }
+      visibility: visible;
+      z-index: 4; }
   .trending__hover {
     height: 187px;
     width: 243px;
+    visibility: hidden;
     position: absolute;
     background: #572EE5;
     opacity: 0.6;
     z-index: 2;
     cursor: pointer; }
+    .trending__hover:hover {
+      visibility: visible; }
     .trending__hover__user {
       top: 110px;
       left: 20px;

@@ -384,7 +384,8 @@
     
     &:hover {
       & ~ .trending__hover {
-        visibility: visible;;
+        visibility: visible;
+        z-index: 4;
       }
     }
   }
@@ -392,12 +393,16 @@
   &__hover {
     height: 187px;
     width: 243px;
-    //visibility: hidden;
+    visibility: hidden;
     position: absolute;
     background: #572EE5;
     opacity: 0.6;
     z-index: 2;
     cursor: pointer;
+
+    &:hover {
+      visibility: visible;
+    }
     
     &__user {
       top: 110px;
