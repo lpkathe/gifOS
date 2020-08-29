@@ -129,6 +129,10 @@
         justify-content: space-between;
       }
 
+      &__li:before {
+        width: 91%;
+      }
+
       &__input {
         margin-left: 62px;
         z-index: 3;

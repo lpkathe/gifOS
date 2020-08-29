@@ -94,6 +94,8 @@
       position: sticky; }
       .search__box__main {
         justify-content: space-between; }
+      .search__box__li:before {
+        width: 91%; }
       .search__box__input {
         margin-left: 62px;
         z-index: 3;
