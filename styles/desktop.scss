@@ -200,6 +200,37 @@
     &__hover {
       height: 275px;
       width: 357px;
+      
+      &__user {
+        top: 181px;
+        left: 28px;
+        height: 18px;
+        width: 31px;
+      }
+  
+      &__title {
+        top: 205px;
+        left: 18.5px;
+        height: 19px;
+        width: 82px;
+        font-size: 16px;
+      }
+    }
+
+
+    &__buttons {
+      top: 10px;
+      left: 220px;
+    }
+
+    &__button {
+      margin-right: 10px;
+      height: 32px;
+      width: 32px;
+    }
+
+    &__options {
+      font-size: 16.7px;
     }
 
     &__arrow {

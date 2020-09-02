@@ -173,6 +173,26 @@
     .trending__hover {
       height: 275px;
       width: 357px; }
+      .trending__hover__user {
+        top: 181px;
+        left: 28px;
+        height: 18px;
+        width: 31px; }
+      .trending__hover__title {
+        top: 205px;
+        left: 18.5px;
+        height: 19px;
+        width: 82px;
+        font-size: 16px; }
+    .trending__buttons {
+      top: 10px;
+      left: 220px; }
+    .trending__button {
+      margin-right: 10px;
+      height: 32px;
+      width: 32px; }
+    .trending__options {
+      font-size: 16.7px; }
     .trending__arrow {
       display: inline-block; }
       .trending__arrow:hover {
