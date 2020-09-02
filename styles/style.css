@@ -318,7 +318,7 @@
   .trending__container {
     margin-top: 32px;
     height: 187px;
-    width: 90vw;
+    width: 100vw;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
