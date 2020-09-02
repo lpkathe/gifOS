@@ -316,6 +316,7 @@
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
   .trending__container {
+    margin-top: 32px;
     height: 187px;
     width: 90vw;
     display: -webkit-inline-box;
