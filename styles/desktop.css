@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 1023px) {
   .montserrat-bold-desktop {
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
@@ -197,6 +197,34 @@
       display: inline-block; }
       .trending__arrow:hover {
         color: white;
-        background: #572EE5; } }
+        background: #572EE5; }
+
+  .footer {
+    margin: auto auto;
+    height: 116px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
+    .footer__social-network {
+      margin: auto 0;
+      height: 20px;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
+      .footer__social-network__icons {
+        margin-left: 17px; }
+      .footer__social-network__p {
+        margin: 0;
+        height: 15px; }
+    .footer__p {
+      margin: auto 0;
+      height: 15px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
 
 /*# sourceMappingURL=desktop.css.map */

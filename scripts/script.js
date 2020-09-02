@@ -243,19 +243,14 @@ function trendingCards() {
         const clonedCard = clonedTrendingSlide.querySelector(".trending__card");
         clonedCard.src = element.images.original.url;
 
-        const position = (clonedCard.width * index);
-        clonedTrendingSlide.style.left = `${position}px`;
-        clonedTrendingSlide.style.marginRight = "29px";
-        console.log(clonedTrendingSlide.style.left);
+        if (screen.width > 1023) {
+          const position = (clonedCard.width * index);
+          clonedTrendingSlide.style.left = `${position}px`;
+          clonedTrendingSlide.style.marginRight = "29px";
+          console.log(clonedTrendingSlide.style.left);
+        }
       });
     });
-};
-
-buttonRight.onclick = function () {
-  document.querySelector(".trending__container").scrollLeft += 350;
-};
-buttonLeft.onclick = function () {
-  document.querySelector(".trending__container").scrollLeft -= 350;
 };
 
 /**
@@ -270,3 +265,10 @@ inputX.addEventListener("click", searchReset);
 suggestedList.addEventListener("click", onSuggestedItemClicked);
 
 btnVerMas.addEventListener("click", searchVerMas);
+
+buttonRight.onclick = function () {
+  document.querySelector(".trending__container").scrollLeft += 350;
+};
+buttonLeft.onclick = function () {
+  document.querySelector(".trending__container").scrollLeft -= 350;
+};

@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 1023px) {
 
   .montserrat-bold-desktop {
     font-family: 'Montserrat', sans-serif;
@@ -240,6 +240,34 @@
         color:white;
         background: #572EE5;
       }
+    }
+  }
+
+  .footer {
+    margin: auto auto;
+    height: 116px;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    &__social-network {
+      margin: auto 0;
+      height: 20px;
+      flex-direction: row;
+
+      &__icons {
+        margin-left: 17px;
+      }
+
+      &__p {
+        margin: 0;
+        height: 15px;
+      }
+    }
+    
+    &__p {
+      margin: auto 0;
+      height: 15px;
+      display: flex;
     }
   }
 }
