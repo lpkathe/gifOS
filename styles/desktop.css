@@ -129,6 +129,9 @@
         margin-left: 62px;
         z-index: 3;
         background: transparent; }
+    .search__p {
+      height: 25px;
+      width: 402px; }
 
   .trending {
     height: 640px; }
