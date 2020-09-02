@@ -323,9 +323,8 @@
     display: inline-flex;
     overflow-x: scroll; }
   .trending__slide {
-    margin: 0 11px 82px 11px;
+    margin: 0px 249px 0px 11px;
     height: 187px;
-    width: 243px;
     position: relative; }
   .trending__card {
     height: 187px;
