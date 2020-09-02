@@ -28,6 +28,9 @@ const pageItems = 12;
 const trendingContainer = document.querySelector(".trending__container");
 const trendingSlide = document.querySelector(".trending__slide");
 
+const buttonLeft = document.querySelector(".button__left");
+const buttonRight = document.querySelector(".button__right");
+
 /**
  * Functions that load with the page.
  */
@@ -219,6 +222,9 @@ function searchVerMas() {
     });
 };
 
+/**
+ * Clone card's slide 
+ */
 function trendingCards() {
   const { trendingGifs } = GiphyApi;
 
@@ -243,6 +249,13 @@ function trendingCards() {
         console.log(clonedTrendingSlide.style.left);
       });
     });
+};
+
+buttonRight.onclick = function () {
+  document.querySelector(".trending__container").scrollLeft += 350;
+};
+buttonLeft.onclick = function () {
+  document.querySelector(".trending__container").scrollLeft -= 350;
 };
 
 /**
