@@ -350,7 +350,10 @@
       visibility: visible; }
     .trending__hover__user {
       top: 110px;
-      left: 20px;
+      left: 18px;
+      width: -webkit-max-content;
+      width: -moz-max-content;
+      width: max-content;
       position: absolute;
       font-size: 15px;
       color: #FFFFFF;
@@ -358,11 +361,11 @@
       text-transform: capitalize; }
     .trending__hover__title {
       top: 138px;
-      left: 20px;
+      left: 18.5px;
+      height: 19px;
       position: absolute;
       font-size: 15px;
       color: #FFFFFF;
-      text-align: center;
       text-transform: capitalize; }
   .trending__buttons {
     top: 7px;

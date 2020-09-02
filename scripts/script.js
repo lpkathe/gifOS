@@ -38,7 +38,7 @@ function onLoad() {
   getTrendingCategories();
   trendingCards();
 
-  if (screen.width > 767) {
+  if (screen.width > 1023) {
     window.addEventListener("scroll", scrollWindow);
   };
 };
@@ -243,11 +243,13 @@ function trendingCards() {
         const clonedCard = clonedTrendingSlide.querySelector(".trending__card");
         clonedCard.src = element.images.original.url;
 
+        clonedTrendingSlide.querySelector(".trending__hover__user").innerHTML = element.username;
+        clonedTrendingSlide.querySelector(".trending__hover__title").innerHTML = element.title;
+
         if (screen.width > 1023) {
           const position = (clonedCard.width * index);
           clonedTrendingSlide.style.left = `${position}px`;
           clonedTrendingSlide.style.marginRight = "29px";
-          console.log(clonedTrendingSlide.style.left);
         }
       });
     });

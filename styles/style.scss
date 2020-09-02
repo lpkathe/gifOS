@@ -417,7 +417,8 @@
     
     &__user {
       top: 110px;
-      left: 20px;
+      left: 18px;
+      width: max-content;
       position: absolute;
       @extend .roboto-regular;
       font-size: 15px;
@@ -428,12 +429,12 @@
   
     &__title {
       top: 138px;
-      left: 20px;
+      left: 18.5px;
+      height: 19px;
       position: absolute;
       @extend .roboto-bold;
       font-size: 15px;
       color: #FFFFFF;
-      text-align: center;
       text-transform: capitalize;
     }
   }
@@ -481,9 +482,6 @@
     vertical-align: middle;
     color: #572EE5;
     border: 1px solid #572EE5;
-
-    & i {
-    }
   }
 }
 
