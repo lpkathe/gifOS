@@ -308,18 +308,20 @@
       line-height: 23px;
       text-align: center; }
   .trending__desktop-buttons {
+    height: 187px;
+    width: 100vw;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; }
+    display: flex;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
   .trending__container {
     height: 187px;
     width: 90vw;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    overflow: scroll; }
+    overflow-x: scroll; }
   .trending__slide {
     margin: 0 11px 82px 11px;
     height: 187px;

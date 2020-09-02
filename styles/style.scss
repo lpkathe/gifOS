@@ -365,15 +365,17 @@
   }
 
   &__desktop-buttons {
+    height: 187px;
+    width: 100vw;
     display: flex;
+    box-sizing: border-box;
   }
 
   &__container {
     height: 187px;
     width: 90vw;
     display: inline-flex;
-    justify-content: space-around;
-    overflow: scroll;
+    overflow-x: scroll;
   }
   
   &__slide {

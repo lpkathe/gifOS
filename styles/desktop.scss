@@ -142,7 +142,7 @@
   }
 
   .trending {
-    align-items: center;
+    height: 640px;
 
     &__title {
       margin: 67px auto 12px auto;
@@ -150,9 +150,9 @@
     }
     
     &__p {
-      margin-bottom: 53px;
       height: 21px;
       display: flex;
+      align-self: center;
       
       &__span {
         margin-right: 5px;
@@ -160,7 +160,41 @@
     }
 
     &__desktop-buttons {
+      margin-top: 53px;
+      padding: 0 20px;
+      height: 275px;
+      width: 100vw;
       align-items: center;
+    }
+
+    &__container {
+      margin: auto 22px;
+      height: 275px;
+      width: 90vw;
+      overflow-x: hidden;
+    }
+
+    &__slide {
+      margin: 0 80px;
+      height: 275px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &__card {
+      height: 275px;
+      width: 357px;
+    }
+
+    &__hover {
+      height: 275px;
+      width: 357px;
     }
 
     &__arrow {
