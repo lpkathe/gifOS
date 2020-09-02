@@ -161,7 +161,7 @@
       width: 90vw;
       overflow-x: hidden; }
     .trending__slide {
-      margin: 0 80px;
+      margin: 0;
       height: 275px; }
       .trending__slide:first-child {
         margin-left: 0; }

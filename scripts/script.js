@@ -27,13 +27,6 @@ const pageItems = 12;
 
 const trendingContainer = document.querySelector(".trending__container");
 const trendingSlide = document.querySelector(".trending__slide");
-const trendingCard = document.querySelector(".trending__card");
-const trendingHover = document.querySelector(".trending__hover");
-const trengingButtons = document.querySelector(".trending__buttons");
-const trengingButton = document.querySelector(".trending__button");
-const trengingoptions = document.querySelector(".trending__options");
-const trengingHoverUser = document.querySelector(".trending__hover__user");
-const trengingHoverTitle = document.querySelector(".trending__hover__title");
 
 /**
  * Functions that load with the page.
@@ -227,31 +220,29 @@ function searchVerMas() {
 };
 
 function trendingCards() {
-  let i = 0;
-  
-  for (i; i < 10; i++) {
-    const newSlide = document.querySelector(".trending__slide").cloneNode(true);
+  const { trendingGifs } = GiphyApi;
 
-    trendingContainer.appendChild(newSlide);
-    newSlide.appendChild(trendingCard);
-    newSlide.appendChild(trendingHover);
-    trendingHover.appendChild(trendingButtons);
-    trendingButtons.appendChild(trendingButton) * 3;
-    trendingHover.appendChild(trendingButtons);
-    trendingButtons.appendChild(trendingHoverUser);
-    trendingButtons.appendChild(trendingHoverTitle);
+  trendingGifs()
+    .then((response) => {
 
-    const id = newSlide.setAttribute("id", `${i}`);
-    console.log(i + " :" + newSlide);
+      console.log(response.data);
 
-    newSlide.classname += "trending__slide";
-    trendingCard.classname += "trending__card";
-    trendingHover.classname += "trending__hover";
+      response.data.forEach((element, index) => {
+        const clonedTrendingSlide = trendingSlide.cloneNode(true);
+        trendingContainer.appendChild(clonedTrendingSlide);
+        clonedTrendingSlide.style.display = "inline-block";
 
-    const position = (screen.width / i.length) * `${id}`;
-    newSlide.style.left = `${position}px`;
-    console.log(newSlide.style.left);
-  };
+        clonedTrendingSlide.setAttribute("id", element.id);
+
+        const clonedCard = clonedTrendingSlide.querySelector(".trending__card");
+        clonedCard.src = element.images.original.url;
+
+        const position = (clonedCard.width * index);
+        clonedTrendingSlide.style.left = `${position}px`;
+        clonedTrendingSlide.style.marginRight = "29px";
+        console.log(clonedTrendingSlide.style.left);
+      });
+    });
 };
 
 /**

@@ -2,7 +2,7 @@ const DOMAIN = `http://api.giphy.com/v1/gifs/`;
 const urlSearch = DOMAIN + "search";
 const urlAutocompleteSearch = urlSearch + "/tags";
 const urlTrendingCategories = DOMAIN + "categories";
-const urlTrendingGifos = DOMAIN + "/trending";
+const urlTrendingGifos = DOMAIN + "trending";
 const apiKey = `api_key=RdoBL837xzyR4wgjoqf8FocqUIoxGh0q`;
 
 const GiphyApi = {
@@ -30,7 +30,7 @@ const GiphyApi = {
     });
   }),
 
-  trendingGifs: ((limit = 3) => {
+  trendingGifs: ((limit = 10) => {
     return new Promise((resolve, reject) => {
       fetch(`${urlTrendingGifos}?${apiKey}&limit=${limit}`)
         .then((response) => resolve(response.json()))
