@@ -51,12 +51,14 @@ function onLoad() {
 function scrollWindow(event) {
 
   const scrollPercentage = (window.pageYOffset * 100) / 358;
-  //inputSearch.value = 551 - ((scrollPercentage * 217) / 100);
+  const searchBoxScrollPosition = screen.width / 5;
+  console.log(searchBoxScrollPosition);
 
   if (window.pageYOffset > 358) {
     searchBox.style.position = "fixed";
     searchBox.style.top = "25px";
-    searchBox.style.left = "260px";
+    searchBox.style.left = `${searchBoxScrollPosition}px`;
+    console.log(searchBox.style.left);
   } else {
     searchBox.style.position = "static";
     searchBox.style.width = "551px";
@@ -67,10 +69,6 @@ function scrollWindow(event) {
   if (scrollPercentage <= 100 && scrollPercentage >= 0) {
     searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
     btnMas.style.opacity = 1 - (scrollPercentage / 100);
-  };
-
-  if (btnMas.stye.opacity = 0) {
-    btnMas.style.display = "none";
   };
 };
 
