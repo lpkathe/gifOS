@@ -113,6 +113,20 @@ function createCard(url) {
   card.className = "results__card";
 
   resultsCards.appendChild(card);
+
+  /*
+  response.data.forEach((element, index) => {
+    const clonedCard = card.cloneNode(true);
+    cntainer.appendChild(clonedCard);
+
+    clonedCard.setAttribute("id", element.id);
+
+    const clonedCard = clonedTrendingSlide.querySelector(".img");
+    clonedCard.src = element.images.original.url;
+
+    clonedCard.querySelector(".hover__user").innerHTML = element.username;
+    clonedCard.querySelector(".hover__title").innerHTML = element.title;
+  */
 };
 
 /**
@@ -230,9 +244,6 @@ function trendingCards() {
 
   trendingGifs()
     .then((response) => {
-
-      console.log(response.data);
-
       response.data.forEach((element, index) => {
         const clonedTrendingSlide = trendingSlide.cloneNode(true);
         trendingContainer.appendChild(clonedTrendingSlide);
