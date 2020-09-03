@@ -331,6 +331,25 @@
       background: #572EE5;
     }
   }
+
+  &__error {
+    margin: 109px auto 149px auto;
+    text-align: center;
+    display: none;
+
+    & picture {
+      margin-bottom: 29px;
+      height: 150px;
+      width: 150px;
+    }
+
+    & p {
+      @extend .montserrat-bold;
+      font-size: 22px;
+      color: #50E3C2;
+      line-height: 25px;
+    }
+  }
 }
     
 .trending {

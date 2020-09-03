@@ -5,7 +5,7 @@
   line-height: 25px;
   text-align: center; }
 
-.montserrat-bold, .navigation__list, .header__title, .header__title span, .search__title, .results__title, .results__button, .trending__title {
+.montserrat-bold, .navigation__list, .header__title, .header__title span, .search__title, .results__title, .results__button, .results__error p, .trending__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
@@ -280,6 +280,18 @@
     letter-spacing: 0;
     border-radius: 25px;
     background: #572EE5; }
+.results__error {
+  margin: 109px auto 149px auto;
+  text-align: center;
+  display: none; }
+  .results__error picture {
+    margin-bottom: 29px;
+    height: 150px;
+    width: 150px; }
+  .results__error p {
+    font-size: 22px;
+    color: #50E3C2;
+    line-height: 25px; }
 
 .trending {
   margin-top: 45px;

@@ -91,6 +91,12 @@ function search() {
         btnVerMas.style.display = "inline";
       };
 
+      console.log(response.data);
+      if (response.data.length === 0) {
+        document.querySelector(".results__error").style.display = "inline";
+        resultsContainer.style.height = "40px";
+      }
+
       response.data.forEach((element) => {
         createCard(element.images.original.url);
       })
