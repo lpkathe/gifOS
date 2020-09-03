@@ -1,0 +1,106 @@
+.roboto-bold, .hover__title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center; }
+
+.roboto-regular, .hover__user {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  color: #000000; }
+
+.main {
+  display: inline;
+  text-align: center; }
+
+.img {
+  margin: 11px auto 8px auto; }
+
+.container {
+  margin-top: 32px;
+  height: 187px;
+  width: 100vw;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  overflow-x: scroll; }
+
+.card {
+  margin: 0px 249px 0px 11px;
+  height: 187px;
+  position: relative;
+  display: none; }
+
+.img {
+  height: 187px;
+  width: 243px;
+  position: absolute;
+  z-index: 1;
+  display: inline-block;
+  cursor: pointer; }
+  .img:hover ~ .hover {
+    visibility: visible;
+    z-index: 4; }
+
+.hover {
+  height: 187px;
+  width: 243px;
+  visibility: hidden;
+  position: absolute;
+  background: #572EE5;
+  opacity: 0.6;
+  z-index: 2;
+  cursor: pointer; }
+  .hover:hover {
+    visibility: visible; }
+  .hover__user {
+    top: 110px;
+    left: 18px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    position: absolute;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: center;
+    text-transform: capitalize; }
+  .hover__title {
+    top: 138px;
+    left: 18.5px;
+    height: 19px;
+    position: absolute;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-transform: capitalize; }
+
+.buttons {
+  top: 7px;
+  left: 150px;
+  position: absolute;
+  display: inline-block; }
+
+.button {
+  padding: 0;
+  height: 25px;
+  width: 25px;
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  text-align: center;
+  background: #FFFFFF;
+  opacity: 0.7;
+  cursor: pointer; }
+  .button:hover {
+    opacity: 100; }
+
+.options {
+  font-size: 12px;
+  background: #FFFFFF;
+  border-radius: 6px; }
+  .options:hover {
+    opacity: 100; }
+
+/*# sourceMappingURL=favorites.css.map */
