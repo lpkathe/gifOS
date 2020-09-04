@@ -40,7 +40,7 @@ const GiphyApi = {
 
   gifById: ((id) => {
     return new Promise((resolve, reject) => {
-      fetch(`${DOMAIN}?${apiKey}${id}`)
+      fetch(`${DOMAIN}${id}?${apiKey}`)
       .then((response) => resolve(response.json()))
       .catch((error) => reject(error))
     });

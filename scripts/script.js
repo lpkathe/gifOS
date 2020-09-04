@@ -122,20 +122,6 @@ function createCard(url) {
   card.className = "results__card";
 
   resultsCards.appendChild(card);
-
-  /*
-  response.data.forEach((element, index) => {
-    const clonedCard = card.cloneNode(true);
-    cntainer.appendChild(clonedCard);
-
-    clonedCard.setAttribute("id", element.id);
-
-    const clonedCard = clonedTrendingSlide.querySelector(".img");
-    clonedCard.src = element.images.original.url;
-
-    clonedCard.querySelector(".hover__user").innerHTML = element.username;
-    clonedCard.querySelector(".hover__title").innerHTML = element.title;
-  */
 };
 
 /**
@@ -294,3 +280,5 @@ buttonRight.onclick = function () {
 buttonLeft.onclick = function () {
   document.querySelector(".trending__container").scrollLeft -= 350;
 };
+
+export default favoriteList;
