@@ -34,6 +34,7 @@ const buttonRight = document.querySelector(".button__right");
 const favoriteButton = document.getElementById("test");
 
 const favoriteList = window.localStorage;
+
 /**
  * Functions that load with the page.
  */
