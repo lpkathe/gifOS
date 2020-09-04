@@ -1,3 +1,11 @@
+.montserrat-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #572EE5;
+  line-height: 60px;
+  text-align: center;
+}
+
 .roboto-bold {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -15,16 +23,31 @@
 }
 
 .main {
-  display: inline;
+  display: inline-flex;
+  flex-direction: column;
   text-align: center;
 }
 
-.img {
+.picture {
   margin: 11px auto 8px auto;
+  height: 21px;
+  width: 28px;
+}
+
+.img {
+  height: 21px;
+  width: 28px;
+}
+
+.title {
+  margin: 0;
+  @extend .montserrat-bold;
+  font-size: 25px;
+  line-height: 30px;
 }
 
 .container {
-  margin-top: 32px;
+  margin-top: 36px;
   height: 187px;
   width: 100vw;
   display: inline-flex;
@@ -38,7 +61,7 @@
   display: none;
 }
 
-.img {
+.gif {
   height: 187px;
   width: 243px;
   position: absolute;

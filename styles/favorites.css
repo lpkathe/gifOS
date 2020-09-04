@@ -1,3 +1,10 @@
+.montserrat-bold, .title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #572EE5;
+  line-height: 60px;
+  text-align: center; }
+
 .roboto-bold, .hover__title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -13,14 +20,31 @@
   color: #000000; }
 
 .main {
-  display: inline;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: center; }
 
+.picture {
+  margin: 11px auto 8px auto;
+  height: 21px;
+  width: 28px; }
+
 .img {
-  margin: 11px auto 8px auto; }
+  height: 21px;
+  width: 28px; }
+
+.title {
+  margin: 0;
+  font-size: 25px;
+  line-height: 30px; }
 
 .container {
-  margin-top: 32px;
+  margin-top: 36px;
   height: 187px;
   width: 100vw;
   display: -webkit-inline-box;
@@ -34,14 +58,14 @@
   position: relative;
   display: none; }
 
-.img {
+.gif {
   height: 187px;
   width: 243px;
   position: absolute;
   z-index: 1;
   display: inline-block;
   cursor: pointer; }
-  .img:hover ~ .hover {
+  .gif:hover ~ .hover {
     visibility: visible;
     z-index: 4; }
 
