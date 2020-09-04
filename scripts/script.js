@@ -31,6 +31,9 @@ const trendingSlide = document.querySelector(".trending__slide");
 const buttonLeft = document.querySelector(".button__left");
 const buttonRight = document.querySelector(".button__right");
 
+const favoriteButton = document.getElementById("test");
+
+const favoriteList = window.localStorage;
 /**
  * Functions that load with the page.
  */
