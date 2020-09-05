@@ -127,4 +127,8 @@
   .options:hover {
     opacity: 100; }
 
+.favoritebutton {
+  position: relative;
+  z-index: 15; }
+
 /*# sourceMappingURL=favorites.css.map */

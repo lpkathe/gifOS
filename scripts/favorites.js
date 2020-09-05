@@ -1,26 +1,30 @@
-import { GiphyApi } from "./GiphyApi";
-import { favoritesList } from "./script";
+import GiphyApi from "./GiphyApi.js";
 
 /**
  * Global variables.
  */
 const container = document.querySelector(".container");
 const card = document.querySelector(".card");
-//const favoriteOption = document.querySelector(".favoriteOption");
+const favoriteButton = document.querySelector(".favoriteButton");
 
-const { favoritesList } = script;
-const { gifById } = GiphyApi;
+let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
 
 /**
  * Functions that load with the page.
  */
-function onload() {
+function onLoad() {
+  const {gifById} = GiphyApi;
+
+  favoriteList = JSON.parse(localStorage.getItem("favoriteList").split(','));
+
   favoriteList.forEach((id, index) => {
-    gifById(id)((response) => {
-      createCard(response, index);
-    }).catch((error) => {
-      console.log(error);
-    });
+    if(id !== "") {
+      gifById(id).then((response) => {
+        createCard(response, index);
+      }).catch((error) => {
+        console.log(error);
+      });
+    }
   });
 };
 
@@ -31,16 +35,18 @@ function onload() {
 function createCard(response, index) {
   const clonedCard = card.cloneNode(true);
   container.appendChild(clonedCard);
-
+  
+  clonedCard.style.display = "inline";
   clonedCard.setAttribute("id", response.data.id);
-
+  
   const clonedGif = clonedCard.querySelector(".gif");
-  clonedGif.src = response.data.images.original;
+  clonedGif.src = response.data.images.original.url;
+  
+  clonedCard.querySelector(".hover__user").innerText = response.data.username;
+  clonedCard.querySelector(".hover__title").innerText = response.data.title;
+  clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
 
-  clonedCard.querySelector(".hover__user").innerHTML = response.data.username;
-  clonedCard.querySelector(".hover__title").innerHTML = response.data.title;
-
-  if (screen.width > 1023) {
+  if (screen.width < 1023) {
     const position = (clonedGif.width * index);
     clonedCard.style.left = `${position}px`;
     clonedCard.style.marginRight = "29px";
@@ -51,24 +57,25 @@ function createCard(response, index) {
  * Add or erase element to favorites list.
  * @param {*} event 
  */
-function addFavorites(event) {
-  console.log(event);
+function toggleFavorite(event) {
+
+  const card = event.toElement.parentElement.parentElement.parentElement.parentElement;
   const id = card.id;
 
-  if (id in favoritesList) {
-    localStorage.removeItem(card.id);
-    favoritesList.remove(card.id);
+  if(id !== "") {
+    if (id in favoriteList) {
+      favoriteList.remove(id);
 
-    favoriteOption.style.background = "transparent";
+      favoriteOption.style.background = "transparent";
 
-    id.getElementById(card.id);
-    container.removeChild(id);
-  } else {
-    localStorage.setItem(card.id);
-    favoritesList.push(card).id;
-    createCard();
-  };
+      container.removeChild(card);
+    } else {
+      favoriteList.push(id);
+    }
+    localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+    console.log("saving:" + JSON.parse(localStorage.getItem("favoriteList")));
+  }
 };
 
-window.addEventListener("load", onload);
-favoriteButton.addEventListener("click", addFavorites);
+window.addEventListener("load", onLoad);
+favoriteButton.addEventListener("click", toggleFavorite);
