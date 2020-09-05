@@ -28,15 +28,13 @@ const pageItems = 12;
 function onLoad() {
   getTrendingCategories();
 
-  if (screen.width > 1023) {
+/*   if (screen.width > 1023) {
     window.addEventListener("scroll", scrollWindow);
-  };
+  }; */
 };
 
-/**
- * Chord to window scroll, fix size box search and delete + button.
- * @param {*} event 
- */
+/* 
+
 function scrollWindow(event) {
 
   const scrollPercentage = (window.pageYOffset * 100) / 358;
@@ -57,7 +55,7 @@ function scrollWindow(event) {
     searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
     btnMas.style.opacity = 1 - (scrollPercentage / 100);
   };
-};
+}; */
 
 /**
  * Get gifs of the search results and display then on html
