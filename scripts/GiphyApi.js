@@ -44,7 +44,7 @@ const GiphyApi = {
       .then((response) => resolve(response.json()))
       .catch((error) => reject(error))
     });
-  });
+  }),
 };
 
 export default GiphyApi;

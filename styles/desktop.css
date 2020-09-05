@@ -163,6 +163,68 @@
       height: 15px;
       display: -webkit-box;
       display: -ms-flexbox;
-      display: flex; } }
+      display: flex; }
+
+  .trending {
+    height: 640px; }
+    .trending__title {
+      margin: 67px auto 12px auto;
+      padding: 0; }
+    .trending__p {
+      height: 21px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-item-align: center;
+          align-self: center; }
+      .trending__p__span {
+        margin-right: 5px; }
+    .trending__desktop-buttons {
+      margin-top: 53px;
+      padding: 0 20px;
+      height: 275px;
+      width: 100vw;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+    .trending__container {
+      margin: auto 22px;
+      height: 275px;
+      width: 90vw;
+      overflow-x: hidden; }
+    .trending__slide {
+      margin: 0;
+      height: 275px; }
+      .trending__slide:first-child {
+        margin-left: 0; }
+      .trending__slide:last-child {
+        margin-right: 0; }
+    .trending__card {
+      height: 275px;
+      width: 357px; }
+    .trending__hover {
+      height: 275px;
+      width: 357px; }
+      .trending__hover__user {
+        top: 181px;
+        height: 18px; }
+      .trending__hover__title {
+        top: 205px;
+        height: 19px;
+        font-size: 16px; }
+    .trending__buttons {
+      top: 10px;
+      left: 220px; }
+    .trending__button {
+      margin-right: 10px;
+      height: 32px;
+      width: 32px; }
+    .trending__options {
+      font-size: 16.7px; }
+    .trending__arrow {
+      display: inline-block; }
+      .trending__arrow:hover {
+        color: white;
+        background: #572EE5; } }
 
 /*# sourceMappingURL=desktop.css.map */

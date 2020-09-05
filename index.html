@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/hamburguer_menu.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
-  <link rel="stylesheet" href="styles/trending.css">
   <link rel="stylesheet" href="styles/desktop.css">
 </head>
 
@@ -34,53 +33,22 @@
         <ul class="navigation__list">
           <li class="navigation__li"><label for="dark-mode"><a><span class="navigation__li__light">Modo
                   Nocturno</span><span class="navigation__li__dark">Modo Diurno</span></a></label></li>
-          <li class="navigation__li"><a href="favorites.html">Favoritos</a></li>
-          <li class="navigation__li"><a href="#my_gifos">Mis GIFOS</a></li>
+          <li class="navigation__li"><a href="favorites.html" target="iframe">Favoritos</a></li>
+          <li class="navigation__li"><a href="#my_gifos" target="iframe">Mis GIFOS</a></li>
         </ul>
-        <a class="navigation__mas" href=""><button class="navigation__button"><i
-              class="icon-button-crear-gifo"></i></button></a>
+        <a class="navigation__mas" href=""><button class="navigation__button">
+          <i class="icon-button-crear-gifo"></i></button></a>
       </nav>
     </div>
-    <header class="header">
-      <h1 class="header__title">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
-    </header>
-    <section class="search">
-      <picture class="search__picture">
-        <img class="search__picture__image" src="assets/ilustra_header.svg" alt="Search image">
-      </picture>
-      <div class="search__box">
-        <div class="search__box__main">
-          <i class="search__box__icon-list icon-icon-search"></i>
-          <input class="search__box__input" id="inputSearch" type="text" autocomplete="off"
-            placeholder="Busca GIFOS y más" name="search">
-          <i class="search__box__icon icon-icon-search"></i>
-          <i class="search__box__x icon-close"></i>
-        </div>
-        <ul class="search__box__list">
-        </ul>
-      </div>
-      <h3 class="search__title">Trending:</h3>
-      <p class="search__p"></p>
-      <div class="results__container">
-        <h2 class="results__title"></h2>
-        <div class="results__cards">
-          <img class="results__card">
-        </div>
-        <button class="results__button">VER MÁS</button>
-      </div>
-      <div class="results__error">
-        <picture><img src="assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin resultados"></picture>
-        <p>Intenta con otra búsqueda.</p>
-      </div>
-    </section>
+    <iframe class="iframe" name="iframe" src="main.html"></iframe>
     <section class="trending">
       <h2 class="trending__title">Trending GIFOS</h2>
       <p class="trending__p"><span class="trending__p__span">Mira los últimos</span> GIFOS de nuestra comunidad.</p>
       <div class="trending__desktop-buttons">
         <button class="trending__arrow button__left"><i class="icon-button-left"></i></button>
         <div class="trending__container">
-          <div class="trending__slide card">
-            <img class="trending__card img">
+          <div class="trending__slide">
+            <img class="trending__card">
             <div class="trending__hover">
               <div class="trending__buttons">
                 <button class="trending__button"><i class="trending__options icon-icon-fav-hover"></i></button>
