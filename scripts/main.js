@@ -3,10 +3,13 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
-const slideContainer = document.querySelector(".slide__container");
-const Container = document.querySelector(".container");
+const container = document.querySelector(".container");
+const card = document.querySelector(".card");
 const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
+const favoriteButton = document.querySelector(".favoriteButton");
+
+let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
 
 /**
  * Clone card's slide.
@@ -17,25 +20,54 @@ function trendingCards() {
   trendingGifs()
     .then((response) => {
       response.data.forEach((element, index) => {
-        const clonedContainer = Container.cloneNode(true);
-        slideContainer.appendChild(clonedContainer);
-        clonedContainer.style.display = "inline-block";
+        const clonedCard = card.cloneNode(true);
+        container.appendChild(clonedCard);
+        clonedCard.style.display = "inline-block";
 
-        clonedContainer.setAttribute("id", element.id);
+        clonedCard.setAttribute("id", element.id);
 
-        const clonedCard = clonedContainer.querySelector(".card");
-        clonedCard.src = element.images.original.url;
+        const clonedGif = clonedCard.querySelector(".gif");
+        clonedGif.src = element.images.original.url;
 
-        clonedContainer.querySelector(".hover__user").innerHTML = element.username;
-        clonedContainer.querySelector(".hover__title").innerHTML = element.title;
+        clonedCard.querySelector(".hover__user").innerHTML = element.username;
+        clonedCard.querySelector(".hover__title").innerHTML = element.title;
+        clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
 
         if (screen.width > 1023) {
-          const position = (clonedCard.width * index);
-          clonedContainer.style.left = `${position}px`;
-          clonedContainer.style.marginRight = "29px";
+          const position = (clonedGif.width * index);
+          clonedCard.style.left = `${position}px`;
+          clonedCard.style.marginRight = "29px";
         }
       });
     });
+};
+
+/**
+ * Add or erase element to favorites list.
+ * @param {*} event 
+ */
+function toggleFavorite(event) {
+console.log(event);
+  const card = event.toElement.parentElement.parentElement.parentElement.parentElement;
+  const id = card.id;
+
+  if(id !== "") {
+    if (id in favoriteList) {
+      favoriteList.remove(id);
+
+      favoriteOption.style.background = "transparent";
+
+      container.removeChild(card);
+    } else {
+      favoriteList.push(id);
+    }
+    localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+    console.log("saving:" + JSON.parse(localStorage.getItem("favoriteList")));
+  } else {
+    favoriteList.push(id);
+
+    favoriteOption.style.background = "#572EE5";
+  }
 };
 
 /**
@@ -48,3 +80,4 @@ buttonRight.addEventListener("click", function () {
 buttonLeft.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft -= 350;
 });
+favoriteButton.addEventListener("click", toggleFavorite);

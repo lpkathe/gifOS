@@ -172,7 +172,7 @@
   }
 }
 
-.slide__container {
+.container {
   margin-top: 32px;
   height: 187px;
   width: 100vw;
@@ -180,14 +180,14 @@
   overflow-x: scroll;
 }
 
-.container {
+.card {
   margin: 0px 249px 0px 11px;
   height: 187px;
   position: relative;
   display: none;
 }
 
-.card {
+.gif {
   height: 187px;
   width: 243px;
   position: absolute;
