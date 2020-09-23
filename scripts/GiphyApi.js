@@ -1,4 +1,4 @@
-const DOMAIN = `://api.giphy.com/v1/gifs/`;
+const DOMAIN = `https://api.giphy.com/v1/gifs/`;
 const urlSearch = DOMAIN + "search";
 const urlAutocompleteSearch = urlSearch + "/tags";
 const urlTrendingCategories = DOMAIN + "categories";
