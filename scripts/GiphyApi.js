@@ -1,5 +1,7 @@
 const protocol = location.protocol;
+console.log(protocol);
 const DOMAIN = (`${protocol}//api.giphy.com/v1/gifs/`);
+console.log(DOMAIN);
 const urlSearch = (`${DOMAIN}search`);
 const urlAutocompleteSearch = (`${urlSearch}/tags`);
 const urlTrendingCategories = (`${DOMAIN}categories`);
