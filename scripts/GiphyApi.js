@@ -1,8 +1,9 @@
-const DOMAIN = `http://api.giphy.com/v1/gifs/`;
-const urlSearch = DOMAIN + "search";
-const urlAutocompleteSearch = urlSearch + "/tags";
-const urlTrendingCategories = DOMAIN + "categories";
-const urlTrendingGifos = DOMAIN + "trending";
+const protocol = location.protocol;
+const DOMAIN = (`${protocol}//api.giphy.com/v1/gifs/`);
+const urlSearch = (`${DOMAIN}search`);
+const urlAutocompleteSearch = (`${urlSearch}/tags`);
+const urlTrendingCategories = (`${DOMAIN}categories`);
+const urlTrendingGifos = (`${DOMAIN}trending`);
 const apiKey = `api_key=RdoBL837xzyR4wgjoqf8FocqUIoxGh0q`;
 
 const GiphyApi = {
