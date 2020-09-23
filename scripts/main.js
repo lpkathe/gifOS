@@ -33,8 +33,8 @@ function trendingCards() {
         clonedCard.querySelector(".hover__title").innerHTML = element.title;
         clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
 
-        if (screen.width > 1023) {
-          const position = (clonedGif.width * index);
+        if (screen.width < 1023) {
+          const position = (clonedCard.width * index);
           clonedCard.style.left = `${position}px`;
           clonedCard.style.marginRight = "29px";
         }
@@ -60,13 +60,10 @@ console.log(event);
       container.removeChild(card);
     } else {
       favoriteList.push(id);
-    }
+      favoriteOption.style.background = "#572EE5";
+    };
     localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
     console.log("saving:" + JSON.parse(localStorage.getItem("favoriteList")));
-  } else {
-    favoriteList.push(id);
-
-    favoriteOption.style.background = "#572EE5";
   }
 };
 

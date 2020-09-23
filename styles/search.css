@@ -19,6 +19,11 @@
   text-align: left;
   color: #000000; }
 
+main {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content; }
+
 .header {
   margin: 7px auto 31px auto;
   display: -webkit-box;

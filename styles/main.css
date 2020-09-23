@@ -97,13 +97,10 @@
   outline: none; }
 
 .iframe {
-  margin: 0;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100%;
   width: 100%;
-  position: relative;
-  border: 0; }
+  display: block;
+  border: none; }
 
 .trending {
   margin-top: 45px;
