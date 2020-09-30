@@ -50,7 +50,9 @@
   margin-top: 36px;
   height: 187px;
   width: 100vw;
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   overflow-x: scroll;
 }
 
