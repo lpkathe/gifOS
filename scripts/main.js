@@ -39,6 +39,7 @@ let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
 function onLoad() {
   getTrendingCategories();
   trendingCards();
+  favorites();
 };
 
 /**
@@ -50,7 +51,7 @@ function createCards(data, container) {
   data.forEach((element, index) => {
     const clonedCard = card.cloneNode(true);
     container.appendChild(clonedCard);
-    clonedCard.style.display = "inline-block";
+    clonedCard.style.display = "inline";
     
     clonedCard.setAttribute("id", element.id);
     
@@ -61,10 +62,6 @@ function createCards(data, container) {
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
     clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
     
-    if (container !== trendingContainer) {
-      clonedCard.classList.add("results__card");
-    }
-
     if (screen.width < 1023) {
       const position = (clonedCard.width * index);
       clonedCard.style.left = `${position}px`;
@@ -72,6 +69,25 @@ function createCards(data, container) {
     } 
   });
 };
+
+/**
+ * Favorite gifs.
+ */
+function favorites() {
+  const {gifsById} = GiphyApi;
+
+  const items = localStorage.getItem("favoriteList");
+
+  if (items) {
+    favoriteList = JSON.parse(items.split(','));
+  }
+  
+  console.log(favoriteList);
+/* 
+  gifsById()
+    .catch(error => console.log(error))
+    .then((response) => createCards(response.data, trendingContainer)); */
+}
 
 /**
  * Clone card's slide.

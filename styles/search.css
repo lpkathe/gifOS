@@ -181,11 +181,6 @@
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around; }
-.results__card {
-  margin-top: 25px;
-  height: 120px;
-  width: 156px;
-  position: relative; }
 .results__button {
   margin: 0 auto 34px auto;
   height: 50px;

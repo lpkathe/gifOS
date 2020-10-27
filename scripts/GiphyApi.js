@@ -46,6 +46,14 @@ const GiphyApi = {
       .catch((error) => reject(error))
     });
   }),
+  
+  gifsById: ((ids) => {
+    return new Promise((resolve, reject) => {
+      fetch(`${DOMAIN}${ids}?${apiKey}`)
+      .then((response) => resolve(response.json()))
+      .catch((error) => reject(error))
+    });
+  }),
 };
 
 export default GiphyApi;
