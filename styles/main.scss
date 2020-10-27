@@ -115,10 +115,10 @@
 }
 
 .iframe { 
-  height: 100%;
-  width:100%; 
-  display:block; 
-  border:none; 
+  height:200px;
+  width:100%;
+  border:none;
+  overflow:hidden;
 }
 
 .trending {

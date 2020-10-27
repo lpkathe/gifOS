@@ -8,6 +8,8 @@ const card = document.querySelector(".card");
 const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
 const favoriteButton = document.querySelector(".favoriteButton");
+const iframe = document.querySelector(".iframe");
+
 
 let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
 
@@ -67,10 +69,15 @@ console.log(event);
   }
 };
 
+function heightIframe(iframe) {
+  iframe.style.height = iframe.contentWindow.document.body.scrollHeight+"px";
+};
+
 /**
  * Events
  */
 window.addEventListener("load", trendingCards);
+window.addEventListener("load", heightIframe);
 buttonRight.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft += 350;
 });
@@ -78,3 +85,11 @@ buttonLeft.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft -= 350;
 });
 favoriteButton.addEventListener("click", toggleFavorite);
+window.addEventListener("load", onLoad);
+
+inputSearch.addEventListener("keyup", getAutocompleteSearch);
+inputX.addEventListener("click", searchReset);
+
+suggestedList.addEventListener("click", onSuggestedItemClicked);
+
+btnVerMas.addEventListener("click", searchVerMas);

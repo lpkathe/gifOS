@@ -216,11 +216,4 @@ function searchVerMas() {
     });
 };
 
-window.addEventListener("load", onLoad);
 
-inputSearch.addEventListener("keyup", getAutocompleteSearch);
-inputX.addEventListener("click", searchReset);
-
-suggestedList.addEventListener("click", onSuggestedItemClicked);
-
-btnVerMas.addEventListener("click", searchVerMas);

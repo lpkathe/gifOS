@@ -97,10 +97,10 @@
   outline: none; }
 
 .iframe {
-  height: 100%;
+  height: 200px;
   width: 100%;
-  display: block;
-  border: none; }
+  border: none;
+  overflow: hidden; }
 
 .trending {
   margin-top: 45px;

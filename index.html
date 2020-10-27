@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/hamburguer_menu.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
   <link rel="stylesheet" href="styles/desktop.css">
+  <link rel="stylesheet" href="styles/search.css">
 </head>
 
 <body>
@@ -40,7 +41,61 @@
             <i class="icon-button-crear-gifo"></i></button></a>
       </nav>
     </div>
-    <iframe class="iframe" name="iframe" src="search.html"></iframe>
+    <div class="search__group">
+      <header class="header">
+        <h1 class="header__title">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
+      </header>
+      <section class="search">
+        <picture class="search__picture">
+          <img class="search__picture__image" src="assets/ilustra_header.svg" alt="Search image">
+        </picture>
+        <div class="search__box">
+          <div class="search__box__main">
+            <i class="search__box__icon-list icon-icon-search"></i>
+            <input class="search__box__input" id="inputSearch" type="text" autocomplete="off"
+              placeholder="Busca GIFOS y más" name="search">
+            <i class="search__box__icon icon-icon-search"></i>
+            <i class="search__box__x icon-close"></i>
+          </div>
+          <ul class="search__box__list">
+          </ul>
+        </div>
+        <h3 class="search__title">Trending:</h3>
+        <p class="search__p"></p>
+        <div class="results__container">
+          <h2 class="results__title"></h2>
+          <div class="results__cards">
+            <img class="results__card">
+          </div>
+          <button class="results__button">VER MÁS</button>
+        </div>
+        <div class="results__error">
+          <picture><img src="assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin resultados"></picture>
+          <p>Intenta con otra búsqueda.</p>
+        </div>
+      </section>
+    </div>
+    <div class="favorites__group">
+      <picture class="picture">
+        <img class="img" src="assets/icon-favoritos.svg" alt="Favoritos">
+      </picture>
+      <h1 class="title">Favoritos</h1>
+      <div class="container">
+        <div class="card">
+          <img class="gif" src="https://picsum.photos/200/300">
+          <div class="hover">
+            <div class="buttons">
+              <button id="button1" class="button favoriteButton"><i
+                  class="options favoriteOption icon-icon-fav-hover"></i></button>
+              <button id="button2" class="button"><i class="options icon-icon-download"></i></button>
+              <button id="button3" class="button"><i class="options icon-icon-max"></i></button>
+            </div>
+            <p class="hover__user"></p>
+            <p class="hover__title"></p>
+          </div>
+        </div>
+      </div>
+    </div>
     <section class="trending">
       <h2 class="trending__title">Trending GIFOS</h2>
       <p class="trending__p"><span class="trending__p__span">Mira los últimos</span> GIFOS de nuestra comunidad.</p>
@@ -51,7 +106,8 @@
             <img class="gif">
             <div class="hover">
               <div class="buttons">
-                <button class="button favoriteButton"><i class="options favoriteOption icon-icon-fav-hover"></i></button>
+                <button class="button favoriteButton"><i
+                    class="options favoriteOption icon-icon-fav-hover"></i></button>
                 <button class="button"><i class="options icon-icon-download"></i></button>
                 <button class="button"><i class="options icon-icon-max"></i></button>
               </div>
