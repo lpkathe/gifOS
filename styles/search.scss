@@ -22,10 +22,6 @@
   color: #000000;
 }
 
-main {
-  height: fit-content;
-}
-
 .header {
   margin: 7px auto 31px auto;
   display: flex;
@@ -311,7 +307,6 @@ main {
   }
 
   .results {
-
     &__card {
       height: 200px;
       width: 260px;
