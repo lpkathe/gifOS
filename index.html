@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/hamburguer_menu.css">
+  <link rel="stylesheet" href="styles/search.css">
+  <link rel="stylesheet" href="styles/favorites.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
   <link rel="stylesheet" href="styles/desktop.css">
-  <link rel="stylesheet" href="styles/favorites.css">
-  <link rel="stylesheet" href="styles/search.css">
 </head>
 
 <body>
@@ -38,8 +38,8 @@
           <li class="navigation__li"><a href="favorites.html" target="iframe">Favoritos</a></li>
           <li class="navigation__li"><a href="#my_gifos" target="iframe">Mis GIFOS</a></li>
         </ul>
-        <a class="navigation__mas" href=""><button class="navigation__button">
-            <i class="icon-button-crear-gifo"></i></button></a>
+        <a class="navigation__mas" href=""><button class="navigation__button"><i
+              class="icon-button-crear-gifo"></i></button></a>
       </nav>
     </div>
     <div class="search__group">
@@ -65,8 +65,7 @@
         <p class="search__p"></p>
         <div class="results__container">
           <h2 class="results__title"></h2>
-          <div class="results__cards">
-            <img class="results__card">
+          <div class="results__cards" id="resultsContainer">
           </div>
           <button class="results__button">VER MÁS</button>
         </div>
@@ -81,20 +80,7 @@
         <img class="img" src="assets/icon-favoritos.svg" alt="Favoritos">
       </picture>
       <h1 class="title">Favoritos</h1>
-      <div class="container">
-        <div class="card">
-          <img class="gif" src="https://picsum.photos/200/300">
-          <div class="hover">
-            <div class="buttons">
-              <button id="button1" class="button favoriteButton"><i
-                  class="options favoriteOption icon-icon-fav-hover"></i></button>
-              <button id="button2" class="button"><i class="options icon-icon-download"></i></button>
-              <button id="button3" class="button"><i class="options icon-icon-max"></i></button>
-            </div>
-            <p class="hover__user"></p>
-            <p class="hover__title"></p>
-          </div>
-        </div>
+      <div class="container" id="favoritesContainer">
       </div>
     </div>
     <section class="trending">
@@ -102,7 +88,7 @@
       <p class="trending__p"><span class="trending__p__span">Mira los últimos</span> GIFOS de nuestra comunidad.</p>
       <div class="trending__desktop-buttons">
         <button class="trending__arrow buttonLeft"><i class="icon-button-left"></i></button>
-        <div class="container">
+        <div class="container" id="trendingContainer">
           <div class="card">
             <img class="gif">
             <div class="hover">

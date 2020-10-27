@@ -39,21 +39,23 @@ function trendingCards() {
   const { trendingGifs } = GiphyApi;
 
   trendingGifs()
+    .catch(error => console.log(error))
     .then((response) => {
+      console.log(response);
       response.data.forEach((element, index) => {
         const clonedCard = card.cloneNode(true);
         container.appendChild(clonedCard);
         clonedCard.style.display = "inline-block";
-
+        
         clonedCard.setAttribute("id", element.id);
-
+        
         const clonedGif = clonedCard.querySelector(".gif");
         clonedGif.src = element.images.original.url;
-
+        
         clonedCard.querySelector(".hover__user").innerHTML = element.username;
         clonedCard.querySelector(".hover__title").innerHTML = element.title;
         clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
-
+        
         if (screen.width < 1023) {
           const position = (clonedCard.width * index);
           clonedCard.style.left = `${position}px`;
@@ -68,11 +70,11 @@ function trendingCards() {
  * @param {*} event 
  */
 function toggleFavorite(event) {
-console.log(event);
+  console.log(event);
   const card = event.toElement.parentElement.parentElement.parentElement.parentElement;
   const id = card.id;
 
-  if(id !== "") {
+  if (id !== "") {
     if (id in favoriteList) {
       favoriteList.remove(id);
 
@@ -91,9 +93,9 @@ console.log(event);
 function onLoad() {
   getTrendingCategories();
 
-/*   if (screen.width > 1023) {
-    window.addEventListener("scroll", scrollWindow);
-  }; */
+  /*   if (screen.width > 1023) {
+      window.addEventListener("scroll", scrollWindow);
+    }; */
 };
 
 /* 
@@ -164,6 +166,7 @@ function search() {
  * @param {string} title 
  */
 function createCard(url) {
+
   const card = document.createElement("img");
 
   card.src = url;

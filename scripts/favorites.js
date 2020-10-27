@@ -3,9 +3,6 @@ import GiphyApi from "./GiphyApi.js";
 /**
  * Global variables.
  */
-const container = document.querySelector(".container");
-const card = document.querySelector(".card");
-const favoriteButton = document.querySelector(".favoriteButton");
 
 let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
 

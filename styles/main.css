@@ -96,12 +96,6 @@
   display: none;
   outline: none; }
 
-.iframe {
-  height: 200px;
-  width: 100%;
-  border: none;
-  overflow: hidden; }
-
 .trending {
   margin-top: 45px;
   height: 430px;
