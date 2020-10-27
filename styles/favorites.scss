@@ -22,10 +22,11 @@
   color: #000000;
 }
 
-.main {
+.favorites__group {
   display: inline-flex;
   flex-direction: column;
   text-align: center;
+  display: none;
 }
 
 .picture {

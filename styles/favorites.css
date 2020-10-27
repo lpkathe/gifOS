@@ -19,7 +19,7 @@
   text-align: left;
   color: #000000; }
 
-.main {
+.favorites__group {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -27,7 +27,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center; }
+  text-align: center;
+  display: none; }
 
 .picture {
   margin: 11px auto 8px auto;
