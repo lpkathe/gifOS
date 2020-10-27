@@ -3,7 +3,8 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
-const resultsContainer = document.getElementById("resultsContainer");
+const resultsCardsContainer = document.getElementById("resultsCardsContainer");
+const resultsContainer = document.querySelector(".results__container");
 const favoritesContainer = document.getElementById("favoritesContainer");
 const trendingContainer = document.getElementById("trendingContainer");
 const card = document.querySelector(".card");
@@ -21,7 +22,6 @@ const suggestedList = document.querySelector(".search__box__list");
 const pTrendingCategories = document.querySelector(".search__p");
 
 const resultsTitle = document.querySelector(".results__title");
-const resultsCards = document.querySelector(".results__cards");
 
 const inputSearch = document.getElementById("inputSearch");
 const btnVerMas = document.querySelector(".results__button");
@@ -56,11 +56,15 @@ function createCards(data, container) {
     
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
-    console.log(element.images.original.url);
+
     clonedCard.querySelector(".hover__user").innerHTML = element.username;
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
     clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
     
+    if (container !== trendingContainer) {
+      clonedCard.classList.add("results__card");
+    }
+
     if (screen.width < 1023) {
       const position = (clonedCard.width * index);
       clonedCard.style.left = `${position}px`;
@@ -136,11 +140,12 @@ function search() {
   const { search } = GiphyApi;
 
   resultsTitle.innerText = inputSearch.value;
-  resultstrendingCstyle.display = "flex";
-  resultsCards.innerHTML = "";
+  resultsCardsContainer.innerHTML = "";
+  resultsContainer.style.display = "block";
 
   search(inputSearch.value, pageItems)
     .then((response) => {
+
       pageOffset = response.pagination.offset;
       pageTotalCount = response.pagination.total_count;
       pageCount = pageTotalCount - (response.pagination.count + pageOffset);
@@ -151,17 +156,13 @@ function search() {
         btnVerMas.style.display = "inline";
       };
 
-      console.log(response.data);
       if (response.data.length === 0) {
         document.querySelector(".results__error").style.display = "inline";
-        resultstrendingCstyle.height = "40px";
       }
 
-      response.data.forEach((element) => {
-        createCards(element.images.original.url);
-      })
+      createCards(response.data, resultsCardsContainer);
     }).catch((error) => {
-      resultsCards.innerText = "Error " + error;
+      resultsCardsContainer.innerText = "Error " + error;
     });
 
   isSearchingState(false);
@@ -270,7 +271,7 @@ function searchVerMas() {
         createCards(element.images.original.url);
       })
     }).catch((error) => {
-      resultsCards.innerText = "Error " + error;
+      resultsContainer.innerText = "Error " + error;
     });
 };
 
