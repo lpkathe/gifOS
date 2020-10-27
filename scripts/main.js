@@ -3,7 +3,9 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
-const container = document.querySelector(".container");
+const resultsContainer = document.getElementById("resultsContainer");
+const favoritesContainer = document.getElementById("favoritesContainer");
+const trendingContainer = document.getElementById("trendingContainer");
 const card = document.querySelector(".card");
 const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
@@ -18,7 +20,6 @@ const inputSearchLeftIcon = document.querySelector(".search__box__icon-list");
 const suggestedList = document.querySelector(".search__box__list");
 const pTrendingCategories = document.querySelector(".search__p");
 
-const resultsContainer = document.querySelector(".results__container");
 const resultsTitle = document.querySelector(".results__title");
 const resultsCards = document.querySelector(".results__cards");
 
@@ -33,6 +34,42 @@ const pageItems = 12;
 let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
 
 /**
+ * Load different modules.
+ */
+function onLoad() {
+  getTrendingCategories();
+  trendingCards();
+};
+
+/**
+ * Create cards
+ * @param {object} response.data
+ * @param {object} div container
+ */
+function createCards(data, container) {
+  data.forEach((element, index) => {
+    const clonedCard = card.cloneNode(true);
+    container.appendChild(clonedCard);
+    clonedCard.style.display = "inline-block";
+    
+    clonedCard.setAttribute("id", element.id);
+    
+    const clonedGif = clonedCard.querySelector(".gif");
+    clonedGif.src = element.images.original.url;
+    console.log(element.images.original.url);
+    clonedCard.querySelector(".hover__user").innerHTML = element.username;
+    clonedCard.querySelector(".hover__title").innerHTML = element.title;
+    clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
+    
+    if (screen.width < 1023) {
+      const position = (clonedCard.width * index);
+      clonedCard.style.left = `${position}px`;
+      clonedCard.style.marginRight = "29px";
+    } 
+  });
+};
+
+/**
  * Clone card's slide.
  */
 function trendingCards() {
@@ -40,29 +77,7 @@ function trendingCards() {
 
   trendingGifs()
     .catch(error => console.log(error))
-    .then((response) => {
-      console.log(response);
-      response.data.forEach((element, index) => {
-        const clonedCard = card.cloneNode(true);
-        container.appendChild(clonedCard);
-        clonedCard.style.display = "inline-block";
-        
-        clonedCard.setAttribute("id", element.id);
-        
-        const clonedGif = clonedCard.querySelector(".gif");
-        clonedGif.src = element.images.original.url;
-        
-        clonedCard.querySelector(".hover__user").innerHTML = element.username;
-        clonedCard.querySelector(".hover__title").innerHTML = element.title;
-        clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
-        
-        if (screen.width < 1023) {
-          const position = (clonedCard.width * index);
-          clonedCard.style.left = `${position}px`;
-          clonedCard.style.marginRight = "29px";
-        }
-      });
-    });
+    .then((response) => createCards(response.data, trendingContainer));
 };
 
 /**
@@ -80,7 +95,7 @@ function toggleFavorite(event) {
 
       favoriteOption.style.background = "transparent";
 
-      container.removeChild(card);
+      trendingCremoveChild(card);
     } else {
       favoriteList.push(id);
       favoriteOption.style.background = "#572EE5";
@@ -88,14 +103,6 @@ function toggleFavorite(event) {
     localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
     console.log("saving:" + JSON.parse(localStorage.getItem("favoriteList")));
   }
-};
-
-function onLoad() {
-  getTrendingCategories();
-
-  /*   if (screen.width > 1023) {
-      window.addEventListener("scroll", scrollWindow);
-    }; */
 };
 
 /* 
@@ -129,7 +136,7 @@ function search() {
   const { search } = GiphyApi;
 
   resultsTitle.innerText = inputSearch.value;
-  resultsContainer.style.display = "flex";
+  resultstrendingCstyle.display = "flex";
   resultsCards.innerHTML = "";
 
   search(inputSearch.value, pageItems)
@@ -147,32 +154,17 @@ function search() {
       console.log(response.data);
       if (response.data.length === 0) {
         document.querySelector(".results__error").style.display = "inline";
-        resultsContainer.style.height = "40px";
+        resultstrendingCstyle.height = "40px";
       }
 
       response.data.forEach((element) => {
-        createCard(element.images.original.url);
+        createCards(element.images.original.url);
       })
     }).catch((error) => {
       resultsCards.innerText = "Error " + error;
     });
 
   isSearchingState(false);
-};
-
-/**
- * Create cards for results
- * @param {string} url 
- * @param {string} title 
- */
-function createCard(url) {
-
-  const card = document.createElement("img");
-
-  card.src = url;
-  card.className = "results__card";
-
-  resultsCards.appendChild(card);
 };
 
 /**
@@ -275,7 +267,7 @@ function searchVerMas() {
       };
 
       response.data.forEach((element) => {
-        createCard(element.images.original.url);
+        createCards(element.images.original.url);
       })
     }).catch((error) => {
       resultsCards.innerText = "Error " + error;
@@ -285,7 +277,7 @@ function searchVerMas() {
 /**
  * Events
  */
-window.addEventListener("load", trendingCards);
+window.addEventListener("load", onLoad);
 buttonRight.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft += 350;
 });
@@ -293,7 +285,6 @@ buttonLeft.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft -= 350;
 });
 favoriteButton.addEventListener("click", toggleFavorite);
-window.addEventListener("load", onLoad);
 
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
 inputX.addEventListener("click", searchReset);
