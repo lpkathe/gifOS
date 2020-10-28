@@ -40,7 +40,7 @@ let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
 function onLoad() {
   getTrendingCategories();
   trendingCards();
-  favorites();
+  loadFavorites();
 };
 
 /**
@@ -74,7 +74,7 @@ function createCards(data, container) {
 /**
  * Favorite gifs.
  */
-function favorites() {
+function loadFavorites() {
   const { gifsById } = GiphyApi;
 
   const items = localStorage.getItem("favoriteList");
@@ -82,13 +82,17 @@ function favorites() {
   if (items) {
     favoriteList = items.split(',');
 
-    gifsById(favoriteList.join(","))
-      .catch(error => console.log(error))
-      .then((response) => createCards(response.data, trendingContainer));
+    if (favoriteList.length > 0) {
+      gifsById(favoriteList.join(","))
+        .catch(error => console.log(error))
+        .then((response) => createCards(response.data, trendingContainer));
+
+      favoritesEmpty.style.display = "none";
+    }
   } else {
     favoritesEmpty.style.display = "block";
   }
-}
+};
 
 /**
  * Clone card's slide.
@@ -106,23 +110,34 @@ function trendingCards() {
  * @param {*} event 
  */
 function toggleFavorite(event) {
-  console.log(event);
   const card = event.toElement.parentElement.parentElement.parentElement.parentElement;
   const id = card.id;
 
   if (id !== "") {
     if (id in favoriteList) {
       favoriteList.remove(id);
-
       favoriteOption.style.background = "transparent";
-
-      trendingCremoveChild(card);
+      removeFavoriteCard(id);
     } else {
       favoriteList.push(id);
       favoriteOption.style.background = "#572EE5";
     };
-    localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
-    console.log("saving:" + JSON.parse(localStorage.getItem("favoriteList")));
+    localStorage.setItem("favoriteList", favoriteList.join(","));
+  }
+};
+
+/**
+ * Remove a favorite card
+ * @param {string} id 
+ */
+function removeFavoriteCard(id) {
+  const favoriteCard = favoritesContainer.getElementById(id);
+
+  if (favoriteCard) {
+    favoritesContainer.removeChild(favoriteCard);
+  } else {
+    const documentFavoriteCard = document.getElementById(id);
+    favoritesContainer.removeChild(documentFavoriteCard);
   }
 };
 
@@ -295,6 +310,7 @@ function searchVerMas() {
 /**
  * Events
  */
+
 window.addEventListener("load", onLoad);
 buttonRight.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft += 350;
