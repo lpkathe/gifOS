@@ -5,6 +5,8 @@ import GiphyApi from './GiphyApi.js';
  */
 const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 const resultsContainer = document.querySelector(".results__container");
+const favoritesGroup = document.querySelector(".favorites__group");
+const searchGroup = document.querySelector(".search__group");
 const favoritesContainer = document.getElementById("favoritesContainer");
 const favoritesEmpty = document.querySelector(".favorites__empty");
 const trendingContainer = document.getElementById("trendingContainer");
@@ -13,6 +15,7 @@ const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
 const favoriteButton = document.querySelector(".favoriteButton");
 const btnMas = document.querySelector(".navigation__mas");
+const favoriteMenu = document.getElementById("favoriteMenu");
 
 const searchBox = document.querySelector(".search__box");
 const inputX = document.querySelector(".search__box__x");
@@ -32,7 +35,7 @@ let pageCount = 0;
 let pageTotalCount = 0;
 const pageItems = 12;
 
-let favoriteList = ["dWSsGiOWHbcHVrOh5f", "H6EoEqUOsMfi0xcKzC"];
+let favoriteList = [];
 
 /**
  * Load different modules.
@@ -72,29 +75,6 @@ function createCards(data, container) {
 };
 
 /**
- * Favorite gifs.
- */
-function loadFavorites() {
-  const { gifsById } = GiphyApi;
-
-  const items = localStorage.getItem("favoriteList");
-
-  if (items) {
-    favoriteList = items.split(',');
-
-    if (favoriteList.length > 0) {
-      gifsById(favoriteList.join(","))
-        .catch(error => console.log(error))
-        .then((response) => createCards(response.data, trendingContainer));
-
-      favoritesEmpty.style.display = "none";
-    }
-  } else {
-    favoritesEmpty.style.display = "block";
-  }
-};
-
-/**
  * Clone card's slide.
  */
 function trendingCards() {
@@ -105,24 +85,73 @@ function trendingCards() {
     .then((response) => createCards(response.data, trendingContainer));
 };
 
+// FAVORITES SECTION
+
+function goToFavorites(event) {
+  if (favoritesGroup.style.display !== "block") {
+    favoritesGroup.style.display = "block"
+    searchGroup.style.display = "none"
+  } else {
+    favoritesGroup.style.display = "none"
+    searchGroup.style.display = "block"
+  }
+}
+
+/**
+ * Favorite gifs.
+ */
+function loadFavorites() {
+  const { gifsById } = GiphyApi;
+
+  const items = localStorage.getItem("favoriteList");
+
+  if (items) {
+    favoriteList = items.split(',');
+    if (favoriteList.length > 0) {
+      gifsById(favoriteList.join(","))
+        .catch(error => console.log(error))
+        .then((response) => createCards(response.data, favoritesContainer));
+
+      favoritesEmpty.style.display = "none";
+    }
+  } else {
+    favoritesEmpty.style.display = "block";
+  }
+};
+
 /**
  * Add or erase element to favorites list.
  * @param {*} event 
  */
 function toggleFavorite(event) {
-  const card = event.toElement.parentElement.parentElement.parentElement.parentElement;
-  const id = card.id;
+  const targetCard = event.toElement.parentElement.parentElement.parentElement.parentElement;
+  const id = targetCard.id;
+  const favoriteOption = targetCard.querySelector(".favoriteOption");
+  console.log(favoriteList);
 
   if (id !== "") {
-    if (id in favoriteList) {
-      favoriteList.remove(id);
+    if (favoriteList.includes(id)) {
+      favoriteList.splice(favoriteList.indexOf(id), 1);
       favoriteOption.style.background = "transparent";
+      console.log(`id ${id} encontrado! se borrará`);
       removeFavoriteCard(id);
     } else {
       favoriteList.push(id);
-      favoriteOption.style.background = "#572EE5";
+      favoriteOption.style.background = "572EE5";
+      const clonedFavoriteCard = targetCard.cloneNode(true);
+      clonedFavoriteCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
+      favoritesContainer.appendChild(clonedFavoriteCard);
+      console.log(`id ${id} no encontrado! se agregará`);
     };
     localStorage.setItem("favoriteList", favoriteList.join(","));
+
+  }
+
+  console.log(favoriteList.length == 0);
+  if (favoriteList.length == 0) {
+    favoritesEmpty.style.display = "block";
+  } else {
+    favoritesEmpty.style.display = "none";
   }
 };
 
@@ -131,13 +160,10 @@ function toggleFavorite(event) {
  * @param {string} id 
  */
 function removeFavoriteCard(id) {
-  const favoriteCard = favoritesContainer.getElementById(id);
+  const favoriteCard = document.getElementById(id);
 
-  if (favoriteCard) {
+  if (favoritesContainer.contains(favoriteCard)) {
     favoritesContainer.removeChild(favoriteCard);
-  } else {
-    const documentFavoriteCard = document.getElementById(id);
-    favoritesContainer.removeChild(documentFavoriteCard);
   }
 };
 
@@ -326,3 +352,4 @@ inputX.addEventListener("click", searchReset);
 suggestedList.addEventListener("click", onSuggestedItemClicked);
 
 btnVerMas.addEventListener("click", searchVerMas);
+favoriteMenu.addEventListener("click", goToFavorites);
