@@ -6,6 +6,7 @@ import GiphyApi from './GiphyApi.js';
 const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 const resultsContainer = document.querySelector(".results__container");
 const favoritesContainer = document.getElementById("favoritesContainer");
+const favoritesEmpty = document.querySelector(".favorites__empty");
 const trendingContainer = document.getElementById("trendingContainer");
 const card = document.querySelector(".card");
 const buttonRight = document.querySelector(".buttonRight");
@@ -52,21 +53,21 @@ function createCards(data, container) {
     const clonedCard = card.cloneNode(true);
     container.appendChild(clonedCard);
     clonedCard.style.display = "inline";
-    
+
     clonedCard.setAttribute("id", element.id);
-    
+
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
 
     clonedCard.querySelector(".hover__user").innerHTML = element.username;
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
     clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
-    
+
     if (screen.width < 1023) {
       const position = (clonedCard.width * index);
       clonedCard.style.left = `${position}px`;
       clonedCard.style.marginRight = "29px";
-    } 
+    }
   });
 };
 
@@ -74,19 +75,19 @@ function createCards(data, container) {
  * Favorite gifs.
  */
 function favorites() {
-  const {gifsById} = GiphyApi;
+  const { gifsById } = GiphyApi;
 
   const items = localStorage.getItem("favoriteList");
 
   if (items) {
-    favoriteList = JSON.parse(items.split(','));
+    favoriteList = items.split(',');
+
+    gifsById(favoriteList.join(","))
+      .catch(error => console.log(error))
+      .then((response) => createCards(response.data, trendingContainer));
+  } else {
+    favoritesEmpty.style.display = "block";
   }
-  
-  console.log(favoriteList);
-/* 
-  gifsById()
-    .catch(error => console.log(error))
-    .then((response) => createCards(response.data, trendingContainer)); */
 }
 
 /**

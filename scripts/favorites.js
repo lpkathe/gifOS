@@ -26,31 +26,6 @@ function onLoad() {
 };
 
 /**
- * Create gifs cards and hover cards with options.
- * @param {*} element.json
- */
-function createCard(response, index) {
-  const clonedCard = card.cloneNode(true);
-  container.appendChild(clonedCard);
-  
-  clonedCard.style.display = "inline";
-  clonedCard.setAttribute("id", response.data.id);
-  
-  const clonedGif = clonedCard.querySelector(".gif");
-  clonedGif.src = response.data.images.original.url;
-  
-  clonedCard.querySelector(".hover__user").innerText = response.data.username;
-  clonedCard.querySelector(".hover__title").innerText = response.data.title;
-  clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
-
-  if (screen.width < 1023) {
-    const position = (clonedGif.width * index);
-    clonedCard.style.left = `${position}px`;
-    clonedCard.style.marginRight = "29px";
-  };
-};
-
-/**
  * Add or erase element to favorites list.
  * @param {*} event 
  */

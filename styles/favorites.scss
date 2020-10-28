@@ -22,13 +22,6 @@
   color: #000000;
 }
 
-.favorites__group {
-  display: inline-flex;
-  flex-direction: column;
-  text-align: center;
-  display: none;
-}
-
 .picture {
   margin: 11px auto 8px auto;
   height: 21px;
@@ -47,14 +40,27 @@
   line-height: 30px;
 }
 
-.favorites__container {
-  margin-top: 36px;
-  height: 187px;
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  overflow-x: scroll;
+.favorites {
+  &__group {
+    display: inline-flex;
+    flex-direction: column;
+    text-align: center;
+    display: none;
+  }
+
+  &__container {
+    margin-top: 36px;
+    height: 187px;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-x: scroll;
+  }
+
+  &__empty {
+    display: none;
+  }
 }
 
 .card {
