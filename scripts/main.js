@@ -91,11 +91,8 @@ function goToFavorites(event) {
   if (favoritesGroup.style.display !== "block") {
     favoritesGroup.style.display = "block"
     searchGroup.style.display = "none"
-  } else {
-    favoritesGroup.style.display = "none"
-    searchGroup.style.display = "block"
   }
-}
+};
 
 /**
  * Favorite gifs.
@@ -144,10 +141,8 @@ function toggleFavorite(event) {
       console.log(`id ${id} no encontrado! se agregará`);
     };
     localStorage.setItem("favoriteList", favoriteList.join(","));
-
   }
 
-  console.log(favoriteList.length == 0);
   if (favoriteList.length == 0) {
     favoritesEmpty.style.display = "block";
   } else {

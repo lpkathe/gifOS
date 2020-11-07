@@ -78,7 +78,8 @@
     .navigation__li a:hover {
       letter-spacing: 0;
       text-decoration: underline;
-      text-decoration-color: #5ED7C6; }
+      text-decoration-color: #5ED7C6;
+      cursor: pointer; }
     .navigation__li a:active {
       color: #9CAFC3;
       text-decoration: none; }
