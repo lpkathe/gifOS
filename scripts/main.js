@@ -13,7 +13,6 @@ const trendingContainer = document.getElementById("trendingContainer");
 const card = document.querySelector(".card");
 const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
-const favoriteButton = document.querySelector(".favoriteButton");
 const btnMas = document.querySelector(".navigation__mas");
 const favoriteMenu = document.getElementById("favoriteMenu");
 
@@ -64,7 +63,7 @@ function createCards(data, container) {
 
     clonedCard.querySelector(".hover__user").innerHTML = element.username;
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
-    clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
+    clonedCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
 
     if (screen.width < 1023) {
       const position = (clonedCard.width * index);
@@ -123,22 +122,16 @@ function loadFavorites() {
 function toggleFavorite(event) {
   const targetCard = event.toElement.parentElement.parentElement.parentElement.parentElement;
   const id = targetCard.id;
-  const favoriteOption = targetCard.querySelector(".favoriteOption");
-  console.log(favoriteList);
 
   if (id !== "") {
     if (favoriteList.includes(id)) {
       favoriteList.splice(favoriteList.indexOf(id), 1);
-      favoriteOption.style.background = "transparent";
-      console.log(`id ${id} encontrado! se borrará`);
       removeFavoriteCard(id);
     } else {
       favoriteList.push(id);
-      favoriteOption.style.background = "572EE5";
       const clonedFavoriteCard = targetCard.cloneNode(true);
-      clonedFavoriteCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
+      clonedFavoriteCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
       favoritesContainer.appendChild(clonedFavoriteCard);
-      console.log(`id ${id} no encontrado! se agregará`);
     };
     localStorage.setItem("favoriteList", favoriteList.join(","));
   }
@@ -320,10 +313,10 @@ function searchVerMas() {
         btnVerMas.style.display = "inline";
       };
 
-      response.data.forEach((element) => {
-        createCards(element.images.original.url);
-      })
+      createCards(response.data, resultsCardsContainer);
+
     }).catch((error) => {
+      console.log("response");
       resultsContainer.innerText = "Error " + error;
     });
 };
@@ -339,7 +332,6 @@ buttonRight.addEventListener("click", function () {
 buttonLeft.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft -= 350;
 });
-favoriteButton.addEventListener("click", toggleFavorite);
 
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
 inputX.addEventListener("click", searchReset);

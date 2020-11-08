@@ -98,6 +98,7 @@
         width: 91%; }
       .search__box__input {
         margin-left: 62px;
+        width: 1000px;
         z-index: 3;
         background: transparent; }
     .search__p {
