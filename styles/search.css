@@ -215,39 +215,4 @@
     color: #50E3C2;
     line-height: 25px; }
 
-@media (min-width: 1023px) {
-  .header__title {
-    height: 100px;
-    width: 450px; }
-
-  .search {
-    position: relative; }
-    .search__picture {
-      height: 190px; }
-      .search__picture__image {
-        height: 190px;
-        width: 399px; }
-    .search__box {
-      width: 551px;
-      top: 19px;
-      position: -webkit-sticky;
-      position: sticky; }
-      .search__box__main {
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between; }
-      .search__box__li:before {
-        width: 91%; }
-      .search__box__input {
-        margin-left: 62px;
-        z-index: 3;
-        background: transparent; }
-    .search__p {
-      height: 25px;
-      width: 402px; }
-
-  .results__card {
-    height: 200px;
-    width: 260px; } }
-
 /*# sourceMappingURL=search.css.map */
