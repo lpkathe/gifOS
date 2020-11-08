@@ -194,13 +194,8 @@
       justify-content: space-around; }
 .results__card {
   height: 120px;
-  width: 156px; }
-.results__gif {
-  height: inherit;
-  width: inherit; }
-.results__hover {
-  height: inherit;
-  width: inherit; }
+  width: 156px;
+  margin: 9px auto; }
 .results__button {
   margin: 0 auto 34px auto;
   height: 50px;

@@ -1,12 +1,13 @@
 @import "fonts.scss";
 
 .card {
-  margin: 0px 249px 0px 11px;
   position: relative;
   display: none;
 }
 
 .gif {
+  height: inherit;
+  width: inherit;
   position: absolute;
   z-index: 1;
   display: inline-block;
@@ -21,6 +22,8 @@
 }
 
 .hover {
+  height: inherit;
+  width: inherit;
   visibility: hidden;
   position: absolute;
   background: #572EE5;

@@ -12,14 +12,14 @@
   line-height: 60px;
   text-align: center; }
 
-.roboto-bold, .hover__title {
+.roboto-bold {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center; }
 
-.roboto-regular, .hover__user {
+.roboto-regular {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -55,82 +55,5 @@
   overflow-x: scroll; }
 .favorites__empty {
   display: none; }
-
-.card {
-  margin: 0px 249px 0px 11px;
-  height: 187px;
-  position: relative;
-  display: none; }
-
-.gif {
-  height: 187px;
-  width: 243px;
-  position: absolute;
-  z-index: 1;
-  display: inline-block;
-  cursor: pointer; }
-  .gif:hover ~ .hover {
-    visibility: visible;
-    z-index: 4; }
-
-.hover {
-  height: 187px;
-  width: 243px;
-  visibility: hidden;
-  position: absolute;
-  background: #572EE5;
-  opacity: 0.6;
-  z-index: 2;
-  cursor: pointer; }
-  .hover:hover {
-    visibility: visible; }
-  .hover__user {
-    top: 110px;
-    left: 18px;
-    width: max-content;
-    position: absolute;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-align: center;
-    text-transform: capitalize; }
-  .hover__title {
-    top: 138px;
-    left: 18.5px;
-    height: 19px;
-    position: absolute;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-transform: capitalize; }
-
-.buttons {
-  top: 7px;
-  left: 150px;
-  position: absolute;
-  display: inline-block; }
-
-.button {
-  padding: 0;
-  height: 25px;
-  width: 25px;
-  border: 0;
-  border-radius: 6px;
-  outline: none;
-  text-align: center;
-  background: #FFFFFF;
-  opacity: 0.7;
-  cursor: pointer; }
-  .button:hover {
-    opacity: 100; }
-
-.options {
-  font-size: 12px;
-  background: #FFFFFF;
-  border-radius: 6px; }
-  .options:hover {
-    opacity: 100; }
-
-.favoritebutton {
-  position: relative;
-  z-index: 15; }
 
 /*# sourceMappingURL=favorites.css.map */

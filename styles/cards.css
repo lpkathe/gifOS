@@ -27,11 +27,12 @@
   color: #000000; }
 
 .card {
-  margin: 0px 249px 0px 11px;
   position: relative;
   display: none; }
 
 .gif {
+  height: inherit;
+  width: inherit;
   position: absolute;
   z-index: 1;
   display: inline-block;
@@ -41,6 +42,8 @@
     z-index: 4; }
 
 .hover {
+  height: inherit;
+  width: inherit;
   visibility: hidden;
   position: absolute;
   background: #572EE5;

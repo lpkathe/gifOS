@@ -12,8 +12,10 @@ const favoritesContainer = document.getElementById("favoritesContainer");
 const favoritesEmpty = document.querySelector(".favorites__empty");
 const trendingContainer = document.getElementById("trendingContainer");
 const card = document.querySelector(".card");
+
 const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
+
 const btnMas = document.querySelector(".navigation__mas");
 const favoriteMenu = document.getElementById("favoriteMenu");
 
@@ -66,10 +68,14 @@ function createCards(data, container) {
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
     clonedCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
 
+    if (container === resultsCardsContainer) {
+      clonedCard.className = "card results__card";
+    }
+
     if (screen.width < 1023) {
       const position = (clonedCard.width * index);
       clonedCard.style.left = `${position}px`;
-      clonedCard.style.marginRight = "29px";
+      //clonedCard.style.marginRight = "29px";
     }
   });
 };
