@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/hamburguer_menu.css">
+  <link rel="stylesheet" href="styles/cards.css">
   <link rel="stylesheet" href="styles/search.css">
   <link rel="stylesheet" href="styles/favorites.css">
   <link rel="stylesheet" href="styles/dark-mode.css">
@@ -66,13 +67,17 @@
         <div class="results__container">
           <h2 class="results__title"></h2>
           <div class="results__cards" id="resultsCardsContainer">
+            <div class="card results__card">
+              <img class="gif results__gif">
+              <div class="hover results__hover">
+              </div>
+            </div>
+            <button class="results__button">VER MÁS</button>
           </div>
-          <button class="results__button">VER MÁS</button>
-        </div>
-        <div class="results__error">
-          <picture><img src="assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin resultados"></picture>
-          <p>Intenta con otra búsqueda.</p>
-        </div>
+          <div class="results__error">
+            <picture><img src="assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin resultados"></picture>
+            <p>Intenta con otra búsqueda.</p>
+          </div>
       </section>
     </div>
     <div class="favorites__group">
@@ -95,11 +100,12 @@
       <div class="trending__desktop-buttons">
         <button class="trending__arrow buttonLeft"><i class="icon-button-left"></i></button>
         <div class="container" id="trendingContainer">
-          <div class="card">
-            <img class="gif">
-            <div class="hover">
+          <div class="card trending__card">
+            <img class="gif trending__gif">
+            <div class="hover trengind__hover">
               <div class="buttons">
-                <button class="button favoriteButton"><i class="options favoriteOption icon-icon-fav-hover"></i></button>
+                <button class="button favoriteButton"><i
+                    class="options favoriteOption icon-icon-fav-hover"></i></button>
                 <button class="button"><i class="options icon-icon-download"></i></button>
                 <button class="button"><i class="options icon-icon-max"></i></button>
               </div>

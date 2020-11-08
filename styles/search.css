@@ -1,3 +1,10 @@
+.montserrat-medium, .search__p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #572EE5;
+  line-height: 25px;
+  text-align: center; }
+
 .montserrat-bold, .header__title, .header__title span, .search__title, .results__title, .results__button, .results__error p {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
@@ -5,11 +12,11 @@
   line-height: 60px;
   text-align: center; }
 
-.montserrat-medium, .search__p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #572EE5;
-  line-height: 25px;
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
   text-align: center; }
 
 .roboto-regular, .search__box__input, .search__box__li {
@@ -185,6 +192,15 @@
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around; }
+.results__card {
+  height: 120px;
+  width: 156px; }
+.results__gif {
+  height: inherit;
+  width: inherit; }
+.results__hover {
+  height: inherit;
+  width: inherit; }
 .results__button {
   margin: 0 auto 34px auto;
   height: 50px;

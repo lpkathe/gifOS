@@ -5,7 +5,7 @@
   line-height: 25px;
   text-align: center; }
 
-.montserrat-bold, .title {
+.montserrat-bold {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
@@ -26,45 +26,12 @@
   text-align: left;
   color: #000000; }
 
-.picture {
-  margin: 11px auto 8px auto;
-  height: 21px;
-  width: 28px; }
-
-.img {
-  height: 21px;
-  width: 28px; }
-
-.title {
-  margin: 0;
-  font-size: 25px;
-  line-height: 30px; }
-
-.favorites__group {
-  display: inline-flex;
-  flex-direction: column;
-  text-align: center;
-  display: none; }
-.favorites__container {
-  margin-top: 36px;
-  height: fit-content;
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  overflow-x: scroll; }
-.favorites__empty {
-  display: none; }
-
 .card {
   margin: 0px 249px 0px 11px;
-  height: 187px;
   position: relative;
   display: none; }
 
 .gif {
-  height: 187px;
-  width: 243px;
   position: absolute;
   z-index: 1;
   display: inline-block;
@@ -74,8 +41,6 @@
     z-index: 4; }
 
 .hover {
-  height: 187px;
-  width: 243px;
   visibility: hidden;
   position: absolute;
   background: #572EE5;
@@ -87,6 +52,8 @@
   .hover__user {
     top: 110px;
     left: 18px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
     width: max-content;
     position: absolute;
     font-size: 15px;
@@ -96,7 +63,6 @@
   .hover__title {
     top: 138px;
     left: 18.5px;
-    height: 19px;
     position: absolute;
     font-size: 15px;
     color: #FFFFFF;
@@ -129,8 +95,4 @@
   .options:hover {
     opacity: 100; }
 
-.favoritebutton {
-  position: relative;
-  z-index: 15; }
-
-/*# sourceMappingURL=favorites.css.map */
+/*# sourceMappingURL=cards.css.map */

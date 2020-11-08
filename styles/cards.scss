@@ -1,56 +1,12 @@
 @import "fonts.scss";
 
-.picture {
-  margin: 11px auto 8px auto;
-  height: 21px;
-  width: 28px;
-}
-
-.img {
-  height: 21px;
-  width: 28px;
-}
-
-.title {
-  margin: 0;
-  @extend .montserrat-bold;
-  font-size: 25px;
-  line-height: 30px;
-}
-
-.favorites {
-  &__group {
-    display: inline-flex;
-    flex-direction: column;
-    text-align: center;
-    display: none;
-  }
-
-  &__container {
-    margin-top: 36px;
-    height: fit-content;
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    overflow-x: scroll;
-  }
-
-  &__empty {
-    display: none;
-  }
-}
-
 .card {
   margin: 0px 249px 0px 11px;
-  height: 187px;
   position: relative;
   display: none;
 }
 
 .gif {
-  height: 187px;
-  width: 243px;
   position: absolute;
   z-index: 1;
   display: inline-block;
@@ -65,8 +21,6 @@
 }
 
 .hover {
-  height: 187px;
-  width: 243px;
   visibility: hidden;
   position: absolute;
   background: #572EE5;
@@ -93,7 +47,6 @@
   &__title {
     top: 138px;
     left: 18.5px;
-    height: 19px;
     position: absolute;
     @extend .roboto-bold;
     font-size: 15px;
@@ -134,9 +87,4 @@
   &:hover {
     opacity: 100;
   }
-}
-
-.favoritebutton {
-  position: relative;
-  z-index: 15;
 }

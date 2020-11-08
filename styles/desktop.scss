@@ -1,12 +1,6 @@
-@media (min-width: 1023px) {
+@import "fonts.scss";
 
-  .montserrat-bold-desktop {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: #572EE5;
-    text-align: center;
-    letter-spacing: 0;
-  }
+@media (min-width: 1023px) {
 
   .margin-padding {
     margin: 0;

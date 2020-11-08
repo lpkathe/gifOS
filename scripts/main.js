@@ -3,8 +3,9 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
-const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 const resultsContainer = document.querySelector(".results__container");
+const resultsCardsContainer = document.getElementById("resultsCardsContainer");
+
 const favoritesGroup = document.querySelector(".favorites__group");
 const searchGroup = document.querySelector(".search__group");
 const favoritesContainer = document.getElementById("favoritesContainer");

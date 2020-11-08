@@ -1,26 +1,4 @@
-.montserrat-bold {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  color: #572EE5;
-  line-height: 60px;
-  text-align: center;
-}
-
-.montserrat-medium {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #572EE5;
-  line-height: 25px;
-  text-align: center;
-}
-
-.roboto-regular {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: left;
-  color: #000000;
-}
+@import "fonts.scss";
 
 .header {
   margin: 7px auto 31px auto;
@@ -209,6 +187,21 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+
+  &__card {
+    height: 120px;
+    width: 156px;
+  }
+
+  &__gif {
+    height: inherit;
+    width: inherit;
+  }
+
+  &__hover {
+    height: inherit;
+    width: inherit;
   }
 
   &__button {

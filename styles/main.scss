@@ -1,34 +1,4 @@
-.montserrat-medium {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #572EE5;
-  line-height: 25px;
-  text-align: center;
-}
-
-.montserrat-bold {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  color: #572EE5;
-  line-height: 60px;
-  text-align: center;
-}
-
-.roboto-bold {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: center;
-}
-
-.roboto-regular {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: left;
-  color: #000000;
-}
+@import "fonts.scss";
 
 .top-bar {
   padding: 34px 26px 0 22px;
@@ -146,23 +116,38 @@
     }
   }
 
-  &__desktop-buttons {
+  &__card {
     height: 187px;
-    width: 100vw;
-    display: flex;
-    box-sizing: border-box;
+    width: 243px;
   }
-  
-  &__arrow {
-    padding-top: 5px;
-    height: 40px;
-    width: 40px;
-    display: none;
-    text-align: center;
-    vertical-align: middle;
-    color: #572EE5;
-    border: 1px solid #572EE5;
+
+  &__gif {
+    height: 187px;
+    width: 243px;
   }
+
+  &__hover {
+    height: 187px;
+    width: 243px;
+  }
+
+&__desktop-buttons {
+  height: 187px;
+  width: 100vw;
+  display: flex;
+  box-sizing: border-box;
+}
+
+&__arrow {
+  padding-top: 5px;
+  height: 40px;
+  width: 40px;
+  display: none;
+  text-align: center;
+  vertical-align: middle;
+  color: #572EE5;
+  border: 1px solid #572EE5;
+}
 }
 
 .container {
@@ -171,101 +156,6 @@
   width: 100vw;
   display: inline-flex;
   overflow-x: scroll;
-}
-
-.card {
-  margin: 0px 249px 0px 11px;
-  height: 187px;
-  position: relative;
-  display: none;
-}
-
-.gif {
-  height: 187px;
-  width: 243px;
-  position: absolute;
-  z-index: 1;
-  display: inline-block;
-  cursor: pointer;
-  
-  &:hover {
-    & ~ .hover {
-      visibility: visible;
-      z-index: 4;
-    }
-  }
-}
-
-.hover {
-  height: 187px;
-  width: 243px;
-  visibility: hidden;
-  position: absolute;
-  background: #572EE5;
-  opacity: 0.6;
-  z-index: 2;
-  cursor: pointer;
-
-  &:hover {
-    visibility: visible;
-  }
-  
-  &__user {
-    top: 110px;
-    left: 18px;
-    width: max-content;
-    position: absolute;
-    @extend .roboto-regular;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-align: center;
-    text-transform: capitalize;
-  }
-
-  &__title {
-    top: 138px;
-    left: 18.5px;
-    height: 19px;
-    position: absolute;
-    @extend .roboto-bold;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-transform: capitalize;
-  }
-}
-
-.buttons {
-  top: 7px;
-  left: 150px;
-  position: absolute;
-  display: inline-block;
-}
-
-.button {
-  padding: 0;
-  height: 25px;
-  width: 25px;
-  border: 0;
-  border-radius: 6px;
-  outline: none;
-  text-align: center;
-  background: #FFFFFF;
-  opacity: 0.7;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 100;
-  }
-}
-
-.options {
-  font-size: 12px;
-  background: #FFFFFF;
-  border-radius: 6px;
-
-  &:hover {
-    opacity: 100;
-  }
 }
 
 .footer {
