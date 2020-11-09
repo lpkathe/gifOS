@@ -1,11 +1,32 @@
-@media (min-width: 1023px) {
-  .montserrat-bold-desktop {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    color: #572EE5;
-    text-align: center;
-    letter-spacing: 0; }
+.montserrat-medium {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #572EE5;
+  line-height: 25px;
+  text-align: center; }
 
+.montserrat-bold {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: #572EE5;
+  line-height: 60px;
+  text-align: center; }
+
+.roboto-bold {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center; }
+
+.roboto-regular {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  color: #000000; }
+
+@media (min-width: 1023px) {
   .margin-padding {
     margin: 0;
     padding: 0; }
@@ -98,6 +119,7 @@
         width: 91%; }
       .search__box__input {
         margin-left: 62px;
+        width: 1000px;
         z-index: 3;
         background: transparent; }
     .search__p {
