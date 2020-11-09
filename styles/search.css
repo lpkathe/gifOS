@@ -159,7 +159,8 @@
   padding-top: 43px;
   width: 100vw;
   position: relative;
-  display: none; }
+  display: none;
+  text-align: center; }
 .results__title {
   margin: 0;
   height: 40px;
@@ -191,7 +192,8 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
-      justify-content: space-around; }
+      justify-content: space-around;
+  text-align: left; }
 .results__card {
   height: 120px;
   width: 156px;

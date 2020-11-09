@@ -162,8 +162,6 @@ function removeFavoriteCard(id) {
   }
 };
 
-/* 
-
 function scrollWindow(event) {
 
   const scrollPercentage = (window.pageYOffset * 100) / 358;
@@ -184,7 +182,7 @@ function scrollWindow(event) {
     searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
     btnMas.style.opacity = 1 - (scrollPercentage / 100);
   };
-}; */
+};
 
 /**
  * Get gifs of the search results and display then on html
@@ -310,10 +308,10 @@ function searchVerMas() {
 
   search(inputSearch.value, pageItems, pageOffset + pageItems)
     .then((response) => {
+      //console.log(response.pagination.offset);
       pageOffset = response.pagination.offset;
       pageTotalCount = response.pagination.total_count;
       pageCount = pageTotalCount - (response.pagination.count + pageOffset);
-
       if (pageCount < 1) {
         btnVerMas.style.display = "none";
       } else {

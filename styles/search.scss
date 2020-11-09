@@ -159,6 +159,7 @@
     width: 100vw;
     position: relative;
     display: none;
+    text-align: center;
   }
   
   &__title {
@@ -187,6 +188,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    text-align: left
   }
 
   &__card {
