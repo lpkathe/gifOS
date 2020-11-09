@@ -24,7 +24,6 @@
   font-size: 16px;
   font-weight: 400;
   text-align: left;
-  color: #000000; }
 
 .picture {
   margin: 11px auto 8px auto;
@@ -55,5 +54,3 @@
   overflow-x: scroll; }
 .favorites__empty {
   display: none; }
-
-/*# sourceMappingURL=favorites.css.map */
