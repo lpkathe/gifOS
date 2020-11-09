@@ -20,13 +20,8 @@
   color: #000000; }
 
 .main {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   text-align: center; }
 
 .picture {
@@ -47,9 +42,9 @@
   margin-top: 36px;
   height: 187px;
   width: 100vw;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   overflow-x: scroll; }
 
 .card {
@@ -83,8 +78,6 @@
   .hover__user {
     top: 110px;
     left: 18px;
-    width: -webkit-max-content;
-    width: -moz-max-content;
     width: max-content;
     position: absolute;
     font-size: 15px;
