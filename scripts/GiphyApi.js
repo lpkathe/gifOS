@@ -1,9 +1,9 @@
 const protocol = "https:";
-const DOMAIN = (`${protocol}//api.giphy.com/v1/gifs/`);
-const urlSearch = (`${DOMAIN}search`);
+const DOMAIN = (`${protocol}//api.giphy.com/v1/gifs`);
+const urlSearch = (`${DOMAIN}/search`);
 const urlAutocompleteSearch = (`${urlSearch}/tags`);
-const urlTrendingCategories = (`${DOMAIN}categories`);
-const urlTrendingGifos = (`${DOMAIN}trending`);
+const urlTrendingCategories = (`${DOMAIN}/categories`);
+const urlTrendingGifos = (`${DOMAIN}/trending`);
 const apiKey = `api_key=RdoBL837xzyR4wgjoqf8FocqUIoxGh0q`;
 
 const GiphyApi = {
@@ -42,6 +42,14 @@ const GiphyApi = {
   gifById: ((id) => {
     return new Promise((resolve, reject) => {
       fetch(`${DOMAIN}${id}?${apiKey}`)
+      .then((response) => resolve(response.json()))
+      .catch((error) => reject(error))
+    });
+  }),
+
+  gifsById: ((ids) => {
+    return new Promise((resolve, reject) => {
+      fetch(`${DOMAIN}?ids=${ids}&${apiKey}`)
       .then((response) => resolve(response.json()))
       .catch((error) => reject(error))
     });

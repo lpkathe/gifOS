@@ -1,30 +1,4 @@
-.montserrat-bold {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px;
-  color: #572EE5;
-  line-height: 60px;
-  text-align: center;
-}
-
-.montserrat-medium {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  color: #572EE5;
-  line-height: 25px;
-  text-align: center;
-}
-
-.roboto-regular {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: left;
-  color: #000000;
-}
-
-main {
-  height: fit-content;
-}
+@import "fonts.scss";
 
 .header {
   margin: 7px auto 31px auto;
@@ -73,7 +47,6 @@ main {
     border: 1px solid #572EE5;
     border-radius: 27px;
     background-color: #fff;
-    z-index: 10;
 
     &__main {
       margin: 14px 0 10px 0;
@@ -186,25 +159,27 @@ main {
     width: 100vw;
     position: relative;
     display: none;
-    flex-direction: column;
-
-    &::before {
-      width: 157px;
-      top: 0;
-      position: absolute;
-      content: "";
-      opacity: 0.5;
-      border-top: 1px solid #9CAFC3;
-      align-self: center;
-    }
   }
-
+  
   &__title {
     margin: 0;
     height: 40px;
     @extend .montserrat-bold;
     font-size: 25px;
     line-height: 40px;
+    display: flex;
+    justify-content: center;
+    
+    &::before {
+      width: 157px;
+      top: 0;
+      position: absolute;
+      display: flex;
+      content: "";
+      opacity: 0.5;
+      border-top: 1px solid #9CAFC3;
+      align-self: center;
+    }
   }
 
   &__cards {
@@ -213,12 +188,11 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
   }
-    
+
   &__card {
-    margin-top: 25px;
     height: 120px;
     width: 156px;
-    position: relative;
+    margin: 9px auto;
   }
 
   &__button {
@@ -259,62 +233,6 @@ main {
       font-size: 22px;
       color: #50E3C2;
       line-height: 25px;
-    }
-  }
-}
-
-@media (min-width: 1023px) {
-  .header {
-
-    &__title {
-      height: 100px;
-      width: 450px;
-    }
-  }
-
-  .search {
-    position: relative;
-
-    &__picture {
-      height: 190px;
-
-      &__image {
-        height: 190px;
-        width: 399px;
-      }
-    }
-
-    &__box {
-      width: 551px;
-      top: 19px;
-      position: sticky;
-
-      &__main {
-        justify-content: space-between;
-      }
-
-      &__li:before {
-        width: 91%;
-      }
-
-      &__input {
-        margin-left: 62px;
-        z-index: 3;
-        background: transparent;
-      }
-    }
-
-    &__p {
-      height: 25px;
-      width: 402px;
-    }
-  }
-
-  .results {
-
-    &__card {
-      height: 200px;
-      width: 260px;
     }
   }
 }
