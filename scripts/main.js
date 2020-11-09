@@ -3,6 +3,9 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
+const header = document.querySelector(".header");
+const headerPicture = document.querySelector(".search__picture");
+
 const resultsContainer = document.querySelector(".results__container");
 const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 
@@ -162,8 +165,6 @@ function removeFavoriteCard(id) {
   }
 };
 
-/* 
-
 function scrollWindow(event) {
 
   const scrollPercentage = (window.pageYOffset * 100) / 358;
@@ -184,7 +185,7 @@ function scrollWindow(event) {
     searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
     btnMas.style.opacity = 1 - (scrollPercentage / 100);
   };
-}; */
+};
 
 /**
  * Get gifs of the search results and display then on html
@@ -195,6 +196,9 @@ function search() {
   resultsTitle.innerText = inputSearch.value;
   resultsCardsContainer.innerHTML = "";
   resultsContainer.style.display = "block";
+  header.style.display = "none";
+  headerPicture.style.display = "none";
+  searchBox.style.marginTop= "24px";
 
   search(inputSearch.value, pageItems)
     .then((response) => {
