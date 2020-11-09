@@ -3,6 +3,8 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
+const homepage = document.querySelector(".homepage");
+
 const header = document.querySelector(".header");
 const headerPicture = document.querySelector(".search__picture");
 
@@ -337,6 +339,11 @@ function searchVerMas() {
  */
 
 window.addEventListener("load", onLoad);
+
+homepage.addEventListener("click", function() {
+  location.reload();
+});
+
 buttonRight.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft += 350;
 });

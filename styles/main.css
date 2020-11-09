@@ -34,6 +34,9 @@
           box-sizing: border-box;
   border-top: 5px solid #572EE5; }
 
+.homepage {
+  cursor: pointer; }
+
 .nav-bar {
   width: 100%;
   display: -webkit-box;
