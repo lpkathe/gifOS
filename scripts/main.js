@@ -68,7 +68,7 @@ function createCards(data, container) {
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
     clonedCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
 
-    if (container.id !== "trending__card") {
+    if (container.id !== "trendingContainer") {
       clonedCard.className = "card results__card";
     }
 
