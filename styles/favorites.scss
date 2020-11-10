@@ -28,12 +28,11 @@
 
   &__container {
     margin-top: 36px;
-    height: fit-content;
+    height: max-content;
     width: 100vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    overflow-x: scroll;
     text-align: left;
   }
 

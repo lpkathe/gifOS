@@ -100,8 +100,9 @@ function trendingCards() {
 
 function goToFavorites(event) {
   if (favoritesGroup.style.display !== "block") {
-    favoritesGroup.style.display = "block"
-    searchGroup.style.display = "none"
+    favoritesGroup.style.display = "block";
+    searchGroup.style.display = "none";
+    myGifosGroup.style.display = "none";
   }
 };
 
@@ -341,9 +342,9 @@ function searchVerMas() {
  */
 function goToMyGifos(event) {
   if (myGifosGroup.style.display !== "block") {
-    myGifosGroup.style.display = "block"
-    searchGroup.style.display = "none"
-    favoritesGroup.style.display = "none"
+    myGifosGroup.style.display = "block";
+    searchGroup.style.display = "none";
+    favoritesGroup.style.display = "none";
   }
 };
 
