@@ -26,9 +26,6 @@
   text-align: left;
   color: #000000; }
 
-.favorites__group {
-  padding-top: 7px; }
-
 .picture {
   height: 21px;
   width: 28px; }
@@ -43,6 +40,7 @@
   line-height: 30px; }
 
 .favorites__group {
+  padding-top: 7px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -65,7 +63,8 @@
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  overflow-x: scroll; }
+  overflow-x: scroll;
+  text-align: left; }
 .favorites__empty {
   display: none; }
 

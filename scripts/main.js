@@ -132,7 +132,7 @@ function loadFavorites() {
  * @param {*} event 
  */
 function toggleFavorite(event) {
-  const targetCard = event.toElement.parentElement.parentElement.parentElement.parentElement;
+  const targetCard = event.target.parentElement.parentElement.parentElement.parentElement;
   const id = targetCard.id;
 
   if (id !== "") {
@@ -142,6 +142,7 @@ function toggleFavorite(event) {
     } else {
       favoriteList.push(id);
       const clonedFavoriteCard = targetCard.cloneNode(true);
+      clonedFavoriteCard.className = "card results__card";
       clonedFavoriteCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
       favoritesContainer.appendChild(clonedFavoriteCard);
     };
@@ -357,4 +358,5 @@ inputX.addEventListener("click", searchReset);
 suggestedList.addEventListener("click", onSuggestedItemClicked);
 
 btnVerMas.addEventListener("click", searchVerMas);
+
 favoriteMenu.addEventListener("click", goToFavorites);

@@ -1,9 +1,5 @@
 @import "fonts.scss";
 
-.favorites__group {
-  padding-top: 7px;
-}
-
 .picture {
   height: 21px;
   width: 28px;
@@ -23,6 +19,7 @@
 
 .favorites {
   &__group {
+    padding-top: 7px;
     display: inline-flex;
     flex-direction: column;
     text-align: center;
@@ -37,6 +34,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     overflow-x: scroll;
+    text-align: left;
   }
 
   &__empty {
