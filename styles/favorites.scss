@@ -1,14 +1,17 @@
 @import "fonts.scss";
 
+.favorites__group {
+  padding-top: 7px;
+}
+
 .picture {
-  margin: 11px auto 8px auto;
   height: 21px;
   width: 28px;
 }
 
 .img {
-  height: 21px;
-  width: 28px;
+  height: inherit;
+  width: inherit;
 }
 
 .title {
