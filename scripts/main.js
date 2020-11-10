@@ -4,45 +4,45 @@ import GiphyApi from './GiphyApi.js';
  * Global variables
  */
 const homepage = document.querySelector(".homepage");
+const btnMas = document.querySelector(".navigation__mas");
 
 const header = document.querySelector(".header");
 const headerPicture = document.querySelector(".search__picture");
 
-const resultsContainer = document.querySelector(".results__container");
-const resultsCardsContainer = document.getElementById("resultsCardsContainer");
-
-const favoritesGroup = document.querySelector(".favorites__group");
 const searchGroup = document.querySelector(".search__group");
-const favoritesContainer = document.getElementById("favoritesContainer");
-const favoritesEmpty = document.querySelector(".favorites__empty");
-const trendingContainer = document.getElementById("trendingContainer");
-const card = document.querySelector(".card");
-
-const buttonRight = document.querySelector(".buttonRight");
-const buttonLeft = document.querySelector(".buttonLeft");
-
-const btnMas = document.querySelector(".navigation__mas");
-const favoriteMenu = document.getElementById("favoriteMenu");
-
 const searchBox = document.querySelector(".search__box");
 const inputX = document.querySelector(".search__box__x");
+const inputSearch = document.getElementById("inputSearch");
 const inputSearchRightIcon = document.querySelector(".search__box__icon");
 const inputSearchLeftIcon = document.querySelector(".search__box__icon-list");
-
 const suggestedList = document.querySelector(".search__box__list");
+
 const pTrendingCategories = document.querySelector(".search__p");
 
+const resultsContainer = document.querySelector(".results__container");
 const resultsTitle = document.querySelector(".results__title");
+const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 
-const inputSearch = document.getElementById("inputSearch");
+const favoriteMenu = document.getElementById("favoriteMenu");
+const favoritesGroup = document.querySelector(".favorites__group");
+const favoritesContainer = document.getElementById("favoritesContainer");
+const favoritesEmpty = document.querySelector(".favorites__empty");
+let favoriteList = [];
+
+const myGifosMenu = document.getElementById("myGifosMenu");
+const myGifosGroup = document.querySelector(".myGifos__group");
+
+const trendingContainer = document.getElementById("trendingContainer");
+const buttonRight = document.querySelector(".buttonRight");
+const buttonLeft = document.querySelector(".buttonLeft");
+const card = document.querySelector(".card");
+
 const btnVerMas = document.querySelector(".results__button");
 
 let pageOffset = 0;
 let pageCount = 0;
 let pageTotalCount = 0;
 const pageItems = 12;
-
-let favoriteList = [];
 
 /**
  * Load different modules.
@@ -336,6 +336,18 @@ function searchVerMas() {
 };
 
 /**
+ * Charge My Gifos page
+ * @param {*} event 
+ */
+function goToMyGifos(event) {
+  if (myGifosGroup.style.display !== "block") {
+    myGifosGroup.style.display = "block"
+    searchGroup.style.display = "none"
+    favoritesGroup.style.display = "none"
+  }
+};
+
+/**
  * Events
  */
 
@@ -360,3 +372,4 @@ suggestedList.addEventListener("click", onSuggestedItemClicked);
 btnVerMas.addEventListener("click", searchVerMas);
 
 favoriteMenu.addEventListener("click", goToFavorites);
+myGifosMenu.addEventListener("click", goToMyGifos);
