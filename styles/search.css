@@ -199,7 +199,7 @@
   width: 156px;
   margin: 9px auto; }
 .results__button {
-  margin: 0 auto 34px auto;
+  margin: 78px auto 34px auto;
   height: 50px;
   width: 127px;
   border: 1px solid #572EE5;
@@ -209,7 +209,8 @@
   font-weight: bold;
   line-height: unset;
   letter-spacing: 0;
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
   .results__button:hover {
     color: #FFFFFF;
     letter-spacing: 0;

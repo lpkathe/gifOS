@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gifOS</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap"
-    rel="stylesheet">
+  rel="stylesheet">
+  <link rel="shortcut icon" href="https://developers.giphy.com/branch/master/icons/icon-48x48.png">
   <link rel="stylesheet" href="icomoon/style.css">
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/main.css">
@@ -71,7 +72,7 @@
           <h2 class="results__title"></h2>
           <div class="results__cards" id="resultsCardsContainer">
           </div>
-          <button class="results__button">VER MÁS</button>
+          <button class="results__button" id="resultsButton">VER MÁS</button>
           <div class="results__error">
             <picture><img src="assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin resultados"></picture>
             <p>Intenta con otra búsqueda.</p>
@@ -85,7 +86,7 @@
       <h1 class="title">Favoritos</h1>
       <div class="favorites__container" id="favoritesContainer">
       </div>
-      <button class="results__button">VER MÁS</button>
+      <button class="results__button" id="favoritesButton">VER MÁS</button>
       <div class="favorites__empty">
         <picture>
           <img src="assets/icon-fav-sin-contenido.svg" alt="No hay contenido de favoritos">
@@ -112,8 +113,8 @@
             <img class="gif">
             <div class="hover">
               <div class="buttons">
-                <button class="button favoriteButton"><i
-                    class="options favoriteOption icon-icon-fav-hover"></i></button>
+                <button class="button favoriteButton"><span
+                    class="options favoriteOption icon-icon-fav-hover"></span></button>
                 <button class="button"><i class="options icon-icon-download"></i></button>
                 <button class="button"><i class="options icon-icon-max"></i></button>
               </div>

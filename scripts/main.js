@@ -27,7 +27,6 @@ const favoriteMenu = document.getElementById("favoriteMenu");
 const favoritesGroup = document.querySelector(".favorites__group");
 const favoritesContainer = document.getElementById("favoritesContainer");
 const favoritesEmpty = document.querySelector(".favorites__empty");
-let favoriteList = [];
 
 const myGifosMenu = document.getElementById("myGifosMenu");
 const myGifosGroup = document.querySelector(".myGifos__group");
@@ -37,12 +36,20 @@ const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
 const card = document.querySelector(".card");
 
-const btnVerMas = document.querySelector(".results__button");
+const btnVerMas = document.getElementById("resultsButton");
+const btnVerMasFavorites = document.getElementById("favoritesButton");
+
+let favoriteList = [];
+let favoritesPageCount = 0;
+let favoritesTotalPages = 0;
 
 let pageOffset = 0;
 let pageCount = 0;
 let pageTotalCount = 0;
-const pageItems = 12;
+
+const pageItems = 1;
+
+const { gifsById } = GiphyApi;
 
 /**
  * Load different modules.
@@ -50,7 +57,6 @@ const pageItems = 12;
 function onLoad() {
   getTrendingCategories();
   trendingCards();
-  loadFavorites();
 };
 
 /**
@@ -63,18 +69,24 @@ function createCards(data, container) {
     const clonedCard = card.cloneNode(true);
     container.appendChild(clonedCard);
     clonedCard.style.display = "inline";
-
+    
     clonedCard.setAttribute("id", element.id);
-
+    
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
-
+    
     clonedCard.querySelector(".hover__user").innerHTML = element.username;
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
-    clonedCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
-
+    
+    const favoriteOption = clonedCard.querySelector(".favoriteOption");
+    favoriteOption.addEventListener("click", toggleFavorite);
+    
     if (container.id !== "trendingContainer") {
       clonedCard.className = "card results__card";
+    }
+    
+    if (favoriteList.includes(element.id)) {
+      favoriteOption.className = "options favoriteOption icon-icon-fav-active";
     }
 
     if (screen.width < 1023) {
@@ -98,11 +110,16 @@ function trendingCards() {
 
 // FAVORITES SECTION
 
-function goToFavorites(event) {
+/**
+ * Show and hide containers and execute the load and display favorites.
+ */
+function goToFavorites() {
   if (favoritesGroup.style.display !== "block") {
     favoritesGroup.style.display = "block";
     searchGroup.style.display = "none";
     myGifosGroup.style.display = "none";
+    loadFavorites();
+    favoritesVerMas();
   }
 };
 
@@ -110,21 +127,40 @@ function goToFavorites(event) {
  * Favorite gifs.
  */
 function loadFavorites() {
-  const { gifsById } = GiphyApi;
-
   const items = localStorage.getItem("favoriteList");
-
-  if (items) {
+  favoritesTotalPages = 0;
+  
+  if (items != "") {
     favoriteList = items.split(',');
+    favoritesEmpty.style.display = "none";
     if (favoriteList.length > 0) {
-      gifsById(favoriteList.join(","))
-        .catch(error => console.log(error))
-        .then((response) => createCards(response.data, favoritesContainer));
-
-      favoritesEmpty.style.display = "none";
+      favoritesTotalPages = Math.ceil(favoriteList.length / pageItems);
     }
   } else {
     favoritesEmpty.style.display = "block";
+    btnVerMasFavorites.style.display = "none";
+  }
+};
+
+/**
+ * Get favorites gifs to API and calculate pages to show.
+ */
+function favoritesVerMas() {
+  const sliceStartPos = favoritesPageCount * pageItems;
+  const paginatedList = favoriteList.slice(sliceStartPos, sliceStartPos + pageItems);
+  
+  if (paginatedList.length > 0) {
+    gifsById(paginatedList.join(","))
+    .catch(error => console.log(error))
+    .then((response) => {
+      if ((favoritesPageCount + 1) != favoritesTotalPages) {
+        btnVerMasFavorites.style.display = "block";
+      } else {
+        btnVerMasFavorites.style.display = "none";
+      }
+      createCards(response.data, favoritesContainer);
+      favoritesPageCount += 1;
+    });
   }
 };
 
@@ -135,16 +171,18 @@ function loadFavorites() {
 function toggleFavorite(event) {
   const targetCard = event.target.parentElement.parentElement.parentElement.parentElement;
   const id = targetCard.id;
-
   if (id !== "") {
     if (favoriteList.includes(id)) {
       favoriteList.splice(favoriteList.indexOf(id), 1);
+      targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-hover";
       removeFavoriteCard(id);
     } else {
       favoriteList.push(id);
+      targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       const clonedFavoriteCard = targetCard.cloneNode(true);
       clonedFavoriteCard.className = "card results__card";
       clonedFavoriteCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
+      clonedFavoriteCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       favoritesContainer.appendChild(clonedFavoriteCard);
     };
     localStorage.setItem("favoriteList", favoriteList.join(","));
@@ -207,9 +245,9 @@ function search() {
   search(inputSearch.value, pageItems)
     .then((response) => {
 
-      pageOffset = response.pagination.offset;
-      pageTotalCount = response.pagination.total_count;
-      pageCount = pageTotalCount - (response.pagination.count + pageOffset);
+      pageOffset = response.pagination.offset; // Position in pagination.
+      pageTotalCount = response.pagination.total_count; // Total number of items available.
+      pageCount = pageTotalCount - (response.pagination.count + pageOffset); // Total number of items returned.
 
       if (pageCount < 1) {
         btnVerMas.style.display = "none";
@@ -371,6 +409,7 @@ inputX.addEventListener("click", searchReset);
 suggestedList.addEventListener("click", onSuggestedItemClicked);
 
 btnVerMas.addEventListener("click", searchVerMas);
+btnVerMasFavorites.addEventListener("click", favoritesVerMas);
 
 favoriteMenu.addEventListener("click", goToFavorites);
 myGifosMenu.addEventListener("click", goToMyGifos);
