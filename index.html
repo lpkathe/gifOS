@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gifOS</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto:wght@400;700&display=swap"
-  rel="stylesheet">
+    rel="stylesheet">
   <link rel="shortcut icon" href="https://developers.giphy.com/branch/master/icons/icon-48x48.png">
   <link rel="stylesheet" href="icomoon/style.css">
   <link rel="stylesheet" href="styles/normalize.css">
@@ -23,7 +23,7 @@
 <body>
   <input type="checkbox" class="dark-mode" id="dark-mode" name="dark-mode" value="dark">
   <main>
-    <div class="top-bar">
+    <section class="top-bar">
       <input type="checkbox" id="checkbox" class="checkbox">
       <div class="nav-bar">
         <a class="homepage">
@@ -43,15 +43,15 @@
           <li class="navigation__li"><a id="favoriteMenu">Favoritos</a></li>
           <li class="navigation__li"><a id="myGifosMenu"">Mis GIFOS</a></li>
         </ul>
-        <a class="navigation__mas" href=""><button class="navigation__button"><i
-              class="icon-button-crear-gifo"></i></button></a>
+        <a class=" navigation__mas" href=""><button class="navigation__button"><i
+                  class="icon-button-crear-gifo"></i></button></a>
       </nav>
-    </div>
-    <div class="search__group">
+    </section>
+    <section class="search__group">
       <header class="header">
         <h1 class="header__title">Inspírate, busca, guarda, y crea los mejores <span>GIFOS</span></h1>
       </header>
-      <section class="search">
+      <div class="search">
         <picture class="search__picture">
           <img class="search__picture__image" src="assets/ilustra_header.svg" alt="Search image">
         </picture>
@@ -77,9 +77,9 @@
             <picture><img src="assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin resultados"></picture>
             <p>Intenta con otra búsqueda.</p>
           </div>
-      </section>
-    </div>
-    <div class="favorites__group">
+      </div>
+    </section>
+    <section class="favorites__group">
       <picture class="picture">
         <img class="img" src="assets/icon-favoritos.svg" alt="Favoritos">
       </picture>
@@ -93,8 +93,8 @@
         </picture>
         <p>"¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!"</p>
       </div>
-    </div>
-    <div class="myGifos__group">
+    </section>
+    <section class="myGifos__group">
       <picture class="picture">
         <img class="img" src="assets/icon-mis-gifos.svg" alt="Mis GIFOS">
       </picture>
@@ -102,7 +102,7 @@
       <div class="myGifos__container" id="myGifosContainer">
       </div>
       <button class="results__button">VER MÁS</button>
-    </div>
+    </section>
     <section class="trending">
       <h2 class="trending__title">Trending GIFOS</h2>
       <p class="trending__p"><span class="trending__p__span">Mira los últimos</span> GIFOS de nuestra comunidad.</p>
