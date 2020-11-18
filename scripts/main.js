@@ -175,6 +175,8 @@ function toggleFavorite(event) {
     if (favoriteList.includes(id)) {
       favoriteList.splice(favoriteList.indexOf(id), 1);
       removeFavoriteCard(id);
+      const mainCard = document.querySelector(`#${id}`);
+      mainCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-hover";
     } else {
       favoriteList.push(id);
       targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
