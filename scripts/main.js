@@ -47,7 +47,7 @@ let pageOffset = 0;
 let pageCount = 0;
 let pageTotalCount = 0;
 
-const pageItems = 1;
+const pageItems = 12;
 
 const { gifsById } = GiphyApi;
 
@@ -57,6 +57,7 @@ const { gifsById } = GiphyApi;
 function onLoad() {
   getTrendingCategories();
   trendingCards();
+  loadFavorites();
 };
 
 /**
@@ -69,22 +70,22 @@ function createCards(data, container) {
     const clonedCard = card.cloneNode(true);
     container.appendChild(clonedCard);
     clonedCard.style.display = "inline";
-    
+
     clonedCard.setAttribute("id", element.id);
-    
+
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
-    
+
     clonedCard.querySelector(".hover__user").innerHTML = element.username;
     clonedCard.querySelector(".hover__title").innerHTML = element.title;
-    
+
     const favoriteOption = clonedCard.querySelector(".favoriteOption");
     favoriteOption.addEventListener("click", toggleFavorite);
-    
+
     if (container.id !== "trendingContainer") {
       clonedCard.className = "card results__card";
     }
-    
+
     if (favoriteList.includes(element.id)) {
       favoriteOption.className = "options favoriteOption icon-icon-fav-active";
     }
@@ -129,7 +130,7 @@ function goToFavorites() {
 function loadFavorites() {
   const items = localStorage.getItem("favoriteList");
   favoritesTotalPages = 0;
-  
+
   if (items != "") {
     favoriteList = items.split(',');
     favoritesEmpty.style.display = "none";
@@ -148,19 +149,19 @@ function loadFavorites() {
 function favoritesVerMas() {
   const sliceStartPos = favoritesPageCount * pageItems;
   const paginatedList = favoriteList.slice(sliceStartPos, sliceStartPos + pageItems);
-  
+
   if (paginatedList.length > 0) {
     gifsById(paginatedList.join(","))
-    .catch(error => console.log(error))
-    .then((response) => {
-      if ((favoritesPageCount + 1) != favoritesTotalPages) {
-        btnVerMasFavorites.style.display = "block";
-      } else {
-        btnVerMasFavorites.style.display = "none";
-      }
-      createCards(response.data, favoritesContainer);
-      favoritesPageCount += 1;
-    });
+      .catch(error => console.log(error))
+      .then((response) => {
+        if ((favoritesPageCount + 1) != favoritesTotalPages) {
+          btnVerMasFavorites.style.display = "block";
+        } else {
+          btnVerMasFavorites.style.display = "none";
+        }
+        createCards(response.data, favoritesContainer);
+        favoritesPageCount += 1;
+      });
   }
 };
 
@@ -184,8 +185,11 @@ function toggleFavorite(event) {
       clonedFavoriteCard.className = "card results__card";
       clonedFavoriteCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
       clonedFavoriteCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
-      favoritesContainer.appendChild(clonedFavoriteCard);
-    };
+      if (favoritesGroup.style.display == "block") {
+        favoritesContainer.appendChild(clonedFavoriteCard);
+      }
+    }
+
     localStorage.setItem("favoriteList", favoriteList.join(","));
   }
 
@@ -241,7 +245,7 @@ function search() {
   resultsContainer.style.display = "block";
   header.style.display = "none";
   headerPicture.style.display = "none";
-  searchBox.style.marginTop= "24px";
+  searchBox.style.marginTop = "24px";
 
   search(inputSearch.value, pageItems)
     .then((response) => {
@@ -393,7 +397,7 @@ function goToMyGifos(event) {
 
 window.addEventListener("load", onLoad);
 
-homepage.addEventListener("click", function() {
+homepage.addEventListener("click", function () {
   location.reload();
 });
 
