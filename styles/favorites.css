@@ -37,7 +37,8 @@
 .title {
   margin: auto;
   font-size: 20px;
-  line-height: 30px; }
+  line-height: 30px;
+  position: unset; }
 
 .favorites__group {
   padding-top: 7px;
