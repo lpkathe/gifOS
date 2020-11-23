@@ -194,10 +194,6 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   text-align: left; }
-.results__card {
-  height: 120px;
-  width: 156px;
-  margin: 9px auto; }
 .results__button {
   margin: 78px auto 34px auto;
   height: 50px;

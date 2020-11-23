@@ -76,14 +76,21 @@ function createCards(data, container) {
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
 
-    clonedCard.querySelector(".hover__user").innerHTML = element.username;
-    clonedCard.querySelector(".hover__title").innerHTML = element.title;
+    clonedCard.querySelector(".trending__user").innerHTML = element.username;
+    clonedCard.querySelector(".trending__title").innerHTML = element.title;
 
     const favoriteOption = clonedCard.querySelector(".favoriteOption");
     favoriteOption.addEventListener("click", toggleFavorite);
 
     if (container.id !== "trendingContainer") {
-      clonedCard.className = "card results__card";
+      clonedCard.className = "card normal__card";
+      clonedCard.querySelector(".trending__user").className = "normal__user";
+      clonedCard.querySelector(".trending__title").className = "normal__title";
+      clonedCard.querySelector(".trending__buttons").className = "normal__buttons";
+      let buttons = clonedCard.querySelectorAll('button');
+      buttons.forEach((element) => element.className = "normal__button");
+      let options = clonedCard.querySelectorAll('i');
+      options.forEach((element) => element.style.fontSize = "10px");
     }
 
     if (favoriteList.includes(element.id)) {
@@ -176,13 +183,13 @@ function toggleFavorite(event) {
     if (favoriteList.includes(id)) {
       favoriteList.splice(favoriteList.indexOf(id), 1);
       removeFavoriteCard(id);
-      const mainCard = document.querySelector(`#${id}`);
+      const mainCard = document.getElementById(id);
       mainCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-hover";
     } else {
       favoriteList.push(id);
       targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       const clonedFavoriteCard = targetCard.cloneNode(true);
-      clonedFavoriteCard.className = "card results__card";
+      clonedFavoriteCard.className = "card normal__card";
       clonedFavoriteCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
       clonedFavoriteCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       if (favoritesGroup.style.display == "block") {

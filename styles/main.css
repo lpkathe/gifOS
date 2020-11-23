@@ -73,7 +73,8 @@
   padding: 1em;
   height: 60px;
   position: relative;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
   .navigation__li::after {
     width: 41px;
     left: 45%;
