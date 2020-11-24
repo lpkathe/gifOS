@@ -156,7 +156,8 @@
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  overflow-x: scroll; }
+  overflow-x: scroll;
+  overflow-y: none; }
 
 .footer {
   height: 201px;

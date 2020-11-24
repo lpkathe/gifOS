@@ -38,6 +38,7 @@ const card = document.querySelector(".card");
 
 const btnVerMas = document.getElementById("resultsButton");
 const btnVerMasFavorites = document.getElementById("favoritesButton");
+const btnVerMasMyGifos = document.getElementById("myGifosButton");
 
 let favoriteList = [];
 let favoritesPageCount = 0;
@@ -83,14 +84,7 @@ function createCards(data, container) {
     favoriteOption.addEventListener("click", toggleFavorite);
 
     if (container.id !== "trendingContainer") {
-      clonedCard.className = "card normal__card";
-      clonedCard.querySelector(".trending__user").className = "normal__user";
-      clonedCard.querySelector(".trending__title").className = "normal__title";
-      clonedCard.querySelector(".trending__buttons").className = "normal__buttons";
-      let buttons = clonedCard.querySelectorAll('button');
-      buttons.forEach((element) => element.className = "normal__button");
-      let options = clonedCard.querySelectorAll('i');
-      options.forEach((element) => element.style.fontSize = "10px");
+      fixItemsInCards(clonedCard);
     }
 
     if (favoriteList.includes(element.id)) {
@@ -104,6 +98,20 @@ function createCards(data, container) {
     }
   });
 };
+
+/**
+ * Fix the items in the correct positions into card.
+ */
+function fixItemsInCards (clonedCard) {
+  clonedCard.className = "card normal__card";
+  clonedCard.querySelector(".trending__user").className = "normal__user";
+  clonedCard.querySelector(".trending__title").className = "normal__title";
+  clonedCard.querySelector(".trending__buttons").className = "normal__buttons";
+  let buttons = clonedCard.querySelectorAll('button');
+  buttons.forEach((element) => element.className = "normal__button");
+  let options = clonedCard.querySelectorAll('i');
+  options.forEach((element) => element.style.fontSize = "10px");
+}
 
 /**
  * Clone card's slide.
@@ -188,12 +196,12 @@ function toggleFavorite(event) {
     } else {
       favoriteList.push(id);
       targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
-      const clonedFavoriteCard = targetCard.cloneNode(true);
-      clonedFavoriteCard.className = "card normal__card";
-      clonedFavoriteCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
-      clonedFavoriteCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
+      const clonedCard = targetCard.cloneNode(true);
+      fixItemsInCards(clonedCard);
+      clonedCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
+      clonedCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       if (favoritesGroup.style.display == "block") {
-        favoritesContainer.appendChild(clonedFavoriteCard);
+        favoritesContainer.appendChild(clonedCard);
       }
     }
 
@@ -218,6 +226,8 @@ function removeFavoriteCard(id) {
     favoritesContainer.removeChild(favoriteCard);
   }
 };
+
+// SEARCH SECTION
 
 function scrollWindow(event) {
 
@@ -386,6 +396,7 @@ function searchVerMas() {
     });
 };
 
+// MY GIFOS SECTION
 /**
  * Charge My Gifos page
  * @param {*} event 
@@ -395,6 +406,7 @@ function goToMyGifos(event) {
     myGifosGroup.style.display = "block";
     searchGroup.style.display = "none";
     favoritesGroup.style.display = "none";
+    btnVerMasMyGifos.style.display = "none";
   }
 };
 
