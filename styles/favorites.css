@@ -5,7 +5,7 @@
   line-height: 25px;
   text-align: center; }
 
-.montserrat-bold, .title {
+.montserrat-bold, .t {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
@@ -34,11 +34,10 @@
   height: inherit;
   width: inherit; }
 
-.title {
+.t {
   margin: auto;
   font-size: 20px;
-  line-height: 30px;
-  position: unset; }
+  line-height: 30px; }
 
 .favorites__group {
   padding-top: 7px;

@@ -97,13 +97,12 @@
   flex-direction: column;
   background: #F3F5F8;
 
-  &__title {
+  &__t {
     margin: 44px auto 9px auto;
-    padding-top: 44px;
     height: 30px;
-    @extend .montserrat-bold;
     font-size: 20px;
     line-height: 30px;
+    @extend .montserrat-bold;
   }
     
   &__p {

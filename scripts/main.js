@@ -70,31 +70,31 @@ function createCards(data, container) {
   data.forEach((element, index) => {
     const clonedCard = card.cloneNode(true);
     container.appendChild(clonedCard);
+
     clonedCard.style.display = "inline";
-
     clonedCard.setAttribute("id", element.id);
-
+    clonedCard.querySelector(".trending__user").innerHTML = element.username;
+    clonedCard.querySelector(".trending__title").innerHTML = element.title;
+    
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
 
-    clonedCard.querySelector(".trending__user").innerHTML = element.username;
-    clonedCard.querySelector(".trending__title").innerHTML = element.title;
-
-    const favoriteOption = clonedCard.querySelector(".favoriteOption");
-    favoriteOption.addEventListener("click", toggleFavorite);
-
     if (container.id !== "trendingContainer") {
       fixItemsInCards(clonedCard);
+      clonedCard.querySelector(".normal__button").className = "normal__button favoriteButton";
     }
 
+    const favoriteButton = clonedCard.querySelector(".favoriteButton");
+    favoriteButton.addEventListener("click", toggleFavorite);
+
     if (favoriteList.includes(element.id)) {
+      const favoriteOption = clonedCard.querySelector(".favoriteOption");
       favoriteOption.className = "options favoriteOption icon-icon-fav-active";
     }
 
     if (screen.width < 1023) {
       const position = (clonedCard.width * index);
       clonedCard.style.left = `${position}px`;
-      //clonedCard.style.marginRight = "29px";
     }
   });
 };
@@ -102,15 +102,17 @@ function createCards(data, container) {
 /**
  * Fix the items in the correct positions into card.
  */
-function fixItemsInCards (clonedCard) {
+function fixItemsInCards(clonedCard) {
   clonedCard.className = "card normal__card";
   clonedCard.querySelector(".trending__user").className = "normal__user";
   clonedCard.querySelector(".trending__title").className = "normal__title";
   clonedCard.querySelector(".trending__buttons").className = "normal__buttons";
+  
+  let options = clonedCard.querySelectorAll('options');
+  options.forEach((element) => element.style.fontSize = "10px");
+
   let buttons = clonedCard.querySelectorAll('button');
   buttons.forEach((element) => element.className = "normal__button");
-  let options = clonedCard.querySelectorAll('i');
-  options.forEach((element) => element.style.fontSize = "10px");
 }
 
 /**
@@ -185,7 +187,8 @@ function favoritesVerMas() {
  * @param {*} event 
  */
 function toggleFavorite(event) {
-  const targetCard = event.target.parentElement.parentElement.parentElement.parentElement;
+  const targetCard = event.target.closest("div").parentElement.parentElement;
+  console.log(targetCard);
   const id = targetCard.id;
   if (id !== "") {
     if (favoriteList.includes(id)) {
@@ -198,8 +201,10 @@ function toggleFavorite(event) {
       targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       const clonedCard = targetCard.cloneNode(true);
       fixItemsInCards(clonedCard);
-      clonedCard.querySelector(".favoriteOption").addEventListener("click", toggleFavorite);
       clonedCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
+      clonedCard.querySelector(".normal__button").className = "normal__button favoriteButton";
+      clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
+
       if (favoritesGroup.style.display == "block") {
         favoritesContainer.appendChild(clonedCard);
       }

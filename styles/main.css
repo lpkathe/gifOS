@@ -5,7 +5,7 @@
   line-height: 25px;
   text-align: center; }
 
-.montserrat-bold, .navigation__list, .trending__title {
+.montserrat-bold, .navigation__list, .trending__t {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
@@ -112,9 +112,8 @@
       -ms-flex-direction: column;
           flex-direction: column;
   background: #F3F5F8; }
-  .trending__title {
+  .trending__t {
     margin: 44px auto 9px auto;
-    padding-top: 44px;
     height: 30px;
     font-size: 20px;
     line-height: 30px; }

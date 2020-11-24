@@ -10,11 +10,10 @@
   width: inherit;
 }
 
-.title {
+.t {
   margin: auto;
   font-size: 20px;
   line-height: 30px;
-  position: unset;
   @extend .montserrat-bold;
 }
 
