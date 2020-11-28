@@ -150,15 +150,18 @@
   .maximized__picture__closeIcon {
     height: 14px;
     width: 13.8px; }
-.maximized__card__container {
-  margin: 0 auto 14px auto;
+.maximized__card {
   height: 245px;
   width: 318px; }
-.maximized__card__info {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 32px 25px;
-  grid-template-areas: "user icons" "title icons"; }
+  .maximized__card__container {
+    margin: 0 auto 14px auto;
+    height: 245px;
+    width: 318px; }
+  .maximized__card__info {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 32px 25px;
+    grid-template-areas: "user icons" "title icons"; }
 .maximized__u {
   margin-left: 35px;
   height: 18px;

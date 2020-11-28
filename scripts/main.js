@@ -114,18 +114,20 @@ function fixItemsInCards(clonedCard, typeCard) {
   clonedCard.querySelector(".trending__user").className = `${typeCard}__user`;
   clonedCard.querySelector(".trending__title").className = `${typeCard}__title`;
   clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
-  
+  console.log(clonedCard);
   if (typeCard === "normal") {
   let options = clonedCard.querySelectorAll('options');
   options.forEach((element) => element.style.fontSize = "10px");
 
   let buttons = clonedCard.querySelectorAll('button');
   buttons.forEach((element) => element.className = `${typeCard}__button`);
-  }
+console.log("entro en normal");  
+}
 
   if (typeCard === "maximized") {
     let options = clonedCard.querySelectorAll('options');
     options.forEach((element) => element.style.fontSize = "14px");
+  console.log("entro en maximized");
   }
 }
 
@@ -151,15 +153,14 @@ function maximizedView(event) {
 
   const targetCard = event.target.closest("div").parentElement.parentElement;
   const clonedCard = targetCard.cloneNode(true);
-
-  fixItemsInCards(clonedCard, maximized);
+  maximizedCardContainer.appendChild(clonedCard);
 
   clonedCard.querySelector(".hover").style.background = "transparent";
   clonedCard.querySelector(".favoriteButton").className = "maximized__button favoriteButton";
   clonedCard.querySelector(".maxButton").className = "maximized__button maxButton";
   clonedCard.querySelector(".donwloadButton").className = "maximized__button donwloadButton";
-
-  maximizedCardContainer.appendChild(clonedCard);
+  
+  fixItemsInCards(clonedCard, "maximized");
 }
 
 
@@ -468,7 +469,7 @@ homepage.addEventListener("click", function () {
   location.reload();
 });
 
-//maximizedPicture.addEventListener(click, maximizedViewClose);
+maximizedPicture.addEventListener("click", maximizedViewClose);
 
 buttonRight.addEventListener("click", function () {
   document.querySelector(".trending__container").scrollLeft += 350;
