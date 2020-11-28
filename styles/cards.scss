@@ -54,14 +54,14 @@
   height: inherit;
   width: inherit;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   display: inline-block;
   cursor: pointer;
   
   &:hover {
     & ~ .hover {
       visibility: visible;
-      z-index: 4;
+      z-index: 5;
     }
   }
 }
@@ -73,7 +73,7 @@
   position: absolute;
   background: #572EE5;
   opacity: 0.6;
-  z-index: 2;
+  z-index: 3;
   cursor: pointer;
 
   &:hover {
@@ -152,5 +152,84 @@
     left: 18.5px;
     font-size: 15px;
     @extend .title;
+  }
+}
+
+.maximized {
+  &__container {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255,255,255,0.90);
+    position: fixed;
+    z-index: 10;
+    display: none;
+    @extend .margin-padding;
+  }
+  
+  &__picture {
+    margin: 64px 39.3px 78px auto;
+    display: flex;
+    justify-content: flex-end;
+    
+    &__closeIcon {
+      height: 14px;
+      width: 13.8px;
+    }
+  }
+
+  &__card {
+    &__container {
+    margin: 0 auto 14px auto;
+    height: 245px;
+    width: 318px;
+    }
+
+    &__info {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 32px 25px;
+      grid-template-areas: 
+      "user icons"
+      "title icons";
+    }
+  }
+
+  &__u {
+    margin-left: 35px;
+    height: 18px;
+    font-size: 15px;
+    color: #000000;
+    text-align: center;
+    grid-area: user;
+    position: unset;
+    @extend .user;
+  }
+
+  &__t {
+    margin: 0 auto 0 29.5px;
+    height: 19px;
+    font-size: 16px;
+    color: #000000;
+    line-height: unset;
+    grid-area: title;
+    @extend .montserrat-bold;
+  }
+  
+  &__buttons {
+    margin-right: 29px;
+    padding: 0;
+    display: flex;
+    justify-content: end;
+    grid-area: icons;
+  }
+
+  &__button {
+    margin-left: 10px;
+    height: 36px;
+    width: 36px;
+    color: #9CAFC3;
+    opacity: 0.5;
+    border: 1px solid #9CAFC3;
+    border-radius: 6px;
   }
 }

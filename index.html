@@ -22,7 +22,23 @@
 
 <body>
   <input type="checkbox" class="dark-mode" id="dark-mode" name="dark-mode" value="dark">
-  <main>
+  <main class="main">
+    <section class="maximized__container">
+      <picture class="maximized__picture">
+        <img src="assets/close.svg" alt="Close" class="maximized__picture__closeIcon">
+      </picture>
+      <div class="maximized__card__container">
+      </div>
+      <div class="maximized__card__info">
+        <p class="maximized__u"></p>
+        <p class="maximized__t"></p>
+        <div class="maximized__buttons">
+          <button class="maximized__button favoriteButton"><i
+              class="options favoriteOption icon-icon-fav-hover"></i></button>
+          <button class="maximized__button donwloadButton"><i class="options icon-icon-download"></i></button>
+        </div>
+      </div>
+    </section>
     <section class="top-bar">
       <input type="checkbox" id="checkbox" class="checkbox">
       <div class="nav-bar">
@@ -77,7 +93,7 @@
             <picture><img src="assets/icon-busqueda-sin-resultado.svg" alt="Búsqueda sin resultados"></picture>
             <p>Intenta con otra búsqueda.</p>
           </div>
-      </div>
+        </div>
     </section>
     <section class="favorites__group">
       <picture class="picture">
@@ -115,8 +131,8 @@
               <div class="trending__buttons">
                 <button class="trending__button favoriteButton"><i
                     class="options favoriteOption icon-icon-fav-hover"></i></button>
-                <button class="trending__button"><i class="options icon-icon-download"></i></button>
-                <a href="gif.html"><button class="trending__button"><i class="options icon-icon-max"></i></button></a>
+                <button class="trending__button donwloadButton"><i class="options icon-icon-download"></i></button>
+                <button class="trending__button maxButton"><i class="options icon-icon-max"></i></button>
               </div>
               <p class="trending__user"></p>
               <p class="trending__title"></p>

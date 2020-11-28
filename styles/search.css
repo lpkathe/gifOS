@@ -120,7 +120,7 @@
     .search__box__list {
       margin: 0;
       position: relative;
-      z-index: 4;
+      z-index: 5;
       background: transparent;
       list-style: none; }
     .search__box__li {
