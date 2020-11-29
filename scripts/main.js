@@ -80,19 +80,19 @@ function createCards(data, container) {
     clonedCard.setAttribute("id", element.id);
     clonedCard.querySelector(".trending__user").innerHTML = element.username;
     clonedCard.querySelector(".trending__title").innerHTML = element.title;
-    
+
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
 
     if (container.id !== "trendingContainer") {
-      fixItemsInCards(clonedCard);
+      fixItemsInCards(clonedCard, "normal");
       clonedCard.querySelector(".normal__button").className = "normal__button favoriteButton";
     }
 
     const favoriteButton = clonedCard.querySelector(".favoriteButton");
     favoriteButton.addEventListener("click", toggleFavorite);
-    const maxButton = clonedCard.querySelector(".maxButton");
-    maxButton.addEventListener("click", maximizedView);
+    const maximizedFavoritesButton = clonedCard.querySelector(".maximizedButton");
+    maximizedFavoritesButton.addEventListener("click", maximizedView);
 
     if (favoriteList.includes(element.id)) {
       const favoriteOption = clonedCard.querySelector(".favoriteOption");
@@ -114,14 +114,14 @@ function fixItemsInCards(clonedCard, typeCard) {
   clonedCard.querySelector(".trending__user").className = `${typeCard}__u`;
   clonedCard.querySelector(".trending__title").className = `${typeCard}__t`;
   clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
+  clonedCard.querySelector(".favoriteButton").className = `${typeCard}__button favoriteButton`;
+  clonedCard.querySelector(".donwloadButton").className = `${typeCard}__button donwloadButton`;
+  clonedCard.querySelector(".maximizedButton").className = `${typeCard}__button maximizedButton`;
 
   if (typeCard === "normal") {
-  let options = clonedCard.querySelectorAll('options');
-  options.forEach((element) => element.style.fontSize = "10px");
-
-  let buttons = clonedCard.querySelectorAll('button');
-  buttons.forEach((element) => element.className = `${typeCard}__button`); 
-}
+    let options = clonedCard.querySelectorAll('options');
+    options.forEach((element) => element.style.fontSize = "10px");
+  }
 
   if (typeCard === "maximized") {
     clonedCard.querySelector(".icon-icon-download").style.fontSize = "18px";
@@ -153,26 +153,24 @@ function maximizedView(event) {
   const clonedCard = targetCard.cloneNode(true);
   maximizedCardContainer.appendChild(clonedCard);
   clonedCard.querySelector(".hover").className = "maximized__hover";
-  clonedCard.querySelector(".favoriteButton").className = "maximized__button favoriteButton";
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
-  clonedCard.querySelector(".donwloadButton").className = "maximized__button donwloadButton";
-  
+
   const clonedCardGif = clonedCard.querySelector(".gif");
   clonedCardGif.style.position = "static";
   clonedCardGif.style.cursor = "unset";
-  
+
   fixItemsInCards(clonedCard, "maximized");
-  
+
   const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
-  const maxButton = clonedCard.querySelector(".maxButton");
-  maximizedButtons.removeChild(maxButton);
+  const maximizedViewButton = clonedCard.querySelector(".maxButton");
+  maximizedButtons.removeChild(maximizedViewButton);
 }
 
 
 /**
  * Close the larger view
  */
-function maximizedViewClose () {
+function maximizedViewClose() {
   maximizedContainer.style.display = "none";
   maximizedCardContainer.innerHTML = "";
 }
@@ -193,7 +191,7 @@ function goToFavorites() {
 };
 
 /**
- * Favorite gifs.
+ * Load the favorite's list
  */
 function loadFavorites() {
   const items = localStorage.getItem("favoriteList");
@@ -250,7 +248,7 @@ function toggleFavorite(event) {
       favoriteList.push(id);
       targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       const clonedCard = targetCard.cloneNode(true);
-      fixItemsInCards(clonedCard, normal);
+      fixItemsInCards(clonedCard, "normal");
       clonedCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
       clonedCard.querySelector(".normal__button").className = "normal__button favoriteButton";
       clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
