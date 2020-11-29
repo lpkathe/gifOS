@@ -83,16 +83,14 @@ function createCards(data, container) {
 
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
-
-    if (container.id !== "trendingContainer") {
-      fixItemsInCards(clonedCard, "normal");
-      clonedCard.querySelector(".normal__button").className = "normal__button favoriteButton";
-    }
-
     const favoriteButton = clonedCard.querySelector(".favoriteButton");
     favoriteButton.addEventListener("click", toggleFavorite);
     const maximizedFavoritesButton = clonedCard.querySelector(".maximizedButton");
     maximizedFavoritesButton.addEventListener("click", maximizedView);
+
+    if (container.id !== "trendingContainer") {
+      fixItemsInCards(clonedCard, "normal");
+    }
 
     if (favoriteList.includes(element.id)) {
       const favoriteOption = clonedCard.querySelector(".favoriteOption");
@@ -110,13 +108,24 @@ function createCards(data, container) {
  * Fix the items in the correct positions into card.
  */
 function fixItemsInCards(clonedCard, typeCard) {
-  clonedCard.className = `card ${typeCard}__card`;
-  clonedCard.querySelector(".trending__user").className = `${typeCard}__u`;
-  clonedCard.querySelector(".trending__title").className = `${typeCard}__t`;
-  clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
   clonedCard.querySelector(".favoriteButton").className = `${typeCard}__button favoriteButton`;
   clonedCard.querySelector(".donwloadButton").className = `${typeCard}__button donwloadButton`;
-  clonedCard.querySelector(".maximizedButton").className = `${typeCard}__button maximizedButton`;
+
+  if (clonedCard.className !== "card maximized__card") {
+    clonedCard.querySelector(".maximizedButton").className = `${typeCard}__button maximizedButton`;
+  }
+
+  if (clonedCard.className === "card trending__card") {
+    clonedCard.querySelector(".trending__user").className = `${typeCard}__u`;
+    clonedCard.querySelector(".trending__title").className = `${typeCard}__t`;
+    clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
+  }
+
+  if (clonedCard.className === "card normal__card") {
+    clonedCard.querySelector(".normal__user").className = `${typeCard}__u userName`;
+    clonedCard.querySelector(".normal__title").className = `${typeCard}__t titleGif`;
+    clonedCard.querySelector(".normal__buttons").className = `${typeCard}__buttons`;
+  }
 
   if (typeCard === "normal") {
     let options = clonedCard.querySelectorAll('options');
@@ -127,6 +136,7 @@ function fixItemsInCards(clonedCard, typeCard) {
     clonedCard.querySelector(".icon-icon-download").style.fontSize = "18px";
     clonedCard.querySelector(".favoriteOption").style.fontSize = "18px";
   }
+  clonedCard.className = `card ${typeCard}__card`;
 }
 
 /**
@@ -147,11 +157,11 @@ function trendingCards() {
  * @param {} event 
  */
 function maximizedView(event) {
-  maximizedContainer.style.display = "block"
-
   const targetCard = event.target.closest("div").parentElement.parentElement;
   const clonedCard = targetCard.cloneNode(true);
   maximizedCardContainer.appendChild(clonedCard);
+  maximizedContainer.style.display = "block"
+  
   clonedCard.querySelector(".hover").className = "maximized__hover";
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
 
@@ -162,7 +172,7 @@ function maximizedView(event) {
   fixItemsInCards(clonedCard, "maximized");
 
   const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
-  const maximizedViewButton = clonedCard.querySelector(".maxButton");
+  const maximizedViewButton = clonedCard.querySelector(".maximizedButton");
   maximizedButtons.removeChild(maximizedViewButton);
 }
 
@@ -242,22 +252,20 @@ function toggleFavorite(event) {
     if (favoriteList.includes(id)) {
       favoriteList.splice(favoriteList.indexOf(id), 1);
       removeFavoriteCard(id);
-      const mainCard = document.getElementById(id);
-      mainCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-hover";
+      const favoriteOption = document.querySelectorAll(".favoriteOption");
+      favoriteOption.forEach((element) => element.className = "options favoriteOption icon-icon-fav-hover");
     } else {
       favoriteList.push(id);
-      targetCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
+      const favoriteOption = document.querySelectorAll(".favoriteOption");
+      favoriteOption.forEach((element) => element.className = "options favoriteOption icon-icon-fav-active");
       const clonedCard = targetCard.cloneNode(true);
       fixItemsInCards(clonedCard, "normal");
-      clonedCard.querySelector(".favoriteOption").className = "options favoriteOption icon-icon-fav-active";
-      clonedCard.querySelector(".normal__button").className = "normal__button favoriteButton";
       clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
 
       if (favoritesGroup.style.display == "block") {
         favoritesContainer.appendChild(clonedCard);
       }
     }
-
     localStorage.setItem("favoriteList", favoriteList.join(","));
   }
 
