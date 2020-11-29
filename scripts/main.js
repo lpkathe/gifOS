@@ -154,10 +154,12 @@ function maximizedView(event) {
   maximizedCardContainer.appendChild(clonedCard);
   clonedCard.querySelector(".hover").className = "maximized__hover";
   clonedCard.querySelector(".favoriteButton").className = "maximized__button favoriteButton";
+  clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".donwloadButton").className = "maximized__button donwloadButton";
   
   const clonedCardGif = clonedCard.querySelector(".gif");
   clonedCardGif.style.position = "static";
+  clonedCardGif.style.cursor = "unset";
   
   fixItemsInCards(clonedCard, "maximized");
   

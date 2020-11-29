@@ -1,3 +1,6 @@
+a, button, i {
+  cursor: pointer; }
+
 .montserrat-medium {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -73,8 +76,7 @@
   padding: 1em;
   height: 60px;
   position: relative;
-  text-align: center;
-  cursor: pointer; }
+  text-align: center; }
   .navigation__li::after {
     width: 41px;
     left: 45%;

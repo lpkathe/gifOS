@@ -1,3 +1,6 @@
+a, button, i {
+  cursor: pointer; }
+
 .montserrat-medium, .search__p {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -205,8 +208,7 @@
   font-weight: bold;
   line-height: unset;
   letter-spacing: 0;
-  outline: none;
-  cursor: pointer; }
+  outline: none; }
   .results__button:hover {
     color: #FFFFFF;
     letter-spacing: 0;

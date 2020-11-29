@@ -1,3 +1,6 @@
+a, button, i {
+  cursor: pointer; }
+
 .montserrat-medium {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -40,8 +43,7 @@
   text-align: center;
   border: 0;
   background: #FFFFFF;
-  opacity: 0.7;
-  cursor: pointer; }
+  opacity: 0.7; }
   .button:hover, .normal__button:hover, .trending__button:hover {
     opacity: 100; }
 
@@ -148,7 +150,8 @@
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: flex-end; }
+          justify-content: flex-end;
+  cursor: pointer; }
   .maximized__picture__closeIcon {
     height: 14px;
     width: 13.8px; }

@@ -106,9 +106,9 @@
     &__li {
       margin-left: 18px;
       padding: 5px;
-      @extend .roboto-regular;
       cursor: pointer;
       list-style-image: url(/GIFOS/assets/icon-search.svg);
+      @extend .roboto-regular;
       
       &::before {
         height: 3px;
@@ -204,7 +204,6 @@
     line-height: unset;
     letter-spacing: 0;
     outline: none;
-    cursor: pointer;
 
     &:hover {
       color: #FFFFFF;
