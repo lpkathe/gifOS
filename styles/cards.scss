@@ -157,6 +157,8 @@
 
 .maximized {
   &__container {
+    top: auto;
+    bottom: auto;
     height: 100vh;
     width: 100vw;
     background-color: rgba(255,255,255,0.90);
@@ -180,50 +182,58 @@
   &__card {
     height: 245px;
     width: 318px;
+    position: static;
 
     &__container {
     margin: 0 auto 14px auto;
     height: 245px;
     width: 318px;
+    position: relative;
     }
 
-    &__info {
-      display: grid;
-      grid-template-columns: 50% 50%;
-      grid-template-rows: 32px 25px;
-      grid-template-areas: 
-      "user icons"
-      "title icons";
-    }
+  }
+  
+  &__hover {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 32px 25px;
+    grid-template-areas: 
+    "user icons"
+    "title icons";
+    background-color: transparent;
+    visibility: visible;
+    position: static;
   }
 
   &__u {
-    margin-left: 35px;
+    margin: 14px 0 0 5.5px;
     height: 18px;
     font-size: 15px;
     color: #000000;
     text-align: center;
     grid-area: user;
-    position: unset;
     @extend .user;
   }
 
   &__t {
-    margin: 0 auto 0 29.5px;
+    margin: 0;
     height: 19px;
     font-size: 16px;
+    font-weight: bold;
     color: #000000;
-    line-height: unset;
+    line-height: 19px;
+    text-align: left;
     grid-area: title;
+    position: unset;
     @extend .montserrat-bold;
   }
   
   &__buttons {
-    margin-right: 29px;
     padding: 0;
     display: flex;
     justify-content: end;
     grid-area: icons;
+    position: unset;
   }
 
   &__button {
@@ -234,5 +244,8 @@
     opacity: 0.5;
     border: 1px solid #9CAFC3;
     border-radius: 6px;
+    position: unset;
+    text-align: center;
+    align-self: end;
   }
 }

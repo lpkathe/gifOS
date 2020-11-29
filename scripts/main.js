@@ -91,7 +91,7 @@ function createCards(data, container) {
 
     const favoriteButton = clonedCard.querySelector(".favoriteButton");
     favoriteButton.addEventListener("click", toggleFavorite);
-    const maxButton = clonedCard.querySelector(".icon-icon-max");
+    const maxButton = clonedCard.querySelector(".maxButton");
     maxButton.addEventListener("click", maximizedView);
 
     if (favoriteList.includes(element.id)) {
@@ -111,23 +111,21 @@ function createCards(data, container) {
  */
 function fixItemsInCards(clonedCard, typeCard) {
   clonedCard.className = `card ${typeCard}__card`;
-  clonedCard.querySelector(".trending__user").className = `${typeCard}__user`;
-  clonedCard.querySelector(".trending__title").className = `${typeCard}__title`;
+  clonedCard.querySelector(".trending__user").className = `${typeCard}__u`;
+  clonedCard.querySelector(".trending__title").className = `${typeCard}__t`;
   clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
-  console.log(clonedCard);
+
   if (typeCard === "normal") {
   let options = clonedCard.querySelectorAll('options');
   options.forEach((element) => element.style.fontSize = "10px");
 
   let buttons = clonedCard.querySelectorAll('button');
-  buttons.forEach((element) => element.className = `${typeCard}__button`);
-console.log("entro en normal");  
+  buttons.forEach((element) => element.className = `${typeCard}__button`); 
 }
 
   if (typeCard === "maximized") {
-    let options = clonedCard.querySelectorAll('options');
-    options.forEach((element) => element.style.fontSize = "14px");
-  console.log("entro en maximized");
+    clonedCard.querySelector(".icon-icon-download").style.fontSize = "18px";
+    clonedCard.querySelector(".favoriteOption").style.fontSize = "18px";
   }
 }
 
@@ -154,13 +152,18 @@ function maximizedView(event) {
   const targetCard = event.target.closest("div").parentElement.parentElement;
   const clonedCard = targetCard.cloneNode(true);
   maximizedCardContainer.appendChild(clonedCard);
-
-  clonedCard.querySelector(".hover").style.background = "transparent";
+  clonedCard.querySelector(".hover").className = "maximized__hover";
   clonedCard.querySelector(".favoriteButton").className = "maximized__button favoriteButton";
-  clonedCard.querySelector(".maxButton").className = "maximized__button maxButton";
   clonedCard.querySelector(".donwloadButton").className = "maximized__button donwloadButton";
   
+  const clonedCardGif = clonedCard.querySelector(".gif");
+  clonedCardGif.style.position = "static";
+  
   fixItemsInCards(clonedCard, "maximized");
+  
+  const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
+  const maxButton = clonedCard.querySelector(".maxButton");
+  maximizedButtons.removeChild(maxButton);
 }
 
 
@@ -168,7 +171,8 @@ function maximizedView(event) {
  * Close the larger view
  */
 function maximizedViewClose () {
-  maximizedContainer.style.display = "none"
+  maximizedContainer.style.display = "none";
+  maximizedCardContainer.innerHTML = "";
 }
 
 // FAVORITES SECTION
