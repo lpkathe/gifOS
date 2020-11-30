@@ -45,6 +45,9 @@ const btnVerMas = document.getElementById("resultsButton");
 const btnVerMasFavorites = document.getElementById("favoritesButton");
 const btnVerMasMyGifos = document.getElementById("myGifosButton");
 
+const downloadButton = document.querySelector(".downloadButton");
+const downloadA = document.querySelector(".downloadA");
+
 let favoriteList = [];
 let favoritesPageCount = 0;
 let favoritesTotalPages = 0;
@@ -75,7 +78,7 @@ function createCards(data, container) {
   data.forEach((element, index) => {
     const clonedCard = card.cloneNode(true);
     container.appendChild(clonedCard);
-
+    
     clonedCard.style.display = "inline";
     clonedCard.setAttribute("id", element.id);
     clonedCard.querySelector(".trending__user").innerHTML = element.username;
@@ -83,6 +86,9 @@ function createCards(data, container) {
 
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
+
+    downloadButton.addEventListener("click", downloadImage(clonedGif));
+
     const favoriteButton = clonedCard.querySelector(".favoriteButton");
     favoriteButton.addEventListener("click", toggleFavorite);
     const maximizedFavoritesButton = clonedCard.querySelector(".maximizedButton");
@@ -109,7 +115,7 @@ function createCards(data, container) {
  */
 function fixItemsInCards(clonedCard, typeCard) {
   clonedCard.querySelector(".favoriteButton").className = `${typeCard}__button favoriteButton`;
-  clonedCard.querySelector(".donwloadButton").className = `${typeCard}__button donwloadButton`;
+  clonedCard.querySelector(".downloadButton").className = `${typeCard}__button downloadButton`;
 
   if (clonedCard.className !== "card maximized__card") {
     clonedCard.querySelector(".maximizedButton").className = `${typeCard}__button maximizedButton`;
@@ -122,8 +128,8 @@ function fixItemsInCards(clonedCard, typeCard) {
   }
 
   if (clonedCard.className === "card normal__card") {
-    clonedCard.querySelector(".normal__user").className = `${typeCard}__u userName`;
-    clonedCard.querySelector(".normal__title").className = `${typeCard}__t titleGif`;
+    clonedCard.querySelector(".normal__user").className = `${typeCard}__u`;
+    clonedCard.querySelector(".normal__title").className = `${typeCard}__t`;
     clonedCard.querySelector(".normal__buttons").className = `${typeCard}__buttons`;
   }
 
@@ -134,9 +140,16 @@ function fixItemsInCards(clonedCard, typeCard) {
 
   if (typeCard === "maximized") {
     clonedCard.querySelector(".icon-icon-download").style.fontSize = "18px";
+    clonedCard.querySelector(".icon-icon-download").style.backgroundColor = "transparent";
     clonedCard.querySelector(".favoriteOption").style.fontSize = "18px";
+    clonedCard.querySelector(".favoriteOption").style.backgroundColor = "transparent";
   }
   clonedCard.className = `card ${typeCard}__card`;
+};
+
+function downloadImage (clonedGif) {
+  downloadA.setAttribute("href", "api.giphy.com/v1/gifs/search	");
+  downloadA.setAttribute("download", "");
 }
 
 /**
@@ -161,7 +174,7 @@ function maximizedView(event) {
   const clonedCard = targetCard.cloneNode(true);
   maximizedCardContainer.appendChild(clonedCard);
   maximizedContainer.style.display = "block"
-  
+
   clonedCard.querySelector(".hover").className = "maximized__hover";
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
 
@@ -176,14 +189,13 @@ function maximizedView(event) {
   maximizedButtons.removeChild(maximizedViewButton);
 }
 
-
 /**
  * Close the larger view
  */
 function maximizedViewClose() {
   maximizedContainer.style.display = "none";
   maximizedCardContainer.innerHTML = "";
-}
+};
 
 // FAVORITES SECTION
 
@@ -251,16 +263,14 @@ function toggleFavorite(event) {
   if (id !== "") {
     if (favoriteList.includes(id)) {
       favoriteList.splice(favoriteList.indexOf(id), 1);
+      favoritesIcon(targetCard, "deactivate");
       removeFavoriteCard(id);
-      const favoriteOption = document.querySelectorAll(".favoriteOption");
-      favoriteOption.forEach((element) => element.className = "options favoriteOption icon-icon-fav-hover");
     } else {
       favoriteList.push(id);
-      const favoriteOption = document.querySelectorAll(".favoriteOption");
-      favoriteOption.forEach((element) => element.className = "options favoriteOption icon-icon-fav-active");
       const clonedCard = targetCard.cloneNode(true);
       fixItemsInCards(clonedCard, "normal");
       clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
+      favoritesIcon(targetCard, "activate");
 
       if (favoritesGroup.style.display == "block") {
         favoritesContainer.appendChild(clonedCard);
@@ -274,6 +284,21 @@ function toggleFavorite(event) {
   } else {
     favoritesEmpty.style.display = "none";
   }
+};
+
+function favoritesIcon(targetCard, action) {
+  let card = document.querySelectorAll(".card");
+  let cardClassName = "options favoriteOption icon-icon-fav-active";
+
+  if (action === "deactivate") {
+    cardClassName = "options favoriteOption icon-icon-fav-hover";
+  }
+
+  card.forEach((element) => {
+    if (element.id === targetCard.id) {
+      targetCard.querySelector(".favoriteOption").className = cardClassName;
+    }
+  });
 };
 
 /**

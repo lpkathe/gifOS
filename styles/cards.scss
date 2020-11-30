@@ -25,7 +25,6 @@
 
 .user {
   width: max-content;
-  position: absolute;
   color: #FFFFFF;
   text-align: unset;
   text-transform: capitalize;
@@ -34,7 +33,6 @@
 }
 
 .title {
-  position: absolute;
   color: #FFFFFF;
   text-transform: capitalize;
   text-align: unset;
@@ -74,6 +72,9 @@
   opacity: 0.6;
   z-index: 3;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   &:hover {
     visibility: visible;
@@ -97,14 +98,14 @@
     margin: 9px auto;
   }
 
-  &__user {
+  &__u {
     bottom: 30px;
     left: 5px;
     font-size: 10px;
     @extend .user;
   }
 
-  &__title {
+  &__t {
     bottom: 3px;
     left: 5px;
     font-size: 10px;
@@ -140,14 +141,12 @@
   }
 
   &__user {
-    bottom: 40px;
     left: 18.5px;
     font-size: 15px;
     @extend .user;
   }
 
   &__title {
-    bottom: 10px;
     left: 18.5px;
     font-size: 15px;
     @extend .title;

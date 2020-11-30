@@ -15,21 +15,21 @@ a, button, i {
   line-height: 60px;
   text-align: center; }
 
-.roboto-bold, .title, .normal__title, .trending__title {
+.roboto-bold, .title, .normal__t, .trending__title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center; }
 
-.roboto-regular, .user, .normal__user, .trending__user, .maximized__u {
+.roboto-regular, .user, .normal__u, .trending__user, .maximized__u {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
   text-align: left;
   color: #000000; }
 
-.margin-padding, .user, .normal__user, .trending__user, .maximized__u, .title, .normal__title, .trending__title, .maximized__container {
+.margin-padding, .user, .normal__u, .trending__user, .maximized__u, .title, .normal__t, .trending__title, .maximized__container {
   margin: 0;
   padding: 0; }
 
@@ -47,17 +47,15 @@ a, button, i {
   .button:hover, .normal__button:hover, .trending__button:hover {
     opacity: 100; }
 
-.user, .normal__user, .trending__user, .maximized__u {
+.user, .normal__u, .trending__user, .maximized__u {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  position: absolute;
   color: #FFFFFF;
   text-align: unset;
   text-transform: capitalize; }
 
-.title, .normal__title, .trending__title {
-  position: absolute;
+.title, .normal__t, .trending__title {
   color: #FFFFFF;
   text-transform: capitalize;
   text-align: unset;
@@ -87,7 +85,17 @@ a, button, i {
   background: #572EE5;
   opacity: 0.6;
   z-index: 3;
-  cursor: pointer; }
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end; }
   .hover:hover {
     visibility: visible; }
 
@@ -102,11 +110,11 @@ a, button, i {
   height: 120px;
   width: 156px;
   margin: 9px auto; }
-.normal__user {
+.normal__u {
   bottom: 30px;
   left: 5px;
   font-size: 10px; }
-.normal__title {
+.normal__t {
   bottom: 3px;
   left: 5px;
   font-size: 10px; }
@@ -126,11 +134,9 @@ a, button, i {
   width: 25px;
   border-radius: 6px; }
 .trending__user {
-  bottom: 40px;
   left: 18.5px;
   font-size: 15px; }
 .trending__title {
-  bottom: 10px;
   left: 18.5px;
   font-size: 15px; }
 
