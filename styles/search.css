@@ -188,7 +188,7 @@ a, button, i {
     -ms-flex-item-align: center;
         align-self: center; }
 .results__cards {
-  margin: 13px auto 78px auto;
+  margin: 13px auto 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
