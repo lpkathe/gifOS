@@ -118,6 +118,7 @@ a, button, i {
       padding-top: 3px;
       height: 14px;
       width: 14px;
+      display: none;
       color: #572EE5; }
     .search__box__list {
       margin: 0;

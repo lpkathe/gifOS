@@ -16,6 +16,7 @@ const headerPicture = document.querySelector(".search__picture");
 
 const searchGroup = document.querySelector(".search__group");
 const searchBox = document.querySelector(".search__box");
+const inputX = document.querySelector(".search__box__x");
 const inputSearch = document.getElementById("inputSearch");
 const inputSearchRightIcon = document.querySelector(".search__box__icon");
 const inputSearchLeftIcon = document.querySelector(".search__box__icon-list");
@@ -351,6 +352,7 @@ function search() {
 
   search(inputSearch.value, pageItems)
     .then((response) => {
+
       pageOffset = response.pagination.offset; // Position in pagination.
       pageTotalCount = response.pagination.total_count; // Total number of items available.
       pageCount = pageTotalCount - (response.pagination.count + pageOffset); // Total number of items returned.
@@ -363,6 +365,7 @@ function search() {
 
       if (response.data.length === 0) {
         document.querySelector(".results__error").style.display = "inline";
+        resultsCardsContainer.style.display = "none";
       }
 
       createCards(response.data, resultsCardsContainer);
@@ -424,13 +427,12 @@ function getAutocompleteSearch(event) {
  */
 function isSearchingState(isSearching = true) {
   if (isSearching) {
-    inputSearchRightIcon.className = "search__box__x icon-close";
-    const inputX = document.querySelector(".search__box__x");
-    inputX.addEventListener("click", searchReset);
+    inputX.style.display = "inline";
+    inputSearchRightIcon.style.display = "none";
     inputSearchLeftIcon.style.visibility = "visible";
   } else {
-    const inputX = document.querySelector(".search__box__x");
-    inputX.className = "search__box__icon icon-icon-search";
+    inputX.style.display = "none";
+    inputSearchRightIcon.style.display = "inline";
     inputSearchLeftIcon.style.visibility = "hidden";
     suggestedList.innerText = "";
   }
@@ -515,6 +517,8 @@ buttonLeft.addEventListener("click", function () {
 });
 
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
+inputX.addEventListener("click", searchReset);
+inputSearchLeftIcon.addEventListener("click", search);
 
 suggestedList.addEventListener("click", onSuggestedItemClicked);
 
@@ -523,5 +527,3 @@ btnVerMasFavorites.addEventListener("click", favoritesVerMas);
 
 favoriteMenu.addEventListener("click", goToFavorites);
 myGifosMenu.addEventListener("click", goToMyGifos);
-
-inputSearchLeftIcon.addEventListener("click", search);
