@@ -134,10 +134,10 @@ a, button, i {
   width: 25px;
   border-radius: 6px; }
 .trending__user {
-  left: 18.5px;
+  margin-left: 8.5px;
   font-size: 15px; }
 .trending__title {
-  left: 18.5px;
+  margin-left: 8.5px;
   font-size: 15px; }
 
 .maximized__container {

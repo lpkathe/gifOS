@@ -141,13 +141,13 @@
   }
 
   &__user {
-    left: 18.5px;
+    margin-left: 8.5px;
     font-size: 15px;
     @extend .user;
   }
 
   &__title {
-    left: 18.5px;
+    margin-left: 8.5px;
     font-size: 15px;
     @extend .title;
   }
