@@ -33,20 +33,17 @@
     <section class="top-bar">
       <input type="checkbox" id="checkbox" class="checkbox">
       <div class="nav-bar">
-        <a class="homepage">
-          <picture class="nav-bar__logo">
-            <img class="nav-bar__logo__light" src="assets/logo-mobile.svg" alt="Logo light-mode">
-            <img class="nav-bar__logo__dark" src="assets/logo-mobile-modo-noct.svg" alt="Logo dark-mode">
-          </picture>
-        </a>
+        <picture class="nav-bar__picture">
+          <img id="pageLogo" src="assets/logo-mobile.svg" alt="Page logo">
+        </picture>
         <label class="menu" for="checkbox">
           <span class="menu-span"></span>
         </label>
       </div>
       <nav class="navigation">
         <ul class="navigation__list">
-          <li class="navigation__li"><label for="dark-mode"><a><span class="navigation__li__light">Modo
-                  Nocturno</span><span class="navigation__li__dark">Modo Diurno</span></a></label></li>
+          <li class="navigation__li"><label for="dark-mode"><a><span id="textDarkMode" >Modo
+                  Nocturno</span></a></label></li>
           <li class="navigation__li"><a id="favoriteMenu">Favoritos</a></li>
           <li class="navigation__li"><a id="myGifosMenu">Mis GIFOS</a></li>
         </ul>
@@ -85,7 +82,7 @@
             <p>Intenta con otra búsqueda.</p>
           </div>
         </div>
-        </div>
+      </div>
     </section>
     <section class="favorites__group">
       <picture class="picture">
@@ -123,7 +120,7 @@
               <div class="trending__buttons">
                 <button class="trending__button favoriteButton"><i
                     class="options favoriteOption icon-icon-fav-hover"></i></button>
-                <a href="" download="" class="downloadA" target="_blank"><button class="trending__button downloadButton"><i class="options icon-icon-download"></i></button></a>
+                <button class="trending__button downloadButton"><i class="options icon-icon-download"></i></button>
                 <button class="trending__button maximizedButton"><i class="options icon-icon-max"></i></button>
               </div>
               <p class="trending__user"></p>

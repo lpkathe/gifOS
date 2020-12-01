@@ -75,6 +75,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  display: none;
 
   &:hover {
     visibility: visible;
@@ -202,6 +203,7 @@
     background-color: transparent;
     visibility: visible;
     position: static;
+    display: block;
   }
 
   &__u {

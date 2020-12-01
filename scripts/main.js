@@ -3,7 +3,12 @@ import GiphyApi from './GiphyApi.js';
 /**
  * Global variables
  */
-const homepage = document.querySelector(".homepage");
+const pageLogo = document.getElementById("pageLogo");
+const logo = document.querySelector(".nav-bar__picture");
+
+const inputDarkMode = document.getElementById("dark-mode");
+const textDarkMode = document.getElementById("textDarkMode");
+
 const main = document.querySelector(".main");
 const btnMas = document.querySelector(".navigation__mas");
 
@@ -46,7 +51,6 @@ const btnVerMasFavorites = document.getElementById("favoritesButton");
 const btnVerMasMyGifos = document.getElementById("myGifosButton");
 
 const downloadButton = document.querySelector(".downloadButton");
-const downloadA = document.querySelector(".downloadA");
 
 let favoriteList = [];
 let favoritesPageCount = 0;
@@ -70,6 +74,19 @@ function onLoad() {
 };
 
 /**
+ * Change text in navigation bar and logo colors when input dark mode shift
+ */
+function darkMode() {
+  if (inputDarkMode.checked) {
+    pageLogo.src = "assets/logo-mobile-modo-noct.svg";
+    textDarkMode.innerText = "Modo Diurno";
+  } else {
+    pageLogo.src = "assets/logo-mobile.svg";
+    textDarkMode.innerText = "Modo Nocturno";
+  }
+};
+
+/**
  * Create cards
  * @param {object} response.data
  * @param {object} div container
@@ -78,7 +95,7 @@ function createCards(data, container) {
   data.forEach((element, index) => {
     const clonedCard = card.cloneNode(true);
     container.appendChild(clonedCard);
-    
+
     clonedCard.style.display = "inline";
     clonedCard.setAttribute("id", element.id);
     clonedCard.querySelector(".trending__user").innerHTML = element.username;
@@ -87,12 +104,12 @@ function createCards(data, container) {
     const clonedGif = clonedCard.querySelector(".gif");
     clonedGif.src = element.images.original.url;
 
-    downloadButton.addEventListener("click", downloadImage(clonedGif));
-
     const favoriteButton = clonedCard.querySelector(".favoriteButton");
     favoriteButton.addEventListener("click", toggleFavorite);
     const maximizedFavoritesButton = clonedCard.querySelector(".maximizedButton");
     maximizedFavoritesButton.addEventListener("click", maximizedView);
+    const downloadButton = clonedCard.querySelector(".downloadButton");
+    downloadButton.addEventListener("click", downloadGif);
 
     if (container.id !== "trendingContainer") {
       fixItemsInCards(clonedCard, "normal");
@@ -106,6 +123,7 @@ function createCards(data, container) {
     if (screen.width < 1023) {
       const position = (clonedCard.width * index);
       clonedCard.style.left = `${position}px`;
+      clonedCard.addEventListener("click", maximizedView);
     }
   });
 };
@@ -114,8 +132,10 @@ function createCards(data, container) {
  * Fix the items in the correct positions into card.
  */
 function fixItemsInCards(clonedCard, typeCard) {
+  console.log(typeCard);
   clonedCard.querySelector(".favoriteButton").className = `${typeCard}__button favoriteButton`;
   clonedCard.querySelector(".downloadButton").className = `${typeCard}__button downloadButton`;
+  clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
 
   if (clonedCard.className !== "card maximized__card") {
     clonedCard.querySelector(".maximizedButton").className = `${typeCard}__button maximizedButton`;
@@ -147,11 +167,6 @@ function fixItemsInCards(clonedCard, typeCard) {
   clonedCard.className = `card ${typeCard}__card`;
 };
 
-function downloadImage (clonedGif) {
-  downloadA.setAttribute("href", "api.giphy.com/v1/gifs/search	");
-  downloadA.setAttribute("download", "");
-}
-
 /**
  * Clone card's slide.
  */
@@ -163,6 +178,33 @@ function trendingCards() {
     .then((response) => createCards(response.data, trendingContainer));
 };
 
+function downloadBlob(blob, filename) {
+  const downloadAncor = document.createElement('a');
+  downloadButton.appendChild(downloadAncor);
+  downloadAncor.download = filename;
+  downloadAncor.href = blob;
+  downloadAncor.click();
+  downloadAncor.remove();
+};
+
+function downloadGif(event) {
+  const targetCard = event.target.closest("div").parentElement.parentElement;
+
+  const url = targetCard.querySelector(".gif").src;
+  const filename = url.split('\\').pop().split('/').pop();
+
+  fetch(url, {
+    headers: new Headers({ 'Origin': location.origin }),
+    mode: 'cors'
+  })
+    .then(response => response.blob())
+    .then(blob => {
+      let blobUrl = window.URL.createObjectURL(blob);
+      downloadBlob(blobUrl, filename);
+    })
+    .catch(e => console.error(e));
+};
+
 // MAXIMIZED VIEW CARD SECTION
 
 /**
@@ -172,8 +214,9 @@ function trendingCards() {
 function maximizedView(event) {
   const targetCard = event.target.closest("div").parentElement.parentElement;
   const clonedCard = targetCard.cloneNode(true);
+
   maximizedCardContainer.appendChild(clonedCard);
-  maximizedContainer.style.display = "block"
+  maximizedContainer.style.display = "block";
 
   clonedCard.querySelector(".hover").className = "maximized__hover";
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
@@ -187,7 +230,7 @@ function maximizedView(event) {
   const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
   const maximizedViewButton = clonedCard.querySelector(".maximizedButton");
   maximizedButtons.removeChild(maximizedViewButton);
-}
+};
 
 /**
  * Close the larger view
@@ -286,6 +329,11 @@ function toggleFavorite(event) {
   }
 };
 
+/**
+ * Change de classname to heart icon.
+ * @param {Card} targetCard 
+ * @param {*} action 
+ */
 function favoritesIcon(targetCard, action) {
   let card = document.querySelectorAll(".card");
   let cardClassName = "options favoriteOption icon-icon-fav-active";
@@ -501,11 +549,12 @@ function goToMyGifos(event) {
  * Events
  */
 
-window.addEventListener("load", onLoad);
-
-homepage.addEventListener("click", function () {
+logo.addEventListener("click", function () {
   location.reload();
 });
+inputDarkMode.addEventListener("change", darkMode);
+
+window.addEventListener("load", onLoad);
 
 maximizedPicture.addEventListener("click", maximizedViewClose);
 

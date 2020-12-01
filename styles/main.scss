@@ -8,24 +8,17 @@
   border-top: 5px solid #572EE5;
 }
 
-.homepage {
-  cursor: pointer;
-}
-
 .nav-bar {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  &__logo {
+  &__picture {
     height: 49px;
     width: 54px;
     box-sizing: border-box;
-
-    &__dark {
-      display: none;
-    }
+    cursor: pointer;
   }
 }
 

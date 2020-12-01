@@ -95,7 +95,8 @@ a, button, i {
           flex-direction: column;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: flex-end; }
+          justify-content: flex-end;
+  display: none; }
   .hover:hover {
     visibility: visible; }
 
@@ -177,7 +178,8 @@ a, button, i {
   grid-template-areas: "user icons" "title icons";
   background-color: transparent;
   visibility: visible;
-  position: static; }
+  position: static;
+  display: block; }
 .maximized__u {
   margin: 14px 0 0 5.5px;
   height: 18px;
