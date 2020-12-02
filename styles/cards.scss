@@ -64,22 +64,7 @@
 }
 
 .hover {
-  height: inherit;
-  width: inherit;
-  visibility: hidden;
-  position: absolute;
-  background: #572EE5;
-  opacity: 0.6;
-  z-index: 3;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   display: none;
-
-  &:hover {
-    visibility: visible;
-  }
 }
 
 .options {
@@ -194,6 +179,7 @@
   }
   
   &__hover {
+    visibility: visible;
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 32px 25px;
@@ -201,9 +187,7 @@
     "user icons"
     "title icons";
     background-color: transparent;
-    visibility: visible;
     position: static;
-    display: block;
   }
 
   &__u {

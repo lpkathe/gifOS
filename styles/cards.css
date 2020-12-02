@@ -78,27 +78,7 @@ a, button, i {
     z-index: 5; }
 
 .hover {
-  height: inherit;
-  width: inherit;
-  visibility: hidden;
-  position: absolute;
-  background: #572EE5;
-  opacity: 0.6;
-  z-index: 3;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   display: none; }
-  .hover:hover {
-    visibility: visible; }
 
 .options {
   font-size: 12px;
@@ -172,14 +152,13 @@ a, button, i {
     width: 318px;
     position: relative; }
 .maximized__hover {
+  visibility: visible;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 32px 25px;
   grid-template-areas: "user icons" "title icons";
   background-color: transparent;
-  visibility: visible;
-  position: static;
-  display: block; }
+  position: static; }
 .maximized__u {
   margin: 14px 0 0 5.5px;
   height: 18px;

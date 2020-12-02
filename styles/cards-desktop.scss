@@ -1,5 +1,19 @@
 @media (min-width: 1023px) {
   .hover {
-    display: block;
+    height: inherit;
+    width: inherit;
+    background: #572EE5;
+    opacity: 0.6;
+    cursor: pointer;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    z-index: 3;
+    
+    &:hover {
+      visibility: visible;
+    }
   }
 }

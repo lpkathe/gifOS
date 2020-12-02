@@ -4,10 +4,15 @@ import GiphyApi from './GiphyApi.js';
  * Global variables
  */
 const pageLogo = document.getElementById("pageLogo");
-const logo = document.querySelector(".nav-bar__picture");
+const logo = document.querySelector(".nav-bar__logo");
 
 const inputDarkMode = document.getElementById("dark-mode");
 const textDarkMode = document.getElementById("textDarkMode");
+
+const favoriteMenu = document.getElementById("favoriteMenu");
+const favoritesGroup = document.querySelector(".favorites__group");
+const favoritesContainer = document.getElementById("favoritesContainer");
+const favoritesEmpty = document.querySelector(".favorites__empty");
 
 const main = document.querySelector(".main");
 const btnMas = document.querySelector(".navigation__mas");
@@ -33,10 +38,7 @@ const resultsContainer = document.querySelector(".results__container");
 const resultsTitle = document.querySelector(".results__title");
 const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 
-const favoriteMenu = document.getElementById("favoriteMenu");
-const favoritesGroup = document.querySelector(".favorites__group");
-const favoritesContainer = document.getElementById("favoritesContainer");
-const favoritesEmpty = document.querySelector(".favorites__empty");
+
 
 const myGifosMenu = document.getElementById("myGifosMenu");
 const myGifosGroup = document.querySelector(".myGifos__group");
@@ -57,7 +59,7 @@ let favoritesPageCount = 0;
 let favoritesTotalPages = 0;
 
 let pageOffset = 0;
-let pageCount = 0;
+let pageCount = 1;
 let pageTotalCount = 0;
 
 const pageItems = 12;
@@ -98,18 +100,11 @@ function createCards(data, container) {
 
     clonedCard.style.display = "inline";
     clonedCard.setAttribute("id", element.id);
+    clonedCard.querySelector(".gif").src = element.images.original.url;
     clonedCard.querySelector(".trending__user").innerHTML = element.username;
     clonedCard.querySelector(".trending__title").innerHTML = element.title;
 
-    const clonedGif = clonedCard.querySelector(".gif");
-    clonedGif.src = element.images.original.url;
-
-    const favoriteButton = clonedCard.querySelector(".favoriteButton");
-    favoriteButton.addEventListener("click", toggleFavorite);
-    const maximizedFavoritesButton = clonedCard.querySelector(".maximizedButton");
-    maximizedFavoritesButton.addEventListener("click", maximizedView);
-    const downloadButton = clonedCard.querySelector(".downloadButton");
-    downloadButton.addEventListener("click", downloadGif);
+    assignListeners(clonedCard);
 
     if (container.id !== "trendingContainer") {
       fixItemsInCards(clonedCard, "normal");
@@ -131,40 +126,55 @@ function createCards(data, container) {
 /**
  * Fix the items in the correct positions into card.
  */
-function fixItemsInCards(clonedCard, typeCard) {
-  console.log(typeCard);
-  clonedCard.querySelector(".favoriteButton").className = `${typeCard}__button favoriteButton`;
-  clonedCard.querySelector(".downloadButton").className = `${typeCard}__button downloadButton`;
-  clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
+function fixItemsInCards(clonedCard, typeCard, originCard) {
+  let origin = "maximized";
 
-  if (clonedCard.className !== "card maximized__card") {
-    clonedCard.querySelector(".maximizedButton").className = `${typeCard}__button maximizedButton`;
+  if (originCard.className === "card trending__card") {
+    origin = "trending";
+  }
+  if (originCard.className === "card normal__card") {
+    origin = "normal";
   }
 
-  if (clonedCard.className === "card trending__card") {
-    clonedCard.querySelector(".trending__user").className = `${typeCard}__u`;
-    clonedCard.querySelector(".trending__title").className = `${typeCard}__t`;
-    clonedCard.querySelector(".trending__buttons").className = `${typeCard}__buttons`;
+  clonedCard.querySelector(".favoriteButton").className = typeCard + "__button favoriteButton";
+  clonedCard.querySelector(".downloadButton").className = typeCard + "__button downloadButton";
+  clonedCard.querySelector(".maximizedButton").className = typeCard + "__button maximizedButton";
+
+  if (origin !== "maximized" && typeCard === "maximized") {
+    clonedCard.querySelector(`.${origin}__user`).className = "maximized__u";
+    clonedCard.querySelector(`.${origin}__title`).className = "maximized__t";
+    clonedCard.querySelector(`.${origin}__buttons`).className = "maximized__buttons";
   }
 
-  if (clonedCard.className === "card normal__card") {
-    clonedCard.querySelector(".normal__user").className = `${typeCard}__u`;
-    clonedCard.querySelector(".normal__title").className = `${typeCard}__t`;
-    clonedCard.querySelector(".normal__buttons").className = `${typeCard}__buttons`;
-  }
-
-  if (typeCard === "normal") {
-    let options = clonedCard.querySelectorAll('options');
-    options.forEach((element) => element.style.fontSize = "10px");
-  }
+  assignListeners(clonedCard);
 
   if (typeCard === "maximized") {
-    clonedCard.querySelector(".icon-icon-download").style.fontSize = "18px";
-    clonedCard.querySelector(".icon-icon-download").style.backgroundColor = "transparent";
-    clonedCard.querySelector(".favoriteOption").style.fontSize = "18px";
-    clonedCard.querySelector(".favoriteOption").style.backgroundColor = "transparent";
+    const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
+    const maximizedViewButton = clonedCard.querySelector(".maximizedButton");
+    console.log(maximizedButtons);
+    maximizedButtons.removeChild(maximizedViewButton);
+
+    const downloadIcon = clonedCard.querySelector(".icon-icon-download");
+    downloadIcon.style.fontSize = "18px";
+    downloadIcon.style.backgroundColor = "transparent";
+
+    const favoriteOption = clonedCard.querySelector(".favoriteOption");
+    favoriteOption.style.fontSize = "18px";
+    favoriteOption.style.backgroundColor = "transparent";
+
+    clonedCard.querySelector(".hover").className = "maximized__hover";
   }
   clonedCard.className = `card ${typeCard}__card`;
+};
+
+/**
+ * Assing the listeners in buttons for the clone cards.
+ * @param {*} clonedCard 
+ */
+function assignListeners(clonedCard) {
+  clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
+  clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
+  clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
 };
 
 /**
@@ -212,24 +222,16 @@ function downloadGif(event) {
  * @param {} event 
  */
 function maximizedView(event) {
-  const targetCard = event.target.closest("div").parentElement.parentElement;
+  const targetCard = event.target.closest("div");
   const clonedCard = targetCard.cloneNode(true);
-
   maximizedCardContainer.appendChild(clonedCard);
   maximizedContainer.style.display = "block";
-
-  clonedCard.querySelector(".hover").className = "maximized__hover";
-  clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
 
   const clonedCardGif = clonedCard.querySelector(".gif");
   clonedCardGif.style.position = "static";
   clonedCardGif.style.cursor = "unset";
 
-  fixItemsInCards(clonedCard, "maximized");
-
-  const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
-  const maximizedViewButton = clonedCard.querySelector(".maximizedButton");
-  maximizedButtons.removeChild(maximizedViewButton);
+  fixItemsInCards(clonedCard, "maximized", targetCard);
 };
 
 /**
@@ -241,19 +243,6 @@ function maximizedViewClose() {
 };
 
 // FAVORITES SECTION
-
-/**
- * Show and hide containers and execute the load and display favorites.
- */
-function goToFavorites() {
-  if (favoritesGroup.style.display !== "block") {
-    favoritesGroup.style.display = "block";
-    searchGroup.style.display = "none";
-    myGifosGroup.style.display = "none";
-    loadFavorites();
-    favoritesVerMas();
-  }
-};
 
 /**
  * Load the favorite's list
@@ -275,6 +264,19 @@ function loadFavorites() {
 };
 
 /**
+ * Show and hide containers and execute the load and display favorites.
+ */
+function goToFavorites() {
+  if (favoritesGroup.style.display !== "block") {
+    favoritesGroup.style.display = "block";
+    searchGroup.style.display = "none";
+    myGifosGroup.style.display = "none";
+    loadFavorites();
+    favoritesVerMas();
+  }
+};
+
+/**
  * Get favorites gifs to API and calculate pages to show.
  */
 function favoritesVerMas() {
@@ -285,7 +287,7 @@ function favoritesVerMas() {
     gifsById(paginatedList.join(","))
       .catch(error => console.log(error))
       .then((response) => {
-        if ((favoritesPageCount + 1) != favoritesTotalPages) {
+        if (favoritesPageCount != favoritesTotalPages) {
           btnVerMasFavorites.style.display = "block";
         } else {
           btnVerMasFavorites.style.display = "none";
@@ -553,6 +555,7 @@ logo.addEventListener("click", function () {
   location.reload();
 });
 inputDarkMode.addEventListener("change", darkMode);
+favoriteMenu.addEventListener("click", goToFavorites);
 
 window.addEventListener("load", onLoad);
 
@@ -574,5 +577,4 @@ suggestedList.addEventListener("click", onSuggestedItemClicked);
 btnVerMas.addEventListener("click", searchVerMas);
 btnVerMasFavorites.addEventListener("click", favoritesVerMas);
 
-favoriteMenu.addEventListener("click", goToFavorites);
 myGifosMenu.addEventListener("click", goToMyGifos);
