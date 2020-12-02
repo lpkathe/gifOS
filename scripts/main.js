@@ -138,7 +138,10 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
 
   clonedCard.querySelector(".favoriteButton").className = typeCard + "__button favoriteButton";
   clonedCard.querySelector(".downloadButton").className = typeCard + "__button downloadButton";
-  clonedCard.querySelector(".maximizedButton").className = typeCard + "__button maximizedButton";
+
+  if (originCard.className !== "card maximized__card") {
+    clonedCard.querySelector(".maximizedButton").className = typeCard + "__button maximizedButton";
+  }
 
   if (origin !== "maximized" && typeCard === "maximized") {
     clonedCard.querySelector(`.${origin}__user`).className = "maximized__u";
@@ -151,7 +154,6 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
   if (typeCard === "maximized") {
     const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
     const maximizedViewButton = clonedCard.querySelector(".maximizedButton");
-    console.log(maximizedButtons);
     maximizedButtons.removeChild(maximizedViewButton);
 
     const downloadIcon = clonedCard.querySelector(".icon-icon-download");
@@ -174,7 +176,10 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
 function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
-  clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
+
+  if (clonedCard.className !== "card maximized__card") {
+    clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
+  }
 };
 
 /**
@@ -313,7 +318,7 @@ function toggleFavorite(event) {
     } else {
       favoriteList.push(id);
       const clonedCard = targetCard.cloneNode(true);
-      fixItemsInCards(clonedCard, "normal");
+      fixItemsInCards(clonedCard, "normal", targetCard);
       clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
       favoritesIcon(targetCard, "activate");
 
