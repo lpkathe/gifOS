@@ -106,10 +106,8 @@ function createCards(data, container) {
     clonedCard.querySelector(".trending__user").innerHTML = element.username;
     clonedCard.querySelector(".trending__title").innerHTML = element.title;
 
-    assignListeners(clonedCard);
-
     if (container.id !== "trendingContainer") {
-      fixItemsInCards(clonedCard, "normal");
+      fixItemsInCards(clonedCard, "normal", container);
     }
 
     if (favoriteList.includes(element.id)) {
@@ -134,7 +132,7 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
   if (originCard.className === "card trending__card") {
     origin = "trending";
   }
-  if (originCard.className === "card normal__card") {
+  if (originCard.id === "favoritesContainer" || originCard.className === "results__cards") {
     origin = "normal";
   }
 
@@ -151,12 +149,16 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
     clonedCard.querySelector(`.${origin}__buttons`).className = "maximized__buttons";
   }
 
+  if (origin === "maximized") {
+    clonedCard.querySelector(`.trending__buttons`).className = "maximized__buttons";
+    const text = clonedCard.querySelectorAll('p');
+    text.forEach((element) => element.style.color = "black");
+  }
+
   assignListeners(clonedCard);
 
   if (typeCard === "maximized") {
-    const maximizedButtons = clonedCard.querySelector(".maximized__buttons");
-    const maximizedViewButton = clonedCard.querySelector(".maximizedButton");
-    maximizedButtons.removeChild(maximizedViewButton);
+    clonedCard.querySelector(".maximizedButton").style.display = "none";
 
     const downloadIcon = clonedCard.querySelector(".icon-icon-download");
     downloadIcon.style.fontSize = "18px";
@@ -322,7 +324,6 @@ function toggleFavorite(event) {
       favoriteList.push(id);
       const clonedCard = targetCard.cloneNode(true);
       fixItemsInCards(clonedCard, "normal", targetCard);
-      clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
       favoritesIcon(targetCard, "activate");
 
       if (favoritesGroup.style.display == "block") {
