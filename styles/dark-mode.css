@@ -3,25 +3,25 @@
 
 .dark-mode:checked ~ main {
   background: #37383C; }
-  .dark-mode:checked ~ main h1, .dark-mode:checked ~ main h2, .dark-mode:checked ~ main h3, .dark-mode:checked ~ main p, .dark-mode:checked ~ main li.navigation__li, .dark-mode:checked ~ main i, .dark-mode:checked ~ main span {
-    color: #FFFFFF; }
-  .dark-mode:checked ~ main button, .dark-mode:checked ~ main div, .dark-mode:checked ~ main input {
-    background: #37383C;
-    color: white;
-    border-color: white; }
-  .dark-mode:checked ~ main ul.search__box__list {
-    background: transparent; }
-  .dark-mode:checked ~ main span.header__span {
-    color: #46e0b6; }
-  .dark-mode:checked ~ main input.search__box__input, .dark-mode:checked ~ main li, .dark-mode:checked ~ main i.icon-icon-search {
-    color: #6B7989; }
   .dark-mode:checked ~ main section.trending, .dark-mode:checked ~ main div.trending__desktop-buttons, .dark-mode:checked ~ main div.container, .dark-mode:checked ~ main ul {
     background: #222326; }
   .dark-mode:checked ~ main span.menu-span, .dark-mode:checked ~ main .menu:after, .dark-mode:checked ~ main .menu:before {
     background: #FFFFFF; }
-  .dark-mode:checked ~ main div.search__box {
-    border-color: white; }
-  .dark-mode:checked ~ main section.top-bar, .dark-mode:checked ~ main section.footer {
-    border-top: 5px solid #000000; }
+  .dark-mode:checked ~ main ul.search__box__list, .dark-mode:checked ~ main div, .dark-mode:checked ~ main input {
+    background: transparent; }
+  .dark-mode:checked ~ main button {
+    border-color: white;
+    color: white; }
+    .dark-mode:checked ~ main button:hover {
+      background: white;
+      color: black; }
+  .dark-mode:checked ~ main h1, .dark-mode:checked ~ main h2, .dark-mode:checked ~ main h3, .dark-mode:checked ~ main p, .dark-mode:checked ~ main li.navigation__li, .dark-mode:checked ~ main i, .dark-mode:checked ~ main span {
+    color: #FFFFFF; }
+  .dark-mode:checked ~ main span.header__span {
+    color: #46e0b6; }
+  .dark-mode:checked ~ main input.search__box__input, .dark-mode:checked ~ main li, .dark-mode:checked ~ main i.icon-search-left {
+    color: #6B7989; }
+  .dark-mode:checked ~ main section.top-bar, .dark-mode:checked ~ main footer.footer {
+    border-color: #000000; }
 
 /*# sourceMappingURL=dark-mode.css.map */

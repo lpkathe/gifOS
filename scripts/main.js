@@ -40,6 +40,8 @@ const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 
 const myGifosMenu = document.getElementById("myGifosMenu");
 const myGifosGroup = document.querySelector(".myGifos__group");
+const myGifosEmpty = document.querySelector(".myGifos__empty");
+const myGifosContainer = document.getElementById("myGifosContainer");
 
 const trendingContainer = document.getElementById("trendingContainer");
 const buttonRight = document.querySelector(".buttonRight");
@@ -81,10 +83,12 @@ function darkMode() {
   if (inputDarkMode.checked) {
     pageLogo.src = "assets/logo-mobile-modo-noct.svg";
     textDarkMode.innerText = "Modo Diurno";
+    inputSearch.style.color = "white";
   } else {
     pageLogo.src = "assets/logo-mobile.svg";
     textDarkMode.innerText = "Modo Nocturno";
     inputSearchRightIcon.className = "search__box__icon icon-icon-search";
+    inputSearch.style.color = "black";
   }
 };
 
@@ -148,7 +152,9 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
   }
 
   if (origin === "maximized") {
-    clonedCard.querySelector(`.trending__buttons`).className = "maximized__buttons";
+    if (clonedCard.querySelector(`.trending__buttons`)) {
+      clonedCard.querySelector(`.trending__buttons`).className = "maximized__buttons";
+    }
     const text = clonedCard.querySelectorAll('p');
     text.forEach((element) => element.style.color = "black");
   }
@@ -233,7 +239,7 @@ function maximizedView(event) {
   const clonedCard = targetCard.cloneNode(true);
   maximizedCardContainer.appendChild(clonedCard);
   maximizedContainer.style.display = "block";
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 
   const clonedCardGif = clonedCard.querySelector(".gif");
   clonedCardGif.style.position = "static";
@@ -485,9 +491,9 @@ function getAutocompleteSearch(event) {
 function isSearchingState(isSearching = true) {
   if (isSearching) {
     inputX.style.display = "inline";
-    inputSearch.style.color = "white";
     inputSearchRightIcon.style.display = "none";
     inputSearchLeftIcon.style.visibility = "visible";
+    
   } else {
     inputX.style.display = "none";
     inputSearchRightIcon.style.display = "inline";
@@ -552,7 +558,13 @@ function goToMyGifos(event) {
     myGifosGroup.style.display = "block";
     searchGroup.style.display = "none";
     favoritesGroup.style.display = "none";
-    btnVerMasMyGifos.style.display = "none";
+    
+    if (myGifosContainer != "") {
+      favoritesGroup.style.display = "none";
+    }
+  }
+    //loadMyGifos(); incluir version
+    //favoritesVerMas(); incluir version
   }
 };
 

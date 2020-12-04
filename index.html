@@ -61,7 +61,7 @@
         </picture>
         <div class="search__box">
           <div class="search__box__main">
-            <i class="search__box__icon-list icon-icon-search"></i>
+            <i class="search__box__icon-list icon-icon-search icon-search-left"></i>
             <input class="search__box__input" id="inputSearch" type="text" autocomplete="off"
               placeholder="Busca GIFOS y más" name="search">
             <i class="search__box__icon icon-icon-search"></i>
@@ -103,10 +103,16 @@
       <picture class="picture">
         <img class="img" src="assets/icon-mis-gifos.svg" alt="Mis GIFOS">
       </picture>
-      <h1 class="title">Mis GIFOS</h1>
+      <h1 class="t">Mis GIFOS</h1>
       <div class="myGifos__container" id="myGifosContainer">
       </div>
       <button class="results__button" id="myGifosButton">VER MÁS</button>
+      <div class="myGifos__empty">
+        <picture>
+          <img src="assets/icon-mis-gifos-sin-contenido.svg" alt="No hay contenido de mis gifos">
+        </picture>
+        <p>¡Anímate a crear tu primer GIFO!</p>
+      </div>
     </section>
     <section class="trending">
       <h2 class="trending__t">Trending GIFOS</h2>
@@ -131,6 +137,7 @@
         <button class="trending__arrow buttonRight"><i class="icon-button-right"></i></button>
       </div>
     </section>
+    <section id="creationOfGifos"></section>
     <footer class="footer">
       <div class="footer__social-network">
         <p class="footer__social-network__p">Compartir en:</p>
