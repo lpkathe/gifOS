@@ -233,6 +233,7 @@ function maximizedView(event) {
   const clonedCard = targetCard.cloneNode(true);
   maximizedCardContainer.appendChild(clonedCard);
   maximizedContainer.style.display = "block";
+  window.scrollTo(0,0);
 
   const clonedCardGif = clonedCard.querySelector(".gif");
   clonedCardGif.style.position = "static";
