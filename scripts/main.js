@@ -73,6 +73,7 @@ function onLoad() {
   getTrendingCategories();
   trendingCards();
   loadFavorites();
+  darkMode();
 };
 
 /**
@@ -85,6 +86,7 @@ function darkMode() {
   } else {
     pageLogo.src = "assets/logo-mobile.svg";
     textDarkMode.innerText = "Modo Nocturno";
+    inputSearchRightIcon.className = "search__box__icon icon-icon-search";
   }
 };
 

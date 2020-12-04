@@ -83,14 +83,14 @@ a, button, i {
     border-radius: 27px;
     background-color: #fff; }
     .search__box__main {
-      margin: 14px 0 10px 0;
-      position: relative;
+      margin: 14px 3px 10px 3px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: space-evenly;
           -ms-flex-pack: space-evenly;
-              justify-content: space-evenly; }
+              justify-content: space-evenly;
+      position: relative; }
     .search__box__icon {
       margin-right: 15px;
       text-align: center;
