@@ -38,8 +38,6 @@ const resultsContainer = document.querySelector(".results__container");
 const resultsTitle = document.querySelector(".results__title");
 const resultsCardsContainer = document.getElementById("resultsCardsContainer");
 
-
-
 const myGifosMenu = document.getElementById("myGifosMenu");
 const myGifosGroup = document.querySelector(".myGifos__group");
 
@@ -487,6 +485,7 @@ function getAutocompleteSearch(event) {
 function isSearchingState(isSearching = true) {
   if (isSearching) {
     inputX.style.display = "inline";
+    inputSearch.style.color = "white";
     inputSearchRightIcon.style.display = "none";
     inputSearchLeftIcon.style.visibility = "visible";
   } else {
@@ -504,6 +503,7 @@ function isSearchingState(isSearching = true) {
 function onSuggestedItemClicked(suggested) {
   inputSearch.value = suggested.target.innerText;
   suggestedList.innerText = "";
+
   search();
 };
 

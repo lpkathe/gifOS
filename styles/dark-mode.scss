@@ -6,7 +6,7 @@
   & ~ main {
     background: #37383C;
      
-    h1, h2, h3, p, li, i, span {
+    h1, h2, h3, p, li.navigation__li, i, span {
       color: #FFFFFF;
     }
 
@@ -16,11 +16,15 @@
       border-color: white;
     }
 
+    ul.search__box__list {
+      background: transparent;
+    }
+
     span.header__span {
       color: rgb(70, 224, 182);
     }
 
-    input.search__box__input {
+    input.search__box__input, li, i.icon-icon-search {
       color: #6B7989;
     }
 

@@ -3,15 +3,17 @@
 
 .dark-mode:checked ~ main {
   background: #37383C; }
-  .dark-mode:checked ~ main h1, .dark-mode:checked ~ main h2, .dark-mode:checked ~ main h3, .dark-mode:checked ~ main p, .dark-mode:checked ~ main li, .dark-mode:checked ~ main i, .dark-mode:checked ~ main span {
+  .dark-mode:checked ~ main h1, .dark-mode:checked ~ main h2, .dark-mode:checked ~ main h3, .dark-mode:checked ~ main p, .dark-mode:checked ~ main li.navigation__li, .dark-mode:checked ~ main i, .dark-mode:checked ~ main span {
     color: #FFFFFF; }
   .dark-mode:checked ~ main button, .dark-mode:checked ~ main div, .dark-mode:checked ~ main input {
     background: #37383C;
     color: white;
     border-color: white; }
+  .dark-mode:checked ~ main ul.search__box__list {
+    background: transparent; }
   .dark-mode:checked ~ main span.header__span {
     color: #46e0b6; }
-  .dark-mode:checked ~ main input.search__box__input {
+  .dark-mode:checked ~ main input.search__box__input, .dark-mode:checked ~ main li, .dark-mode:checked ~ main i.icon-icon-search {
     color: #6B7989; }
   .dark-mode:checked ~ main section.trending, .dark-mode:checked ~ main div.trending__desktop-buttons, .dark-mode:checked ~ main div.container, .dark-mode:checked ~ main ul {
     background: #222326; }
