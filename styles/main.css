@@ -81,8 +81,6 @@ a, button, i {
     content: "";
     opacity: 0.5;
     border-bottom: 1px solid #FFFFFF; }
-  .navigation__li__dark {
-    display: none; }
   .navigation__li a {
     color: #FFFFFF;
     text-decoration: none; }
@@ -140,7 +138,8 @@ a, button, i {
     text-align: center;
     vertical-align: middle;
     color: #572EE5;
-    border: 1px solid #572EE5; }
+    border: 1px solid #572EE5;
+    background: transparent; }
 
 .container {
   margin-top: 32px;

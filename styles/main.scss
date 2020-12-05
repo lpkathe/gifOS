@@ -53,10 +53,6 @@
       opacity: 0.5;
       border-bottom: 1px solid #FFFFFF;
     }
-    
-    &__dark {
-      display: none;
-    }
 
     & a {
       color: #FFFFFF;
@@ -128,6 +124,7 @@
     vertical-align: middle;
     color: #572EE5;
     border: 1px solid #572EE5;
+    background: transparent;
   }
 }
 

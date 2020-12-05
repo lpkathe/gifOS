@@ -55,9 +55,6 @@ a, button, i {
   .nav-bar {
     width: 50vw;
     display: inline-block; }
-    .nav-bar__logo__light {
-      height: 59.1px;
-      width: 59.1px; }
 
   .menu {
     display: none; }
@@ -102,6 +99,8 @@ a, button, i {
             -ms-flex-align: center;
                 align-items: center;
         color: #572EE5; }
+      .navigation__li::after {
+        display: none; }
     .navigation__mas {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -193,7 +192,7 @@ a, button, i {
   .trending {
     margin-top: 95px;
     height: 640px; }
-    .trending__title {
+    .trending__t {
       margin: 67px auto 12px auto;
       padding: 0; }
     .trending__p {
