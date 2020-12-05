@@ -107,6 +107,13 @@ a, button, i {
   width: 22px;
   border-radius: 4px; }
 
+#trendingContainer {
+  margin-left: 22px; }
+
+.trending__card {
+  margin-right: 263px;
+  height: 187px;
+  width: 243px; }
 .trending__buttons {
   top: 7px;
   left: 150px; }

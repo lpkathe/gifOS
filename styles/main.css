@@ -99,9 +99,6 @@ a, button, i {
   display: none;
   outline: none; }
 
-#trendingContainer {
-  margin-left: 22px; }
-
 .trending {
   margin-top: 45px;
   height: 430px;
@@ -127,10 +124,6 @@ a, button, i {
       display: block;
       line-height: 23px;
       text-align: center; }
-  .trending__card {
-    margin-right: 263px;
-    height: 187px;
-    width: 243px; }
   .trending__desktop-buttons {
     height: 187px;
     width: 100vw;

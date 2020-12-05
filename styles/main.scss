@@ -82,10 +82,6 @@
   }
 }
 
-#trendingContainer {
-  margin-left: 22px;
-}
-
 .trending {
   margin-top: 45px;
   height: 430px;
@@ -116,29 +112,23 @@
     }
   }
 
-  &__card {
-    margin-right: 263px;
+  &__desktop-buttons {
     height: 187px;
-    width: 243px;
+    width: 100vw;
+    display: flex;
+    box-sizing: border-box;
   }
 
-&__desktop-buttons {
-  height: 187px;
-  width: 100vw;
-  display: flex;
-  box-sizing: border-box;
-}
-
-&__arrow {
-  padding-top: 5px;
-  height: 40px;
-  width: 40px;
-  display: none;
-  text-align: center;
-  vertical-align: middle;
-  color: #572EE5;
-  border: 1px solid #572EE5;
-}
+  &__arrow {
+    padding-top: 5px;
+    height: 40px;
+    width: 40px;
+    display: none;
+    text-align: center;
+    vertical-align: middle;
+    color: #572EE5;
+    border: 1px solid #572EE5;
+  }
 }
 
 .container {

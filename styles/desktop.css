@@ -191,6 +191,7 @@ a, button, i {
       display: flex; }
 
   .trending {
+    margin-top: 95px;
     height: 640px; }
     .trending__title {
       margin: 67px auto 12px auto;

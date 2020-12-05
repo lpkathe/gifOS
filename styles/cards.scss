@@ -112,7 +112,17 @@
   }
 }
 
+#trendingContainer {
+  margin-left: 22px;
+}
+
 .trending {
+  &__card {
+    margin-right: 263px;
+    height: 187px;
+    width: 243px;
+  }
+  
   &__buttons {
   top: 7px;
   left: 150px;

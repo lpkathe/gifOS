@@ -117,10 +117,12 @@ function createCards(data, container) {
       favoriteOption.className = "options favoriteOption icon-icon-fav-active";
     }
 
+    const position = (clonedCard.width * index);
     if (screen.width < 1023) {
-      const position = (clonedCard.width * index);
       clonedCard.style.left = `${position}px`;
       clonedCard.addEventListener("click", maximizedView);
+    } else {
+      clonedCard.style.left = `${position + 27}px`;
     }
   });
 };
@@ -565,7 +567,6 @@ function goToMyGifos(event) {
   }
     //loadMyGifos(); incluir version
     //favoritesVerMas(); incluir version
-  }
 };
 
 /**
