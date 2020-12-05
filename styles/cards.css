@@ -115,12 +115,20 @@ a, button, i {
   height: 187px;
   width: 243px; }
 .trending__buttons {
-  top: 7px;
-  left: 150px; }
+  top: 10px; }
 .trending__button {
   height: 25px;
   width: 25px;
-  border-radius: 6px; }
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
 .trending__user {
   margin-left: 8.5px;
   font-size: 15px; }
