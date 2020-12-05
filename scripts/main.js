@@ -108,6 +108,8 @@ function createCards(data, container) {
     clonedCard.querySelector(".trending__user").innerHTML = element.username;
     clonedCard.querySelector(".trending__title").innerHTML = element.title;
 
+    assignListeners(clonedCard);
+
     if (container.id !== "trendingContainer") {
       fixItemsInCards(clonedCard, "normal", container);
     }
@@ -161,8 +163,6 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
     text.forEach((element) => element.style.color = "black");
   }
 
-  assignListeners(clonedCard);
-
   if (typeCard === "maximized") {
     clonedCard.querySelector(".maximizedButton").style.display = "none";
 
@@ -186,10 +186,7 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
 function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
-
-  if (clonedCard.className !== "card maximized__card") {
-    clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
-  }
+  clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
 };
 
 /**
@@ -248,6 +245,7 @@ function maximizedView(event) {
   clonedCardGif.style.cursor = "unset";
 
   fixItemsInCards(clonedCard, "maximized", targetCard);
+  assignListeners(clonedCard);
 };
 
 /**
