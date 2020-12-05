@@ -236,15 +236,25 @@ function downloadGif(event) {
 function maximizedView(event) {
   const targetCard = event.target.closest("div");
   const clonedCard = targetCard.cloneNode(true);
-  maximizedCardContainer.appendChild(clonedCard);
+  let clonedCardGif;
+
   maximizedContainer.style.display = "block";
   window.scrollTo(0, 0);
+  
+  if (window.screen > 1023) {
+    maximizedCardContainer.appendChild(clonedCard);
+    clonedCardGif = clonedCard.querySelector(".gif");
+    fixItemsInCards(clonedCard, "maximized", targetCard);
+  } else {
+    clonedCardGif = targetCard.parentElement
+    const newTargetCard = targetCard.parentElement.parentElement;
+    maximizedCardContainer.appendChild(clonedCardGif.parentElement);
+    fixItemsInCards(newTargetCard, "maximized", targetCard.parentElement);
+  }
 
-  const clonedCardGif = clonedCard.querySelector(".gif");
   clonedCardGif.style.position = "static";
   clonedCardGif.style.cursor = "unset";
 
-  fixItemsInCards(clonedCard, "maximized", targetCard);
   assignListeners(clonedCard);
 };
 
@@ -493,7 +503,7 @@ function isSearchingState(isSearching = true) {
     inputX.style.display = "inline";
     inputSearchRightIcon.style.display = "none";
     inputSearchLeftIcon.style.visibility = "visible";
-    
+
   } else {
     inputX.style.display = "none";
     inputSearchRightIcon.style.display = "inline";
@@ -558,13 +568,13 @@ function goToMyGifos(event) {
     myGifosGroup.style.display = "block";
     searchGroup.style.display = "none";
     favoritesGroup.style.display = "none";
-    
+
     if (myGifosContainer != "") {
       favoritesGroup.style.display = "none";
     }
   }
-    //loadMyGifos(); incluir version
-    //favoritesVerMas(); incluir version
+  //loadMyGifos(); incluir version
+  //favoritesVerMas(); incluir version
 };
 
 /**

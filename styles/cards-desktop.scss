@@ -64,4 +64,15 @@
       @extend .title;
     }
   }
+
+  .maximized {
+    &__container {
+    }
+    
+    &__card {
+      margin: 0 auto;
+      height: 385px;
+      width: 695px;
+    }
+  }
 }
