@@ -66,13 +66,25 @@
   }
 
   .maximized {
-    &__container {
-    }
-    
     &__card {
-      margin: 0 auto;
+      margin: 0;
       height: 385px;
       width: 695px;
+      display: inline-block;
+
+      &__container {
+        margin: 0 25px;
+        height: 385px;
+        width: 695px;
+        position: static;
+      }
+    }
+
+    &__subContainer {
+      margin: 0 auto;
+      height: 500px;
+      width: max-content;
+      display: flex;
     }
   }
 }

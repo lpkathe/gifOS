@@ -270,8 +270,23 @@
     font-size: 16px; }
 
   .maximized__card {
-    margin: 0 auto;
+    margin: 0;
     height: 385px;
-    width: 695px; } }
+    width: 695px;
+    display: inline-block; }
+    .maximized__card__container {
+      margin: 0 25px;
+      height: 385px;
+      width: 695px;
+      position: static; }
+  .maximized__subContainer {
+    margin: 0 auto;
+    height: 500px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
 
 /*# sourceMappingURL=cards-desktop.css.map */

@@ -130,9 +130,11 @@ function createCards(data, container) {
 };
 
 /**
- * Fix the items in the correct positions into card.
+ * Define origin container of cards.
+ * @param {type of card it will become} typeCard 
+ * @param {Card container} originCard 
  */
-function fixItemsInCards(clonedCard, typeCard, originCard) {
+function clarifyOrigin(typeCard, originCard) {
   let origin = "maximized";
 
   if (originCard.className === "card trending__card") {
@@ -141,18 +143,32 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
   if (originCard.id === "favoritesContainer" || originCard.className === "results__cards") {
     origin = "normal";
   }
+  return (origin);
+};
+
+/**
+ * Fix the items in the correct positions into card.
+ */
+function fixItemsInCards(clonedCard, typeCard, originCard) {
+  const origin = clarifyOrigin(typeCard, originCard);
 
   clonedCard.querySelector(".favoriteButton").className = typeCard + "__button favoriteButton";
   clonedCard.querySelector(".downloadButton").className = typeCard + "__button downloadButton";
 
-  if (originCard.className !== "card maximized__card") {
-    clonedCard.querySelector(".maximizedButton").className = typeCard + "__button maximizedButton";
+  if (typeCard === "maximized") {
+    const downloadIcon = clonedCard.querySelector(".icon-icon-download");
+    downloadIcon.style.fontSize = "18px";
+    downloadIcon.style.backgroundColor = "transparent";
+
+    const favoriteOption = clonedCard.querySelector(".favoriteOption");
+    favoriteOption.style.fontSize = "18px";
+    favoriteOption.style.backgroundColor = "transparent";
+
+    renameClasesForMaximizedView(origin, typeCard, clonedCard);
   }
 
-  if (origin !== "maximized" && typeCard === "maximized") {
-    clonedCard.querySelector(`.${origin}__user`).className = "maximized__u";
-    clonedCard.querySelector(`.${origin}__title`).className = "maximized__t";
-    clonedCard.querySelector(`.${origin}__buttons`).className = "maximized__buttons";
+  if (origin !== "maximized") {
+    clonedCard.querySelector(".maximizedButton").className = typeCard + "__button maximizedButton";
   }
 
   if (origin === "maximized") {
@@ -163,19 +179,6 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
     text.forEach((element) => element.style.color = "black");
   }
 
-  if (typeCard === "maximized") {
-    clonedCard.querySelector(".maximizedButton").style.display = "none";
-
-    const downloadIcon = clonedCard.querySelector(".icon-icon-download");
-    downloadIcon.style.fontSize = "18px";
-    downloadIcon.style.backgroundColor = "transparent";
-
-    const favoriteOption = clonedCard.querySelector(".favoriteOption");
-    favoriteOption.style.fontSize = "18px";
-    favoriteOption.style.backgroundColor = "transparent";
-
-    clonedCard.querySelector(".hover").className = "maximized__hover";
-  }
   clonedCard.className = `card ${typeCard}__card`;
 };
 
@@ -234,28 +237,49 @@ function downloadGif(event) {
  * @param {} event 
  */
 function maximizedView(event) {
-  const targetCard = event.target.closest("div");
+  const targetCard = selecMainCard(event);
   const clonedCard = targetCard.cloneNode(true);
-  let clonedCardGif;
 
+  maximizedCardContainer.appendChild(clonedCard);
   maximizedContainer.style.display = "block";
   window.scrollTo(0, 0);
-  
-  if (window.screen > 1023) {
-    maximizedCardContainer.appendChild(clonedCard);
-    clonedCardGif = clonedCard.querySelector(".gif");
-    fixItemsInCards(clonedCard, "maximized", targetCard);
-  } else {
-    clonedCardGif = targetCard.parentElement
-    const newTargetCard = targetCard.parentElement.parentElement;
-    maximizedCardContainer.appendChild(clonedCardGif.parentElement);
-    fixItemsInCards(newTargetCard, "maximized", targetCard.parentElement);
-  }
 
+  let clonedCardGif = clonedCard.querySelector(".gif");
   clonedCardGif.style.position = "static";
   clonedCardGif.style.cursor = "unset";
 
+  fixItemsInCards(clonedCard, "maximized", targetCard);
   assignListeners(clonedCard);
+};
+
+/**
+ * Selec the main card to work.
+ * @param {} event 
+ */
+function selecMainCard(event) {
+  ;
+  let targetCard;
+
+  if (window.screen.width < 1023) {
+    targetCard = event.target.closest("div");
+  } else {
+    targetCard = event.target.closest("div").parentElement.parentElement;
+  }
+  return (targetCard);
+};
+
+/**
+ * Change the class name of some elements of the cloned card for the maximized view function.
+ * @param {card container} originCard 
+ * @param {type of card it will become} typeCard 
+ * @param {clon to original card} clonedCard 
+ */
+function renameClasesForMaximizedView(originCard, typeCard, clonedCard) {
+  clonedCard.querySelector(`.${originCard}__user`).className = "maximized__u";
+  clonedCard.querySelector(`.${originCard}__title`).className = "maximized__t";
+  clonedCard.querySelector(`.${originCard}__buttons`).className = "maximized__buttons";
+  clonedCard.querySelector(".hover").className = "maximized__hover";
+  clonedCard.querySelector(".maximizedButton").style.display = "none";
 };
 
 /**

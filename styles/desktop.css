@@ -247,7 +247,9 @@ a, button, i {
     .trending__options {
       font-size: 16.7px; }
     .trending__arrow {
-      display: inline-block; }
+      display: inline-block;
+      -ms-flex-item-align: center;
+          align-self: center; }
       .trending__arrow:hover {
         color: white;
         background: #572EE5; }
