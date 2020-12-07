@@ -47,6 +47,7 @@ const trendingContainer = document.getElementById("trendingContainer");
 const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
 const card = document.querySelector(".card");
+let cardsCount = 0;
 
 const btnVerMas = document.getElementById("resultsButton");
 const btnVerMasFavorites = document.getElementById("favoritesButton");
@@ -57,6 +58,7 @@ const downloadButton = document.querySelector(".downloadButton");
 let favoriteList = [];
 let favoritesPageCount = 0;
 let favoritesTotalPages = 0;
+
 
 let pageOffset = 0;
 let pageCount = 1;
@@ -74,6 +76,24 @@ function onLoad() {
   trendingCards();
   loadFavorites();
   darkMode();
+};
+
+/**
+ * Get trending titles
+ */
+function getTrendingCategories() {
+  const { trendingCategories } = GiphyApi;
+  let list = [];
+
+  trendingCategories()
+    .then((response) => {
+      response.data.forEach((element) => {
+        list.push(element.name);
+      });
+      pTrendingCategories.innerText = list.join(', ');
+    }).catch((error) => {
+      pTrendingCategories.innerText = "Error " + error;
+    });
 };
 
 /**
@@ -197,10 +217,16 @@ function assignListeners(clonedCard) {
  */
 function trendingCards() {
   const { trendingGifs } = GiphyApi;
+  const offset = cardsCount * 5;
 
-  trendingGifs()
+  trendingGifs(5, offset)
     .catch(error => console.log(error))
-    .then((response) => createCards(response.data, trendingContainer));
+    .then((response) => {
+      if (cardsCount <= 4) {
+        createCards(response.data, trendingContainer);
+        cardsCount += 1;
+      }
+    });
 };
 
 function downloadBlob(blob, filename) {
@@ -471,24 +497,6 @@ function search() {
     });
 
   isSearchingState(false);
-};
-
-/**
- * Get trending titles
- */
-function getTrendingCategories() {
-  const { trendingCategories } = GiphyApi;
-  let list = [];
-
-  trendingCategories()
-    .then((response) => {
-      response.data.forEach((element) => {
-        list.push(element.name);
-      });
-      pTrendingCategories.innerText = list.join(', ');
-    }).catch((error) => {
-      pTrendingCategories.innerText = "Error " + error;
-    });
 };
 
 /**
