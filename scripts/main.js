@@ -196,7 +196,6 @@ function fixItemsInCards(clonedCard, typeCard, originContainer) {
     text.forEach((element) => element.style.color = "black");
   }
   clonedCard.className = `card ${typeCard}__card`;
-  console.log(clonedCard);
 };
 
 /**
@@ -219,8 +218,8 @@ function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
   clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
-  buttonLeft.addEventListener("click", function () {
-    document.querySelector(".trending__container").scrollLeft -= 350;
+  buttonLeft.addEventListener("click", function() {
+    document.getElementById("trendingContainer").scrollLeft -= trendingContainer.clientWidth;
   });
   buttonRight.addEventListener("click", moreTrendingCards);
 };
@@ -242,10 +241,15 @@ function trendingCards() {
     });
 };
 
+/**
+ * Get more trending cards.
+ * @param {click} event 
+ */
 function moreTrendingCards(event) {
-  const buttonPressed = event.target;
   trendingCards();
-}
+  console.log(trendingContainer.style.width);
+  document.getElementById("trendingContainer").scrollLeft += trendingContainer.clientWidth;
+};
 
 function downloadBlob(blob, filename) {
   const downloadAncor = document.createElement('a');
