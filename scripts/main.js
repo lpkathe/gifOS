@@ -152,15 +152,15 @@ function createCards(data, container) {
 /**
  * Define origin container of cards.
  * @param {type of card it will become} typeCard 
- * @param {Card container} originCard 
+ * @param {Card container} originContainer
  */
-function clarifyOrigin(typeCard, originCard) {
+function clarifyOrigin(typeCard, originContainer) {
   let origin = "maximized";
 
-  if (originCard.className === "card trending__card") {
+  if (originContainer.className === "card trending__card") {
     origin = "trending";
   }
-  if (originCard.id === "favoritesContainer" || originCard.className === "results__cards") {
+  if (originContainer.className === "results__cards" || originContainer.className === "card normal__card") {
     origin = "normal";
   }
   return (origin);
@@ -169,11 +169,14 @@ function clarifyOrigin(typeCard, originCard) {
 /**
  * Fix the items in the correct positions into card.
  */
-function fixItemsInCards(clonedCard, typeCard, originCard) {
-  const origin = clarifyOrigin(typeCard, originCard);
+function fixItemsInCards(clonedCard, typeCard, originContainer) {
+  const origin = clarifyOrigin(typeCard, originContainer);
 
   clonedCard.querySelector(".favoriteButton").className = typeCard + "__button favoriteButton";
   clonedCard.querySelector(".downloadButton").className = typeCard + "__button downloadButton";
+  clonedCard.querySelector(".maximizedButton").className = typeCard + "__button maximizedButton";
+
+  renameClases(clonedCard, typeCard, origin);
 
   if (typeCard === "maximized") {
     const downloadIcon = clonedCard.querySelector(".icon-icon-download");
@@ -184,22 +187,28 @@ function fixItemsInCards(clonedCard, typeCard, originCard) {
     favoriteOption.style.fontSize = "18px";
     favoriteOption.style.backgroundColor = "transparent";
 
-    renameClasesForMaximizedView(origin, typeCard, clonedCard);
+    clonedCard.querySelector(`.hover`).className = `maximized__hover`;
+    clonedCard.querySelector(".maximizedButton").style.display = "none";
   }
 
   if (origin !== "maximized") {
-    clonedCard.querySelector(".maximizedButton").className = typeCard + "__button maximizedButton";
-  }
-
-  if (origin === "maximized") {
-    if (clonedCard.querySelector(`.trending__buttons`)) {
-      clonedCard.querySelector(`.trending__buttons`).className = "maximized__buttons";
-    }
     const text = clonedCard.querySelectorAll('p');
     text.forEach((element) => element.style.color = "black");
   }
-
   clonedCard.className = `card ${typeCard}__card`;
+  console.log(clonedCard);
+};
+
+/**
+ * Change the class name of some elements of the cloned card.
+ * @param {card container} origin 
+ * @param {type of card it will become} typeCard 
+ * @param {clon to original card} clonedCard 
+ */
+function renameClases(clonedCard, typeCard, origin) {
+  clonedCard.querySelector(`.${origin}__user`).className = `${typeCard}__user`;
+  clonedCard.querySelector(`.${origin}__title`).className = `${typeCard}__title`;
+  clonedCard.querySelector(`.${origin}__buttons`).className = `${typeCard}__buttons`;
 };
 
 /**
@@ -210,6 +219,10 @@ function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
   clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
+  buttonLeft.addEventListener("click", function () {
+    document.querySelector(".trending__container").scrollLeft -= 350;
+  });
+  buttonRight.addEventListener("click", moreTrendingCards);
 };
 
 /**
@@ -222,12 +235,17 @@ function trendingCards() {
   trendingGifs(5, offset)
     .catch(error => console.log(error))
     .then((response) => {
-      if (cardsCount <= 4) {
+      if (cardsCount <= 5) {
         createCards(response.data, trendingContainer);
         cardsCount += 1;
       }
     });
 };
+
+function moreTrendingCards(event) {
+  const buttonPressed = event.target;
+  trendingCards();
+}
 
 function downloadBlob(blob, filename) {
   const downloadAncor = document.createElement('a');
@@ -292,20 +310,6 @@ function selecMainCard(event) {
     targetCard = event.target.closest("div").parentElement.parentElement;
   }
   return (targetCard);
-};
-
-/**
- * Change the class name of some elements of the cloned card for the maximized view function.
- * @param {card container} originCard 
- * @param {type of card it will become} typeCard 
- * @param {clon to original card} clonedCard 
- */
-function renameClasesForMaximizedView(originCard, typeCard, clonedCard) {
-  clonedCard.querySelector(`.${originCard}__user`).className = "maximized__u";
-  clonedCard.querySelector(`.${originCard}__title`).className = "maximized__t";
-  clonedCard.querySelector(`.${originCard}__buttons`).className = "maximized__buttons";
-  clonedCard.querySelector(".hover").className = "maximized__hover";
-  clonedCard.querySelector(".maximizedButton").style.display = "none";
 };
 
 /**
@@ -622,13 +626,6 @@ favoriteMenu.addEventListener("click", goToFavorites);
 window.addEventListener("load", onLoad);
 
 maximizedPicture.addEventListener("click", maximizedViewClose);
-
-buttonRight.addEventListener("click", function () {
-  document.querySelector(".trending__container").scrollLeft += 350;
-});
-buttonLeft.addEventListener("click", function () {
-  document.querySelector(".trending__container").scrollLeft -= 350;
-});
 
 inputSearch.addEventListener("keyup", getAutocompleteSearch);
 inputX.addEventListener("click", searchReset);

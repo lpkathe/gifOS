@@ -84,14 +84,14 @@
     margin: 9px auto;
   }
 
-  &__u {
+  &__user {
     bottom: 30px;
     left: 5px;
     font-size: 10px;
     @extend .user;
   }
 
-  &__t {
+  &__title {
     bottom: 3px;
     left: 5px;
     font-size: 10px;
@@ -202,7 +202,7 @@
     position: static;
   }
 
-  &__u {
+  &__user {
     margin: 14px 0 0 5.5px;
     height: 18px;
     font-size: 15px;
@@ -212,7 +212,7 @@
     @extend .user;
   }
 
-  &__t {
+  &__title {
     margin: 0;
     height: 19px;
     font-size: 16px;

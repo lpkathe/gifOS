@@ -9,28 +9,28 @@
     line-height: 25px;
     text-align: center; }
 
-  .montserrat-bold, .maximized__t {
+  .montserrat-bold, .maximized__title {
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     color: #572EE5;
     line-height: 60px;
     text-align: center; }
 
-  .roboto-bold, .title, .normal__t, .trending__title {
+  .roboto-bold, .title, .normal__title, .trending__title {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: bold;
     color: #FFFFFF;
     text-align: center; }
 
-  .roboto-regular, .user, .normal__u, .trending__user, .maximized__u {
+  .roboto-regular, .user, .normal__user, .trending__user, .maximized__user {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     font-weight: 400;
     text-align: left;
     color: #000000; }
 
-  .margin-padding, .user, .normal__u, .trending__user, .maximized__u, .title, .normal__t, .trending__title, .maximized__container {
+  .margin-padding, .user, .normal__user, .trending__user, .maximized__user, .title, .normal__title, .trending__title, .maximized__container {
     margin: 0;
     padding: 0; }
 
@@ -48,7 +48,7 @@
     .button:hover, .normal__button:hover, .trending__button:hover {
       opacity: 100; }
 
-  .user, .normal__u, .trending__user, .maximized__u {
+  .user, .normal__user, .trending__user, .maximized__user {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
@@ -56,7 +56,7 @@
     text-align: unset;
     text-transform: capitalize; }
 
-  .title, .normal__t, .trending__title {
+  .title, .normal__title, .trending__title {
     color: #FFFFFF;
     text-transform: capitalize;
     text-align: unset;
@@ -92,11 +92,11 @@
     height: 120px;
     width: 156px;
     margin: 9px auto; }
-  .normal__u {
+  .normal__user {
     bottom: 30px;
     left: 5px;
     font-size: 10px; }
-  .normal__t {
+  .normal__title {
     bottom: 3px;
     left: 5px;
     font-size: 10px; }
@@ -175,14 +175,14 @@
     grid-template-areas: "user icons" "title icons";
     background-color: transparent;
     position: static; }
-  .maximized__u {
+  .maximized__user {
     margin: 14px 0 0 5.5px;
     height: 18px;
     font-size: 15px;
     color: #000000;
     text-align: center;
     grid-area: user; }
-  .maximized__t {
+  .maximized__title {
     margin: 0;
     height: 19px;
     font-size: 16px;
