@@ -48,6 +48,7 @@ const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
 const card = document.querySelector(".card");
 let cardsCount = 0;
+let cardsCountScroll = 0;
 
 const btnVerMas = document.getElementById("resultsButton");
 const btnVerMasFavorites = document.getElementById("favoritesButton");
@@ -76,6 +77,10 @@ function onLoad() {
   trendingCards();
   loadFavorites();
   darkMode();
+
+  if (window.screen.width < 1023) {
+    trendingContainer.addEventListener('scroll', scrollTrendingSectionMobile);
+  }
 };
 
 /**
@@ -218,8 +223,11 @@ function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
   clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
-  buttonLeft.addEventListener("click", function() {
-    document.getElementById("trendingContainer").scrollLeft -= trendingContainer.clientWidth;
+  buttonLeft.addEventListener("click", function () {
+    trendingContainer.scroll({
+        behavior: `smooth`,
+        left: `clientWidth`
+    });
   });
   buttonRight.addEventListener("click", moreTrendingCards);
 };
@@ -247,8 +255,24 @@ function trendingCards() {
  */
 function moreTrendingCards(event) {
   trendingCards();
-  console.log(trendingContainer.style.width);
-  document.getElementById("trendingContainer").scrollLeft += trendingContainer.clientWidth;
+  trendingContainer.scroll({
+    behavior: `smooth`,
+    right: `clientWidth`
+  });
+};
+
+/**
+ * Use the scroll for show more trending cards in the mobile style.
+ * @param {scroll} event 
+ */
+function scrollTrendingSectionMobile(event) {
+  const defaultSpace = 940;
+  const scrollCounter = defaultSpace * cardsCountScroll;
+
+  if (trendingContainer.scrollLeft >= scrollCounter && cardsCountScroll <= 5) {
+    trendingCards()
+    cardsCountScroll += 1;
+  }
 };
 
 function downloadBlob(blob, filename) {
