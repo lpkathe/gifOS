@@ -1,0 +1,90 @@
+@media (min-width: 1023px) {
+  @import "cards.scss";
+
+  .hover {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: absolute;
+    z-index: 3;
+    
+    &:hover {
+      opacity: 0.6;
+      background: #572EE5;
+
+      > .trending__buttons {
+        visibility: visible;
+      }
+    }
+  }
+
+  .options {
+    font-size: 18px;
+    vertical-align: center;
+  }
+
+  #trendingContainer {
+    margin-top: 0;
+    margin-right: 25px;
+    height: fit-content;
+  }
+
+  .trending {
+    &__desktop-buttons {
+    height: max-content;
+    }
+
+    &__card {
+      margin-right: 386px;
+      height: 275px;
+      width: 357px;
+    }
+
+    &__buttons {
+      right: 0;
+      width: fit-content;
+      visibility: hidden;
+      display: inherit;
+    }
+
+    &__button {
+      height: 32px;
+      width: 32px;
+    }
+
+    &__user {
+      @extend .user;
+    }
+
+    &__title {
+      margin-bottom: 6px;
+      font-size: 16px;
+      @extend .title;
+    }
+  }
+
+  .maximized {
+    &__card {
+      margin: 0;
+      height: 385px;
+      width: 695px;
+      display: inline-block;
+
+      &__container {
+        margin: 0 25px;
+        height: 385px;
+        width: 695px;
+        position: static;
+      }
+    }
+
+    &__subContainer {
+      margin: 0 auto;
+      height: 500px;
+      width: max-content;
+      display: flex;
+    }
+  }
+}

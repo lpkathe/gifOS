@@ -31,9 +31,9 @@ const GiphyApi = {
     });
   }),
 
-  trendingGifs: ((limit = 10) => {
+  trendingGifs: ((limit, offset) => {
     return new Promise((resolve, reject) => {
-      fetch(`${urlTrendingGifos}?${apiKey}&limit=${limit}`)
+      fetch(`${urlTrendingGifos}?${apiKey}&limit=${limit}&offset=${offset}`)
         .then((response) => resolve(response.json()))
         .catch((error) => reject(error))
     });

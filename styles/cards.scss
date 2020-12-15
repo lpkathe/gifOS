@@ -1,5 +1,47 @@
 @import "fonts.scss";
 
+.margin-padding {
+  margin: 0;
+  padding: 0;
+}
+
+.buttons {
+  position: absolute;
+  display: inline-block;
+}
+
+.button {
+  padding: 0;
+  outline: none;
+  text-align: center;
+  border: 0;
+  background: #FFFFFF;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 100;
+  }
+}
+
+.user {
+  width: max-content;
+  color: #FFFFFF;
+  text-align: unset;
+  text-transform: capitalize;
+  @extend .roboto-regular;
+  @extend .margin-padding;
+}
+
+.title {
+  color: #FFFFFF;
+  text-transform: capitalize;
+  text-align: unset;
+  text-overflow: ellipsis;
+  line-height: unset;
+  @extend .roboto-bold;
+  @extend .margin-padding;
+}
+
 .card {
   position: relative;
   display: none;
@@ -9,77 +51,20 @@
   height: inherit;
   width: inherit;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   display: inline-block;
   cursor: pointer;
   
   &:hover {
     & ~ .hover {
       visibility: visible;
-      z-index: 4;
+      z-index: 5;
     }
   }
 }
 
 .hover {
-  height: inherit;
-  width: inherit;
-  visibility: hidden;
-  position: absolute;
-  background: #572EE5;
-  opacity: 0.6;
-  z-index: 2;
-  cursor: pointer;
-
-  &:hover {
-    visibility: visible;
-  }
-  
-  &__user {
-    top: 110px;
-    left: 18px;
-    width: max-content;
-    position: absolute;
-    @extend .roboto-regular;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-align: center;
-    text-transform: capitalize;
-  }
-
-  &__title {
-    top: 138px;
-    left: 18.5px;
-    position: absolute;
-    @extend .roboto-bold;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-transform: capitalize;
-  }
-}
-
-.buttons {
-  top: 7px;
-  left: 150px;
-  position: absolute;
-  display: inline-block;
-}
-
-.button {
-  padding: 0;
-  height: 25px;
-  width: 25px;
-  border: 0;
-  border-radius: 6px;
-  outline: none;
-  text-align: center;
-  background: #FFFFFF;
-  opacity: 0.7;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 100;
-  }
+  display: none;
 }
 
 .options {
@@ -89,5 +74,175 @@
 
   &:hover {
     opacity: 100;
+  }
+}
+
+.normal {
+  &__card {
+    height: 120px;
+    width: 156px;
+    margin: 9px auto;
+  }
+
+  &__user {
+    bottom: 30px;
+    left: 5px;
+    font-size: 10px;
+    @extend .user;
+  }
+
+  &__title {
+    bottom: 3px;
+    left: 5px;
+    font-size: 10px;
+    @extend .title;
+  }
+
+  &__buttons {
+    top: 5px;
+    left: 78px;
+    @extend .buttons;
+  }
+
+  &__button {
+    height: 22px;
+    width: 22px;
+    border-radius: 4px;
+    @extend .button;
+  }
+}
+
+#trendingContainer {
+  margin-left: 22px;
+}
+
+.trending {
+  &__card {
+    margin-right: 263px;
+    height: 187px;
+    width: 243px;
+  }
+  
+  &__buttons {
+  top: 10px;
+  @extend .buttons;
+  }
+
+  &__button {
+    height: 25px;
+    width: 25px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @extend .button;
+  }
+
+  &__user {
+    margin-left: 8.5px;
+    font-size: 15px;
+    @extend .user;
+  }
+
+  &__title {
+    margin: 0 0 3px 8.5px;
+    font-size: 15px;
+    @extend .title;
+  }
+}
+
+.maximized {
+  &__container {
+    top: auto;
+    bottom: auto;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255,255,255,0.90);
+    position: fixed;
+    z-index: 10;
+    display: none;
+    @extend .margin-padding;
+  }
+  
+  &__picture {
+    margin: 64px 39.3px 78px auto;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+    
+    &__closeIcon {
+      height: 14px;
+      width: 13.8px;
+    }
+  }
+
+  &__card {
+    height: 245px;
+    width: 318px;
+    position: static;
+
+    &__container {
+    margin: 0 auto 14px auto;
+    height: 245px;
+    width: 318px;
+    position: relative;
+    }
+
+  }
+  
+  &__hover {
+    visibility: visible;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 32px 25px;
+    grid-template-areas: 
+    "user icons"
+    "title icons";
+    background-color: transparent;
+    position: static;
+  }
+
+  &__user {
+    margin: 14px 0 0 5.5px;
+    height: 18px;
+    font-size: 15px;
+    color: #000000;
+    text-align: center;
+    grid-area: user;
+    @extend .user;
+  }
+
+  &__title {
+    margin: 0;
+    height: 19px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    line-height: 19px;
+    text-align: left;
+    grid-area: title;
+    position: unset;
+    @extend .montserrat-bold;
+  }
+  
+  &__buttons {
+    padding: 0;
+    display: flex;
+    justify-content: end;
+    grid-area: icons;
+    position: unset;
+  }
+
+  &__button {
+    margin-left: 10px;
+    height: 36px;
+    width: 36px;
+    color: #9CAFC3;
+    opacity: 0.5;
+    border: 1px solid #9CAFC3;
+    border-radius: 6px;
+    position: unset;
+    text-align: center;
+    align-self: end;
   }
 }

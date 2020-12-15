@@ -3,60 +3,25 @@
 
 .dark-mode:checked ~ main {
   background: #37383C; }
-  .dark-mode:checked ~ main > .top-bar {
-    border-top: 5px solid #000000; }
-    .dark-mode:checked ~ main > .top-bar > .nav-bar > .nav-bar__logo > .nav-bar__logo__dark {
-      height: 48.8px;
-      width: 48.8px;
-      display: block; }
-    .dark-mode:checked ~ main > .top-bar > .nav-bar > .nav-bar__logo > .nav-bar__logo__light {
-      display: none; }
-    .dark-mode:checked ~ main > .top-bar > .nav-bar > .menu > .menu-span,
-    .dark-mode:checked ~ main > .top-bar > .nav-bar .menu:after,
-    .dark-mode:checked ~ main > .top-bar > .nav-bar .menu:before {
-      background: #FFFFFF; }
-    .dark-mode:checked ~ main > .top-bar > .navigation > .navigation__list {
-      color: #FFFFFF;
-      background: #000000; }
-      .dark-mode:checked ~ main > .top-bar > .navigation > .navigation__list > .navigation__li > label > a > .navigation__li__light {
-        display: none; }
-        .dark-mode:checked ~ main > .top-bar > .navigation > .navigation__list > .navigation__li > label > a > .navigation__li__light ~ .navigation__li__dark {
-          display: inline; }
-  .dark-mode:checked ~ main > .header > .header__title {
-    color: #FFFFFF; }
-  .dark-mode:checked ~ main > .search > .search__box {
-    color: #9CAFC3;
-    border: 1px solid #FFFFFF;
-    background: #37383C; }
-    .dark-mode:checked ~ main > .search > .search__box > .search__box__main > .search__box__input {
-      background: #37383C; }
-    .dark-mode:checked ~ main > .search > .search__box > .search__box__main picture > .search__box__icon {
-      padding-right: 0px;
-      text-align: none;
-      height: 0;
-      width: 0; }
-    .dark-mode:checked ~ main > .search > .search__box > .search__box__main picture > .search__box__icon__dark-mode {
-      padding-right: 20px;
-      height: 20px;
-      width: 20px;
-      text-align: left; }
-  .dark-mode:checked ~ main > .search > .search__title {
-    color: #FFFFFF; }
-  .dark-mode:checked ~ main > .search > .search__p {
-    color: #FFFFFF; }
-  .dark-mode:checked ~ main > .trending {
+  .dark-mode:checked ~ main section.trending, .dark-mode:checked ~ main div.trending__desktop-buttons, .dark-mode:checked ~ main div.container, .dark-mode:checked ~ main ul {
     background: #222326; }
-    .dark-mode:checked ~ main > .trending > .trending__title {
-      color: #FFFFFF; }
-    .dark-mode:checked ~ main > .trending > .trending__p {
-      color: #FFFFFF; }
-      .dark-mode:checked ~ main > .trending > .trending__p > .trending__p__span {
-        color: #FFFFFF; }
-  .dark-mode:checked ~ main > .footer {
-    border-bottom: 5px solid #000000; }
-    .dark-mode:checked ~ main > .footer > .footer__social-network > .footer__social-network__p {
-      color: #FFFFFF; }
-    .dark-mode:checked ~ main > .footer > .footer__p {
-      color: #FFFFFF; }
+  .dark-mode:checked ~ main span.menu-span, .dark-mode:checked ~ main .menu:after, .dark-mode:checked ~ main .menu:before {
+    background: #FFFFFF; }
+  .dark-mode:checked ~ main ul.search__box__list, .dark-mode:checked ~ main div, .dark-mode:checked ~ main input {
+    background: transparent; }
+  .dark-mode:checked ~ main button {
+    border-color: white;
+    color: white; }
+    .dark-mode:checked ~ main button:hover {
+      background: white;
+      color: black; }
+  .dark-mode:checked ~ main h1, .dark-mode:checked ~ main h2, .dark-mode:checked ~ main h3, .dark-mode:checked ~ main p, .dark-mode:checked ~ main li.navigation__li, .dark-mode:checked ~ main i, .dark-mode:checked ~ main span {
+    color: #FFFFFF; }
+  .dark-mode:checked ~ main span.header__span {
+    color: #46e0b6; }
+  .dark-mode:checked ~ main input.search__box__input, .dark-mode:checked ~ main li, .dark-mode:checked ~ main i.icon-search-left {
+    color: #6B7989; }
+  .dark-mode:checked ~ main section.top-bar, .dark-mode:checked ~ main footer.footer {
+    border-color: #000000; }
 
 /*# sourceMappingURL=dark-mode.css.map */

@@ -1,3 +1,6 @@
+a, button, i {
+  cursor: pointer; }
+
 .montserrat-medium {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -5,26 +8,59 @@
   line-height: 25px;
   text-align: center; }
 
-.montserrat-bold {
+.montserrat-bold, .maximized__title {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
   line-height: 60px;
   text-align: center; }
 
-.roboto-bold, .hover__title {
+.roboto-bold, .title, .normal__title, .trending__title {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: bold;
   color: #FFFFFF;
   text-align: center; }
 
-.roboto-regular, .hover__user {
+.roboto-regular, .user, .normal__user, .trending__user, .maximized__user {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
   text-align: left;
   color: #000000; }
+
+.margin-padding, .user, .normal__user, .trending__user, .maximized__user, .title, .normal__title, .trending__title, .maximized__container {
+  margin: 0;
+  padding: 0; }
+
+.buttons, .normal__buttons, .trending__buttons {
+  position: absolute;
+  display: inline-block; }
+
+.button, .normal__button, .trending__button {
+  padding: 0;
+  outline: none;
+  text-align: center;
+  border: 0;
+  background: #FFFFFF;
+  opacity: 0.7; }
+  .button:hover, .normal__button:hover, .trending__button:hover {
+    opacity: 100; }
+
+.user, .normal__user, .trending__user, .maximized__user {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  color: #FFFFFF;
+  text-align: unset;
+  text-transform: capitalize; }
+
+.title, .normal__title, .trending__title {
+  color: #FFFFFF;
+  text-transform: capitalize;
+  text-align: unset;
+  text-overflow: ellipsis;
+  line-height: unset; }
 
 .card {
   position: relative;
@@ -34,62 +70,15 @@
   height: inherit;
   width: inherit;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   display: inline-block;
   cursor: pointer; }
   .gif:hover ~ .hover {
     visibility: visible;
-    z-index: 4; }
+    z-index: 5; }
 
 .hover {
-  height: inherit;
-  width: inherit;
-  visibility: hidden;
-  position: absolute;
-  background: #572EE5;
-  opacity: 0.6;
-  z-index: 2;
-  cursor: pointer; }
-  .hover:hover {
-    visibility: visible; }
-  .hover__user {
-    top: 110px;
-    left: 18px;
-    width: -webkit-max-content;
-    width: -moz-max-content;
-    width: max-content;
-    position: absolute;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-align: center;
-    text-transform: capitalize; }
-  .hover__title {
-    top: 138px;
-    left: 18.5px;
-    position: absolute;
-    font-size: 15px;
-    color: #FFFFFF;
-    text-transform: capitalize; }
-
-.buttons {
-  top: 7px;
-  left: 150px;
-  position: absolute;
-  display: inline-block; }
-
-.button {
-  padding: 0;
-  height: 25px;
-  width: 25px;
-  border: 0;
-  border-radius: 6px;
-  outline: none;
-  text-align: center;
-  background: #FFFFFF;
-  opacity: 0.7;
-  cursor: pointer; }
-  .button:hover {
-    opacity: 100; }
+  display: none; }
 
 .options {
   font-size: 12px;
@@ -97,5 +86,132 @@
   border-radius: 6px; }
   .options:hover {
     opacity: 100; }
+
+.normal__card {
+  height: 120px;
+  width: 156px;
+  margin: 9px auto; }
+.normal__user {
+  bottom: 30px;
+  left: 5px;
+  font-size: 10px; }
+.normal__title {
+  bottom: 3px;
+  left: 5px;
+  font-size: 10px; }
+.normal__buttons {
+  top: 5px;
+  left: 78px; }
+.normal__button {
+  height: 22px;
+  width: 22px;
+  border-radius: 4px; }
+
+#trendingContainer {
+  margin-left: 22px; }
+
+.trending__card {
+  margin-right: 263px;
+  height: 187px;
+  width: 243px; }
+.trending__buttons {
+  top: 10px; }
+.trending__button {
+  height: 25px;
+  width: 25px;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+.trending__user {
+  margin-left: 8.5px;
+  font-size: 15px; }
+.trending__title {
+  margin: 0 0 3px 8.5px;
+  font-size: 15px; }
+
+.maximized__container {
+  top: auto;
+  bottom: auto;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: fixed;
+  z-index: 10;
+  display: none; }
+.maximized__picture {
+  margin: 64px 39.3px 78px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  cursor: pointer; }
+  .maximized__picture__closeIcon {
+    height: 14px;
+    width: 13.8px; }
+.maximized__card {
+  height: 245px;
+  width: 318px;
+  position: static; }
+  .maximized__card__container {
+    margin: 0 auto 14px auto;
+    height: 245px;
+    width: 318px;
+    position: relative; }
+.maximized__hover {
+  visibility: visible;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 32px 25px;
+  grid-template-areas: "user icons" "title icons";
+  background-color: transparent;
+  position: static; }
+.maximized__user {
+  margin: 14px 0 0 5.5px;
+  height: 18px;
+  font-size: 15px;
+  color: #000000;
+  text-align: center;
+  grid-area: user; }
+.maximized__title {
+  margin: 0;
+  height: 19px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  line-height: 19px;
+  text-align: left;
+  grid-area: title;
+  position: unset; }
+.maximized__buttons {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  grid-area: icons;
+  position: unset; }
+.maximized__button {
+  margin-left: 10px;
+  height: 36px;
+  width: 36px;
+  color: #9CAFC3;
+  opacity: 0.5;
+  border: 1px solid #9CAFC3;
+  border-radius: 6px;
+  position: unset;
+  text-align: center;
+  -ms-flex-item-align: end;
+      align-self: end; }
 
 /*# sourceMappingURL=cards.css.map */

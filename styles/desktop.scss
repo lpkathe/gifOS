@@ -13,7 +13,7 @@
     width: 100%;
     top: 0;
     position: sticky;
-    z-index: 5;
+    z-index: 6;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -23,11 +23,6 @@
   .nav-bar {
     width: 50vw;
     display: inline-block;
-
-    &__logo__light {
-      height: 59.1px;
-      width: 59.1px;
-    }
   }
 
   .menu {
@@ -48,7 +43,7 @@
       top: 0px;
       left: 0px;
       position: relative;
-      z-index: 5;
+      z-index: 6;
       display: flex;
       flex-direction: row;
       justify-content: space-around;
@@ -62,6 +57,10 @@
       & a {
         align-items: center;
         color: #572EE5;
+      }
+
+      &::after {
+        display: none;
       }
     }
 
@@ -129,7 +128,7 @@
       &__input {
         margin-left: 62px;
         width: 1000px;
-        z-index: 3;
+        z-index: 4;
         background: transparent;
       }
     }
@@ -176,9 +175,10 @@
   }
   
   .trending {
+    margin-top: 95px;
     height: 640px;
     
-    &__title {
+    &__t {
       margin: 67px auto 12px auto;
       padding: 0;
     }
@@ -259,11 +259,16 @@
     
     &__arrow {
       display: inline-block;
+      align-self: center;
       
       &:hover {
         color:white;
         background: #572EE5;
       }
     }
+  }
+
+  .hover {
+    display: block;
   }
 }

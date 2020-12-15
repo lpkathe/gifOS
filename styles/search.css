@@ -1,3 +1,6 @@
+a, button, i {
+  cursor: pointer; }
+
 .montserrat-medium, .search__p {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
@@ -80,14 +83,14 @@
     border-radius: 27px;
     background-color: #fff; }
     .search__box__main {
-      margin: 14px 0 10px 0;
-      position: relative;
+      margin: 14px 3px 10px 3px;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: space-evenly;
           -ms-flex-pack: space-evenly;
-              justify-content: space-evenly; }
+              justify-content: space-evenly;
+      position: relative; }
     .search__box__icon {
       margin-right: 15px;
       text-align: center;
@@ -120,7 +123,7 @@
     .search__box__list {
       margin: 0;
       position: relative;
-      z-index: 4;
+      z-index: 5;
       background: transparent;
       list-style: none; }
     .search__box__li {
@@ -159,7 +162,8 @@
   padding-top: 43px;
   width: 100vw;
   position: relative;
-  display: none; }
+  display: none;
+  text-align: center; }
 .results__title {
   margin: 0;
   height: 40px;
@@ -184,30 +188,27 @@
     -ms-flex-item-align: center;
         align-self: center; }
 .results__cards {
-  margin: 13px auto 78px auto;
+  margin: 13px auto 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
-      justify-content: space-around; }
-.results__card {
-  height: 120px;
-  width: 156px;
-  margin: 9px auto; }
+      justify-content: space-around;
+  text-align: left; }
 .results__button {
-  margin: 0 auto 34px auto;
+  margin: 78px auto 34px auto;
   height: 50px;
   width: 127px;
   border: 1px solid #572EE5;
-  border-radius: 25px;
   border-radius: 25px;
   font-size: 13px;
   font-weight: bold;
   line-height: unset;
   letter-spacing: 0;
-  outline: none; }
+  outline: none;
+  background-color: transparent; }
   .results__button:hover {
     color: #FFFFFF;
     letter-spacing: 0;

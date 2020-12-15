@@ -49,10 +49,10 @@
     background-color: #fff;
 
     &__main {
-      margin: 14px 0 10px 0;
-      position: relative;
+      margin: 14px 3px 10px 3px;
       display: flex;
       justify-content: space-evenly;
+      position: relative;
     }
     
     &__icon {
@@ -73,12 +73,12 @@
     }
 
     &__input {
+      @extend .roboto-regular;
       margin: auto 0 0 44px;
       height: 22px;
       width: 210px;
       border: 0;
       outline: #572EE5;
-      @extend .roboto-regular;
       text-align: left;
 
       &::-webkit-calendar-picker-indicator {
@@ -98,7 +98,7 @@
     &__list {
       margin: 0;
       position: relative;
-      z-index: 4;
+      z-index: 5;
       background: transparent;
       list-style: none;
     }
@@ -106,9 +106,9 @@
     &__li {
       margin-left: 18px;
       padding: 5px;
-      @extend .roboto-regular;
       cursor: pointer;
       list-style-image: url(/GIFOS/assets/icon-search.svg);
+      @extend .roboto-regular;
       
       &::before {
         height: 3px;
@@ -159,6 +159,7 @@
     width: 100vw;
     position: relative;
     display: none;
+    text-align: center;
   }
   
   &__title {
@@ -183,24 +184,18 @@
   }
 
   &__cards {
-    margin: 13px auto 78px auto;
+    margin: 13px auto 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-  }
-
-  &__card {
-    height: 120px;
-    width: 156px;
-    margin: 9px auto;
+    text-align: left;
   }
 
   &__button {
-    margin: 0 auto 34px auto;
+    margin: 78px auto 34px auto;
     height: 50px;
     width: 127px;
     border: 1px solid #572EE5;
-    border-radius: 25px;
     border-radius: 25px;
     @extend .montserrat-bold;
     font-size: 13px;
@@ -208,6 +203,7 @@
     line-height: unset;
     letter-spacing: 0;
     outline: none;
+    background-color: transparent;
 
     &:hover {
       color: #FFFFFF;
