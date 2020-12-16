@@ -44,6 +44,7 @@ const myGifosEmpty = document.querySelector(".myGifos__empty");
 const myGifosContainer = document.getElementById("myGifosContainer");
 
 const trendingContainer = document.getElementById("trendingContainer");
+const width = trendingContainer.clientWidth;
 const buttonRight = document.querySelector(".buttonRight");
 const buttonLeft = document.querySelector(".buttonLeft");
 const card = document.querySelector(".card");
@@ -223,12 +224,7 @@ function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
   clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
-  buttonLeft.addEventListener("click", function () {
-    trendingContainer.scroll({
-        behavior: `smooth`,
-        left: `clientWidth`
-    });
-  });
+  buttonLeft.addEventListener("click", scrollLeftTrendingSection);
   buttonRight.addEventListener("click", moreTrendingCards);
 };
 
@@ -244,7 +240,7 @@ function trendingCards() {
     .then((response) => {
       if (cardsCount <= 5) {
         createCards(response.data, trendingContainer);
-        cardsCount += 1;
+        cardsCount ++;
       }
     });
 };
@@ -253,12 +249,28 @@ function trendingCards() {
  * Get more trending cards.
  * @param {click} event 
  */
-function moreTrendingCards(event) {
+function moreTrendingCards() {
   trendingCards();
-  trendingContainer.scroll({
-    behavior: `smooth`,
-    right: `clientWidth`
-  });
+  scrollRightTrendingSection();
+};
+
+/**
+ * Defines the amount of pixels that move for each press of the button.
+ */
+function scrollRightTrendingSection() {
+  const scrollRight = trendingContainer.scrollWidth;
+  const scrollCount = trendingContainer.offsetLeft;
+
+  if(scrollRight > scrollCount) {
+    trendingContainer.scrollLeft += width;
+  }
+};
+
+/**
+ * Defines the amount of pixels that move for each press of the button.
+ */
+function scrollLeftTrendingSection() {
+  trendingContainer.scrollLeft -= width;
 };
 
 /**
