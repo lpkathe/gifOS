@@ -89,12 +89,14 @@
     left: 5px;
     font-size: 10px;
     @extend .user;
+    color: #FFFFFF;
   }
 
   &__title {
     bottom: 3px;
     left: 5px;
     font-size: 10px;
+    color: #FFFFFF;
     @extend .title;
   }
 
@@ -245,4 +247,8 @@
     text-align: center;
     align-self: end;
   }
+}
+
+#whiteColor {
+  color: #FFFFFF;
 }

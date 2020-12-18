@@ -221,11 +221,6 @@ function renameClases(clonedCard, typeCard, origin) {
   clonedCard.querySelector(`.${origin}__user`).className = `${typeCard}__user`;
   clonedCard.querySelector(`.${origin}__title`).className = `${typeCard}__title`;
   clonedCard.querySelector(`.${origin}__buttons`).className = `${typeCard}__buttons`;
-
-  if(screen.width > 1023 && typeCard === "normal") {
-    clonedCard.querySelector(`.normal__user`).style.color = "white";
-    clonedCard.querySelector(`.normal__title`).style.color = "white";
-  }
 };
 
 /**
@@ -236,8 +231,10 @@ function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
   clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
+  
   buttonLeft.addEventListener("click", scrollLeftTrendingSection);
   buttonRight.addEventListener("click", moreTrendingCards);
+  
   btnRightMaximized.addEventListener("click", slideTrendingCards);
   btnLeftMaximized.addEventListener("click", slideTrendingCards);
 };

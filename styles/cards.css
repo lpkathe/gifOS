@@ -19,15 +19,13 @@ a, button, i {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: bold;
-  color: #FFFFFF;
   text-align: center; }
 
 .roboto-regular, .user, .normal__user, .trending__user, .maximized__user {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   font-weight: 400;
-  text-align: left;
-  color: #000000; }
+  text-align: left; }
 
 .margin-padding, .user, .normal__user, .trending__user, .maximized__user, .title, .normal__title, .trending__title, .maximized__container {
   margin: 0;
@@ -94,11 +92,13 @@ a, button, i {
 .normal__user {
   bottom: 30px;
   left: 5px;
-  font-size: 10px; }
+  font-size: 10px;
+  color: #FFFFFF; }
 .normal__title {
   bottom: 3px;
   left: 5px;
-  font-size: 10px; }
+  font-size: 10px;
+  color: #FFFFFF; }
 .normal__buttons {
   top: 10px;
   left: 78px; }
@@ -213,5 +213,8 @@ a, button, i {
   text-align: center;
   -ms-flex-item-align: end;
       align-self: end; }
+
+#whiteColor {
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=cards.css.map */
