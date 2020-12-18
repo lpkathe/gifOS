@@ -287,6 +287,7 @@
     display: flex; }
 
   .normal__card {
+    margin-bottom: 28px;
     height: 200px;
     width: 260px; }
   .normal__user {
@@ -295,6 +296,7 @@
     color: #FFFFFF; }
   .normal__title {
     margin-left: 12px;
+    margin-bottom: 6px;
     font-size: 16px;
     color: #FFFFFF; }
   .normal__buttons {

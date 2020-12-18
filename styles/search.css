@@ -198,7 +198,7 @@ a, button, i {
       justify-content: space-around;
   text-align: left; }
 .results__button {
-  margin: 78px auto 34px auto;
+  margin: 78px auto 0 auto;
   height: 50px;
   width: 127px;
   border: 1px solid #572EE5;

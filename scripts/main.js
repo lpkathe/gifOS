@@ -221,6 +221,11 @@ function renameClases(clonedCard, typeCard, origin) {
   clonedCard.querySelector(`.${origin}__user`).className = `${typeCard}__user`;
   clonedCard.querySelector(`.${origin}__title`).className = `${typeCard}__title`;
   clonedCard.querySelector(`.${origin}__buttons`).className = `${typeCard}__buttons`;
+
+  if(screen.width > 1023 && typeCard === "normal") {
+    clonedCard.querySelector(`.normal__user`).style.color = "white";
+    clonedCard.querySelector(`.normal__title`).style.color = "white";
+  }
 };
 
 /**

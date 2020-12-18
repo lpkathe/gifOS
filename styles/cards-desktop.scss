@@ -85,6 +85,7 @@
 
   .normal {
     &__card {
+      margin-bottom: 28px;
       height: 200px;
       width: 260px;
     }
@@ -98,6 +99,7 @@
   
     &__title {
       margin-left: 12px;
+      margin-bottom: 6px;
       font-size: 16px;
       @extend .title;
       color: #FFFFFF;
