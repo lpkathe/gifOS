@@ -295,13 +295,11 @@
     width: 260px; }
   .normal__user {
     margin-left: 13px;
-    font-size: 15px;
-    color: #FFFFFF; }
+    font-size: 15px; }
   .normal__title {
     margin-left: 12px;
     margin-bottom: 6px;
-    font-size: 16px;
-    color: #FFFFFF; }
+    font-size: 16px; }
   .normal__buttons {
     top: 10px;
     left: 78px; } }

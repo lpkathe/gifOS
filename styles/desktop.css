@@ -139,7 +139,8 @@ a, button, i {
       width: 551px;
       top: 19px;
       position: -webkit-sticky;
-      position: sticky; }
+      position: sticky;
+      z-index: 6; }
       .search__box__main {
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;

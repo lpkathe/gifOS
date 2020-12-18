@@ -407,320 +407,324 @@ function slideTrendingCards(event) {
     }
   };
 
-  // FAVORITES SECTION
+// FAVORITES SECTION
 
-  /**
-   * Load the favorite's list
-   */
-  function loadFavorites() {
-    const items = localStorage.getItem("favoriteList");
-    favoritesTotalPages = 0;
+/**
+ * Load the favorite's list
+ */
+function loadFavorites() {
+  const items = localStorage.getItem("favoriteList");
+  favoritesTotalPages = 0;
 
-    if (items != "") {
-      favoriteList = items.split(',');
-      favoritesEmpty.style.display = "none";
-      if (favoriteList.length > 0) {
-        favoritesTotalPages = Math.ceil(favoriteList.length / pageItems);
-      }
-    } else {
-      favoritesEmpty.style.display = "block";
-      btnVerMasFavorites.style.display = "none";
+  if (items != "") {
+    favoriteList = items.split(',');
+    favoritesEmpty.style.display = "none";
+    if (favoriteList.length > 0) {
+      favoritesTotalPages = Math.ceil(favoriteList.length / pageItems);
     }
-  };
+  } else {
+    favoritesEmpty.style.display = "block";
+    btnVerMasFavorites.style.display = "none";
+  }
+};
 
-  /**
-   * Show and hide containers and execute the load and display favorites.
-   */
-  function goToFavorites() {
-    if (favoritesGroup.style.display !== "block") {
-      favoritesGroup.style.display = "block";
-      searchGroup.style.display = "none";
-      myGifosGroup.style.display = "none";
-      loadFavorites();
-      favoritesVerMas();
-    }
-  };
+/**
+ * Show and hide containers and execute the load and display favorites.
+ */
+function goToFavorites() {
+  if (favoritesGroup.style.display !== "block") {
+    favoritesGroup.style.display = "block";
+    searchGroup.style.display = "none";
+    myGifosGroup.style.display = "none";
+    loadFavorites();
+    favoritesVerMas();
+  }
+};
 
-  /**
-   * Get favorites gifs to API and calculate pages to show.
-   */
-  function favoritesVerMas() {
-    const sliceStartPos = favoritesPageCount * pageItems;
-    const paginatedList = favoriteList.slice(sliceStartPos, sliceStartPos + pageItems);
+/**
+ * Get favorites gifs to API and calculate pages to show.
+ */
+function favoritesVerMas() {
+  const sliceStartPos = favoritesPageCount * pageItems;
+  const paginatedList = favoriteList.slice(sliceStartPos, sliceStartPos + pageItems);
 
-    if (paginatedList.length > 0) {
-      gifsById(paginatedList.join(","))
-        .catch(error => console.log(error))
-        .then((response) => {
-          if (favoritesPageCount != favoritesTotalPages) {
-            btnVerMasFavorites.style.display = "block";
-          } else {
-            btnVerMasFavorites.style.display = "none";
-          }
-          createCards(response.data, favoritesContainer);
-          favoritesPageCount += 1;
-        });
-    }
-  };
-
-  /**
-   * Add or erase element to favorites list.
-   * @param {*} event 
-   */
-  function toggleFavorite(event) {
-    const targetCard = event.target.closest("div").parentElement.parentElement;
-    const id = targetCard.id;
-    if (id !== "") {
-      if (favoriteList.includes(id)) {
-        favoriteList.splice(favoriteList.indexOf(id), 1);
-        favoritesIcon(targetCard, "deactivate");
-        removeFavoriteCard(id);
-      } else {
-        favoriteList.push(id);
-        const clonedCard = targetCard.cloneNode(true);
-        fixItemsInCards(clonedCard, "normal", targetCard);
-        favoritesIcon(targetCard, "activate");
-
-        if (favoritesGroup.style.display == "block") {
-          favoritesContainer.appendChild(clonedCard);
-        }
-      }
-      localStorage.setItem("favoriteList", favoriteList.join(","));
-    }
-
-    if (favoriteList.length == 0) {
-      favoritesEmpty.style.display = "block";
-    } else {
-      favoritesEmpty.style.display = "none";
-    }
-  };
-
-  /**
-   * Change de classname to heart icon.
-   * @param {Card} targetCard 
-   * @param {*} action 
-   */
-  function favoritesIcon(targetCard, action) {
-    let card = document.querySelectorAll(".card");
-    let cardClassName = "options favoriteOption icon-icon-fav-active";
-
-    if (action === "deactivate") {
-      cardClassName = "options favoriteOption icon-icon-fav-hover";
-    }
-
-    card.forEach((element) => {
-      if (element.id === targetCard.id) {
-        targetCard.querySelector(".favoriteOption").className = cardClassName;
-      }
-    });
-  };
-
-  /**
-   * Remove a favorite card
-   * @param {string} id 
-   */
-  function removeFavoriteCard(id) {
-    const favoriteCard = document.getElementById(id);
-
-    if (favoritesContainer.contains(favoriteCard)) {
-      favoritesContainer.removeChild(favoriteCard);
-    }
-  };
-
-  // SEARCH SECTION
-
-  function scrollWindow(event) {
-
-    const scrollPercentage = (window.pageYOffset * 100) / 358;
-    const searchBoxScrollPosition = screen.width / 5;
-
-    if (window.pageYOffset > 358) {
-      searchBox.style.position = "fixed";
-      searchBox.style.top = "25px";
-      searchBox.style.left = `${searchBoxScrollPosition}px`;
-    } else {
-      searchBox.style.position = "static";
-      searchBox.style.width = "551px";
-      searchBox.style.top = "19px";
-      searchBox.style.left = "auto";
-    };
-
-    if (scrollPercentage <= 100 && scrollPercentage >= 0) {
-      searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
-      btnMas.style.opacity = 1 - (scrollPercentage / 100);
-    };
-  };
-
-  /**
-   * Get gifs of the search results and display then on html
-   */
-  function search() {
-    const { search } = GiphyApi;
-
-    resultsTitle.innerText = inputSearch.value;
-    resultsCardsContainer.innerHTML = "";
-    resultsContainer.style.display = "block";
-    header.style.display = "none";
-    headerPicture.style.display = "none";
-    searchBox.style.marginTop = "24px";
-
-    search(inputSearch.value, pageItems)
+  if (paginatedList.length > 0) {
+    gifsById(paginatedList.join(","))
+      .catch(error => console.log(error))
       .then((response) => {
-
-        pageOffset = response.pagination.offset; // Position in pagination.
-        pageTotalCount = response.pagination.total_count; // Total number of items available.
-        pageCount = pageTotalCount - (response.pagination.count + pageOffset); // Total number of items returned.
-
-        if (pageCount < 1) {
-          btnVerMas.style.display = "none";
+        if (favoritesPageCount != favoritesTotalPages) {
+          btnVerMasFavorites.style.display = "block";
         } else {
-          btnVerMas.style.display = "inline";
-        };
-
-        if (response.data.length === 0) {
-          document.querySelector(".results__error").style.display = "inline";
-          resultsCardsContainer.style.display = "none";
+          btnVerMasFavorites.style.display = "none";
         }
-
-        createCards(response.data, resultsCardsContainer);
-      }).catch((error) => {
-        resultsCardsContainer.innerText = "Error " + error;
+        createCards(response.data, favoritesContainer);
+        favoritesPageCount += 1;
       });
+  }
+};
 
-    isSearchingState(false);
-  };
-
-  /**
-   * Suggestion search
-   */
-  function getAutocompleteSearch(event) {
-    const { autocompleteSearch } = GiphyApi;
-
-    isSearchingState(inputSearch.value.length != 0 && event.keyCode !== 13);
-
-    if (event.keyCode == 13) {
-      search();
-      return;
-    }
-
-    autocompleteSearch(inputSearch.value)
-      .then((response) => {
-        suggestedList.innerText = "";
-        response.data.forEach((element) => {
-          const li = document.createElement('li');
-          suggestedList.appendChild(li);
-          li.innerText = element.name;
-          li.className = "search__box__li";
-        });
-      }).catch((error) => {
-        console.log(error);
-      });
-  };
-
-  /**
-   * Verify search action
-   * @param {Boolean} isSearching 
-   */
-  function isSearchingState(isSearching = true) {
-    if (isSearching) {
-      inputX.style.display = "inline";
-      inputSearchRightIcon.style.display = "none";
-      inputSearchLeftIcon.style.visibility = "visible";
-
+/**
+ * Add or erase element to favorites list.
+ * @param {*} event 
+ */
+function toggleFavorite(event) {
+  const targetCard = event.target.closest("div").parentElement.parentElement;
+  const id = targetCard.id;
+  if (id !== "") {
+    if (favoriteList.includes(id)) {
+      favoriteList.splice(favoriteList.indexOf(id), 1);
+      favoritesIcon(targetCard, "deactivate");
+      removeFavoriteCard(id);
     } else {
-      inputX.style.display = "none";
-      inputSearchRightIcon.style.display = "inline";
-      inputSearchLeftIcon.style.visibility = "hidden";
-      suggestedList.innerText = "";
-    }
-  };
+      favoriteList.push(id);
+      const clonedCard = targetCard.cloneNode(true);
+      fixItemsInCards(clonedCard, "normal", targetCard);
+      favoritesIcon(targetCard, "activate");
 
-  /**
-   * Capture API suggestions in the input search. 
-   * @param {string} suggested 
-   */
-  function onSuggestedItemClicked(suggested) {
-    inputSearch.value = suggested.target.innerText;
-    suggestedList.innerText = "";
-
-    search();
-  };
-
-  /**
-   * Clear de search box
-   */
-  function searchReset() {
-    suggestedList.innerText = "";
-    inputSearch.value = "";
-    isSearchingState(false);
-  };
-
-  /**
-   * Control the results button
-   */
-  function searchVerMas() {
-    const { search } = GiphyApi;
-
-    search(inputSearch.value, pageItems, pageOffset + pageItems)
-      .then((response) => {
-        pageOffset = response.pagination.offset;
-        pageTotalCount = response.pagination.total_count;
-        pageCount = pageTotalCount - (response.pagination.count + pageOffset);
-
-        if (pageCount < 1) {
-          btnVerMas.style.display = "none";
-        } else {
-          btnVerMas.style.display = "inline";
-        };
-
-        createCards(response.data, resultsCardsContainer);
-
-      }).catch((error) => {
-        console.log("response");
-        resultsContainer.innerText = "Error " + error;
-      });
-  };
-
-  // MY GIFOS SECTION
-  /**
-   * Charge My Gifos page
-   * @param {*} event 
-   */
-  function goToMyGifos(event) {
-    if (myGifosGroup.style.display !== "block") {
-      myGifosGroup.style.display = "block";
-      searchGroup.style.display = "none";
-      favoritesGroup.style.display = "none";
-
-      if (myGifosContainer != "") {
-        favoritesGroup.style.display = "none";
+      if (favoritesGroup.style.display == "block") {
+        favoritesContainer.appendChild(clonedCard);
       }
     }
-    //loadMyGifos(); incluir version
-    //favoritesVerMas(); incluir version
-  };
+    localStorage.setItem("favoriteList", favoriteList.join(","));
+  }
 
-  /**
-   * Events
-   */
+  if (favoriteList.length == 0) {
+    favoritesEmpty.style.display = "block";
+  } else {
+    favoritesEmpty.style.display = "none";
+  }
+};
 
-  logo.addEventListener("click", function () {
-    location.reload();
+/**
+ * Change de classname to heart icon.
+ * @param {Card} targetCard 
+ * @param {*} action 
+ */
+function favoritesIcon(targetCard, action) {
+  let card = document.querySelectorAll(".card");
+  let cardClassName = "options favoriteOption icon-icon-fav-active";
+
+  if (action === "deactivate") {
+    cardClassName = "options favoriteOption icon-icon-fav-hover";
+  }
+
+  card.forEach((element) => {
+    if (element.id === targetCard.id) {
+      targetCard.querySelector(".favoriteOption").className = cardClassName;
+    }
   });
-  inputDarkMode.addEventListener("change", darkMode);
-  favoriteMenu.addEventListener("click", goToFavorites);
+};
 
-  window.addEventListener("load", onLoad);
+/**
+ * Remove a favorite card
+ * @param {string} id 
+ */
+function removeFavoriteCard(id) {
+  const favoriteCard = document.getElementById(id);
 
-  maximizedPicture.addEventListener("click", maximizedViewClose);
+  if (favoritesContainer.contains(favoriteCard)) {
+    favoritesContainer.removeChild(favoriteCard);
+  }
+};
 
-  inputSearch.addEventListener("keyup", getAutocompleteSearch);
-  inputX.addEventListener("click", searchReset);
-  inputSearchLeftIcon.addEventListener("click", search);
+// SEARCH SECTION
 
-  suggestedList.addEventListener("click", onSuggestedItemClicked);
+/**
+ * Reduce the size and relocation search box.
+ * @param {scroll} event 
+ */
+function scrollWindow(event) {
+  const scrollPercentage = (window.pageYOffset * 100) / 358;
+  const searchBoxScrollPosition = screen.width / 5;
+  searchBox.style.marginLeft = `-${searchBoxScrollPosition}px`;
 
-  btnVerMas.addEventListener("click", searchVerMas);
-  btnVerMasFavorites.addEventListener("click", favoritesVerMas);
+  if (window.pageYOffset > 358) {
+    searchBox.style.marginLeft = `-${searchBoxScrollPosition}px`;
+  } else {
+    searchBox.style.position = "static";
+    searchBox.style.width = "551px";
+    searchBox.style.top = "19px";
+    searchBox.style.left = "auto";
+  };
 
-  myGifosMenu.addEventListener("click", goToMyGifos);
+  if (scrollPercentage <= 100 && scrollPercentage >= 0) {
+    searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
+    btnMas.style.opacity = 1 - (scrollPercentage / 100);
+  };
+};
+
+/**
+ * Get gifs of the search results and display then on html
+ */
+function search() {
+  const { search } = GiphyApi;
+
+  resultsTitle.innerText = inputSearch.value;
+  resultsCardsContainer.innerHTML = "";
+  resultsContainer.style.display = "block";
+  header.style.display = "none";
+  headerPicture.style.display = "none";
+  searchBox.style.marginTop = "24px";
+
+  search(inputSearch.value, pageItems)
+    .then((response) => {
+
+      pageOffset = response.pagination.offset; // Position in pagination.
+      pageTotalCount = response.pagination.total_count; // Total number of items available.
+      pageCount = pageTotalCount - (response.pagination.count + pageOffset); // Total number of items returned.
+
+      if (pageCount < 1) {
+        btnVerMas.style.display = "none";
+      } else {
+        btnVerMas.style.display = "inline";
+      };
+
+      if (response.data.length === 0) {
+        document.querySelector(".results__error").style.display = "inline";
+        resultsCardsContainer.style.display = "none";
+      }
+
+      createCards(response.data, resultsCardsContainer);
+    }).catch((error) => {
+      resultsCardsContainer.innerText = "Error " + error;
+    });
+
+  isSearchingState(false);
+};
+
+/**
+ * Suggestion search
+ */
+function getAutocompleteSearch(event) {
+  const { autocompleteSearch } = GiphyApi;
+
+  isSearchingState(inputSearch.value.length != 0 && event.keyCode !== 13);
+
+  if (event.keyCode == 13) {
+    search();
+    return;
+  }
+
+  autocompleteSearch(inputSearch.value)
+    .then((response) => {
+      suggestedList.innerText = "";
+      response.data.forEach((element) => {
+        const li = document.createElement('li');
+        suggestedList.appendChild(li);
+        li.innerText = element.name;
+        li.className = "search__box__li";
+      });
+    }).catch((error) => {
+      console.log(error);
+    });
+};
+
+/**
+ * Verify search action
+ * @param {Boolean} isSearching 
+ */
+function isSearchingState(isSearching = true) {
+  if (isSearching) {
+    inputX.style.display = "inline";
+    inputSearchRightIcon.style.display = "none";
+    inputSearchLeftIcon.style.visibility = "visible";
+
+  } else {
+    inputX.style.display = "none";
+    inputSearchRightIcon.style.display = "inline";
+    inputSearchLeftIcon.style.visibility = "hidden";
+    suggestedList.innerText = "";
+  }
+};
+
+/**
+ * Capture API suggestions in the input search. 
+ * @param {string} suggested 
+ */
+function onSuggestedItemClicked(suggested) {
+  inputSearch.value = suggested.target.innerText;
+  suggestedList.innerText = "";
+
+  search();
+};
+
+/**
+ * Clear de search box
+ */
+function searchReset() {
+  suggestedList.innerText = "";
+  inputSearch.value = "";
+  isSearchingState(false);
+};
+
+/**
+ * Control the results button
+ */
+function searchVerMas() {
+  const { search } = GiphyApi;
+
+  search(inputSearch.value, pageItems, pageOffset + pageItems)
+    .then((response) => {
+      pageOffset = response.pagination.offset;
+      pageTotalCount = response.pagination.total_count;
+      pageCount = pageTotalCount - (response.pagination.count + pageOffset);
+
+      if (pageCount < 1) {
+        btnVerMas.style.display = "none";
+      } else {
+        btnVerMas.style.display = "inline";
+      };
+
+      createCards(response.data, resultsCardsContainer);
+
+    }).catch((error) => {
+      console.log("response");
+      resultsContainer.innerText = "Error " + error;
+    });
+};
+
+// MY GIFOS SECTION
+/**
+ * Charge My Gifos page
+ * @param {*} event 
+ */
+function goToMyGifos(event) {
+  if (myGifosGroup.style.display !== "block") {
+    myGifosGroup.style.display = "block";
+    searchGroup.style.display = "none";
+    favoritesGroup.style.display = "none";
+
+    if (myGifosContainer != "") {
+      favoritesGroup.style.display = "none";
+    }
+  }
+  //loadMyGifos(); incluir version
+  //favoritesVerMas(); incluir version
+};
+
+/**
+ * Events
+ */
+
+logo.addEventListener("click", function () {
+  location.reload();
+});
+inputDarkMode.addEventListener("change", darkMode);
+favoriteMenu.addEventListener("click", goToFavorites);
+
+window.addEventListener("load", onLoad);
+
+maximizedPicture.addEventListener("click", maximizedViewClose);
+
+inputSearch.addEventListener("keyup", getAutocompleteSearch);
+inputX.addEventListener("click", searchReset);
+inputSearchLeftIcon.addEventListener("click", search);
+
+suggestedList.addEventListener("click", onSuggestedItemClicked);
+
+btnVerMas.addEventListener("click", searchVerMas);
+btnVerMasFavorites.addEventListener("click", favoritesVerMas);
+
+myGifosMenu.addEventListener("click", goToMyGifos);
+
+window.addEventListener("scroll", scrollWindow);
