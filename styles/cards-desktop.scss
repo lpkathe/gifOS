@@ -8,15 +8,11 @@
     flex-direction: column;
     justify-content: flex-end;
     position: absolute;
-    z-index: 3;
     
     &:hover {
       opacity: 0.6;
       background: #572EE5;
-
-      > .trending__buttons {
-        visibility: visible;
-      }
+      z-index: 3;
     }
   }
 
@@ -85,6 +81,13 @@
       height: 500px;
       width: max-content;
       display: flex;
+    }
+  }
+
+  .normal {
+    &__card {
+      height: 200px;
+      width: 260px;
     }
   }
 }

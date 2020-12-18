@@ -228,13 +228,11 @@
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    position: absolute;
-    z-index: 3; }
+    position: absolute; }
     .hover:hover {
       opacity: 0.6;
-      background: #572EE5; }
-      .hover:hover > .trending__buttons {
-        visibility: visible; }
+      background: #572EE5;
+      z-index: 3; }
 
   .options {
     font-size: 18px;
@@ -287,6 +285,10 @@
     width: max-content;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; } }
+    display: flex; }
+
+  .normal__card {
+    height: 200px;
+    width: 260px; } }
 
 /*# sourceMappingURL=cards-desktop.css.map */
