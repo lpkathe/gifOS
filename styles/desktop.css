@@ -223,16 +223,6 @@ a, button, i {
     .trending__card {
       height: 275px;
       width: 357px; }
-    .trending__hover {
-      height: 275px;
-      width: 357px; }
-      .trending__hover__user {
-        top: 181px;
-        height: 18px; }
-      .trending__hover__title {
-        top: 205px;
-        height: 19px;
-        font-size: 16px; }
     .trending__buttons {
       top: 10px;
       left: 220px; }
@@ -251,6 +241,10 @@ a, button, i {
         background: #572EE5; }
 
   .hover {
-    display: block; } }
+    display: block; }
+
+  .results__cards {
+    margin: 60px auto 0;
+    width: 90%; } }
 
 /*# sourceMappingURL=desktop.css.map */

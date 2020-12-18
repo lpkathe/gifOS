@@ -41,7 +41,6 @@
     &__buttons {
       right: 0;
       width: fit-content;
-      visibility: hidden;
       display: inherit;
     }
 
@@ -88,6 +87,26 @@
     &__card {
       height: 200px;
       width: 260px;
+    }
+
+    &__user {
+      margin-left: 13px;
+      font-size: 15px;
+      @extend .user;
+      color: #FFFFFF;
+    }
+  
+    &__title {
+      margin-left: 12px;
+      font-size: 16px;
+      @extend .title;
+      color: #FFFFFF;
+    }
+  
+    &__buttons {
+      top: 10px;
+      left: 78px;
+      @extend .buttons;
     }
   }
 }

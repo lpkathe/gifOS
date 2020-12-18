@@ -219,22 +219,6 @@
       width: 357px;
     }
     
-    &__hover {
-      height: 275px;
-      width: 357px;
-      
-      &__user {
-        top: 181px;
-        height: 18px;
-      }
-      
-      &__title {
-        top: 205px;
-        height: 19px;
-        font-size: 16px;
-      }
-    }
-    
     &__buttons {
       top: 10px;
       left: 220px;
@@ -263,5 +247,9 @@
 
   .hover {
     display: block;
+  }
+  .results__cards {
+    margin: 60px auto 0;
+    width: 90%;
   }
 }

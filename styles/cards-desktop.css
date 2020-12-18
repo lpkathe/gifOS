@@ -258,7 +258,6 @@
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    visibility: hidden;
     display: inherit; }
   .trending__button {
     height: 32px;
@@ -289,6 +288,17 @@
 
   .normal__card {
     height: 200px;
-    width: 260px; } }
+    width: 260px; }
+  .normal__user {
+    margin-left: 13px;
+    font-size: 15px;
+    color: #FFFFFF; }
+  .normal__title {
+    margin-left: 12px;
+    font-size: 16px;
+    color: #FFFFFF; }
+  .normal__buttons {
+    top: 10px;
+    left: 78px; } }
 
 /*# sourceMappingURL=cards-desktop.css.map */
