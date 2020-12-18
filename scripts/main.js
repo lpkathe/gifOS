@@ -166,10 +166,10 @@ function createCards(data, container) {
 function clarifyOrigin(typeCard, originContainer) {
   let origin = "maximized";
 
-  if (originContainer.className === "card trending__card") {
+  if (originContainer.className === "card trending__card" || originContainer.className === "results__cards") {
     origin = "trending";
   }
-  if (originContainer.className === "results__cards" || originContainer.className === "card normal__card") {
+  if (originContainer.className === "card normal__card") {
     origin = "normal";
   }
   return (origin);
