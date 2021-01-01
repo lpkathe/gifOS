@@ -545,6 +545,7 @@ function scrollWindow(event) {
     searchBox.style.marginLeft = "unset";
     searchBox.style.width = "551px";
   }
+}
 
 /**
  * Get gifs of the search results and display then on html
