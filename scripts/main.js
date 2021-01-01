@@ -530,28 +530,21 @@ function removeFavoriteCard(id) {
 // SEARCH SECTION
 
 /**
- * Reduce the size and relocation search box.
+ * Relocation and change the size of search box.
  * @param {scroll} event 
  */
 function scrollWindow(event) {
-  const scrollPercentage = (window.pageYOffset * 100) / 358;
-  const searchBoxScrollPosition = screen.width / 5;
-  searchBox.style.marginLeft = `-${searchBoxScrollPosition}px`;
 
-  if (window.pageYOffset > 358) {
-    searchBox.style.marginLeft = `-${searchBoxScrollPosition}px`;
+  if (window.pageYOffset > 335) {
+    const screenClientWidth = main.clientWidth;
+    const marginLeft = screenClientWidth / 3;
+    console.log(`-${marginLeft}`);
+    searchBox.style.width = "334px";
+    searchBox.style.marginLeft = `-${marginLeft}px`;
   } else {
-    searchBox.style.position = "static";
+    searchBox.style.marginLeft = "unset";
     searchBox.style.width = "551px";
-    searchBox.style.top = "19px";
-    searchBox.style.left = "auto";
-  };
-
-  if (scrollPercentage <= 100 && scrollPercentage >= 0) {
-    searchBox.style.width = 551 - ((scrollPercentage * 217) / 100) + "px";
-    btnMas.style.opacity = 1 - (scrollPercentage / 100);
-  };
-};
+  }
 
 /**
  * Get gifs of the search results and display then on html

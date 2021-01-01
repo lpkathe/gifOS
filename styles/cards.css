@@ -46,10 +46,10 @@ a, button, i {
     opacity: 100; }
 
 .user, .normal__user, .trending__user, .maximized__user {
+  color: #FFFFFF;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  color: #FFFFFF;
   text-align: unset;
   text-transform: capitalize; }
 

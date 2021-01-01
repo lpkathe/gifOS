@@ -47,8 +47,7 @@ a, button, i {
         -ms-flex-align: center;
             align-items: center;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
-    background-color: #fff; }
+        justify-content: space-around; }
 
   .nav-bar {
     width: 50vw;

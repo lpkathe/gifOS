@@ -45,3 +45,13 @@
     }
   }
 }
+
+@media (min-width: 1023px) {
+  .dark-mode:checked {
+    & ~ main {
+      ul {
+        background-color: transparent;
+      }
+    }
+  }
+}

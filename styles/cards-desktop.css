@@ -47,10 +47,10 @@
       opacity: 100; }
 
   .user, .normal__user, .trending__user, .maximized__user {
+    color: #FFFFFF;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
-    color: #FFFFFF;
     text-align: unset;
     text-transform: capitalize; }
 
@@ -294,9 +294,11 @@
     height: 200px;
     width: 260px; }
   .normal__user {
+    color: white;
     margin-left: 13px;
     font-size: 15px; }
   .normal__title {
+    color: white;
     margin-left: 12px;
     margin-bottom: 6px;
     font-size: 16px; }

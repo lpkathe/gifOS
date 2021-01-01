@@ -62,7 +62,6 @@ a, button, i {
   z-index: 6;
   display: inline-block;
   list-style: none;
-  color: #FFFFFF;
   background: rgba(87, 46, 229, 0.9);
   -webkit-transition: left .5s ease-in-out;
   transition: left .5s ease-in-out; }

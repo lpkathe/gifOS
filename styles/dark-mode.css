@@ -24,4 +24,8 @@
   .dark-mode:checked ~ main section.top-bar, .dark-mode:checked ~ main footer.footer {
     border-color: #000000; }
 
+@media (min-width: 1023px) {
+  .dark-mode:checked ~ main ul {
+    background-color: transparent; } }
+
 /*# sourceMappingURL=dark-mode.css.map */
