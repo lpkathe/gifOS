@@ -106,15 +106,17 @@ a, button, i {
           -ms-flex-pack: center;
               justify-content: center;
       text-decoration: none; }
-    .navigation__button {
+    .navigation__ + {
       height: 54px;
-      width: 54px;
+      width: 54px; }
+    .navigation__button {
+      padding: 1em;
       display: inline-block;
       border: 1px solid #572EE5;
-      border-radius: 130px;
+      border-radius: 50%;
       font-size: 16px;
       color: #572EE5;
-      background: #FFFFFF; }
+      background: transparent; }
       .navigation__button:hover {
         color: #FFFFFF;
         background: #572EE5; }
