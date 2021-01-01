@@ -33,7 +33,7 @@ a, button, i {
     padding: 0; }
 
   .top-bar {
-    padding: 0 75px;
+    padding: 0 auto;
     height: 95px;
     width: 100%;
     top: 0;
@@ -98,14 +98,6 @@ a, button, i {
         color: #572EE5; }
       .navigation__li::after {
         display: none; }
-    .navigation__mas {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      text-decoration: none; }
     .navigation__ + {
       height: 54px;
       width: 54px; }
