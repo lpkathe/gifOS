@@ -26,6 +26,8 @@
 
 @media (min-width: 1023px) {
   .dark-mode:checked ~ main ul {
-    background-color: transparent; } }
+    background-color: transparent; }
+  .dark-mode:checked ~ main a {
+    color: white; } }
 
 /*# sourceMappingURL=dark-mode.css.map */
