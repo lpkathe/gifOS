@@ -6,9 +6,9 @@
     margin: 0;
     padding: 0;
   }
-    
+
   .top-bar {
-    padding: 0 auto;
+    margin: 0 auto;
     height: 95px;
     width: 100%;
     top: 0;
@@ -16,7 +16,8 @@
     z-index: 6;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.50);
   }
     
   .nav-bar {
@@ -111,8 +112,6 @@
 
     &__box {
       width: 551px;
-      top: 19px;
-      position: sticky;
       z-index: 6;
 
       &__main {

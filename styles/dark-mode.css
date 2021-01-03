@@ -27,7 +27,10 @@
 @media (min-width: 1023px) {
   .dark-mode:checked ~ main ul {
     background-color: transparent; }
-  .dark-mode:checked ~ main a {
-    color: white; } }
+  .dark-mode:checked ~ main a, .dark-mode:checked ~ main div {
+    color: white;
+    border-color: white; }
+  .dark-mode:checked ~ main .top-bar {
+    background: #37383C; } }
 
 /*# sourceMappingURL=dark-mode.css.map */

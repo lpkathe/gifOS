@@ -53,8 +53,13 @@
         background-color: transparent;
       }
 
-      a {
+      a, div {
         color: white;
+        border-color: white
+      }
+
+      .top-bar {
+        background: #37383C;
       }
     }
   }

@@ -33,7 +33,7 @@ a, button, i {
     padding: 0; }
 
   .top-bar {
-    padding: 0 auto;
+    margin: 0 auto;
     height: 95px;
     width: 100%;
     top: 0;
@@ -46,8 +46,10 @@ a, button, i {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around; }
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: rgba(255, 255, 255, 0.5); }
 
   .nav-bar {
     width: 50vw;
@@ -130,9 +132,6 @@ a, button, i {
         width: 399px; }
     .search__box {
       width: 551px;
-      top: 19px;
-      position: -webkit-sticky;
-      position: sticky;
       z-index: 6; }
       .search__box__main {
         -webkit-box-pack: justify;
