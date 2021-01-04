@@ -542,12 +542,11 @@ function scrollWindow(event) {
       searchBox.style.top = `38px`;
       searchBox.style.width = `334px`;
       searchBox.style.position = `fixed`;
-      console.log("entro a mayor");
+      searchBox.style.zIndex = `10`;
     } else {
       searchBox.style.position = `static`;
       searchBox.style.marginLeft = "unset";
       searchBox.style.width = "551px";
-      console.log("entro a menor");
     }
   }
 };
