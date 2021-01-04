@@ -231,10 +231,10 @@ function assignListeners(clonedCard) {
   clonedCard.querySelector(".favoriteButton").addEventListener("click", toggleFavorite);
   clonedCard.querySelector(".downloadButton").addEventListener("click", downloadGif);
   clonedCard.querySelector(".maximizedButton").addEventListener("click", maximizedView);
-  
+
   buttonLeft.addEventListener("click", scrollLeftTrendingSection);
   buttonRight.addEventListener("click", moreTrendingCards);
-  
+
   btnRightMaximized.addEventListener("click", slideTrendingCards);
   btnLeftMaximized.addEventListener("click", slideTrendingCards);
 };
@@ -396,16 +396,16 @@ function slideTrendingCards(event) {
     }
   }
 
-    if (nextCard != null) {
-      maximizedCardContainer.innerHTML = "";
-      const existingCard = document.getElementById(nextCard);
-      const clonedCard = existingCard.cloneNode(true);
-      maximizedCardContainer.appendChild(clonedCard);
+  if (nextCard != null) {
+    maximizedCardContainer.innerHTML = "";
+    const existingCard = document.getElementById(nextCard);
+    const clonedCard = existingCard.cloneNode(true);
+    maximizedCardContainer.appendChild(clonedCard);
 
-      fixItemsInCards(clonedCard, "maximized", existingCard);
-      assignListeners(clonedCard);
-    }
-  };
+    fixItemsInCards(clonedCard, "maximized", existingCard);
+    assignListeners(clonedCard);
+  }
+};
 
 // FAVORITES SECTION
 
@@ -534,18 +534,23 @@ function removeFavoriteCard(id) {
  * @param {scroll} event 
  */
 function scrollWindow(event) {
-
-  if (window.pageYOffset > 335) {
-    const screenClientWidth = main.clientWidth;
-    const marginLeft = screenClientWidth / 3;
-    console.log(`-${marginLeft}`);
-    searchBox.style.width = "334px";
-    searchBox.style.marginLeft = `-${marginLeft}px`;
-  } else {
-    searchBox.style.marginLeft = "unset";
-    searchBox.style.width = "551px";
+  if (screen.width > 1023) {
+    if (window.pageYOffset > 335) {
+      const screenClientWidth = main.clientWidth;
+      const marginLeft = screenClientWidth / 5.5;
+      searchBox.style.left = `${marginLeft}px`;
+      searchBox.style.top = `38px`;
+      searchBox.style.width = `334px`;
+      searchBox.style.position = `fixed`;
+      console.log("entro a mayor");
+    } else {
+      searchBox.style.position = `static`;
+      searchBox.style.marginLeft = "unset";
+      searchBox.style.width = "551px";
+      console.log("entro a menor");
+    }
   }
-}
+};
 
 /**
  * Get gifs of the search results and display then on html

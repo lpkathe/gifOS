@@ -132,7 +132,7 @@ a, button, i {
         width: 399px; }
     .search__box {
       width: 551px;
-      z-index: 6; }
+      z-index: 2; }
       .search__box__main {
         -webkit-box-pack: justify;
             -ms-flex-pack: justify;
