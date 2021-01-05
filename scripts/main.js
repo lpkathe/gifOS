@@ -535,7 +535,8 @@ function removeFavoriteCard(id) {
  */
 function scrollWindow(event) {
   if (screen.width > 1023) {
-    if (window.pageYOffset > 335) {
+    console.log(window.pageYOffset);
+    if ((resultsContainer.style.display === "block" && window.pageYOffset > 50) || (window.pageYOffset > 335 && resultsContainer.style.display !== "block")) {
       const screenClientWidth = main.clientWidth;
       const marginLeft = screenClientWidth / 5.5;
       searchBox.style.left = `${marginLeft}px`;
@@ -543,6 +544,7 @@ function scrollWindow(event) {
       searchBox.style.width = `334px`;
       searchBox.style.position = `fixed`;
       searchBox.style.zIndex = `10`;
+      searchBox.style.marginTop = `0`;
     } else {
       searchBox.style.position = `static`;
       searchBox.style.marginLeft = "unset";

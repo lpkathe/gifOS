@@ -215,9 +215,6 @@
     -ms-flex-item-align: end;
         align-self: end; }
 
-  #whiteColor {
-    color: #FFFFFF; }
-
   .hover {
     height: inherit;
     width: inherit;
