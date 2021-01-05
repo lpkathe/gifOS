@@ -416,7 +416,7 @@ function loadFavorites() {
   const items = localStorage.getItem("favoriteList");
   favoritesTotalPages = 0;
 
-  if (items != "") {
+  if (items != "" && items != null) {
     favoriteList = items.split(',');
     favoritesEmpty.style.display = "none";
     if (favoriteList.length > 0) {

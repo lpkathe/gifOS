@@ -37,6 +37,16 @@
   }
 
   &__empty {
+    margin-top: 109px;
     display: none;
+
+    &__p {
+      margin: auto;
+      width: 431px;
+      @extend .montserrat-bold;
+      font-size: 22px;
+      color: #50E3C2;
+      line-height: 33px;
+    }
   }
 }

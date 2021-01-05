@@ -8,7 +8,7 @@ a, button, i {
   line-height: 25px;
   text-align: center; }
 
-.montserrat-bold, .t {
+.montserrat-bold, .t, .favorites__empty__p {
   font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #572EE5;
@@ -66,6 +66,13 @@ a, button, i {
       justify-content: space-around;
   text-align: left; }
 .favorites__empty {
+  margin-top: 109px;
   display: none; }
+  .favorites__empty__p {
+    margin: auto;
+    width: 431px;
+    font-size: 22px;
+    color: #50E3C2;
+    line-height: 33px; }
 
 /*# sourceMappingURL=favorites.css.map */
