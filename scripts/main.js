@@ -204,10 +204,6 @@ function fixItemsInCards(clonedCard, typeCard, originContainer) {
     clonedCardGif.style.cursor = "unset";
   }
 
-  if (origin !== "maximized") {
-    const text = clonedCard.querySelectorAll('p');
-    text.forEach((element) => element.style.color = "black");
-  }
   clonedCard.className = `card ${typeCard}__card`;
 };
 
