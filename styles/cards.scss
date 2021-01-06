@@ -85,24 +85,19 @@
   }
 
   &__user {
-    bottom: 30px;
-    left: 5px;
+    margin-left: 5px;
     font-size: 10px;
     @extend .user;
-    color: #FFFFFF;
   }
 
   &__title {
-    bottom: 3px;
-    left: 5px;
+    margin-left: 5px;
     font-size: 10px;
-    color: #FFFFFF;
     @extend .title;
   }
 
   &__buttons {
     top: 10px;
-    left: 78px;
     @extend .buttons;
   }
 
@@ -110,6 +105,8 @@
     height: 22px;
     width: 22px;
     border-radius: 4px;
+    align-items: center;
+    justify-content: center;
     @extend .button;
   }
 }

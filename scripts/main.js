@@ -535,7 +535,6 @@ function removeFavoriteCard(id) {
  */
 function scrollWindow(event) {
   if (screen.width > 1023) {
-    console.log(window.pageYOffset);
     if ((resultsContainer.style.display === "block" && window.pageYOffset > 50) || (window.pageYOffset > 335 && resultsContainer.style.display !== "block")) {
       const screenClientWidth = main.clientWidth;
       const marginLeft = screenClientWidth / 5.5;

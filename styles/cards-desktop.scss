@@ -91,14 +91,12 @@
     }
 
     &__user {
-      color: white;
       margin-left: 13px;
       font-size: 15px;
       @extend .user;
     }
   
     &__title {
-      color: white;
       margin-left: 12px;
       margin-bottom: 6px;
       font-size: 16px;
@@ -106,9 +104,17 @@
     }
   
     &__buttons {
+      right: 0;
+      display: flex;
+      justify-content: flex-end;
       top: 10px;
-      left: 78px;
       @extend .buttons;
+    }
+
+    &__button {
+      margin-right: 11px;
+      height: 32px;
+      width: 32px;
     }
   }
 }
